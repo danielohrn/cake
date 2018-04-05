@@ -24,10 +24,7 @@ export default new Router({
     {
       path: '/articles/:role',
       name: 'Role',
-      components: {
-        default: ChosenArticle,
-        a: Home
-      },
+      component:  ChosenArticle,
       props: true
     }
 
