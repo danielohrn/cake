@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/danielohrn/cake/issues"
   },
-  "homepage": "https://github.com/danielohrn/cake#readme"
+  "homepage": "https://github.com/danielohrn/cake#readme",
+  "dependencies": {
+    "buefy": "^0.6.5"
+  }
 }
