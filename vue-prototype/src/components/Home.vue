@@ -3,7 +3,7 @@
     <div class="columns">
 
       <div class="column is-one-fifth" v-for="(role, i) in roles">
-        <overdrive id="element" :id="i"  :duration="350">
+        <overdrive  :id="i"  :duration="350">
           <div  @click="filter(role, i)" class="role" :style="{backgroundColor: role.color}">
             <div class="flex-item">
               <h2 class="title is-2">{{role.name}}</h2>
