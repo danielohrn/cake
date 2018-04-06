@@ -1,20 +1,26 @@
 <template>
   <section class="section">
     <div class="columns">
-      <div class="column is-one-fifth" v-for="role in roles">
-        <div @click="filter(role.url)" class="role" :style="{backgroundColor: role.color}">
-          <div class="flex-item">
-            <h2 class="title is-2">{{role.name}}</h2>
+
+      <div class="column is-one-fifth" v-for="(role, i) in roles">
+        <overdrive id="element" :id="i"  :duration="350">
+          <div  @click="filter(role, i)" class="role" :style="{backgroundColor: role.color}">
+            <div class="flex-item">
+              <h2 class="title is-2">{{role.name}}</h2>
+            </div>
           </div>
-        </div>
+        </overdrive>
       </div>
+
     </div>
   </section>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
 export default {
   name: 'Home',
+  computed: mapState(['role']),
   data () {
     return {
       roles: [
@@ -51,12 +57,17 @@ export default {
     name: 'curator',
     color: '#fd7e14'
   }
-]
+],
     }
   },
   methods: {
-    filter(role){
-      this.$router.push('/articles' + role )
+    filter(role, index){
+      const payload = {};
+      payload.role = role;
+      payload.role.index = index;
+      console.log(payload);
+      this.$store.commit('updateRole', payload)
+      this.$router.push('/articles' + role.url )
     }
   }
 

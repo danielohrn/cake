@@ -2,11 +2,13 @@
 <section class="section">
   <div class="columns">
     <div class="column is-one-fifth">
-      <div class="role-parent">
-        <p class="role-mini">
-          {{trimRole}}
-        </p>
-      </div>
+      <overdrive v-bind:id="id">
+        <div class="role-parent">
+          <p class="role-mini">
+            {{trimRole}}
+          </p>
+        </div>
+      </overdrive>
     </div>
     <div class="column">
       <div class="search-box ">
@@ -105,6 +107,12 @@ export default {
   computed: {
     trimRole(){
       return this.$route.params.role.charAt(0).toUpperCase();
+    },
+    id(){
+      return this.$store.state.role.index
+    },
+    color(){
+      return this.$store.state.role.color
     }
   }
 
