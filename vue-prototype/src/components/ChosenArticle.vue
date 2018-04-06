@@ -122,6 +122,10 @@ export default {
     removeTag($event) {
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
+      const filteredArticles = this.filteredArticles.filter(article => {
+        console.log(article.tags.indexOf($event))
+
+      })
     }
   },
   computed: {
@@ -141,7 +145,6 @@ export default {
 <style scoped>
 p {
   text-align: center;
-
   width: 10%;
 }
 
@@ -156,7 +159,6 @@ p {
 }
 .card {
   flex-grow: 1;
-
 }
 
 .column {
