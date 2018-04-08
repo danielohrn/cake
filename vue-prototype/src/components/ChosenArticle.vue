@@ -13,7 +13,7 @@
     <div class="column">
       <div class="search-box ">
         <b-field>
-          <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" placeholder="Jag är politiker och söker ....">
+          <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
           </b-taginput>
         </b-field>
       </div>
@@ -101,7 +101,8 @@ export default {
           tags: ['ställa ut']
         }
       ],
-      filteredArticles: []
+      filteredArticles: [],
+      role: this.$store.state.role.name
     }
   },
   methods: {
@@ -110,21 +111,32 @@ export default {
       this.tags.push(tag);
       this.filter(tag);
     },
-    filter(tag){
-      const articles = this.articles.filter((article, i) => {
-        if(article.tags.indexOf(tag) != -1) {
-          return article;
-        }
-      })
+    filter(){
+      const articles = this.articles.filter(article => {
 
-      articles.forEach(article => this.filteredArticles.push(article));
+        let ar; 
+        
+        this.tags.forEach(tag => {
+          if(article.tags.indexOf(tag) !== -1) {
+            console.log(article)
+            ar = article; 
+          }
+        })
+
+        return ar;  
+
+      })
+      this.filteredArticles = articles; 
     },
     removeTag($event) {
       this.tags = this.tags.filter(tag => tag !== $event);
+      
       this.availableTags.push($event);
-      const filteredArticles = this.filteredArticles.filter(article => {
+      this.filteredArticles = this.filteredArticles.filter(article => {
         console.log(article.tags.indexOf($event))
-
+        if(article.tags.indexOf($event) == -1) {
+          return article; 
+        }
       })
     }
   },
@@ -138,6 +150,10 @@ export default {
     color(){
       return this.$store.state.role.color
     }
+  },
+
+  mounted(){
+    this.filteredArticles = this.articles; 
   }
 
 }
