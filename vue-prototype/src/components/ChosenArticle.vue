@@ -109,23 +109,22 @@ export default {
     addToTags(index) {
       const tag = this.availableTags.splice(index, 1)[0];
       this.tags.push(tag);
-      this.filter(tag);
+      this.filter();
     },
     filter(){
+      
       const articles = this.articles.filter(article => {
-
-        let ar; 
+        let articleMatch; 
         
         this.tags.forEach(tag => {
           if(article.tags.indexOf(tag) !== -1) {
-            console.log(article)
-            ar = article; 
+            articleMatch = article; 
           }
         })
 
-        return ar;  
-
+        return articleMatch;  
       })
+
       this.filteredArticles = articles; 
     },
     removeTag($event) {
