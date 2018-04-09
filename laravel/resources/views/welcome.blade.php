@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
-    <title>SafeBlock</title>
+    <title>Kunskapsnavet</title>
 </head>
 <body>
   <div id="app">
