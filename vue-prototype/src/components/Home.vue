@@ -50,8 +50,8 @@ export default {
         name: 'politiker',
         color: '#d81e6f'
       }, {
-        url: '/tjänstemän',
-        name: 'tjänstemän',
+        url: '/tjänsteman',
+        name: 'tjänsteman',
         color: '#ffc107'
       }, {
         url: '/byggbolag',
