@@ -7,9 +7,11 @@ import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 import Overdrive from 'vue-overdrive'
 import store from './store.js'
+import Article from './components/Article'
 
 Vue.use(Overdrive)
 Vue.use(Buefy)
+Vue.component('Article', Article)
 
 Vue.config.productionTip = false
 
