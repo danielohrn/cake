@@ -112,13 +112,16 @@ export default {
     removeTag($event) {
       this.tags = this.tags.filter(tag => tag !== $event);
 
-      this.availableTags.push($event);
-      this.filteredArticles = this.filteredArticles.filter(article => {
-        console.log(article.tags.indexOf($event))
-        if (article.tags.indexOf($event) == -1) {
-          return article;
+      if(this.tags.length) {
+          this.availableTags.push($event);
+          this.filteredArticles = this.filteredArticles.filter(article => {
+            if (article.tags.indexOf($event) == -1) {
+              return article;
+            }
+          })
+        } else {
+          this.filteredArticles = this.articles;
         }
-      })
     },
 
     toggleModal($event){

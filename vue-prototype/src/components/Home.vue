@@ -3,16 +3,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <h1 class="logotype navbar-item">Kunskapsnavet</h1>
-      <!-- <img src="https://kalmar.se/images/18.3d99d73715c38c8a9e12a16/1496230718775/(2)%20KUNSKAPSNAVET_LOGO.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> -->
     </a>
-      <!-- <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a> -->
-      <!-- <div class="navbar-burger">
-        <span>Link</span>
-        <span>Link</span>
-        <span>Link</span>
-      </div> -->
     </div>
   </nav>
 
