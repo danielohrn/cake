@@ -8,11 +8,11 @@
       <!-- <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a> -->
-      <div class="navbar-burger">
+      <!-- <div class="navbar-burger">
         <span>Link</span>
         <span>Link</span>
         <span>Link</span>
-      </div>
+      </div> -->
     </div>
   </nav>
 
@@ -94,7 +94,7 @@ export default {
 <style scoped>
 .navbar {
   margin: 0 8rem;
-  background: #000; 
+  background: #000;
 }
 section {
   padding-top: 0;

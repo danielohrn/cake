@@ -21,39 +21,21 @@
         <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined">{{tag}}</a>
       </div>
     </div>
-</div>
-
+  </div>
   <div class="articles">
-    <div class="is-4"  v-for="article in filteredArticles">
-
-        <div  class="card">
-          <div class="card-image">
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <h1><b>{{article.title}}</b></h1>
-            </div>
-
-            <div class="content">
-              {{article.body}}
-              <br/>
-              <a v-for="tag in article.tags">#{{tag}} </a>
-              <br>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <Article @click="toggleModal($event)" v-for="article in filteredArticles" v-bind="article"></Article>
   </div>
 </section>
 </template>
 
 <script>
+import Article from './Article';
+
 export default {
   name: 'ChosenArticle',
   data() {
     return {
+      isCardModalActive: false,
       tags: [],
       availableTags: [
         'ställa ut',
@@ -69,7 +51,7 @@ export default {
       ],
       articles: [{
           title: 'Utveckla konsten',
-          body:'Intresset för att utveckla den offentliga konsten är stort. Spännande arbete pågår i stadsutvecklingsprocesser där kommunala, statliga och privata aktörer renoverar och bygger nya områden. Samtidigt arbetar många konstnärer med att omformulera vad den offentliga konsten kan vara. När vi på Statens konstråd producerar konst i gemensamma miljöer utvecklar vi löpande arbetet med konst och gestaltning. I våra pilotprojekt prövar vi nya metoder och olika sätt att arbeta. Projekten utgår oftast från en specifik situation och kan involvera allt från konst i planering, till sociala relationer eller visuella uttryck. Avgörande för utvecklingen är att olika aktörer kan inspirera varandra. Här vill vi därför dela med oss av våra erfarenheter och kunskaper för att stärka konstens roll i utformningen av våra gemensamma miljöer.',
+          body: 'Intresset för att utveckla den offentliga konsten är stort. Spännande arbete pågår i stadsutvecklingsprocesser där kommunala, statliga och privata aktörer renoverar och bygger nya områden. Samtidigt arbetar många konstnärer med att omformulera vad den offentliga konsten kan vara. När vi på Statens konstråd producerar konst i gemensamma miljöer utvecklar vi löpande arbetet med konst och gestaltning. I våra pilotprojekt prövar vi nya metoder och olika sätt att arbeta. Projekten utgår oftast från en specifik situation och kan involvera allt från konst i planering, till sociala relationer eller visuella uttryck. Avgörande för utvecklingen är att olika aktörer kan inspirera varandra. Här vill vi därför dela med oss av våra erfarenheter och kunskaper för att stärka konstens roll i utformningen av våra gemensamma miljöer.',
           tags: ['ställa ut', 'permanent konst', 'nyheter']
         },
         {
@@ -111,53 +93,58 @@ export default {
       this.tags.push(tag);
       this.filter();
     },
-    filter(){
-      
+    filter() {
+
       const articles = this.articles.filter(article => {
-        let articleMatch; 
-        
+        let articleMatch;
+
         this.tags.forEach(tag => {
-          if(article.tags.indexOf(tag) !== -1) {
-            articleMatch = article; 
+          if (article.tags.indexOf(tag) !== -1) {
+            articleMatch = article;
           }
         })
 
-        return articleMatch;  
+        return articleMatch;
       })
 
-      this.filteredArticles = articles; 
+      this.filteredArticles = articles;
     },
     removeTag($event) {
       this.tags = this.tags.filter(tag => tag !== $event);
-      
+
       this.availableTags.push($event);
       this.filteredArticles = this.filteredArticles.filter(article => {
         console.log(article.tags.indexOf($event))
-        if(article.tags.indexOf($event) == -1) {
-          return article; 
+        if (article.tags.indexOf($event) == -1) {
+          return article;
         }
       })
+    },
+
+    toggleModal($event){
+      this.isCardModalActive = true;
+      console.log($event)
     }
   },
   computed: {
-    trimRole(){
+    trimRole() {
       return this.$route.params.role.charAt(0).toUpperCase();
     },
-    id(){
+    id() {
       return this.$store.state.role.index
     },
-    color(){
+    color() {
       return this.$store.state.role.color
     }
   },
 
-  mounted(){
-    this.filteredArticles = this.articles; 
+  mounted() {
+    this.filteredArticles = this.articles;
   }
 
 }
 </script>
-<style scoped>
+<style>
 p {
   text-align: center;
   width: 10%;
@@ -167,11 +154,13 @@ p {
   padding: 0rem 8rem;
 
 }
+
 .articles {
   display: flex;
   flex-wrap: wrap;
   padding: 0rem 8rem;
 }
+
 .card {
   flex-grow: 1;
 }
