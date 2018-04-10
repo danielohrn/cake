@@ -10,7 +10,7 @@
       </div>
 
       <div class="content">
-        {{body}}
+        {{truncate(body)}}
         <br/>
         <a v-for="tag in tags">#{{tag}} </a>
         <br>
@@ -61,6 +61,9 @@ export default {
   methods: {
     toggleModal($event) {
       this.isCardModalActive = !this.isCardModalActive;
+    },
+    truncate(string){
+      return string.substring(0, 200) + '...';
     }
   }
 }
