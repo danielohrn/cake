@@ -18,12 +18,14 @@
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined">{{tag}}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined" :key="i">{{tag}}</a>
       </div>
     </div>
   </div>
   <div class="articles">
-    <Article @click="toggleModal($event)" v-for="article in filteredArticles" v-bind="article"></Article>
+    <Article @click="toggleModal($event)" v-for="(article, i) in filteredArticles" v-bind="article" :key="i"></Article>
+
+    <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
   </div>
 </section>
 </template>
@@ -94,32 +96,30 @@ export default {
       this.filter();
     },
     filter() {
-
-      const articles = this.articles.filter(article => {
-        let articleMatch;
-
-        this.tags.forEach(tag => {
-          if (article.tags.indexOf(tag) !== -1) {
-            articleMatch = article;
-          }
-        })
-
-        return articleMatch;
-      })
-
+      const articles = this.articles.filter(article => 
+        this.isMatch(this.tags, article)
+      )
       this.filteredArticles = articles;
     },
-    removeTag($event) {
-      this.tags = this.tags.filter(tag => tag !== $event);
 
+    isMatch(filters, article){
+      for(let i = 0; i < filters.length; i++) {
+        if(article.tags.indexOf(filters[i]) === -1) {
+          return false; 
+        }
+      }
+      return true; 
+    },
+    removeTag($event) {
+      // Moves tag from 'active' to 'available'
+      this.tags = this.tags.filter(tag => tag !== $event);
+      this.availableTags.push($event);
+
+      // If there are tags, filter the articles 
       if(this.tags.length) {
-          this.availableTags.push($event);
-          this.filteredArticles = this.filteredArticles.filter(article => {
-            if (article.tags.indexOf($event) == -1) {
-              return article;
-            }
-          })
+          this.filter()
         } else {
+          // If there are no tags, display all articles 
           this.filteredArticles = this.articles;
         }
     },

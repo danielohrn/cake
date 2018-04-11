@@ -10,16 +10,17 @@
       </div>
 
       <div class="content">
-        {{truncate(body)}}
+        {{truncate(body)}}  
         <br/>
-        <a v-for="tag in tags">#{{tag}} </a>
+        <div class="tags-article">
+          <a v-for="(tag, i) in tags" :key="i">#{{tag}} </a>
+        </div>
         <br>
-
       </div>
     </div>
   </div>
   <div>
-    <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep" canCancel={true}>
+    <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep" canCancel>
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
@@ -72,4 +73,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style >
+.tags-article span {
+  margin: .3em .5em 0 0; 
+}
 </style>
