@@ -94,7 +94,7 @@ export default {
 <style scoped>
 .navbar {
   margin: 0 8rem;
-  background: #000; 
+  background: #000;
 }
 section {
   padding-top: 0;

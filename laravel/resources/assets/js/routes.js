@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './components/Home'
-import Articles from './components/Articles'
-import ChosenArticle from './components/ChosenArticle'
+import Home from './views/Home'
+import Articles from './views/Articles'
+import ChosenArticle from './views/ChosenArticle'
 
 Vue.use(Router)
 
@@ -24,8 +24,11 @@ export default new Router({
     {
       path: '/articles/:role',
       name: 'Role',
-      component:  ChosenArticle,
-      props: true
+      components:  {
+        default: ChosenArticle,
+        a: Articles
+      },
+      props: ['article']
     }
 
   ]

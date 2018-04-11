@@ -17,9 +17,9 @@ Vue.use(Buefy)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('home', require('./components/Home.vue'));
-Vue.component('articles', require('./components/Articles.vue'));
-Vue.component('chosen-article', require('./components/ChosenArticle.vue'));
+Vue.component('home', require('./views/Home.vue'));
+Vue.component('Articles', require('./views/Articles.vue'));
+Vue.component('chosen-article', require('./views/ChosenArticle.vue'));
 
 const app = new Vue({
     el: '#app',
