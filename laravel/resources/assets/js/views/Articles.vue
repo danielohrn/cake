@@ -1,5 +1,5 @@
 <template>
-  <div canCancel @click="toggleModal($event)" class="is-4">
+  <div canCancel @click="toggleModal($event)" class="column is-6">
       <div  class="card">
         <div class="card-image">
         </div>

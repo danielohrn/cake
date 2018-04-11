@@ -3,31 +3,26 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <h1 class="logotype navbar-item">Kunskapsnavet</h1>
-      <!-- <img src="https://kalmar.se/images/18.3d99d73715c38c8a9e12a16/1496230718775/(2)%20KUNSKAPSNAVET_LOGO.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> -->
-    </a>
+      </a>
       <!-- <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a> -->
       <div class="navbar-burger">
-        <span>Link</span>
-        <span>Link</span>
-        <span>Link</span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
   </nav>
 
-  <div class="columns">
-
-    <div class="column is-one-fifth" v-for="(role, i) in roles">
+  <div class="columns padding-x">
+    <div class="" v-for="(role, i) in roles">
       <overdrive :id="i" :duration="350">
-        <div @click="filter(role, i)" class="role" :style="{backgroundColor: role.color}">
-          <div class="flex-item">
-            <h2 class="title is-2">{{role.name}}</h2>
-          </div>
+        <div @click="filter(role, i)" class="role-item is-2" :style="{backgroundColor: role.color}">
+          <h2 class="title is-3">{{role.name}}</h2>
         </div>
       </overdrive>
     </div>
-
   </div>
 </section>
 </template>
@@ -92,39 +87,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.navbar {
-  margin: 0 8rem;
-  background: #000;
-}
 section {
   padding-top: 0;
 }
 
-.is-one-fifth > div {
+.navbar {
   width: 100%;
+  background: #000;
+  margin-bottom: 2em;
 }
+
 .columns {
-  padding: 2rem 8rem;
+  width: 100%;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
+  padding-left: 4em;
+  padding-right: 4em;
+  margin: 0;
 }
 
-.columns h2 {
-  font-size: 1.5em;
-}
-
-.column {
-  display: flex;
-  width: 25%;
-}
-
-.role {
+.role-item {
   display: flex;
   height: 180px;
-  width: 100%;
+  width: 260px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 2em;
 }
 
 h1,
@@ -132,19 +122,5 @@ h2 {
   font-weight: normal;
   color: white;
   text-transform: uppercase;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>
