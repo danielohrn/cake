@@ -18,7 +18,7 @@
 
   <div class="columns">
 
-    <div class="column is-one-fifth" v-for="(role, i) in roles">
+    <div class="column is-one-fifth" v-for="(role, i) in allRoles">
       <overdrive :id="i" :duration="350">
         <div @click="filter(role, i)" class="role" :style="{backgroundColor: role.color}">
           <div class="flex-item">
@@ -38,10 +38,9 @@ import {
 } from 'vuex'
 export default {
   name: 'Home',
-  computed: mapState(['role']),
+  computed: mapState(['role', 'allRoles']),
   data() {
     return {
-      roles: []
     }
   },
   mounted(){
@@ -53,12 +52,16 @@ export default {
       payload.role = role;
       payload.role.index = index;
       console.log(payload);
-      this.$store.commit('updateRole', payload)
+      this.$store.commit('updateUserRole', payload)
       this.$router.push('/articles' + role.url)
     },
     getRoles(){
       axios.get('/api/roles')
-      .then(response => this.roles = response.data)
+      .then(response => {
+        let allRoles = {};
+        allRoles = response.data
+        this.$store.commit('updateRoles', allRoles)
+      })
     }
   }
 
