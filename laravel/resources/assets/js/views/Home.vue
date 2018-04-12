@@ -6,15 +6,11 @@
     </div>
   </nav>
 
-  <div class="columns padding-x">
-<<<<<<< HEAD
-    <div class="" v-for="(role, i) in allRoles">
-=======
-    <div class="" v-for="(role, i) in allRoles" :key="i">
->>>>>>> 9175b652aef09039c5fc329e8d43dce66edd1d54
+  <div class="columns is-inline-flex-mobile">
+    <div class="column is-desktop is-one-quarter " v-for="(role, i) in allRoles" :key="i">
       <overdrive :id="i" :duration="350">
-        <div @click="filter(role, i)" class="role-item is-2" :style="{backgroundColor: role.color}">
-          <h2 class="title is-3">{{role.name}}</h2>
+        <div @click="filter(role, i)" class="role-item" :style="{backgroundColor: role.color}">
+          <h2 class="title is-4 is-desktop-only">{{role.name}}</h2>
         </div>
       </overdrive>
     </div>
@@ -61,7 +57,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 section {
-  padding-top: 0;
+  padding: 0;
 }
 
 .navbar {
@@ -73,21 +69,18 @@ section {
 .columns {
   width: 100%;
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  padding-left: 4em;
-  padding-right: 4em;
   margin: 0;
+  padding-left: 10em;
+  padding-right: 10em;
 }
 
 .role-item {
   display: flex;
   height: 180px;
-  width: 260px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 2em;
 }
 
 h1,
@@ -95,5 +88,29 @@ h2 {
   font-weight: normal;
   color: white;
   text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+    .role-item {
+      width: 180px;
+    }
+    .columns {
+      padding: 0;
+    }
+    .is-one-quarter {
+      padding: 0;
+      margin: 0;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .role-item {
+      width: 180px;
+    }
+    .columns {
+      padding: 0;
+    }
+    .is-one-quarter {
+      padding: 0;
+      margin: 0;
+    }
 }
 </style>

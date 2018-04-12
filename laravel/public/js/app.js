@@ -486,6 +486,343 @@ function toComment(sourceMap) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(48)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
  * Vue.js v2.5.16
@@ -11449,7 +11786,7 @@ module.exports = Vue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(23).setImmediate))
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11553,343 +11890,6 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(48)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-var options = null
-var ssrIdKey = 'data-vue-ssr-id'
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction, _options) {
-  isProduction = _isProduction
-
-  options = _options || {}
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-  if (options.ssrId) {
-    styleElement.setAttribute(ssrIdKey, obj.id)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11898,7 +11898,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(51)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(53)
 /* template */
@@ -15071,7 +15071,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(46)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(49)
 /* template */
@@ -16067,7 +16067,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(55)
 }
-var normalizeComponent = __webpack_require__(6)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(57)
 /* template */
@@ -16114,7 +16114,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(21);
-module.exports = __webpack_require__(68);
+module.exports = __webpack_require__(73);
 
 
 /***/ }),
@@ -16151,6 +16151,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_buefy___default.a);
 Vue.component('home', __webpack_require__(17));
 Vue.component('Articles', __webpack_require__(7));
 Vue.component('chosen-article', __webpack_require__(19));
+Vue.component('article-modal', __webpack_require__(68));
 
 var app = new Vue({
   el: '#app',
@@ -16163,7 +16164,7 @@ var app = new Vue({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(10);
@@ -16495,7 +16496,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(11);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(6);
 
 /**
  * Create an instance of Axios
@@ -16578,7 +16579,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(6);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(36);
 var dispatchRequest = __webpack_require__(37);
@@ -17117,7 +17118,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(38);
 var isCancel = __webpack_require__(14);
-var defaults = __webpack_require__(4);
+var defaults = __webpack_require__(6);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
 
@@ -37006,7 +37007,7 @@ Popper.Defaults = Defaults;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_Home__ = __webpack_require__(17);
@@ -37057,7 +37058,7 @@ var content = __webpack_require__(47);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("858271e8", content, false, {});
+var update = __webpack_require__(3)("858271e8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -37081,7 +37082,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-6c0a33b2] {\n  margin: 0 8rem;\n  background: #000;\n}\nsection[data-v-6c0a33b2] {\n  padding-top: 0;\n}\n.is-one-fifth > div[data-v-6c0a33b2] {\n  width: 100%;\n}\n.columns[data-v-6c0a33b2] {\n  padding: 2rem 8rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.columns h2[data-v-6c0a33b2] {\n  font-size: 1.5em;\n}\n.column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 25%;\n}\n.role[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\nul[data-v-6c0a33b2] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-6c0a33b2] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-6c0a33b2] {\n  color: #42b983;\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n@media only screen and (min-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -37146,61 +37147,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
-  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role']),
+  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role', 'allRoles']),
   data: function data() {
-    return {
-      roles: [{
-        url: '/konstnar',
-        name: 'konstnär',
-        color: '#4286f4'
-      }, {
-        url: '/politiker',
-        name: 'politiker',
-        color: '#d81e6f'
-      }, {
-        url: '/tjänsteman',
-        name: 'tjänsteman',
-        color: '#ffc107'
-      }, {
-        url: '/byggbolag',
-        name: 'byggbolag',
-        color: '#20c997'
-      }, {
-        url: '/beställare',
-        name: 'beställare',
-        color: '#6f42c1'
-      }, {
-        url: '/utförare',
-        name: 'utförare',
-        color: '#6c757d'
-      }, {
-        url: '/arkitekt',
-        name: 'arkitekt',
-        color: '#28a745'
-      }, {
-        url: '/curator',
-        name: 'curator',
-        color: '#fd7e14'
-      }]
-    };
+    return {};
+  },
+  mounted: function mounted() {
+    this.getRoles();
   },
 
   methods: {
@@ -37209,8 +37165,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       payload.role = role;
       payload.role.index = index;
       console.log(payload);
-      this.$store.commit('updateRole', payload);
+      this.$store.commit('updateUserRole', payload);
       this.$router.push('/articles' + role.url);
+    },
+    getRoles: function getRoles() {
+      var _this = this;
+
+      axios.get('/api/roles').then(function (response) {
+        var allRoles = {};
+        allRoles = response.data;
+        _this.$store.commit('updateRoles', allRoles);
+      });
     }
   }
 
@@ -37229,17 +37194,17 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns" },
-      _vm._l(_vm.roles, function(role, i) {
+      { staticClass: "columns is-inline-flex-mobile" },
+      _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { staticClass: "column is-one-fifth" },
+          { key: i, staticClass: "column is-desktop is-one-quarter " },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
                 "div",
                 {
-                  staticClass: "role",
+                  staticClass: "role-item",
                   style: { backgroundColor: role.color },
                   on: {
                     click: function($event) {
@@ -37248,10 +37213,8 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "flex-item" }, [
-                    _c("h2", { staticClass: "title is-2" }, [
-                      _vm._v(_vm._s(role.name))
-                    ])
+                  _c("h2", { staticClass: "title is-4 is-desktop-only" }, [
+                    _vm._v(_vm._s(role.name))
                   ])
                 ]
               )
@@ -37278,14 +37241,6 @@ var staticRenderFns = [
         _c("div", { staticClass: "navbar-brand" }, [
           _c("h1", { staticClass: "logotype navbar-item" }, [
             _vm._v("Kunskapsnavet")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "navbar-burger" }, [
-            _c("span", [_vm._v("Link")]),
-            _vm._v(" "),
-            _c("span", [_vm._v("Link")]),
-            _vm._v(" "),
-            _c("span", [_vm._v("Link")])
           ])
         ])
       ]
@@ -37312,7 +37267,7 @@ var content = __webpack_require__(52);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("0a2f47a8", content, false, {});
+var update = __webpack_require__(3)("0a2f47a8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -37336,7 +37291,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.container[data-v-0d99dc90] {\n}\n", ""]);
 
 // exports
 
@@ -37347,30 +37302,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -37427,7 +37358,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "is-4",
+      staticClass: "flex-grow column is-6",
       attrs: { canCancel: "" },
       on: {
         click: function($event) {
@@ -37453,69 +37384,29 @@ var render = function() {
                   _vm._s(_vm.truncate(_vm.body)) +
                   "\n            "
               ),
-              _c("br"),
-              _vm._v(" "),
-              _vm._l(_vm.tags, function(tag) {
-                return _c("a", [_vm._v("#" + _vm._s(tag) + " ")])
-              }),
-              _vm._v(" "),
-              _c("br")
+              _c(
+                "b-taglist",
+                _vm._l(_vm.tags, function(tag, i) {
+                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
+                })
+              )
             ],
-            2
+            1
           )
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: { active: _vm.isCardModalActive, width: 960, scroll: "keep" },
-          on: {
-            "update:active": function($event) {
-              _vm.isCardModalActive = $event
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-image" }, [
-              _c("figure", { staticClass: "image is-4by3" }, [
-                _c("img", {
-                  attrs: {
-                    src: "static/img/placeholder-1280x960.png",
-                    alt: "Image"
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-content" }, [
-              _c("div", { staticClass: "media" }, [
-                _c("div", { staticClass: "media-left" }, [
-                  _c("figure", { staticClass: "image is-48x48" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "static/img/placeholder-1280x960.png",
-                        alt: "Image"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "media-content" }, [
-                  _c("p", { staticClass: "title is-4" }, [
-                    _vm._v(_vm._s(_vm.title))
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _vm._v("\n            " + _vm._s(_vm.body) + "\n          ")
-              ])
-            ])
-          ])
-        ]
-      )
+      this.isCardModalActive
+        ? _c("article-modal", {
+            attrs: {
+              title: _vm.title,
+              body: _vm.body,
+              tags: _vm.tags,
+              img: _vm.img
+            },
+            on: { click: _vm.toggleModal }
+          })
+        : _vm._e()
     ],
     1
   )
@@ -37541,7 +37432,7 @@ var content = __webpack_require__(56);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("65f936b3", content, false, {});
+var update = __webpack_require__(3)("65f936b3", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -37565,7 +37456,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\np[data-v-7290ec61] {\n  text-align: center;\n  width: 10%;\n}\n.columns[data-v-7290ec61] {\n  padding: 0rem 8rem;\n}\n.articles[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding: 0rem 8rem;\n}\n.card[data-v-7290ec61] {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.column[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.is-4[data-v-7290ec61] {\n  width: 49%;\n  margin-bottom: 2%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.is-4[data-v-7290ec61]:nth-child(odd) {\n  margin-right: 1%;\n}\n.is-4[data-v-7290ec61]:nth-child(even) {\n  margin-left: 1%;\n}\n.chosen-tags[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.role-parent[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  height: 100%;\n  width: 100%\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 100%;\n  width: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #44a8ff;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n", ""]);
 
 // exports
 
@@ -37623,36 +37514,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       articles: [{
         title: 'Utveckla konsten',
         body: 'Intresset för att utveckla den offentliga konsten är stort. Spännande arbete pågår i stadsutvecklingsprocesser där kommunala, statliga och privata aktörer renoverar och bygger nya områden. Samtidigt arbetar många konstnärer med att omformulera vad den offentliga konsten kan vara. När vi på Statens konstråd producerar konst i gemensamma miljöer utvecklar vi löpande arbetet med konst och gestaltning. I våra pilotprojekt prövar vi nya metoder och olika sätt att arbeta. Projekten utgår oftast från en specifik situation och kan involvera allt från konst i planering, till sociala relationer eller visuella uttryck. Avgörande för utvecklingen är att olika aktörer kan inspirera varandra. Här vill vi därför dela med oss av våra erfarenheter och kunskaper för att stärka konstens roll i utformningen av våra gemensamma miljöer.',
-        img: 'blahus.jpg',
+        img: 'image.jpg',
         tags: ['ställa ut', 'permanent konst', 'nyheter']
       }, {
         title: 'Tillfällig konst',
         body: 'Konstnärer söker sig idag ofta till aktuella frågor om det gemensamma och om våra offentliga rum. Genom tillfälliga projekt får vi möjlighet att friare utforska olika format och samtidigt reflektera kring aktuella frågor. Vi utgår från dialogen mellan konstnär och curator och från den situation där verket tar form. Samtidigt fångar vi upp den utveckling som sker inom offentlig konst, både i Sverige och internationellt.',
-        img: 'grafittiskap.jpg',
+        img: 'image.jpg',
         tags: ['konst', 'tillfällig konst', 'nyheter']
       }, {
         title: 'Hur går det till?',
         body: 'Konstnären presenterar ett förslag på gestaltning efter att ha gjort en närmare undersökning av hela situationen, eller så utgår konstnären från en idé som sedan påverkar valet av plats. Alla delar i verket diskuteras med curatorn eller initiativtagaren till projektet. I arbetet med att ta fram en film kan processen till exempel ske i samarbete med boende på platsen. Konstnären tar del av deras berättelser om en situation eller hur de upplever platsen och skriver sedan ett filmmanus utifrån samtalen. Konstnären ansvarar för filminspelningen men utbyter idéer med deltagarna även under klipparbetet. Verket blir i det här fallet relevant genom att ge de boende en röst, en möjlighet att bli hörda.',
-        img: 'grasmatta.jpg',
+        img: 'image.jpg',
         tags: ['konst', 'offentliga rummet', 'permanent konst']
       }, {
         title: 'Stadsutveckling',
         body: 'Vad skapar en stad och dess miljöer? Vi utvecklar metoder för gestaltning av gemensamma miljöer genom samverkan mellan konstnärer, arkitekter, civilsamhälle, kommun och invånare. Genom att samla olika kompetenser kan vi arbeta för miljöer som både möter behov och väcker engagemang och känslor. Våra projekt där konstnärer medverkar i stadsutveckling omfattar allt från processer för medskapande och rätt till de offentliga rummen, till infrastruktur, stadsplanering och gestaltning.',
-        img: 'hasthus.jpg',
+        img: 'image.jpg',
         tags: ['arkitekt', 'stadsutveckling', 'nyheter']
       }, {
         title: 'Permanent konst',
         body: 'Skulptur, rörlig bild, ljudverk och hela fasader… Vi producerar konst för nya och renoverade byggnader och miljöer i statlig verksamhet med utgångspunkten att konsten ska vara kvar, vara permanent. Den konstnärliga gestaltningen relaterar alltid till den specifika situationen eller verksamheten på platsen. Vi arbetar också med pilotprojekt där konstnärer kommer in tidigt i byggprocesser och därmed kan påverka hela miljöer.',
-        img: 'mirakel.jpg',
+        img: 'image.jpg',
         tags: ['permanent konst', 'curator']
       }, {
         title: 'Kunskapsnav offentlig konst',
         body: 'Nu bygger vi upp ett kunskapsnav för offentlig konst. Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller.',
-        img: 'pinkface.jpg',
+        img: 'image.jpg',
         tags: ['ställa ut']
       }],
       filteredArticles: [],
-      role: this.$store.state.role.name
+      role: this.$store.state.userRole.name
     };
   },
 
@@ -37702,10 +37593,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.$route.params.role.charAt(0).toUpperCase();
     },
     id: function id() {
-      return this.$store.state.role.index;
+      return this.$store.state.userRole.index;
     },
     color: function color() {
-      return this.$store.state.role.color;
+      return this.$store.state.userRole.color;
     }
   },
 
@@ -37723,10 +37614,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section" }, [
-    _c("div", { staticClass: "columns" }, [
+    _c("div", { staticClass: "columns margin-x" }, [
       _c(
         "div",
-        { staticClass: "column is-one-fifth" },
+        { staticClass: "column" },
         [
           _c("overdrive", { attrs: { id: _vm.id } }, [
             _c("div", { staticClass: "role-parent" }, [
@@ -37748,10 +37639,10 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "column" }, [
+      _c("div", { staticClass: "column is-10" }, [
         _c(
           "div",
-          { staticClass: "search-box " },
+          { staticClass: "search-box margin-bottom" },
           [
             _c(
               "b-field",
@@ -37788,7 +37679,8 @@ var render = function() {
             return _c(
               "a",
               {
-                staticClass: "button is-primary is-outlined",
+                key: i,
+                staticClass: "button is-primary is-outlined is-size-7-mobile",
                 on: {
                   click: function($event) {
                     _vm.addToTags(i)
@@ -37805,7 +37697,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "articles",
+        staticClass: "columns flex-wrap margin-x",
         on: {
           click: function($event) {
             _vm.isCardModalActive = true
@@ -38361,7 +38253,7 @@ module.exports = function (css) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex_persist__ = __webpack_require__(65);
@@ -38378,21 +38270,25 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
-    role: {
+    userRole: {
       name: '',
       color: '',
       index: ''
-    }
+    },
+    allRoles: {}
+
   },
   plugins: [vuexLocal.plugin],
   mutations: {
-    updateRole: function updateRole(state, payload) {
-      state.role.name = payload.role.name;
-      state.role.color = payload.role.color;
-      state.role.index = payload.role.index;
+    updateUserRole: function updateUserRole(state, payload) {
+      state.userRole.name = payload.role.name;
+      state.userRole.color = payload.role.color;
+      state.userRole.index = payload.role.index;
+    },
+    updateRoles: function updateRoles(state, payload) {
+      state.allRoles = payload;
     }
   }
-
 }));
 
 /***/ }),
@@ -41283,6 +41179,252 @@ if (GlobalVue) {
 
 /***/ }),
 /* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(69)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-0454316e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/articleModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0454316e", Component.options)
+  } else {
+    hotAPI.reload("data-v-0454316e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(70);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("248f1a4a", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0454316e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./articleModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0454316e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./articleModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-background[data-v-0454316e]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.article-card[data-v-0454316e]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.article-img[data-v-0454316e]{\n  width: 100%;\n  height: auto;\n}\n.article-content[data-v-0454316e]{\n  width: 70%;\n}\n.article-sidebar[data-v-0454316e]{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box[data-v-0454316e]{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social[data-v-0454316e]{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nh1[data-v-0454316e]{\n  font-size: 2em;\n}\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'article-modal',
+  props: ['title', 'body', 'tags', 'img'],
+  data: function data() {
+    return {
+      isCardModalActive: false
+
+    };
+  },
+
+  methods: {
+    toggleModal: function toggleModal($event) {
+      this.isCardModalActive = !this.isCardModalActive;
+    },
+    truncate: function truncate(string) {
+      return string.substring(0, 200) + '...';
+    }
+  }
+});
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal-background" }, [
+    _c("div", { staticClass: "article-card" }, [
+      _c("div", { staticClass: "article-content" }, [
+        _c("img", {
+          staticClass: "article-img",
+          attrs: { src: "/img/" + _vm.img, alt: "" }
+        }),
+        _vm._v(" "),
+        _c("h1", [_vm._v(_vm._s(_vm.title))]),
+        _vm._v("\n      " + _vm._s(_vm.body) + "\n\n      ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-sidebar" }, [
+        _c("div", { staticClass: "sidebar-box" }, [
+          _c("h2", [_vm._v("Taggar")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "tags" },
+            [
+              _c(
+                "b-taglist",
+                _vm._l(_vm.tags, function(tag, i) {
+                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
+                })
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sidebar-box" }, [
+      _c("h2", [_vm._v("Social")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "social" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: {
+              src: "https://image.flaticon.com/icons/svg/69/69407.svg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: {
+              src: "https://image.flaticon.com/icons/svg/69/69406.svg",
+              alt: ""
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            attrs: {
+              src: "https://image.flaticon.com/icons/svg/69/69480.svg",
+              alt: ""
+            }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0454316e", module.exports)
+  }
+}
+
+/***/ }),
+/* 73 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
