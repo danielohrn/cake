@@ -18,7 +18,7 @@
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined is-size-7-mobile" :key="i">{{tag.name}}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ export default {
   methods: {
     addToTags(index) {
       const tag = this.availableTags.splice(index, 1)[0];
-      this.tags.push(tag);
+      this.tags.push(tag.name || tag );
       this.filter();
     },
     filter() {
@@ -69,6 +69,7 @@ export default {
       // Moves tag from 'active' to 'available'
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
+      console.log($event)
       // If there are tags, filter the articles
       if (this.tags.length) {
         this.filter()

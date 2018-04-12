@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <article-modal :title="title" :body="body" :tags="tags" :img="img" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
+    <article-modal :title="title" :body="body" :tags="articleTags" :img="media" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
 </div>
 </template>
 
@@ -24,7 +24,7 @@
 
 export default {
   name: 'Articles',
-  props: ['title', 'body','articleTags', 'img'],
+  props: ['title', 'body','articleTags', 'media'],
   data () {
     return {
       isCardModalActive: false

@@ -13,7 +13,7 @@
         <h2>Taggar</h2>
         <div class="tags">
         <b-taglist>
-          <b-tag v-for="(tag, i) in tags" :key="i" >{{tag.name}}</b-tag>
+          <b-tag v-for="(tag, i) in tags" :key="i" >{{tag}}</b-tag>
         </b-taglist>
         </div>
         </div>
@@ -57,6 +57,7 @@ export default {
 </script>
 <style scoped>
 
+
 .modal-background{
   background-color: dark-grey;
   width: 100vw;
@@ -86,6 +87,7 @@ export default {
 
 .article-content{
   width: 70%;
+  overflow: scroll;
 
 
 }
