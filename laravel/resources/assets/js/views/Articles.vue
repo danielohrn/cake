@@ -1,5 +1,5 @@
 <template>
-  <div canCancel @click="toggleModal($event)" class="column is-6">
+  <div canCancel @click="toggleModal($event)" class="flex-grow column is-6">
       <div  class="card">
         <div class="card-image">
         </div>
@@ -70,4 +70,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.flex-grow {
+  display: flex;
+  flex-grow: 1;
+}
+.container {
+
+}
 </style>
