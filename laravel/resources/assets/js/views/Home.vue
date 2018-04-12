@@ -7,11 +7,6 @@
       <!-- <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a>
       <a class="navbar-item" href="#">Link</a> -->
-      <div class="navbar-burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </nav>
 
