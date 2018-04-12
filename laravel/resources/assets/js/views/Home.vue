@@ -18,7 +18,7 @@
 
   <div class="columns">
 
-    <div class="column is-one-fifth" v-for="(role, i) in allRoles">
+    <div class="column is-one-fifth" v-for="(role, i) in allRoles" :key="i">
       <overdrive :id="i" :duration="350">
         <div @click="filter(role, i)" class="role" :style="{backgroundColor: role.color}">
           <div class="flex-item">

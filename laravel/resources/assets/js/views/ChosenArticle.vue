@@ -18,7 +18,7 @@
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined">{{tag}}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined" :key="i">{{tag}}</a>
       </div>
     </div>
 </div>
