@@ -37211,7 +37211,7 @@ var render = function() {
       _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { staticClass: "column is-one-fifth" },
+          { key: i, staticClass: "column is-one-fifth" },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
@@ -37433,8 +37433,8 @@ var render = function() {
               ),
               _c("br"),
               _vm._v(" "),
-              _vm._l(_vm.tags, function(tag) {
-                return _c("a", [_vm._v("#" + _vm._s(tag) + " ")])
+              _vm._l(_vm.tags, function(tag, i) {
+                return _c("a", { key: i }, [_vm._v("#" + _vm._s(tag) + " ")])
               }),
               _vm._v(" "),
               _c("br")
@@ -37766,6 +37766,7 @@ var render = function() {
             return _c(
               "a",
               {
+                key: i,
                 staticClass: "button is-primary is-outlined",
                 on: {
                   click: function($event) {
