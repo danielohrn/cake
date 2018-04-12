@@ -16,7 +16,7 @@
   </nav>
 
   <div class="columns padding-x">
-    <div class="" v-for="(role, i) in roles">
+    <div class="" v-for="(role, i) in allRoles" :key="i">
       <overdrive :id="i" :duration="350">
         <div @click="filter(role, i)" class="role-item is-2" :style="{backgroundColor: role.color}">
           <h2 class="title is-3">{{role.name}}</h2>

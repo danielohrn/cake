@@ -37081,7 +37081,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.navbar[data-v-6c0a33b2] {\n  margin: 0 8rem;\n  background: #000;\n}\nsection[data-v-6c0a33b2] {\n  padding-top: 0;\n}\n.is-one-fifth > div[data-v-6c0a33b2] {\n  width: 100%;\n}\n.columns[data-v-6c0a33b2] {\n  padding: 2rem 8rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.columns h2[data-v-6c0a33b2] {\n  font-size: 1.5em;\n}\n.column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 25%;\n}\n.role[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\nul[data-v-6c0a33b2] {\n  list-style-type: none;\n  padding: 0;\n}\nli[data-v-6c0a33b2] {\n  display: inline-block;\n  margin: 0 10px;\n}\na[data-v-6c0a33b2] {\n  color: #42b983;\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding-top: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding-left: 4em;\n  padding-right: 4em;\n  margin: 0;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  width: 260px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  margin-bottom: 2em;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n", ""]);
 
 // exports
 
@@ -37155,52 +37155,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
-  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role']),
+  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role', 'allRoles']),
   data: function data() {
-    return {
-      roles: [{
-        url: '/konstnar',
-        name: 'konstnär',
-        color: '#4286f4'
-      }, {
-        url: '/politiker',
-        name: 'politiker',
-        color: '#d81e6f'
-      }, {
-        url: '/tjänsteman',
-        name: 'tjänsteman',
-        color: '#ffc107'
-      }, {
-        url: '/byggbolag',
-        name: 'byggbolag',
-        color: '#20c997'
-      }, {
-        url: '/beställare',
-        name: 'beställare',
-        color: '#6f42c1'
-      }, {
-        url: '/utförare',
-        name: 'utförare',
-        color: '#6c757d'
-      }, {
-        url: '/arkitekt',
-        name: 'arkitekt',
-        color: '#28a745'
-      }, {
-        url: '/curator',
-        name: 'curator',
-        color: '#fd7e14'
-      }]
-    };
+    return {};
+  },
+  mounted: function mounted() {
+    this.getRoles();
   },
 
   methods: {
@@ -37209,8 +37173,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       payload.role = role;
       payload.role.index = index;
       console.log(payload);
-      this.$store.commit('updateRole', payload);
+      this.$store.commit('updateUserRole', payload);
       this.$router.push('/articles' + role.url);
+    },
+    getRoles: function getRoles() {
+      var _this = this;
+
+      axios.get('/api/roles').then(function (response) {
+        var allRoles = {};
+        allRoles = response.data;
+        _this.$store.commit('updateRoles', allRoles);
+      });
     }
   }
 
@@ -37229,17 +37202,17 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns" },
-      _vm._l(_vm.roles, function(role, i) {
+      { staticClass: "columns padding-x" },
+      _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { staticClass: "column is-one-fifth" },
+          { key: i },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
                 "div",
                 {
-                  staticClass: "role",
+                  staticClass: "role-item is-2",
                   style: { backgroundColor: role.color },
                   on: {
                     click: function($event) {
@@ -37248,10 +37221,8 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "flex-item" }, [
-                    _c("h2", { staticClass: "title is-2" }, [
-                      _vm._v(_vm._s(role.name))
-                    ])
+                  _c("h2", { staticClass: "title is-3" }, [
+                    _vm._v(_vm._s(role.name))
                   ])
                 ]
               )
@@ -37281,11 +37252,11 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "navbar-burger" }, [
-            _c("span", [_vm._v("Link")]),
+            _c("span"),
             _vm._v(" "),
-            _c("span", [_vm._v("Link")]),
+            _c("span"),
             _vm._v(" "),
-            _c("span", [_vm._v("Link")])
+            _c("span")
           ])
         ])
       ]
@@ -37336,7 +37307,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.container[data-v-0d99dc90] {\n}\n", ""]);
 
 // exports
 
@@ -37427,7 +37398,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "is-4",
+      staticClass: "flex-grow column is-6",
       attrs: { canCancel: "" },
       on: {
         click: function($event) {
@@ -37455,8 +37426,8 @@ var render = function() {
               ),
               _c("br"),
               _vm._v(" "),
-              _vm._l(_vm.tags, function(tag) {
-                return _c("a", [_vm._v("#" + _vm._s(tag) + " ")])
+              _vm._l(_vm.tags, function(tag, i) {
+                return _c("a", { key: i }, [_vm._v("#" + _vm._s(tag) + " ")])
               }),
               _vm._v(" "),
               _c("br")
@@ -37565,7 +37536,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\np[data-v-7290ec61] {\n  text-align: center;\n  width: 10%;\n}\n.columns[data-v-7290ec61] {\n  padding: 0rem 8rem;\n}\n.articles[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding: 0rem 8rem;\n}\n.card[data-v-7290ec61] {\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.column[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.is-4[data-v-7290ec61] {\n  width: 49%;\n  margin-bottom: 2%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.is-4[data-v-7290ec61]:nth-child(odd) {\n  margin-right: 1%;\n}\n.is-4[data-v-7290ec61]:nth-child(even) {\n  margin-left: 1%;\n}\n.chosen-tags[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.role-parent[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  height: 100%;\n  width: 100%\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 100%;\n  width: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #44a8ff;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n", ""]);
 
 // exports
 
@@ -37652,7 +37623,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         tags: ['ställa ut']
       }],
       filteredArticles: [],
-      role: this.$store.state.role.name
+      role: this.$store.state.userRole.name
     };
   },
 
@@ -37702,10 +37673,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.$route.params.role.charAt(0).toUpperCase();
     },
     id: function id() {
-      return this.$store.state.role.index;
+      return this.$store.state.userRole.index;
     },
     color: function color() {
-      return this.$store.state.role.color;
+      return this.$store.state.userRole.color;
     }
   },
 
@@ -37723,10 +37694,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section" }, [
-    _c("div", { staticClass: "columns" }, [
+    _c("div", { staticClass: "columns margin-x" }, [
       _c(
         "div",
-        { staticClass: "column is-one-fifth" },
+        { staticClass: "column" },
         [
           _c("overdrive", { attrs: { id: _vm.id } }, [
             _c("div", { staticClass: "role-parent" }, [
@@ -37748,10 +37719,10 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "column" }, [
+      _c("div", { staticClass: "column is-10" }, [
         _c(
           "div",
-          { staticClass: "search-box " },
+          { staticClass: "search-box margin-bottom" },
           [
             _c(
               "b-field",
@@ -37788,7 +37759,8 @@ var render = function() {
             return _c(
               "a",
               {
-                staticClass: "button is-primary is-outlined",
+                key: i,
+                staticClass: "button is-primary is-outlined is-size-7-mobile",
                 on: {
                   click: function($event) {
                     _vm.addToTags(i)
@@ -37805,7 +37777,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "articles",
+        staticClass: "columns flex-wrap margin-x",
         on: {
           click: function($event) {
             _vm.isCardModalActive = true
@@ -38378,21 +38350,25 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
-    role: {
+    userRole: {
       name: '',
       color: '',
       index: ''
-    }
+    },
+    allRoles: {}
+
   },
   plugins: [vuexLocal.plugin],
   mutations: {
-    updateRole: function updateRole(state, payload) {
-      state.role.name = payload.role.name;
-      state.role.color = payload.role.color;
-      state.role.index = payload.role.index;
+    updateUserRole: function updateUserRole(state, payload) {
+      state.userRole.name = payload.role.name;
+      state.userRole.color = payload.role.color;
+      state.userRole.index = payload.role.index;
+    },
+    updateRoles: function updateRoles(state, payload) {
+      state.allRoles = payload;
     }
   }
-
 }));
 
 /***/ }),
