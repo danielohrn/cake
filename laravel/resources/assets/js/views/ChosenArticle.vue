@@ -1,7 +1,7 @@
 <template>
 <section class="section">
-  <div class="columns">
-    <div class="column is-one-fifth">
+  <div class="columns margin-x">
+    <div class="column">
       <overdrive v-bind:id="id">
         <div class="role-parent">
           <p class="role-mini" :style="{backgroundColor: color}">
@@ -10,23 +10,23 @@
         </div>
       </overdrive>
     </div>
-    <div class="column">
-      <div class="search-box ">
+    <div class="column is-10">
+      <div class="search-box margin-bottom">
         <b-field>
           <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
           </b-taginput>
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined" :key="i">{{tag}}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined is-size-7-mobile">{{tag}}</a>
       </div>
     </div>
-</div>
-<div class="articles" @click="isCardModalActive = true">
-  <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
+  </div>
+  <div class="columns flex-wrap margin-x" @click="isCardModalActive = true">
+    <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
 
-  <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
-</div>
+    <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
+  </div>
 
 </section>
 </template>
@@ -104,9 +104,9 @@ export default {
       )
       this.filteredArticles = articles;
     },
-    isMatch(filters, article){
-      for(let i = 0; i < filters.length; i++) {
-        if(article.tags.indexOf(filters[i]) === -1) {
+    isMatch(filters, article) {
+      for (let i = 0; i < filters.length; i++) {
+        if (article.tags.indexOf(filters[i]) === -1) {
           return false;
         }
       }
@@ -117,20 +117,20 @@ export default {
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
       // If there are tags, filter the articles
-      if(this.tags.length) {
-          this.filter()
-        } else {
-          // If there are no tags, display all articles
-          this.filteredArticles = this.articles;
-        }
+      if (this.tags.length) {
+        this.filter()
+      } else {
+        // If there are no tags, display all articles
+        this.filteredArticles = this.articles;
+      }
     },
-    toggleModal($event){
+    toggleModal($event) {
       this.isCardModalActive = true;
       console.log($event)
     }
   },
   computed: {
-    trimRole(){
+    trimRole() {
       return this.$route.params.role.charAt(0).toUpperCase();
     },
     id(){
@@ -141,76 +141,36 @@ export default {
     }
   },
 
-  mounted(){
+  mounted() {
     this.filteredArticles = this.articles;
   }
 
 }
 </script>
 <style scoped>
-p {
-  text-align: center;
-  width: 10%;
-}
-
-.columns {
-  padding: 0rem 8rem;
-
-}
-.articles {
+.flex-wrap {
   display: flex;
   flex-wrap: wrap;
-  padding: 0rem 8rem;
-}
-.card {
-  flex-grow: 1;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
+.margin-x {
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
-.is-4 {
-  width: 49%;
-  margin-bottom: 2%;
-  display: flex;
-}
-
-.is-4:nth-child(odd) {
-  margin-right: 1%;
-}
-
-.is-4:nth-child(even) {
-  margin-left: 1%;
-}
-
-.chosen-tags {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.role-parent {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%
+.margin-bottom {
+  margin-bottom: .3em
 }
 
 .role-mini {
   display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
   justify-content: center;
-  background-color: #44a8ff;
   color: white;
   font-size: 72px;
   font-weight: 800;
 }
 
 .button {
-  margin: 5px;
+  margin: 0.2em;
 }
 </style>

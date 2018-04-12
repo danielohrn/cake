@@ -37164,12 +37164,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
-  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role', 'allRoles']),
+  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role']),
   data: function data() {
-    return {};
-  },
-  mounted: function mounted() {
-    this.getRoles();
+    return {
+      roles: [{
+        url: '/konstnar',
+        name: 'konstnär',
+        color: '#4286f4'
+      }, {
+        url: '/politiker',
+        name: 'politiker',
+        color: '#d81e6f'
+      }, {
+        url: '/tjänsteman',
+        name: 'tjänsteman',
+        color: '#ffc107'
+      }, {
+        url: '/byggbolag',
+        name: 'byggbolag',
+        color: '#20c997'
+      }, {
+        url: '/beställare',
+        name: 'beställare',
+        color: '#6f42c1'
+      }, {
+        url: '/utförare',
+        name: 'utförare',
+        color: '#6c757d'
+      }, {
+        url: '/arkitekt',
+        name: 'arkitekt',
+        color: '#28a745'
+      }, {
+        url: '/curator',
+        name: 'curator',
+        color: '#fd7e14'
+      }]
+    };
   },
 
   methods: {
@@ -37178,17 +37209,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       payload.role = role;
       payload.role.index = index;
       console.log(payload);
-      this.$store.commit('updateUserRole', payload);
+      this.$store.commit('updateRole', payload);
       this.$router.push('/articles' + role.url);
-    },
-    getRoles: function getRoles() {
-      var _this = this;
-
-      axios.get('/api/roles').then(function (response) {
-        var allRoles = {};
-        allRoles = response.data;
-        _this.$store.commit('updateRoles', allRoles);
-      });
     }
   }
 
@@ -37208,10 +37230,10 @@ var render = function() {
     _c(
       "div",
       { staticClass: "columns" },
-      _vm._l(_vm.allRoles, function(role, i) {
+      _vm._l(_vm.roles, function(role, i) {
         return _c(
           "div",
-          { key: i, staticClass: "column is-one-fifth" },
+          { staticClass: "column is-one-fifth" },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
@@ -37433,8 +37455,8 @@ var render = function() {
               ),
               _c("br"),
               _vm._v(" "),
-              _vm._l(_vm.tags, function(tag, i) {
-                return _c("a", { key: i }, [_vm._v("#" + _vm._s(tag) + " ")])
+              _vm._l(_vm.tags, function(tag) {
+                return _c("a", [_vm._v("#" + _vm._s(tag) + " ")])
               }),
               _vm._v(" "),
               _c("br")
@@ -37630,7 +37652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         tags: ['ställa ut']
       }],
       filteredArticles: [],
-      role: this.$store.state.userRole.name
+      role: this.$store.state.role.name
     };
   },
 
@@ -37680,10 +37702,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.$route.params.role.charAt(0).toUpperCase();
     },
     id: function id() {
-      return this.$store.state.userRole.index;
+      return this.$store.state.role.index;
     },
     color: function color() {
-      return this.$store.state.userRole.color;
+      return this.$store.state.role.color;
     }
   },
 
@@ -37766,7 +37788,6 @@ var render = function() {
             return _c(
               "a",
               {
-                key: i,
                 staticClass: "button is-primary is-outlined",
                 on: {
                   click: function($event) {
@@ -38357,25 +38378,21 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
-    userRole: {
+    role: {
       name: '',
       color: '',
       index: ''
-    },
-    allRoles: {}
-
+    }
   },
   plugins: [vuexLocal.plugin],
   mutations: {
-    updateUserRole: function updateUserRole(state, payload) {
-      state.userRole.name = payload.role.name;
-      state.userRole.color = payload.role.color;
-      state.userRole.index = payload.role.index;
-    },
-    updateRoles: function updateRoles(state, payload) {
-      state.allRoles = payload;
+    updateRole: function updateRole(state, payload) {
+      state.role.name = payload.role.name;
+      state.role.color = payload.role.color;
+      state.role.index = payload.role.index;
     }
   }
+
 }));
 
 /***/ }),
