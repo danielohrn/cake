@@ -3,10 +3,6 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <h1 class="logotype navbar-item">Kunskapsnavet</h1>
-      </a>
-      <!-- <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a> -->
     </div>
   </nav>
 
