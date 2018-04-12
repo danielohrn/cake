@@ -11,7 +11,7 @@
           <div class="content">
             {{truncate(body)}}
             <br/>
-            <a v-for="(tag, i) in tags" :key="i" >#{{tag}} </a>
+            <a v-for="(tag, i) in articleTags" :key="i" >#{{tag}} </a>
             <br>
 
         </div>
@@ -25,7 +25,7 @@
 
 export default {
   name: 'Articles',
-  props: ['title', 'body','tags', 'img'],
+  props: ['title', 'body','articleTags', 'img'],
   data () {
     return {
       isCardModalActive: false

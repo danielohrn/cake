@@ -37333,7 +37333,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
-  props: ['title', 'body', 'tags', 'img'],
+  props: ['title', 'body', 'articleTags', 'img'],
   data: function data() {
     return {
       isCardModalActive: false
@@ -37390,7 +37390,7 @@ var render = function() {
               ),
               _c("br"),
               _vm._v(" "),
-              _vm._l(_vm.tags, function(tag, i) {
+              _vm._l(_vm.articleTags, function(tag, i) {
                 return _c("a", { key: i }, [_vm._v("#" + _vm._s(tag) + " ")])
               }),
               _vm._v(" "),
@@ -37515,38 +37515,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       isCardModalActive: false,
       tags: [],
-      availableTags: ['ställa ut', 'konst', 'permanent konst', 'tillfällig konst', 'stadsutveckling', 'offentliga rummet', 'arkitekt', 'curator', 'boendemiljö', 'nyheter'],
-      articles: [{
-        title: 'Utveckla konsten',
-        body: 'Intresset för att utveckla den offentliga konsten är stort. Spännande arbete pågår i stadsutvecklingsprocesser där kommunala, statliga och privata aktörer renoverar och bygger nya områden. Samtidigt arbetar många konstnärer med att omformulera vad den offentliga konsten kan vara. När vi på Statens konstråd producerar konst i gemensamma miljöer utvecklar vi löpande arbetet med konst och gestaltning. I våra pilotprojekt prövar vi nya metoder och olika sätt att arbeta. Projekten utgår oftast från en specifik situation och kan involvera allt från konst i planering, till sociala relationer eller visuella uttryck. Avgörande för utvecklingen är att olika aktörer kan inspirera varandra. Här vill vi därför dela med oss av våra erfarenheter och kunskaper för att stärka konstens roll i utformningen av våra gemensamma miljöer.',
-        img: 'image.jpg',
-        tags: ['ställa ut', 'permanent konst', 'nyheter']
-      }, {
-        title: 'Tillfällig konst',
-        body: 'Konstnärer söker sig idag ofta till aktuella frågor om det gemensamma och om våra offentliga rum. Genom tillfälliga projekt får vi möjlighet att friare utforska olika format och samtidigt reflektera kring aktuella frågor. Vi utgår från dialogen mellan konstnär och curator och från den situation där verket tar form. Samtidigt fångar vi upp den utveckling som sker inom offentlig konst, både i Sverige och internationellt.',
-        img: 'image.jpg',
-        tags: ['konst', 'tillfällig konst', 'nyheter']
-      }, {
-        title: 'Hur går det till?',
-        body: 'Konstnären presenterar ett förslag på gestaltning efter att ha gjort en närmare undersökning av hela situationen, eller så utgår konstnären från en idé som sedan påverkar valet av plats. Alla delar i verket diskuteras med curatorn eller initiativtagaren till projektet. I arbetet med att ta fram en film kan processen till exempel ske i samarbete med boende på platsen. Konstnären tar del av deras berättelser om en situation eller hur de upplever platsen och skriver sedan ett filmmanus utifrån samtalen. Konstnären ansvarar för filminspelningen men utbyter idéer med deltagarna även under klipparbetet. Verket blir i det här fallet relevant genom att ge de boende en röst, en möjlighet att bli hörda.',
-        img: 'image.jpg',
-        tags: ['konst', 'offentliga rummet', 'permanent konst']
-      }, {
-        title: 'Stadsutveckling',
-        body: 'Vad skapar en stad och dess miljöer? Vi utvecklar metoder för gestaltning av gemensamma miljöer genom samverkan mellan konstnärer, arkitekter, civilsamhälle, kommun och invånare. Genom att samla olika kompetenser kan vi arbeta för miljöer som både möter behov och väcker engagemang och känslor. Våra projekt där konstnärer medverkar i stadsutveckling omfattar allt från processer för medskapande och rätt till de offentliga rummen, till infrastruktur, stadsplanering och gestaltning.',
-        img: 'image.jpg',
-        tags: ['arkitekt', 'stadsutveckling', 'nyheter']
-      }, {
-        title: 'Permanent konst',
-        body: 'Skulptur, rörlig bild, ljudverk och hela fasader… Vi producerar konst för nya och renoverade byggnader och miljöer i statlig verksamhet med utgångspunkten att konsten ska vara kvar, vara permanent. Den konstnärliga gestaltningen relaterar alltid till den specifika situationen eller verksamheten på platsen. Vi arbetar också med pilotprojekt där konstnärer kommer in tidigt i byggprocesser och därmed kan påverka hela miljöer.',
-        img: 'image.jpg',
-        tags: ['permanent konst', 'curator']
-      }, {
-        title: 'Kunskapsnav offentlig konst',
-        body: 'Nu bygger vi upp ett kunskapsnav för offentlig konst. Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller.',
-        img: 'image.jpg',
-        tags: ['ställa ut']
-      }],
+      availableTags: [],
+      articles: [],
       filteredArticles: [],
       role: this.$store.state.userRole.name
     };
@@ -37568,7 +37538,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     isMatch: function isMatch(filters, article) {
       for (var i = 0; i < filters.length; i++) {
-        if (article.tags.indexOf(filters[i]) === -1) {
+        if (article.articleTags.indexOf(filters[i]) === -1) {
           return false;
         }
       }
@@ -37591,6 +37561,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     toggleModal: function toggleModal($event) {
       this.isCardModalActive = true;
       console.log($event);
+    },
+    getArticles: function getArticles() {
+      var _this2 = this;
+
+      axios.get('api/articles').then(function (response) {
+        _this2.articles = response.data;
+        _this2.filteredArticles = response.data;
+      });
+    },
+    getTags: function getTags() {
+      var _this3 = this;
+
+      axios.get('api/tags').then(function (response) {
+        _this3.availableTags = response.data;
+      });
     }
   },
   computed: {
@@ -37607,6 +37592,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   mounted: function mounted() {
     this.filteredArticles = this.articles;
+    this.getArticles();
+    this.getTags();
   }
 });
 
@@ -37692,7 +37679,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(_vm._s(tag))]
+              [_vm._v(_vm._s(tag.name))]
             )
           })
         )
@@ -41367,7 +41354,7 @@ var render = function() {
               _c(
                 "b-taglist",
                 _vm._l(_vm.tags, function(tag, i) {
-                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
+                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag.name))])
                 })
               )
             ],
