@@ -89,7 +89,7 @@ export default {
         }
       ],
       filteredArticles: [],
-      role: this.$store.state.role.name
+      role: this.$store.state.userRole.name
     }
   },
   methods: {
@@ -134,10 +134,10 @@ export default {
       return this.$route.params.role.charAt(0).toUpperCase();
     },
     id(){
-      return this.$store.state.role.index
+      return this.$store.state.userRole.index
     },
     color(){
-      return this.$store.state.role.color
+      return this.$store.state.userRole.color
     }
   },
 
