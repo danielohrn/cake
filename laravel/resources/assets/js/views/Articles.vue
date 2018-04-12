@@ -10,9 +10,9 @@
 
           <div class="content">
             {{truncate(body)}}
-            <br/>
-            <a v-for="(tag, i) in tags" :key="i" >#{{tag}} </a>
-            <br>
+            <b-taglist>
+              <b-tag v-for="(tag, i) in tags" :key="i" >{{tag}}</b-tag>
+            </b-taglist>
 
         </div>
       </div>

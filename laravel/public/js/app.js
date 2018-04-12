@@ -37388,15 +37388,14 @@ var render = function() {
                   _vm._s(_vm.truncate(_vm.body)) +
                   "\n            "
               ),
-              _c("br"),
-              _vm._v(" "),
-              _vm._l(_vm.tags, function(tag, i) {
-                return _c("a", { key: i }, [_vm._v("#" + _vm._s(tag) + " ")])
-              }),
-              _vm._v(" "),
-              _c("br")
+              _c(
+                "b-taglist",
+                _vm._l(_vm.tags, function(tag, i) {
+                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
+                })
+              )
             ],
-            2
+            1
           )
         ])
       ]),
