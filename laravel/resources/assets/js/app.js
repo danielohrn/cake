@@ -20,6 +20,7 @@ Vue.use(Buefy)
 Vue.component('home', require('./views/Home.vue'));
 Vue.component('Articles', require('./views/Articles.vue'));
 Vue.component('chosen-article', require('./views/ChosenArticle.vue'));
+Vue.component('article-modal', require('./components/articleModal.vue'));
 
 const app = new Vue({
     el: '#app',
