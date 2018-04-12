@@ -41,40 +41,11 @@ export default {
   computed: mapState(['role']),
   data() {
     return {
-      roles: [{
-        url: '/konstnar',
-        name: 'konstnär',
-        color: '#4286f4'
-      }, {
-        url: '/politiker',
-        name: 'politiker',
-        color: '#d81e6f'
-      }, {
-        url: '/tjänsteman',
-        name: 'tjänsteman',
-        color: '#ffc107'
-      }, {
-        url: '/byggbolag',
-        name: 'byggbolag',
-        color: '#20c997'
-      }, {
-        url: '/beställare',
-        name: 'beställare',
-        color: '#6f42c1'
-      }, {
-        url: '/utförare',
-        name: 'utförare',
-        color: '#6c757d'
-      }, {
-        url: '/arkitekt',
-        name: 'arkitekt',
-        color: '#28a745'
-      }, {
-        url: '/curator',
-        name: 'curator',
-        color: '#fd7e14'
-      }],
+      roles: []
     }
+  },
+  mounted(){
+    this.getRoles()
   },
   methods: {
     filter(role, index) {
@@ -84,6 +55,10 @@ export default {
       console.log(payload);
       this.$store.commit('updateRole', payload)
       this.$router.push('/articles' + role.url)
+    },
+    getRoles(){
+      axios.get('/api/roles')
+      .then(response => this.roles = response.data)
     }
   }
 
