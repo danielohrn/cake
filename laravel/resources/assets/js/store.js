@@ -10,19 +10,25 @@ const vuexLocal = new VuexPersistence({
 
 export default new Vuex.Store({
   state: {
-    role: {
+    userRole: {
       name: '',
       color: '',
       index: ''
+    },
+    allRoles: {
+
     }
+
   },
   plugins: [vuexLocal.plugin],
   mutations: {
-    updateRole (state, payload){
-      state.role.name = payload.role.name;
-      state.role.color = payload.role.color;
-      state.role.index = payload.role.index;
+    updateUserRole (state, payload){
+      state.userRole.name = payload.role.name;
+      state.userRole.color = payload.role.color;
+      state.userRole.index = payload.role.index;
+    },
+    updateRoles (state, payload){
+      state.allRoles = payload;
     }
   }
-
 });

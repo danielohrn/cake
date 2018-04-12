@@ -3,5 +3,5 @@
 ### Trello 
 https://trello.com/b/zgYUmnL7/team-cake
 
-### Google Drive
-https://drive.google.com/drive/u/1/folders/1Yb9m8pRJO7bi6CYjQv6GVWhSpcx68AZG
+### Notion
+https://www.notion.so/f3eb8a198948404bb3c90fe3289599c2?v=b83020def4dd437fbddbe5588ae8b27e
