@@ -11,7 +11,7 @@
           <div class="content">
             {{truncate(body)}}
             <br/>
-            <a v-for="tag in tags" >#{{tag}} </a>
+            <a v-for="(tag, i) in tags" :key="i" >#{{tag}} </a>
             <br>
 
         </div>
