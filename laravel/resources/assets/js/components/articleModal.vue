@@ -1,44 +1,42 @@
 <template>
-  <div class="modal-background">
-    <div class="article-card">
+<div class="modal-background">
+  <div class="article-card">
 
-      <div class="article-content">
-        <img class="article-img" v-bind:src="`/img/${img}`" alt="">
-        <h1>{{title}}</h1>
-        {{body}}
+    <div class="article-content">
+      <img class="article-img" v-bind:src="`/img/${img}`" alt="">
+      <h1>{{title}}</h1> {{body}}
 
-        </div>
-      <div class="article-sidebar">
-        <div class="sidebar-box">
+    </div>
+    <div class="article-sidebar">
+      <div class="sidebar-box">
         <h2>Taggar</h2>
         <div class="tags">
-        <b-taglist>
-          <b-tag v-for="(tag, i) in tags" :key="i" >{{tag}}</b-tag>
-        </b-taglist>
+          <b-taglist>
+            <b-tag v-for="(tag, i) in tags" :key="i">{{tag}}</b-tag>
+          </b-taglist>
         </div>
-        </div>
-        <div class="sidebar-box">
-          <h2>Social</h2>
-          <div class="social">
+      </div>
+      <div class="sidebar-box">
+        <h2>Social</h2>
+        <div class="social">
           <a href="#"><img src="https://image.flaticon.com/icons/svg/69/69407.svg" alt="" ></a>
           <a href="#"><img src="https://image.flaticon.com/icons/svg/69/69406.svg" alt="" ></a>
           <a href="#"><img src="https://image.flaticon.com/icons/svg/69/69480.svg" alt="" ></a>
-          </div>
         </div>
       </div>
-
-
-      </div>
     </div>
+
+
   </div>
+</div>
+</div>
 </template>
 
 <script>
-
 export default {
   name: 'article-modal',
-  props: ['title', 'body','tags', 'img'],
-  data () {
+  props: ['title', 'body', 'tags', 'img'],
+  data() {
     return {
       isCardModalActive: false
 
@@ -49,15 +47,14 @@ export default {
     toggleModal($event) {
       this.isCardModalActive = !this.isCardModalActive;
     },
-    truncate(string){
-     return string.substring(0, 200) + '...';
-   }
+    truncate(string) {
+      return string.substring(0, 200) + '...';
+    }
   }
 }
 </script>
 <style scoped>
-
-.modal-background{
+.modal-background {
   background-color: dark-grey;
   width: 100vw;
   height: 100vh;
@@ -71,7 +68,7 @@ export default {
 
 }
 
-.article-card{
+.article-card {
   background-color: white;
   width: 80vw;
   height: 95vh;
@@ -79,18 +76,16 @@ export default {
   display: flex;
 }
 
-.article-img{
+.article-img {
   width: 100%;
   height: auto;
 }
 
-.article-content{
+.article-content {
   width: 70%;
-
-
 }
 
-.article-sidebar{
+.article-sidebar {
   width: 30%;
   height: 100%;
   padding: 1em;
@@ -98,23 +93,25 @@ export default {
   flex-direction: column;
 }
 
-.sidebar-box{
+.sidebar-box {
   width: 100%;
   margin-bottom: 2em;
   display: flex;
   flex-direction: column;
 }
 
-.social{
+.social {
   display: flex;
-
-
 }
 
+@media only screen and (max-width: 768px) {
+  .article-card {
+    flex-direction: column;
+    width: 100%;
+  }
+}
 
-h1{
+h1 {
   font-size: 2em;
 }
-
-
 </style>

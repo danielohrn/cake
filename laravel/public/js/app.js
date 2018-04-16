@@ -37082,7 +37082,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n@media only screen and (min-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.role-item[data-v-6c0a33b2] {\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: black;\n}\nh1[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  text-transform: uppercase;\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -37198,14 +37198,13 @@ var render = function() {
       _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { key: i, staticClass: "column is-desktop is-one-quarter " },
+          { key: i, staticClass: "column is-desktop is-one-quarter" },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
                 "div",
                 {
                   staticClass: "role-item",
-                  style: { backgroundColor: role.color },
                   on: {
                     click: function($event) {
                       _vm.filter(role, i)
@@ -37213,9 +37212,14 @@ var render = function() {
                   }
                 },
                 [
-                  _c("h2", { staticClass: "title is-4 is-desktop-only" }, [
-                    _vm._v(_vm._s(role.name))
-                  ])
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "title is-4 is-desktop-only",
+                      style: { color: role.color }
+                    },
+                    [_vm._v(_vm._s(role.name))]
+                  )
                 ]
               )
             ])
@@ -41263,7 +41267,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-background[data-v-0454316e]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.article-card[data-v-0454316e]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.article-img[data-v-0454316e]{\n  width: 100%;\n  height: auto;\n}\n.article-content[data-v-0454316e]{\n  width: 70%;\n}\n.article-sidebar[data-v-0454316e]{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box[data-v-0454316e]{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social[data-v-0454316e]{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nh1[data-v-0454316e]{\n  font-size: 2em;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.modal-background[data-v-0454316e] {\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.article-card[data-v-0454316e] {\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.article-img[data-v-0454316e] {\n  width: 100%;\n  height: auto;\n}\n.article-content[data-v-0454316e] {\n  width: 70%;\n}\n.article-sidebar[data-v-0454316e] {\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box[data-v-0454316e] {\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social[data-v-0454316e] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n@media only screen and (max-width: 768px) {\n.article-card[data-v-0454316e] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    width: 100%;\n}\n}\nh1[data-v-0454316e] {\n  font-size: 2em;\n}\n", ""]);
 
 // exports
 
@@ -41308,8 +41312,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'article-modal',
@@ -41348,7 +41350,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("h1", [_vm._v(_vm._s(_vm.title))]),
-        _vm._v("\n      " + _vm._s(_vm.body) + "\n\n      ")
+        _vm._v(" " + _vm._s(_vm.body) + "\n\n    ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "article-sidebar" }, [

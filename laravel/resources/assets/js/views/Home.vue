@@ -7,10 +7,10 @@
   </nav>
 
   <div class="columns is-inline-flex-mobile">
-    <div class="column is-desktop is-one-quarter " v-for="(role, i) in allRoles" :key="i">
+    <div class="column is-desktop is-one-quarter" v-for="(role, i) in allRoles" :key="i">
       <overdrive :id="i" :duration="350">
-        <div @click="filter(role, i)" class="role-item" :style="{backgroundColor: role.color}">
-          <h2 class="title is-4 is-desktop-only">{{role.name}}</h2>
+        <div @click="filter(role, i)" class="role-item">
+          <h2 class="title is-4 is-desktop-only" :style="{color: role.color}">{{role.name}}</h2>
         </div>
       </overdrive>
     </div>
@@ -65,7 +65,9 @@ section {
   background: #000;
   margin-bottom: 2em;
 }
+.role-item {
 
+}
 .columns {
   width: 100%;
   display: flex;
@@ -81,26 +83,19 @@ section {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background-color: black;
 }
 
-h1,
-h2 {
+h1 {
   font-weight: normal;
   color: white;
   text-transform: uppercase;
 }
-@media only screen and (min-width: 768px) {
-    .role-item {
-      width: 180px;
-    }
-    .columns {
-      padding: 0;
-    }
-    .is-one-quarter {
-      padding: 0;
-      margin: 0;
-    }
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
 }
+
 @media only screen and (max-width: 768px) {
     .role-item {
       width: 180px;
