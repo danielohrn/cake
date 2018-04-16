@@ -11,13 +11,12 @@
           <div class="content">
             {{truncate(body)}}
             <b-taglist>
-              <b-tag v-for="(tag, i) in tags" :key="i" >{{tag}}</b-tag>
+              <b-tag v-for="(tag, i) in articleTags" :key="i" >{{tag}}</b-tag>
             </b-taglist>
-
         </div>
       </div>
     </div>
-    <article-modal :title="title" :body="body" :tags="tags" :img="img" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
+    <article-modal :title="title" :body="body" :tags="articleTags" :img="media" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
 </div>
 </template>
 
@@ -25,7 +24,7 @@
 
 export default {
   name: 'Articles',
-  props: ['title', 'body','tags', 'img'],
+  props: ['title', 'body','articleTags', 'media'],
   data () {
     return {
       isCardModalActive: false

@@ -54,7 +54,8 @@ export default {
 }
 </script>
 <style scoped>
-.modal-background {
+
+.modal-background{
   background-color: dark-grey;
   width: 100vw;
   height: 100vh;
@@ -83,6 +84,7 @@ export default {
 
 .article-content {
   width: 70%;
+  overflow: scroll;
 }
 
 .article-sidebar {
@@ -108,6 +110,27 @@ export default {
   .article-card {
     flex-direction: column;
     width: 100%;
+    overflow-y: scroll;
+  }
+  .article-content {
+    width: 100%;
+  }
+  .article-sidebar {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .social {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+  .social img {
+    width: 30px;
+    height: 30px;
   }
 }
 
