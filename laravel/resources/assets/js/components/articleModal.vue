@@ -75,6 +75,7 @@ export default {
   height: 95vh;
   padding: 1em;
   display: flex;
+  border: 4px solid black;
 }
 
 .article-img {

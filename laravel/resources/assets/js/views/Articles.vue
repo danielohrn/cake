@@ -1,5 +1,5 @@
 <template>
-  <div canCancel @click="toggleModal($event)" class="flex-grow column is-6">
+  <div canCancel @click="toggleModal($event)" class="flex-grow column is-4">
       <div  class="card">
         <div class="card-image">
         </div>
@@ -49,7 +49,7 @@ export default {
   display: flex;
   flex-grow: 1;
 }
-.container {
-
+.card {
+  border: 2px solid black;
 }
 </style>

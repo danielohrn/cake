@@ -18,7 +18,7 @@
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-dark is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
       </div>
     </div>
   </div>
@@ -141,5 +141,13 @@ export default {
 
 .button {
   margin: 0.2em;
+}
+.chosen-tags .button {
+  background-color: #000;
+  color: white;
+}
+.chosen-tags .button:hover {
+  background-color: #38ee78;
+  color: #000;
 }
 </style>
