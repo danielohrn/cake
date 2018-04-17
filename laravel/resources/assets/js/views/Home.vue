@@ -5,14 +5,14 @@
       <h1 class="logotype navbar-item">Kunskapsnavet</h1>
     </div>
   </nav>
-  <div class='columns flex'>
+  <div class='columns main-column'>
 <div class='column num1'>
   <h1 class='title is-2'> Välkommen till kunskapsnavet </h1>
   <h3 class='subtitle'>Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller.</h3>
 </div>
 <div class='column num2'>
   <h1 class='title is-3 has-text-right'>Hur navigerar jag?</h1>
-  <p class='subtitle has-text-right'> Hitta ditt roll, välj dom taggar som passar till din sökning då ska du hitta rätt!</p>
+  <p class='subtitle has-text-right'> Välj ditt roll här nedan och välj sen dom taggar som passar till din sökning, då ska du hitta rätt!</p>
 </div>
 </div>
   <div class="columns role-box is-inline-flex-mobile">
@@ -24,6 +24,12 @@
       </overdrive>
     </div>
   </div>
+  <footer>
+    <div>
+    <img src="/img/facebook.png" width='50' height='50' />
+    <img src="/img/instagram.png" width='50' height='50'/>
+  </div>
+  </footer>
 </section>
 </template>
 
@@ -74,10 +80,6 @@ section {
   background: #000;
   margin-bottom: 2em;
 }
-.role-item h2 {
-color: #000;
-padding: 1em;
-}
 .columns {
   width: 100%;
   display: flex;
@@ -86,7 +88,39 @@ padding: 1em;
   padding-left: 10em;
   padding-right: 10em;
 }
+.role-box {
+  margin-bottom: 4em;
+}
+.main-column {
+  display: flex;
+  flex-direction: column;
+}
+.main-column h1 {
+  color: black;
+  margin-bottom: 1.5em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
 
+.main-column h3  {
+  margin-left: 1em;
+  padding-bottom: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.num1, .num2 {
+padding: 2em;
+}
+.num1 {
+  border-top: 2px solid #38ee78;
+  border-left: 2px solid #38ee78;
+  border-bottom: 2px solid #38ee78;
+}
+.num2 {
+  border-right: 2px solid #38ee78;
+  border-bottom: 2px solid #38ee78;
+  margin-bottom: 1em;
+}
 .role-item {
   display: flex;
   height: 180px;
@@ -94,13 +128,32 @@ padding: 1em;
   align-items: center;
   cursor: pointer;
   background-color: #38ee78;
-
+}
+.role-item h2 {
+color: #000;
+padding: 1em;
+padding-bottom: 1em;
 }
 
+.role-item h2:hover:after {
+  content: "";
+   display: flex;
+   margin: 0 auto;
+   width: 50%;
+   padding-top: 20px;
+   border-bottom: 3px solid #000;
+   text-transform: lowercase;
+   color: white;
+}
 h1 {
-  font-weight: normal;
   color: white;
-  text-transform: uppercase;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  color: white;
+  padding: 2em;
 }
 
 @media only screen and (max-width: 768px) {
@@ -114,43 +167,24 @@ h1 {
       padding: 0;
       margin: 0;
     }
+
+    .main-column h1 {
+      font-size: 5vh;
+    }
+    .column h2 {
+      font-size: 2.5vh;
+    }
+    .main-column h3, p {
+      padding: 0;
+      margin: 0;
+      font-size: 2.7vh;
+    }
+    .role-item {
+      border: 0.5px solid white;
+    }
+    .num1 {
+      border-top: none;
+    }
 }
-.flex {
-  display: flex;
-  flex-direction: column;
-}
-.flex h1 {
-  color: black;
-  margin-bottom: 1.5em;
-}
-.flex h2 {
-  margin-bottom: 1.5em;
-}
-.flex h3 {
-  padding-left: 2em;
-  padding-right: 2em;
-  margin-left: 1em;
-  padding-bottom: 1em;
-}
-.flex p {
-  padding-left: 2em;
-  padding-right: 2em;
-}
-.num1 {
-  padding: 2em;
-  border-top: 2px solid #38ee78;
-  border-left: 2px dotted #38ee78;
-  border-bottom: 2px solid #38ee78;
-  border-right: 2px dotted #38ee78;
-}
-.num2 {
-  border-right: 2px dotted #38ee78;
-  border-bottom: 2px solid #38ee78;
-  padding: 2em;
-  margin-bottom: 1em;
-}
-.role-box {
-  margin-bottom: 4em;
-}
+
 </style>
-<!-- :style="{color: role.color}" -->
