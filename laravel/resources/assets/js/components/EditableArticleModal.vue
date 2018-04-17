@@ -2,15 +2,15 @@
   <modal v-if="this.isModalOpen">
             
         <div class="article-content">
-            <input class="input" type="text" :value="title"/>
-            <textarea class="textarea is-primary" cols="30" rows="20">{{body}}</textarea>
-            <button class="button is-primary">Spara</button>
+            <input class="input" type="text" v-model="article.title"/>
+            <textarea class="textarea is-primary" cols="30" rows="20" v-model="article.body"></textarea>
+            <button @click="updateArticle" class="button is-primary">Spara</button>
         </div>
         <div class="article-sidebar">
             <b-field label="Taggar">
                 <b-taginput
                     maxlength="10"
-                    :value="articleTags">
+                    :value="article.tags">
                 </b-taginput>
             </b-field>
             <div class="tags">
@@ -23,16 +23,27 @@
 </template>
 
 <script>
-
+import {mapState} from 'vuex';
 export default {
-  props: ['title', 'body', 'articleTags', 'author', 'availableTags'], 
+  props: ['availableTags'], 
+  computed: mapState(['chosenArticle']), 
   data(){
       return {
-          isModalOpen: true
+          isModalOpen: true,
+          article: {}, 
+      }
+  },
+  methods: {
+      copyStore(){
+          this.article = this.chosenArticle;
+      },
+      updateArticle(){
+          axios.patch('/api/articles', this.article)
+          .then(response => console.log(response.data))
       }
   },
   mounted(){
-
+      this.copyStore()
   }
 }
 </script>

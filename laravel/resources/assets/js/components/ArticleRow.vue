@@ -17,7 +17,7 @@
                 <li v-for="(tag, i) in articleTags" :key="i">{{tag}}</li>   
             </ul>
         </td>
-        <EditableArticleModal :availableTags="availableTags" v-if="modalOpen" :title="title" :body="body"  :created_at="created_at" :articleTags="articleTags" :author="author"/>
+
     </tr>
 </template>
 
@@ -26,7 +26,7 @@ import EditableArticleModal from './EditableArticleModal.vue';
 import { mapState } from 'vuex';
 export default {
 
-  props: ['title', 'body', 'created_at', 'author', 'articleTags', 'availableTags'],
+  props: ['id','title', 'body', 'created_at', 'author', 'articleTags', 'availableTags'],
   
   data(){
       return {
@@ -37,7 +37,8 @@ export default {
 
   methods: {
       toggleModal(){
-          this.$store.commit('toggleModal', {action: true}); 
+          this.$store.commit('toggleModal', {action: true});
+          this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
       }
   },
 

@@ -26,6 +26,7 @@
             <ArticleRow :availableTags="availableTags" v-for="(article, i) in data" :key="i" v-bind="article"/>
         </tbody>
     </table>
+    <EditableArticleModal :availableTags="availableTags" />
 </div>
 
 </template>

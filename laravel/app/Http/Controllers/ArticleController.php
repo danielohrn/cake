@@ -59,9 +59,13 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $article = Article::find($request->id);
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->save();
+        dd($article);
     }
 
     /**
