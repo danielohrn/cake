@@ -40,10 +40,14 @@ export default {
       updateArticle(){
           axios.patch('/api/articles', this.article)
           .then(response => console.log(response.data))
+      },
+      consoleLog(){
+          console.log(this.availableTags)
       }
   },
   mounted(){
       this.copyStore()
+      this.consoleLog()
   }
 }
 </script>

@@ -41974,10 +41974,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.patch('/api/articles', this.article).then(function (response) {
                 return console.log(response.data);
             });
+        },
+        consoleLog: function consoleLog() {
+            console.log(this.availableTags);
         }
     },
     mounted: function mounted() {
         this.copyStore();
+        this.consoleLog();
     }
 });
 

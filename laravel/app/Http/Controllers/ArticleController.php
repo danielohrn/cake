@@ -65,7 +65,7 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();
-        dd($article);
+        
     }
 
     /**
