@@ -17,7 +17,13 @@ export default new Vuex.Store({
     },
     allRoles: {
 
-    }
+    },
+    chosenArticle: {
+      title: '',
+      body: '',
+      tags: []
+    },
+    modalOpen: false 
 
   },
   plugins: [vuexLocal.plugin],
@@ -29,6 +35,12 @@ export default new Vuex.Store({
     },
     updateRoles (state, payload){
       state.allRoles = payload;
+    }, 
+    toggleModal(state, payload){
+      state.modalOpen = payload.action; 
+    },
+    updateModal(state, payload){
+      state.chosenArticle = payload;
     }
   }
 });

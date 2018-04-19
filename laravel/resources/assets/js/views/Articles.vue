@@ -10,38 +10,13 @@
 
           <div class="content">
             {{truncate(body)}}
-            <br/>
-            <a v-for="(tag, i) in tags" :key="i" >#{{tag}} </a>
-            <br>
-
+            <b-taglist>
+              <b-tag v-for="(tag, i) in articleTags" :key="i" >{{tag}}</b-tag>
+            </b-taglist>
         </div>
       </div>
     </div>
-    <b-modal :active.sync="isCardModalActive" :width="960" scroll="keep" >
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img src="static/img/placeholder-1280x960.png" alt="Image">
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img src="static/img/placeholder-1280x960.png" alt="Image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">{{title}}</p>
-            </div>
-          </div>
-
-          <div class="content">
-            {{body}}
-          </div>
-        </div>
-      </div>
-    </b-modal>
+    <article-modal :title="title" :body="body" :tags="articleTags" :img="media" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
 </div>
 </template>
 
@@ -49,7 +24,7 @@
 
 export default {
   name: 'Articles',
-  props: ['title', 'body','tags', 'img'],
+  props: ['title', 'body','articleTags', 'media'],
   data () {
     return {
       isCardModalActive: false

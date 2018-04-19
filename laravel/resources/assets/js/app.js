@@ -20,6 +20,11 @@ Vue.use(Buefy)
 Vue.component('home', require('./views/Home.vue'));
 Vue.component('Articles', require('./views/Articles.vue'));
 Vue.component('chosen-article', require('./views/ChosenArticle.vue'));
+Vue.component('article-modal', require('./components/articleModal.vue'));
+Vue.component('Admin', require('./views/Admin.vue'));
+Vue.component('ArticleRow', require('./components/ArticleRow.vue'));
+Vue.component('modal', require('./components/modal.vue')); 
+Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue')); 
 
 const app = new Vue({
     el: '#app',

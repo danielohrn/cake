@@ -3,20 +3,11 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <h1 class="logotype navbar-item">Kunskapsnavet</h1>
-      </a>
-      <!-- <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a>
-      <a class="navbar-item" href="#">Link</a> -->
-      <div class="navbar-burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </nav>
 
   <div class="columns padding-x">
-    <div class="" v-for="(role, i) in roles">
+    <div class="" v-for="(role, i) in allRoles" :key="i">
       <overdrive :id="i" :duration="350">
         <div @click="filter(role, i)" class="role-item is-2" :style="{backgroundColor: role.color}">
           <h2 class="title is-3">{{role.name}}</h2>
