@@ -187,4 +187,42 @@ footer {
     }
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex h1 {
+  color: black;
+  margin-bottom: 1.5em;
+}
+.flex h2 {
+  margin-bottom: 1.5em;
+}
+.flex h3 {
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: 1em;
+  padding-bottom: 1em;
+}
+.flex p {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.num1 {
+  padding: 2em;
+  border-top: 2px solid #38ee78;
+  border-left: 2px solid #38ee78;
+  border-bottom: 2px solid #38ee78;
+
+}
+.num2 {
+  border-right: 2px solid #38ee78;
+  border-bottom: 2px solid #38ee78;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+.role-box {
+  margin-bottom: 4em;
+}
+
 </style>

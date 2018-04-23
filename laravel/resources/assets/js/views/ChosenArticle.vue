@@ -4,7 +4,7 @@
     <div class="column">
       <overdrive v-bind:id="id">
         <div class="role-parent">
-          <p class="role-mini" :style="{backgroundColor: color}">
+          <p class="role-mini">
             {{trimRole}}
           </p>
         </div>
@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import Articles from './Articles'
+import Articles from './Articles'; 
+
 export default {
   name: 'ChosenArticle',
   data() {
@@ -64,7 +65,7 @@ export default {
         }
       }
       return true;
-    },
+    }, 
     removeTag($event) {
       // Moves tag from 'active' to 'available'
       this.tags = this.tags.filter(tag => tag !== $event);
@@ -136,7 +137,9 @@ export default {
   justify-content: center;
   color: white;
   font-size: 72px;
-  font-weight: 800;
+  font-weight: 500;
+  background-color: #38ee78;
+  color: #000;
 }
 
 .button {
@@ -149,5 +152,6 @@ export default {
 .chosen-tags .button:hover {
   background-color: #38ee78;
   color: #000;
+  border-color: #38ee78;
 }
 </style>

@@ -2,6 +2,7 @@
   <div canCancel @click="toggleModal($event)" class="flex-grow column is-4">
       <div  class="card">
         <div class="card-image">
+          <img v-bind:src="`/img/${media}`" alt="">
         </div>
         <div class="card-content">
           <div class="media">
@@ -49,7 +50,9 @@ export default {
   display: flex;
   flex-grow: 1;
 }
-.card {
-  border: 2px solid black;
+.card-image{
+  object-fit: none;
+
 }
+
 </style>
