@@ -37197,7 +37197,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.role-item h2[data-v-6c0a33b2] {\ncolor: #000;\npadding: 1em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\nh1[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n.flex[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.flex h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n}\n.flex h2[data-v-6c0a33b2] {\n  margin-bottom: 1.5em;\n}\n.flex h3[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n  margin-left: 1em;\n  padding-bottom: 1em;\n}\n.flex p[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  padding: 2em;\n  border-top: 2px solid #38ee78;\n  border-left: 2px dotted #38ee78;\n  border-bottom: 2px solid #38ee78;\n  border-right: 2px dotted #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px dotted #38ee78;\n  border-bottom: 2px solid #38ee78;\n  padding: 2em;\n  margin-bottom: 1em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n.main-column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.main-column h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n  font-weight: normal;\n  text-transform: uppercase;\n}\n.main-column h3[data-v-6c0a33b2]  {\n  margin-left: 1em;\n  padding-bottom: 1em;\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2], .num2[data-v-6c0a33b2] {\npadding: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  margin-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\n.role-item h2[data-v-6c0a33b2] {\ncolor: #000;\npadding: 1em;\npadding-bottom: 1em;\n}\n.role-item h2[data-v-6c0a33b2]:hover:after {\n  content: \"\";\n   display: -webkit-box;\n   display: -ms-flexbox;\n   display: flex;\n   margin: 0 auto;\n   width: 50%;\n   padding-top: 20px;\n   border-bottom: 3px solid #000;\n   text-transform: lowercase;\n   color: white;\n}\nh1[data-v-6c0a33b2] {\n  color: white;\n}\nfooter[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #000;\n  color: white;\n  padding: 2em;\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n      font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n      font-size: 2.5vh;\n}\n.main-column h3[data-v-6c0a33b2], p[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n      font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n      border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n      border-top: none;\n}\n}\n.flex[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.flex h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n}\n.flex h2[data-v-6c0a33b2] {\n  margin-bottom: 1.5em;\n}\n.flex h3[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n  margin-left: 1em;\n  padding-bottom: 1em;\n}\n.flex p[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  padding: 2em;\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  padding: 2em;\n  margin-bottom: 1em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n\n", ""]);
 
 // exports
 
@@ -37242,6 +37242,12 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37353,7 +37359,9 @@ var render = function() {
           1
         )
       })
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -37380,7 +37388,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns flex" }, [
+    return _c("div", { staticClass: "columns main-column" }, [
       _c("div", { staticClass: "column num1" }, [
         _c("h1", { staticClass: "title is-2" }, [
           _vm._v(" Välkommen till kunskapsnavet ")
@@ -37400,9 +37408,25 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "subtitle has-text-right" }, [
           _vm._v(
-            " Hitta ditt roll, välj dom taggar som passar till din sökning då ska du hitta rätt!"
+            " Välj ditt roll här nedan och välj sen dom taggar som passar till din sökning, då ska du hitta rätt!"
           )
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", [
+        _c("img", {
+          attrs: { src: "/img/facebook.png", width: "50", height: "50" }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          attrs: { src: "/img/instagram.png", width: "50", height: "50" }
+        })
       ])
     ])
   }
