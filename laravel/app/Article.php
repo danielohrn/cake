@@ -14,4 +14,9 @@ class Article extends Model
     {
       return $this->belongsTo('App\Role');
     }
+
+    protected $hidden = [
+      'tags'
+    ];
+
 }

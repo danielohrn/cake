@@ -11,4 +11,10 @@ class Tag extends Model
     {
       return $this->belongsToMany('App\Article');
     }
+
+
+    protected $hidden = [
+        'created_at', 'updated_at','pivot', 'tags'
+    ];
+
 }
