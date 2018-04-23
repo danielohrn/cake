@@ -12,7 +12,7 @@
 </div>
 <div class='column num2'>
   <h1 class='title is-3 has-text-right'>Hur navigerar jag?</h1>
-  <p class='subtitle has-text-right'> Hitta ditt roll, välj dom taggar som passar till din sökning då ska du hitta rätt!</p>
+  <p class='subtitle has-text-right'> Hitta din roll, välj sedan dom taggar som passar till just din sökning så ska du hitta rätt!</p>
 </div>
 </div>
   <div class="columns role-box is-inline-flex-mobile">
