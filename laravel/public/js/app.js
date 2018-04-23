@@ -37336,7 +37336,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.card[data-v-0d99dc90] {\n  border: 2px solid black;\n}\n", ""]);
+exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n\n", ""]);
 
 // exports
 
@@ -37347,6 +37347,7 @@ exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -37412,7 +37413,9 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-image" }),
+        _c("div", { staticClass: "card-image" }, [
+          _c("img", { attrs: { src: "/img/" + _vm.media, alt: "" } })
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-content" }, [
           _c("div", { staticClass: "media" }, [
@@ -37500,7 +37503,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n}\n", ""]);
+exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n", ""]);
 
 // exports
 
@@ -37653,18 +37656,9 @@ var render = function() {
         [
           _c("overdrive", { attrs: { id: _vm.id } }, [
             _c("div", { staticClass: "role-parent" }, [
-              _c(
-                "p",
-                {
-                  staticClass: "role-mini",
-                  style: { backgroundColor: _vm.color }
-                },
-                [
-                  _vm._v(
-                    "\n            " + _vm._s(_vm.trimRole) + "\n          "
-                  )
-                ]
-              )
+              _c("p", { staticClass: "role-mini" }, [
+                _vm._v("\n            " + _vm._s(_vm.trimRole) + "\n          ")
+              ])
             ])
           ])
         ],
