@@ -139,12 +139,12 @@ h1 {
 .num1 {
   padding: 2em;
   border-top: 2px solid #38ee78;
-  border-left: 2px dotted #38ee78;
+  border-left: 2px solid #38ee78;
   border-bottom: 2px solid #38ee78;
-  border-right: 2px dotted #38ee78;
+
 }
 .num2 {
-  border-right: 2px dotted #38ee78;
+  border-right: 2px solid #38ee78;
   border-bottom: 2px solid #38ee78;
   padding: 2em;
   margin-bottom: 1em;
