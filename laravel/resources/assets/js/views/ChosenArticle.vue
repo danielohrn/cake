@@ -4,7 +4,7 @@
     <div class="column">
       <overdrive v-bind:id="id">
         <div class="role-parent">
-          <p class="role-mini" :style="{backgroundColor: color}">
+          <p class="role-mini">
             {{trimRole}}
           </p>
         </div>
@@ -18,7 +18,7 @@
         </b-field>
       </div>
       <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-primary is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
+        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-dark is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
       </div>
     </div>
   </div>
@@ -137,10 +137,21 @@ export default {
   justify-content: center;
   color: white;
   font-size: 72px;
-  font-weight: 800;
+  font-weight: 500;
+  background-color: #38ee78;
+  color: #000;
 }
 
 .button {
   margin: 0.2em;
+}
+.chosen-tags .button {
+  background-color: #000;
+  color: white;
+}
+.chosen-tags .button:hover {
+  background-color: #38ee78;
+  color: #000;
+  border-color: #38ee78;
 }
 </style>

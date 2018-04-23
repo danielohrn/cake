@@ -37197,7 +37197,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding-top: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding-left: 4em;\n  padding-right: 4em;\n  margin: 0;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  width: 260px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  margin-bottom: 2em;\n}\nh1[data-v-6c0a33b2],\nh2[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.role-item h2[data-v-6c0a33b2] {\ncolor: #000;\npadding: 1em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\nh1[data-v-6c0a33b2] {\n  font-weight: normal;\n  color: white;\n  text-transform: uppercase;\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n}\n.flex[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.flex h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n}\n.flex h2[data-v-6c0a33b2] {\n  margin-bottom: 1.5em;\n}\n.flex h3[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n  margin-left: 1em;\n  padding-bottom: 1em;\n}\n.flex p[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  padding: 2em;\n  border-top: 2px solid #38ee78;\n  border-left: 2px dotted #38ee78;\n  border-bottom: 2px solid #38ee78;\n  border-right: 2px dotted #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px dotted #38ee78;\n  border-bottom: 2px solid #38ee78;\n  padding: 2em;\n  margin-bottom: 1em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n", ""]);
 
 // exports
 
@@ -37242,6 +37242,15 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37307,20 +37316,21 @@ var render = function() {
   return _c("section", { staticClass: "section" }, [
     _vm._m(0),
     _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns padding-x" },
+      { staticClass: "columns role-box is-inline-flex-mobile" },
       _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { key: i },
+          { key: i, staticClass: "column is-desktop is-one-quarter" },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
                 "div",
                 {
-                  staticClass: "role-item is-2",
-                  style: { backgroundColor: role.color },
+                  staticClass: "role-item",
                   on: {
                     click: function($event) {
                       _vm.filter(role, i)
@@ -37328,9 +37338,14 @@ var render = function() {
                   }
                 },
                 [
-                  _c("h2", { staticClass: "title is-3" }, [
-                    _vm._v(_vm._s(role.name))
-                  ])
+                  _c(
+                    "h2",
+                    {
+                      staticClass:
+                        "title is-5 is-uppercase has-text-weight-semibold is-desktop-only"
+                    },
+                    [_vm._v(_vm._s(role.name))]
+                  )
                 ]
               )
             ])
@@ -37360,6 +37375,36 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "columns flex" }, [
+      _c("div", { staticClass: "column num1" }, [
+        _c("h1", { staticClass: "title is-2" }, [
+          _vm._v(" Välkommen till kunskapsnavet ")
+        ]),
+        _vm._v(" "),
+        _c("h3", { staticClass: "subtitle" }, [
+          _vm._v(
+            "Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller."
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column num2" }, [
+        _c("h1", { staticClass: "title is-3 has-text-right" }, [
+          _vm._v("Hur navigerar jag?")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "subtitle has-text-right" }, [
+          _vm._v(
+            " Hitta ditt roll, välj dom taggar som passar till din sökning då ska du hitta rätt!"
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -37406,7 +37451,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.container[data-v-0d99dc90] {\n}\n", ""]);
+exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n\n", ""]);
 
 // exports
 
@@ -37417,6 +37462,7 @@ exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -37472,7 +37518,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex-grow column is-6",
+      staticClass: "flex-grow column is-4",
       attrs: { canCancel: "" },
       on: {
         click: function($event) {
@@ -37482,7 +37528,9 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-image" }),
+        _c("div", { staticClass: "card-image" }, [
+          _c("img", { attrs: { src: "/img/" + _vm.media, alt: "" } })
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-content" }, [
           _c("div", { staticClass: "media" }, [
@@ -37570,7 +37618,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 800;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n", ""]);
+exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n", ""]);
 
 // exports
 
@@ -37724,18 +37772,9 @@ var render = function() {
         [
           _c("overdrive", { attrs: { id: _vm.id } }, [
             _c("div", { staticClass: "role-parent" }, [
-              _c(
-                "p",
-                {
-                  staticClass: "role-mini",
-                  style: { backgroundColor: _vm.color }
-                },
-                [
-                  _vm._v(
-                    "\n            " + _vm._s(_vm.trimRole) + "\n          "
-                  )
-                ]
-              )
+              _c("p", { staticClass: "role-mini" }, [
+                _vm._v("\n            " + _vm._s(_vm.trimRole) + "\n          ")
+              ])
             ])
           ])
         ],
@@ -37783,7 +37822,7 @@ var render = function() {
               "a",
               {
                 key: i,
-                staticClass: "button is-primary is-outlined is-size-7-mobile",
+                staticClass: "button is-dark is-outlined is-size-7-mobile",
                 on: {
                   click: function($event) {
                     _vm.addToTags(i)
@@ -41574,7 +41613,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-background[data-v-0454316e]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.article-card[data-v-0454316e]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.article-img[data-v-0454316e]{\n  width: 100%;\n  height: auto;\n}\n.article-content[data-v-0454316e]{\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar[data-v-0454316e]{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box[data-v-0454316e]{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social[data-v-0454316e]{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nh1[data-v-0454316e]{\n  font-size: 2em;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.modal-background[data-v-0454316e]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.article-card[data-v-0454316e] {\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  border: 4px solid black;\n}\n.article-img[data-v-0454316e] {\n  width: 100%;\n  height: auto;\n}\n.article-content[data-v-0454316e] {\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar[data-v-0454316e] {\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box[data-v-0454316e] {\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social[data-v-0454316e] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n@media only screen and (max-width: 768px) {\n.article-card[data-v-0454316e] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    width: 100%;\n    overflow-y: scroll;\n}\n.article-content[data-v-0454316e] {\n    width: 100%;\n}\n.article-sidebar[data-v-0454316e] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    width: 100%;\n    overflow-y: scroll;\n}\n.social[data-v-0454316e] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n    margin-top: 1em;\n}\n.social img[data-v-0454316e] {\n    width: 30px;\n    height: 30px;\n}\n}\nh1[data-v-0454316e] {\n  font-size: 2em;\n}\n", ""]);
 
 // exports
 
@@ -41618,8 +41657,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'article-modal',
@@ -41658,7 +41695,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("h1", [_vm._v(_vm._s(_vm.title))]),
-        _vm._v("\n      " + _vm._s(_vm.body) + "\n\n      ")
+        _vm._v(" " + _vm._s(_vm.body) + "\n\n    ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "article-sidebar" }, [
