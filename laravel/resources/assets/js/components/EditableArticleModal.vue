@@ -16,7 +16,7 @@
             </b-field>
             <div class="tags">
                 <h3 class="title is-4">Lägg till taggar</h3>
-                <a v-for="(tag, i) in filteredTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
+                <a @click="addToTags(i)" v-for="(tag, i) in filteredTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
             </div>
         </div>
 
@@ -45,6 +45,10 @@ export default {
           console.log(as)
           const filteredTags = filterOutTags(this.chosenArticle, this.availableTags); 
           this.$store.commit('filterTags', filteredTags);   
+      },
+      addToTags(index){
+          const tag = this.filteredTags.splice(index, 1)[0];
+          this.chosenArticle.tags.push(tag.name);
       }
   },
 
