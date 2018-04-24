@@ -74,8 +74,8 @@ export default {
                 this.availableTags = response.data;
                 this.$store.commit('setTags', response.data);
             })
-        }
-    },
+        },
+
     getTags() {
       axios.get('api/tags')
         .then(response => {

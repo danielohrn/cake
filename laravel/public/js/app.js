@@ -37974,11 +37974,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-=======
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
->>>>>>> 6f4bac29386418b58aa84c2269caf16cd54f56c5
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -37989,6 +37985,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -38047,22 +38045,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  methods: {
+  methods: _defineProperty({
     getArticles: function getArticles() {
       var _this = this;
 
-<<<<<<< HEAD
       axios.get('/api/articles').then(function (res) {
         _this.data = res.data;
       });
-=======
-            axios.get('api/tags').then(function (response) {
-                console.log(response);
-                _this2.availableTags = response.data;
-                _this2.$store.commit('setTags', response.data);
-            });
-        }
->>>>>>> 6f4bac29386418b58aa84c2269caf16cd54f56c5
     },
     getTags: function getTags() {
       var _this2 = this;
@@ -38070,9 +38059,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.get('api/tags').then(function (response) {
         console.log(response);
         _this2.availableTags = response.data;
+        _this2.$store.commit('setTags', response.data);
       });
     }
-  },
+  }, 'getTags', function getTags() {
+    var _this3 = this;
+
+    axios.get('api/tags').then(function (response) {
+      console.log(response);
+      _this3.availableTags = response.data;
+    });
+  }),
   mounted: function mounted() {
     this.getArticles();
     this.getTags();
