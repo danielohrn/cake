@@ -2,8 +2,9 @@
   <modal v-if="this.isModalOpen">
             
         <div class="article-content">
-            <input class="input" type="text" v-model="article.title"/>
-            <textarea class="textarea is-primary" cols="30" rows="20" v-model="article.body"></textarea>
+            <h3 class="title is-4">Skapa/ändra inlägg</h3>
+            <input class="input" type="text" v-model="article.title" placeholder="Skapa rubrik.."/>
+            <textarea class="textarea is-primary" cols="30" rows="20" v-model="article.body" placeholder="Skriv text.."></textarea>
             <button @click="updateArticle" class="button is-primary">Spara</button>
         </div>
         <div class="article-sidebar">
@@ -14,7 +15,7 @@
                 </b-taginput>
             </b-field>
             <div class="tags">
-                <h3 class="title is-4">Lägg till taggar</h3>
+                <h3 class="title is-6">Lägg till taggar</h3>
                 <a v-for="(tag, i) in availableTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
             </div>
         </div>

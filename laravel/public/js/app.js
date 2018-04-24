@@ -16336,15 +16336,18 @@ if (token) {
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
+var apply = Function.prototype.apply;
 
 // DOM APIs, for completeness
 
 exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
 };
 exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
 };
 exports.clearTimeout =
 exports.clearInterval = function(timeout) {
@@ -16359,7 +16362,7 @@ function Timeout(id, clearFn) {
 }
 Timeout.prototype.unref = Timeout.prototype.ref = function() {};
 Timeout.prototype.close = function() {
-  this._clearFn.call(window, this._id);
+  this._clearFn.call(scope, this._id);
 };
 
 // Does not start the time, just sets up the members needed.
@@ -16387,7 +16390,7 @@ exports._unrefActive = exports.active = function(item) {
 
 // setimmediate attaches itself to the global object
 __webpack_require__(26);
-// On some exotic environments, it's not clear which object `setimmeidate` was
+// On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
 exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
@@ -42016,6 +42019,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42058,6 +42062,10 @@ var render = function() {
   return this.isModalOpen
     ? _c("modal", [
         _c("div", { staticClass: "article-content" }, [
+          _c("h3", { staticClass: "title is-4" }, [
+            _vm._v("Skapa/ändra inlägg")
+          ]),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -42068,7 +42076,7 @@ var render = function() {
               }
             ],
             staticClass: "input",
-            attrs: { type: "text" },
+            attrs: { type: "text", placeholder: "Skapa rubrik.." },
             domProps: { value: _vm.article.title },
             on: {
               input: function($event) {
@@ -42090,7 +42098,7 @@ var render = function() {
               }
             ],
             staticClass: "textarea is-primary",
-            attrs: { cols: "30", rows: "20" },
+            attrs: { cols: "30", rows: "20", placeholder: "Skriv text.." },
             domProps: { value: _vm.article.body },
             on: {
               input: function($event) {
@@ -42131,7 +42139,7 @@ var render = function() {
               "div",
               { staticClass: "tags" },
               [
-                _c("h3", { staticClass: "title is-4" }, [
+                _c("h3", { staticClass: "title is-6" }, [
                   _vm._v("Lägg till taggar")
                 ]),
                 _vm._v(" "),
