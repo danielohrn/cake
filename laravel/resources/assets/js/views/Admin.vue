@@ -5,11 +5,11 @@
     <table class="table">
         <thead>
             <tr>
+              <th>
+
+              </th>
                 <th>
                     Rubrik
-                </th>
-                <th>
-                    Body
                 </th>
                 <th>
                     Date
@@ -35,7 +35,7 @@
 export default {
   data() {
       return {
-            availableTags: [], 
+            availableTags: [],
             data: [],
             columns: [
                 {
@@ -54,22 +54,22 @@ export default {
                 {
                     field: 'author',
                     label: 'Author',
-                }, 
+                },
                 {
-                    field: 'articleTags', 
+                    field: 'articleTags',
                     label: 'Tags'
                 }
             ]
         }
-    }, 
+    },
 
     methods: {
         getArticles(){
             axios.get('/api/articles')
                 .then(res => {
-                    this.data = res.data;  
+                    this.data = res.data;
                 })
-        }, 
+        },
         getTags(){
             axios.get('api/tags')
             .then(response => {
@@ -79,12 +79,13 @@ export default {
         }
     },
     mounted(){
-        this.getArticles(); 
-        this.getTags(); 
+        this.getArticles();
+        this.getTags();
     }
 }
 </script>
 
 <style>
+
 
 </style>

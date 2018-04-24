@@ -1,10 +1,10 @@
 <template>
-    <tr @click="toggleModal">
+    <tr>
         <td>
-            {{title}}
+          <a @click="toggleModal" class="button">Edit</a>
         </td>
         <td>
-            <span class="article-body">{{body}}</span>
+            {{title}}
         </td>
         <td>
             {{created_at}}
@@ -13,27 +13,28 @@
             {{author}}
         </td>
         <td>
-            <ul>
-                <li v-for="(tag, i) in articleTags" :key="i">{{tag}}</li>   
-            </ul>
+            <!-- <ul> -->
+              <b-tag v-for="(tag, i) in articleTags" :key="i" rounded>{{tag}}</b-tag>
+                <!-- <li v-for="(tag, i) in articleTags" :key="i">{{tag}}</li> -->
+            <!-- </ul> -->
         </td>
 
     </tr>
 </template>
 
 <script>
-import EditableArticleModal from './EditableArticleModal.vue'; 
+import EditableArticleModal from './EditableArticleModal.vue';
 import { mapState } from 'vuex';
 export default {
 
   props: ['id','title', 'body', 'created_at', 'author', 'articleTags', 'availableTags'],
-  
+
   data(){
       return {
       }
   },
 
-  computed: mapState(['modalOpen']), 
+  computed: mapState(['modalOpen']),
 
   methods: {
       toggleModal(){
@@ -44,15 +45,15 @@ export default {
 
   destroyed(){
       console.log('destroyed')
-     this.$store.commit('toggleModal', {action: false}); 
+     this.$store.commit('toggleModal', {action: false});
   }
 }
 </script>
 
 <style>
 td span.article-body {
-    display: block; 
-    height: 100px; 
+    display: block;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -86,11 +87,17 @@ td span.article-body {
 
 
 }
+.button{
+  background-color: #38ee78;
+  color: #000;
+  border: none;
+}
+.table td {
+    vertical-align: center;
+}
 
 
 h1{
   font-size: 2em;
 }
 </style>
-
-

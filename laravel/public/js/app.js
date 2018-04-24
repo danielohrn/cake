@@ -37943,7 +37943,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38082,9 +38082,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("\n                    Rubrik\n                ")]),
+        _c("th"),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Body\n                ")]),
+        _c("th", [_vm._v("\n                    Rubrik\n                ")]),
         _vm._v(" "),
         _c("th", [_vm._v("\n                    Date\n                ")]),
         _vm._v(" "),
@@ -41880,7 +41880,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\ntd span.article-body {\n    display: block; \n    height: 100px; \n    overflow: hidden;\n}\n.article-img{\n  width: 100%;\n  height: auto;\n}\n.article-content{\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nh1{\n  font-size: 2em;\n}\n", ""]);
+exports.push([module.i, "\ntd span.article-body {\n    display: block;\n    height: 100px;\n    overflow: hidden;\n}\n.article-img{\n  width: 100%;\n  height: auto;\n}\n.article-content{\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.button{\n  background-color: #38ee78;\n  color: #000;\n  border: none;\n}\n.table td {\n    vertical-align: center;\n}\nh1{\n  font-size: 2em;\n}\n", ""]);
 
 // exports
 
@@ -41894,6 +41894,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(5);
+//
 //
 //
 //
@@ -42168,25 +42169,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("tr", { on: { click: _vm.toggleModal } }, [
-    _c("td", [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]),
-    _vm._v(" "),
+  return _c("tr", [
     _c("td", [
-      _c("span", { staticClass: "article-body" }, [_vm._v(_vm._s(_vm.body))])
+      _c("a", { staticClass: "button", on: { click: _vm.toggleModal } }, [
+        _vm._v("Edit")
+      ])
     ]),
+    _vm._v(" "),
+    _c("td", [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]),
     _vm._v(" "),
     _c("td", [_vm._v("\n        " + _vm._s(_vm.created_at) + "\n    ")]),
     _vm._v(" "),
     _c("td", [_vm._v("\n        " + _vm._s(_vm.author) + "\n    ")]),
     _vm._v(" "),
-    _c("td", [
-      _c(
-        "ul",
-        _vm._l(_vm.articleTags, function(tag, i) {
-          return _c("li", { key: i }, [_vm._v(_vm._s(tag))])
-        })
-      )
-    ])
+    _c(
+      "td",
+      _vm._l(_vm.articleTags, function(tag, i) {
+        return _c("b-tag", { key: i, attrs: { rounded: "" } }, [
+          _vm._v(_vm._s(tag))
+        ])
+      })
+    )
   ])
 }
 var staticRenderFns = []
