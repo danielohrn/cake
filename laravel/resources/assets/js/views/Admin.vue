@@ -60,12 +60,21 @@ export default {
     }
   },
 
-  methods: {
-    getArticles() {
-      axios.get('/api/articles')
-        .then(res => {
-          this.data = res.data;
-        })
+    methods: {
+        getArticles(){
+            axios.get('/api/articles')
+                .then(res => {
+                    this.data = res.data;
+                })
+        },
+        getTags(){
+            axios.get('api/tags')
+            .then(response => {
+                console.log(response)
+                this.availableTags = response.data;
+                this.$store.commit('setTags', response.data);
+            })
+        }
     },
     getTags() {
       axios.get('api/tags')
