@@ -10,7 +10,7 @@
         </div>
       </overdrive>
     </div>
-    <div class="column is-10">
+    <div class="column is-10 is-desktop is-mobile">
       <div class="search-box margin-bottom">
         <b-field>
           <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="columns flex-wrap margin-x" @click="isCardModalActive = true">
+  <div class="article-columns" @click="isCardModalActive = true">
     <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
 
     <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
@@ -118,14 +118,14 @@ export default {
 }
 </script>
 <style scoped>
-.flex-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .margin-x {
   margin-right: 1em;
-
+}
+.article-columns {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
 
 .margin-bottom {
@@ -154,4 +154,6 @@ export default {
   color: #000;
   border-color: #38ee78;
 }
+
+
 </style>

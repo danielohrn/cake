@@ -37475,7 +37475,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-grow[data-v-0d99dc90] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n}\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n\n", ""]);
+exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n.article-column[data-v-0d99dc90] {\n  width: 50vh;\n  height: auto;\n  margin: 1em;\n}\n@media only screen and (max-width: 1300px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n@media only screen and (max-width: 965px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n@media only screen and (max-width: 768px) {\n.article-column[data-v-0d99dc90] {\n      width: 35vh;\n}\n}\n@media only screen and (max-width: 580px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n", ""]);
 
 // exports
 
@@ -37542,7 +37542,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex-grow column is-4",
+      staticClass: "article-column",
       attrs: { canCancel: "" },
       on: {
         click: function($event) {
@@ -37642,7 +37642,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n", ""]);
+exports.push([module.i, "\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n}\n.article-columns[data-v-7290ec61] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n\n\n", ""]);
 
 // exports
 
@@ -37805,7 +37805,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "column is-10" }, [
+      _c("div", { staticClass: "column is-10 is-desktop is-mobile" }, [
         _c(
           "div",
           { staticClass: "search-box margin-bottom" },
@@ -37863,7 +37863,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "columns flex-wrap margin-x",
+        staticClass: "article-columns",
         on: {
           click: function($event) {
             _vm.isCardModalActive = true
