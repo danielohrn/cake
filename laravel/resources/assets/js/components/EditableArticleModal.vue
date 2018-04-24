@@ -9,6 +9,7 @@
         <div class="article-sidebar">
             <b-field label="Taggar">
                 <b-taginput
+                    @remove="filterTags($event)"
                     maxlength="10"
                     :value="chosenArticle.tags">
                 </b-taginput>
@@ -24,6 +25,7 @@
 
 <script>
 import {mapState} from 'vuex';
+import {filterOutTags} from '../functions'; 
 
 export default {
   props: ['availableTags'], 
@@ -39,8 +41,10 @@ export default {
           axios.patch('/api/articles', this.chosenArticle)
           .then(response => console.log(response.data))
       },
-      consoleLog(){
-          console.log(this.availableTags)
+      filterTags(as){
+          console.log(as)
+          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags); 
+          this.$store.commit('filterTags', filteredTags);   
       }
   },
 
