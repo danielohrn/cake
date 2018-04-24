@@ -1,6 +1,6 @@
 <template>
 <section class="section">
-  <div class="columns margin-x">
+  <div class="columns">
     <div class="column">
       <overdrive v-bind:id="id">
         <div class="role-parent">
@@ -118,9 +118,6 @@ export default {
 }
 </script>
 <style scoped>
-.margin-x {
-  margin-right: 1em;
-}
 .article-columns {
   display: inline-flex;
   flex-wrap: wrap;
@@ -154,6 +151,5 @@ export default {
   color: #000;
   border-color: #38ee78;
 }
-
 
 </style>

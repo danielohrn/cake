@@ -37642,7 +37642,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n}\n.article-columns[data-v-7290ec61] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.article-columns[data-v-7290ec61] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n\n", ""]);
 
 // exports
 
@@ -37789,7 +37789,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section" }, [
-    _c("div", { staticClass: "columns margin-x" }, [
+    _c("div", { staticClass: "columns" }, [
       _c(
         "div",
         { staticClass: "column" },
