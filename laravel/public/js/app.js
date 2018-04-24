@@ -37408,7 +37408,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "subtitle has-text-right" }, [
           _vm._v(
-            " Välj ditt roll här nedan och välj sen dom taggar som passar till din sökning, då ska du hitta rätt!"
+            " Hitta din roll, välj sedan dom taggar som passar till just din sökning så ska du hitta rätt!"
           )
         ])
       ])
