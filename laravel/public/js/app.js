@@ -42088,6 +42088,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.patch('/api/articles', this.chosenArticle).then(function (response) {
                 return console.log(response.data);
             });
+
+            // Closes modal after save 
+            this.$store.commit('toggleModal', false);
         },
         filterTags: function filterTags(as) {
             console.log(as);

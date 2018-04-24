@@ -40,6 +40,9 @@ export default {
       updateArticle(){
           axios.patch('/api/articles', this.chosenArticle)
           .then(response => console.log(response.data))
+          
+          // Closes modal after save 
+          this.$store.commit('toggleModal', false); 
       },
       filterTags(as){
           console.log(as)
