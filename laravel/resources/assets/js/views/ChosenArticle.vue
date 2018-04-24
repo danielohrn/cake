@@ -1,6 +1,6 @@
 <template>
 <section class="section">
-  <div class="columns margin-x">
+  <div class="columns">
     <div class="column">
       <overdrive v-bind:id="id">
         <div class="role-parent">
@@ -10,7 +10,7 @@
         </div>
       </overdrive>
     </div>
-    <div class="column is-10">
+    <div class="column is-10 is-desktop is-mobile">
       <div class="search-box margin-bottom">
         <b-field>
           <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="columns flex-wrap margin-x" @click="isCardModalActive = true">
+  <div class="article-columns" @click="isCardModalActive = true">
     <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
 
     <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Articles from './Articles'; 
+import Articles from './Articles';
 
 export default {
   name: 'ChosenArticle',
@@ -65,7 +65,7 @@ export default {
         }
       }
       return true;
-    }, 
+    },
     removeTag($event) {
       // Moves tag from 'active' to 'available'
       this.tags = this.tags.filter(tag => tag !== $event);
@@ -118,14 +118,11 @@ export default {
 }
 </script>
 <style scoped>
-.flex-wrap {
-  display: flex;
+.article-columns {
+  display: inline-flex;
   flex-wrap: wrap;
-}
-
-.margin-x {
-  margin-right: 1em;
-  margin-left: 1em;
+  width: 100%;
+  justify-content: center;
 }
 
 .margin-bottom {
@@ -154,4 +151,5 @@ export default {
   color: #000;
   border-color: #38ee78;
 }
+
 </style>

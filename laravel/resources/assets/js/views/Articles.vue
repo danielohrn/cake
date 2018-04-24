@@ -1,5 +1,5 @@
 <template>
-  <div canCancel @click="toggleModal($event)" class="flex-grow column is-4">
+  <div canCancel @click="toggleModal($event)" class="article-column">
       <div  class="card">
         <div class="card-image">
           <img v-bind:src="`/img/${media}`" alt="">
@@ -46,13 +46,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.flex-grow {
-  display: flex;
-  flex-grow: 1;
-}
 .card-image{
   object-fit: none;
+}
+.article-column {
+  width: 50vh;
+  height: auto;
+  margin: 1em;
 
 }
-
+@media only screen and (max-width: 1300px) {
+  .article-column {
+      width: 40vh;
+  }
+}
+@media only screen and (max-width: 965px) {
+  .article-column {
+      width: 40vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .article-column {
+      width: 35vh;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .article-column {
+      width: 40vh;
+  }
+}
 </style>
