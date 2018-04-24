@@ -37408,7 +37408,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "subtitle has-text-right" }, [
           _vm._v(
-            " Välj ditt roll här nedan och välj sen dom taggar som passar till din sökning, då ska du hitta rätt!"
+            " Hitta din roll, välj sedan dom taggar som passar till just din sökning så ska du hitta rätt!"
           )
         ])
       ])
@@ -42028,21 +42028,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        copyStore: function copyStore() {
-            this.article = this.chosenArticle;
-        },
         updateArticle: function updateArticle() {
-            axios.patch('/api/articles', this.article).then(function (response) {
+            axios.patch('/api/articles', this.chosenArticle).then(function (response) {
                 return console.log(response.data);
             });
         },
         consoleLog: function consoleLog() {
             console.log(this.availableTags);
         }
-    },
-    mounted: function mounted() {
-        this.copyStore();
-        this.consoleLog();
     }
 });
 
@@ -42062,19 +42055,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.article.title,
-                expression: "article.title"
+                value: _vm.chosenArticle.title,
+                expression: "chosenArticle.title"
               }
             ],
             staticClass: "input",
             attrs: { type: "text" },
-            domProps: { value: _vm.article.title },
+            domProps: { value: _vm.chosenArticle.title },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.article, "title", $event.target.value)
+                _vm.$set(_vm.chosenArticle, "title", $event.target.value)
               }
             }
           }),
@@ -42084,19 +42077,19 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.article.body,
-                expression: "article.body"
+                value: _vm.chosenArticle.body,
+                expression: "chosenArticle.body"
               }
             ],
             staticClass: "textarea is-primary",
             attrs: { cols: "30", rows: "20" },
-            domProps: { value: _vm.article.body },
+            domProps: { value: _vm.chosenArticle.body },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.article, "body", $event.target.value)
+                _vm.$set(_vm.chosenArticle, "body", $event.target.value)
               }
             }
           }),
@@ -42120,7 +42113,7 @@ var render = function() {
               { attrs: { label: "Taggar" } },
               [
                 _c("b-taginput", {
-                  attrs: { maxlength: "10", value: _vm.article.tags }
+                  attrs: { maxlength: "10", value: _vm.chosenArticle.tags }
                 })
               ],
               1
