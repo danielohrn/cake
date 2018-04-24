@@ -75,6 +75,7 @@ export default {
             .then(response => {
                 console.log(response)
                 this.availableTags = response.data;
+                this.$store.commit('setTags', response.data); 
             })
         }
     },

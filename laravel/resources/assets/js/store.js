@@ -23,8 +23,9 @@ export default new Vuex.Store({
       body: '',
       tags: []
     },
-    modalOpen: false 
-
+    modalOpen: false, 
+    availableTags: [], 
+    filteredTags: [] 
   },
   plugins: [vuexLocal.plugin],
   mutations: {
@@ -41,6 +42,12 @@ export default new Vuex.Store({
     },
     updateModal(state, payload){
       state.chosenArticle = payload;
+    },
+    setTags(state, payload){
+      state.availableTags = payload; 
+    }, 
+    filterTags(state, payload){
+      state.filteredTags = payload; 
     }
   }
 });

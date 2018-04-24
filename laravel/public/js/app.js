@@ -37943,7 +37943,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38028,6 +38028,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('api/tags').then(function (response) {
                 console.log(response);
                 _this2.availableTags = response.data;
+                _this2.$store.commit('setTags', response.data);
             });
         }
     },
@@ -38643,8 +38644,9 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
       body: '',
       tags: []
     },
-    modalOpen: false
-
+    modalOpen: false,
+    availableTags: [],
+    filteredTags: []
   },
   plugins: [vuexLocal.plugin],
   mutations: {
@@ -38661,6 +38663,12 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
     },
     updateModal: function updateModal(state, payload) {
       state.chosenArticle = payload;
+    },
+    setTags: function setTags(state, payload) {
+      state.availableTags = payload;
+    },
+    filterTags: function filterTags(state, payload) {
+      state.filteredTags = payload;
     }
   }
 }));
@@ -41894,6 +41902,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions__ = __webpack_require__(95);
 //
 //
 //
@@ -41917,24 +41926,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['id', 'title', 'body', 'created_at', 'author', 'articleTags', 'availableTags'],
+    props: ['id', 'title', 'body', 'created_at', 'author', 'articleTags'],
 
     data: function data() {
         return {};
     },
 
 
-    computed: Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapState */])(['modalOpen']),
+    computed: Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapState */])(['modalOpen', 'availableTags', 'filteredTags', 'chosenArticle']),
 
     methods: {
         toggleModal: function toggleModal() {
             this.$store.commit('toggleModal', { action: true });
             this.$store.commit('updateModal', { id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author });
+            console.log(this.$store);
+            var filteredTags = Object(__WEBPACK_IMPORTED_MODULE_2__functions__["a" /* filterOutTags */])(this.chosenArticle, this.availableTags);
+            this.$store.commit('filterTags', filteredTags);
         }
     },
 
@@ -42017,9 +42031,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['availableTags'],
-    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['chosenArticle']),
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['chosenArticle', 'filteredTags']),
     data: function data() {
         return {
             isModalOpen: true,
@@ -42036,6 +42051,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         consoleLog: function consoleLog() {
             console.log(this.availableTags);
         }
+    },
+
+    updated: function updated() {},
+    mounted: function mounted() {
+        this.filteredTags = this.availableTags;
+        console.log('mounted');
     }
 });
 
@@ -42127,7 +42148,7 @@ var render = function() {
                   _vm._v("Lägg till taggar")
                 ]),
                 _vm._v(" "),
-                _vm._l(_vm.availableTags, function(tag, i) {
+                _vm._l(_vm.filteredTags, function(tag, i) {
                   return _c(
                     "a",
                     { key: i, staticClass: "button is-outlined is-primary" },
@@ -42364,6 +42385,38 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 94 */,
+/* 95 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export default */
+/* harmony export (immutable) */ __webpack_exports__["a"] = filterOutTags;
+function filter(articles, tags) {
+    var _this = this;
+
+    return articles.filter(function (article) {
+        return _this.isMatch(tags, article);
+    });
+}
+
+function isMatch(filters, article) {
+    for (var i = 0; i < filters.length; i++) {
+        if (article.articleTags.indexOf(filters[i]) === -1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function filterOutTags(article, allTags) {
+    console.log(allTags, article);
+    return allTags.filter(function (tag) {
+        return article.tags.indexOf(tag.name) === -1;
+    });
+}
 
 /***/ })
 /******/ ]);

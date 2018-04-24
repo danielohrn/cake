@@ -15,7 +15,7 @@
             </b-field>
             <div class="tags">
                 <h3 class="title is-4">Lägg till taggar</h3>
-                <a v-for="(tag, i) in availableTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
+                <a v-for="(tag, i) in filteredTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
             </div>
         </div>
 
@@ -24,9 +24,10 @@
 
 <script>
 import {mapState} from 'vuex';
+
 export default {
   props: ['availableTags'], 
-  computed: mapState(['chosenArticle']), 
+  computed: mapState(['chosenArticle', 'filteredTags']), 
   data(){
       return {
           isModalOpen: true,
@@ -41,6 +42,14 @@ export default {
       consoleLog(){
           console.log(this.availableTags)
       }
+  },
+
+  updated(){
+  },
+
+  mounted(){
+      this.filteredTags = this.availableTags; 
+      console.log('mounted')
   }
 }
 </script>
