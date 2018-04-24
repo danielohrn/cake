@@ -37197,7 +37197,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n.main-column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.main-column h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n  font-weight: normal;\n  text-transform: uppercase;\n}\n.main-column h3[data-v-6c0a33b2]  {\n  margin-left: 1em;\n  padding-bottom: 1em;\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2], .num2[data-v-6c0a33b2] {\npadding: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  margin-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\n.role-item h2[data-v-6c0a33b2] {\ncolor: #000;\npadding: 1em;\npadding-bottom: 1em;\n}\n.role-item h2[data-v-6c0a33b2]:hover:after {\n  content: \"\";\n   display: -webkit-box;\n   display: -ms-flexbox;\n   display: flex;\n   margin: 0 auto;\n   width: 50%;\n   padding-top: 20px;\n   border-bottom: 3px solid #000;\n   text-transform: lowercase;\n   color: white;\n}\nh1[data-v-6c0a33b2] {\n  color: white;\n}\nfooter[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #000;\n  color: white;\n  padding: 2em;\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n      width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n      padding: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n      font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n      font-size: 2.5vh;\n}\n.main-column h3[data-v-6c0a33b2], p[data-v-6c0a33b2] {\n      padding: 0;\n      margin: 0;\n      font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n      border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n      border-top: none;\n}\n}\n.flex[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.flex h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n}\n.flex h2[data-v-6c0a33b2] {\n  margin-bottom: 1.5em;\n}\n.flex h3[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n  margin-left: 1em;\n  padding-bottom: 1em;\n}\n.flex p[data-v-6c0a33b2] {\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  padding: 2em;\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  padding: 2em;\n  margin-bottom: 1em;\n}\n.role-box[data-v-6c0a33b2] {\n  margin-bottom: 4em;\n}\n\n", ""]);
+exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n  margin-bottom: 2em;\n}\n.main-column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.main-column h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n  font-weight: normal;\n  text-transform: uppercase;\n}\n.main-column h3[data-v-6c0a33b2] {\n  margin-left: 1em;\n  padding-bottom: 1em;\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2],\n.num2[data-v-6c0a33b2] {\n  padding: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  margin-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\n.role-item h2[data-v-6c0a33b2] {\n  color: #000;\n  padding: 1em;\n  padding-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2]:hover:after {\n  content: \"\";\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  width: 20%;\n  border-bottom: 3px solid #000;\n  text-transform: lowercase;\n  color: white;\n}\nh1[data-v-6c0a33b2] {\n  color: white;\n}\nfooter[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #000;\n  color: white;\n  padding: 2em;\n}\n@media only screen and (max-width: 1138px) {\ndiv[data-v-6c0a33b2] {\n    margin-right: 0;\n}\n.role-item h2[data-v-6c0a33b2]{\n    font-size: 2vh;\n}\n.role-box[data-v-6c0a33b2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1.5em;\n    margin: 0;\n}\n}\n@media only screen and (max-width: 819px) {\n.role-item h2[data-v-6c0a33b2]{\n    font-size: 2vh;\n}\n.role-box[data-v-6c0a33b2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1.5em;\n    margin: 0;\n}\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n    width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 751px) {\n.role-item[data-v-6c0a33b2] {\n    width: 150px;\n    height: 150px;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 631px) {\n.role-item[data-v-6c0a33b2] {\n    width: 140px;\n    height: 140px;\n    margin: 0;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 591px) {\n.role-item[data-v-6c0a33b2] {\n    width: 130px;\n    height: 130px;\n    margin: 0 !important;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 551px) {\n.role-item[data-v-6c0a33b2] {\n    width: 120px;\n    height: 120px;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 511px) {\n.role-item[data-v-6c0a33b2] {\n    width: 200px;\n    height: 200px;\n    margin: 0;\n}\ndiv[data-v-6c0a33b2] {\n    margin: 0;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 100%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 431px) {\n.role-item[data-v-6c0a33b2] {\n    width: 35vh;\n    height: 35vh;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 70%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 400px) {\n.role-item[data-v-6c0a33b2] {\n    width: 25vh;\n    height: 25vh;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 70%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -37326,17 +37326,17 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns role-box is-inline-flex-mobile" },
+      { staticClass: "columns is-inline-flex-mobile" },
       _vm._l(_vm.allRoles, function(role, i) {
         return _c(
           "div",
-          { key: i, staticClass: "column is-desktop is-one-quarter" },
+          { key: i, staticClass: "column is-one-quarter" },
           [
             _c("overdrive", { attrs: { id: i, duration: 350 } }, [
               _c(
                 "div",
                 {
-                  staticClass: "role-item",
+                  staticClass: "is-mobile role-item",
                   on: {
                     click: function($event) {
                       _vm.filter(role, i)
@@ -37408,7 +37408,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", { staticClass: "subtitle has-text-right" }, [
           _vm._v(
-            " Välj ditt roll här nedan och välj sen dom taggar som passar till din sökning, då ska du hitta rätt!"
+            " Hitta din roll, välj sedan dom taggar som passar till just din sökning så ska du hitta rätt!"
           )
         ])
       ])
@@ -37642,7 +37642,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n  margin-left: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n", ""]);
+exports.push([module.i, "\n.flex-wrap[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.margin-x[data-v-7290ec61] {\n  margin-right: 1em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n", ""]);
 
 // exports
 
@@ -37943,7 +37943,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -37985,56 +37985,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            availableTags: [],
-            data: [],
-            columns: [{
-                field: 'title',
-                label: 'Rubrik'
-            }, {
-                field: 'body',
-                label: 'Content'
-            }, {
-                field: 'created_at',
-                label: 'Date',
-                centered: true
-            }, {
-                field: 'author',
-                label: 'Author'
-            }, {
-                field: 'articleTags',
-                label: 'Tags'
-            }]
-        };
+  data: function data() {
+    return {
+      availableTags: [],
+      data: [],
+      columns: [{
+        field: 'title',
+        label: 'Rubrik'
+      }, {
+        field: 'body',
+        label: 'Content'
+      }, {
+        field: 'created_at',
+        label: 'Date',
+        centered: true
+      }, {
+        field: 'author',
+        label: 'Author'
+      }, {
+        field: 'articleTags',
+        label: 'Tags'
+      }]
+    };
+  },
+
+
+  methods: {
+    getArticles: function getArticles() {
+      var _this = this;
+
+      axios.get('/api/articles').then(function (res) {
+        _this.data = res.data;
+      });
     },
+    getTags: function getTags() {
+      var _this2 = this;
 
-
-    methods: {
-        getArticles: function getArticles() {
-            var _this = this;
-
-            axios.get('/api/articles').then(function (res) {
-                _this.data = res.data;
-            });
-        },
-        getTags: function getTags() {
-            var _this2 = this;
-
-            axios.get('api/tags').then(function (response) {
-                console.log(response);
-                _this2.availableTags = response.data;
-            });
-        }
-    },
-    mounted: function mounted() {
-        this.getArticles();
-        this.getTags();
+      axios.get('api/tags').then(function (response) {
+        console.log(response);
+        _this2.availableTags = response.data;
+      });
     }
+  },
+  mounted: function mounted() {
+    this.getArticles();
+    this.getTags();
+  }
 });
 
 /***/ }),
@@ -38082,15 +38080,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("\n                    Rubrik\n                ")]),
+        _c("th", [_vm._v("\n          Rubrik\n        ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Body\n                ")]),
+        _c("th", [_vm._v("\n          Body\n        ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Date\n                ")]),
+        _c("th", [_vm._v("\n          Date\n        ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Author\n                ")]),
+        _c("th", [_vm._v("\n          Author\n        ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Tags\n                ")])
+        _c("th", [_vm._v("\n          Tags\n        ")])
       ])
     ])
   }

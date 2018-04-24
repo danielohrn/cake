@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Articles from './Articles'; 
+import Articles from './Articles';
 
 export default {
   name: 'ChosenArticle',
@@ -65,7 +65,7 @@ export default {
         }
       }
       return true;
-    }, 
+    },
     removeTag($event) {
       // Moves tag from 'active' to 'available'
       this.tags = this.tags.filter(tag => tag !== $event);
@@ -125,7 +125,7 @@ export default {
 
 .margin-x {
   margin-right: 1em;
-  margin-left: 1em;
+
 }
 
 .margin-bottom {
