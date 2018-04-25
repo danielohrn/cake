@@ -2,8 +2,9 @@
   <modal v-if="this.isModalOpen">
 
         <div class="article-content">
-            <input class="input" type="text" v-model="chosenArticle.title"/>
-            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body"></textarea>
+            <h3 class="title is-4">Skapa/ändra inlägg</h3>
+            <input class="input" type="text" v-model="chosenArticle.title" placeholder="Skapa rubrik..." />
+            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
             <button @click="updateArticle" class="button is-primary">Spara</button>
         </div>
         <div class="article-sidebar">

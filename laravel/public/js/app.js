@@ -37943,7 +37943,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -37956,7 +37956,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -41933,7 +41932,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -42039,6 +42037,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -42091,6 +42090,10 @@ var render = function() {
   return this.isModalOpen
     ? _c("modal", [
         _c("div", { staticClass: "article-content" }, [
+          _c("h3", { staticClass: "title is-4" }, [
+            _vm._v("Skapa/ändra inlägg")
+          ]),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -42101,7 +42104,7 @@ var render = function() {
               }
             ],
             staticClass: "input",
-            attrs: { type: "text" },
+            attrs: { type: "text", placeholder: "Skapa rubrik..." },
             domProps: { value: _vm.chosenArticle.title },
             on: {
               input: function($event) {
@@ -42123,7 +42126,7 @@ var render = function() {
               }
             ],
             staticClass: "textarea is-primary",
-            attrs: { cols: "30", rows: "20" },
+            attrs: { cols: "30", rows: "20", placeholder: "Skriv text..." },
             domProps: { value: _vm.chosenArticle.body },
             on: {
               input: function($event) {

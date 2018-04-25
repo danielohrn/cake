@@ -1,10 +1,9 @@
 <template>
 <div class="section">
-    <!-- <b-table :data="data" :columns="columns"></b-table> -->
     <table class="table">
         <thead>
             <tr>
-              <th> 
+              <th>
 
               </th>
                 <th>

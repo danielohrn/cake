@@ -13,10 +13,9 @@
             {{author}}
         </td>
         <td>
-            <!-- <ul> -->
+
               <b-tag v-for="(tag, i) in articleTags" :key="i" rounded>{{tag}}</b-tag>
-                <!-- <li v-for="(tag, i) in articleTags" :key="i">{{tag}}</li> -->
-            <!-- </ul> -->
+
         </td>
 
     </tr>
