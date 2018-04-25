@@ -12,3 +12,11 @@ function isMatch(filters, article) {
     }
     return true;
 }
+
+
+export function filterOutTags (article, allTags) {
+    console.log(allTags, article)
+    return allTags.filter(tag => {
+        return article.tags.indexOf(tag.name) === -1; 
+    })
+}

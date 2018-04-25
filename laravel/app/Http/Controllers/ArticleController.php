@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Tag;
 
 class ArticleController extends Controller
 {
@@ -61,10 +62,20 @@ class ArticleController extends Controller
      */
     public function update(Request $request)
     {
+        $tags = [];
+        foreach($request->tags as $tag){
+            $tag = Tag::where('name', $tag)->first();
+            $tag = $tag->id;
+            array_push($tags, $tag);
+        }
+
+        
         $article = Article::find($request->id);
+        $article->tags()->sync($tags);
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();
+
         
     }
 

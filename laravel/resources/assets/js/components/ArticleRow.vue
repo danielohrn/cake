@@ -25,21 +25,26 @@
 <script>
 import EditableArticleModal from './EditableArticleModal.vue';
 import { mapState } from 'vuex';
+import {filterOutTags} from '../functions';
+
 export default {
 
-  props: ['id','title', 'body', 'created_at', 'author', 'articleTags', 'availableTags'],
+  props: ['id','title', 'body', 'created_at', 'author', 'articleTags'],
 
   data(){
       return {
       }
   },
 
-  computed: mapState(['modalOpen']),
+  computed: mapState(['modalOpen', 'availableTags', 'filteredTags', 'chosenArticle']),
 
   methods: {
       toggleModal(){
           this.$store.commit('toggleModal', {action: true});
           this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
+          console.log(this.$store)
+          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
+          this.$store.commit('filterTags', filteredTags);
       }
   },
 

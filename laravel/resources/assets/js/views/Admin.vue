@@ -1,5 +1,4 @@
 <template>
-
 <div class="section">
     <!-- <b-table :data="data" :columns="columns"></b-table> -->
     <table class="table">
@@ -28,7 +27,6 @@
     </table>
     <EditableArticleModal :availableTags="availableTags" />
 </div>
-
 </template>
 
 <script>
@@ -75,13 +73,22 @@ export default {
             .then(response => {
                 console.log(response)
                 this.availableTags = response.data;
+                this.$store.commit('setTags', response.data);
             })
-        }
-    },
-    mounted(){
-        this.getArticles();
-        this.getTags();
+        },
+
+    getTags() {
+      axios.get('api/tags')
+        .then(response => {
+          console.log(response)
+          this.availableTags = response.data;
+        })
     }
+  },
+  mounted() {
+    this.getArticles();
+    this.getTags();
+  }
 }
 </script>
 
