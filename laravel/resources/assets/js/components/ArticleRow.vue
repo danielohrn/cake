@@ -1,10 +1,10 @@
 <template>
-    <tr @click="toggleModal">
+    <tr>
         <td>
-            {{title}}
+          <a @click="toggleModal" class="button">Edit</a>
         </td>
         <td>
-            <span class="article-body">{{body}}</span>
+            {{title}}
         </td>
         <td>
             {{created_at}}
@@ -13,51 +13,51 @@
             {{author}}
         </td>
         <td>
-            <ul>
-                <li v-for="(tag, i) in articleTags" :key="i">{{tag}}</li>   
-            </ul>
+
+              <b-tag v-for="(tag, i) in articleTags" :key="i" rounded>{{tag}}</b-tag>
+
         </td>
 
     </tr>
 </template>
 
 <script>
-import EditableArticleModal from './EditableArticleModal.vue'; 
+import EditableArticleModal from './EditableArticleModal.vue';
 import { mapState } from 'vuex';
-import {filterOutTags} from '../functions'; 
+import {filterOutTags} from '../functions';
 
 export default {
 
   props: ['id','title', 'body', 'created_at', 'author', 'articleTags'],
-  
+
   data(){
       return {
       }
   },
 
-  computed: mapState(['modalOpen', 'availableTags', 'filteredTags', 'chosenArticle']), 
+  computed: mapState(['modalOpen', 'availableTags', 'filteredTags', 'chosenArticle']),
 
   methods: {
       toggleModal(){
           this.$store.commit('toggleModal', {action: true});
           this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
           console.log(this.$store)
-          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags); 
-          this.$store.commit('filterTags', filteredTags);        
+          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
+          this.$store.commit('filterTags', filteredTags);
       }
   },
 
   destroyed(){
       console.log('destroyed')
-     this.$store.commit('toggleModal', {action: false}); 
+     this.$store.commit('toggleModal', {action: false});
   }
 }
 </script>
 
 <style>
 td span.article-body {
-    display: block; 
-    height: 100px; 
+    display: block;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -91,11 +91,17 @@ td span.article-body {
 
 
 }
+.button{
+  background-color: #38ee78;
+  color: #000;
+  border: none;
+}
+.table td {
+    vertical-align: center;
+}
 
 
 h1{
   font-size: 2em;
 }
 </style>
-
-

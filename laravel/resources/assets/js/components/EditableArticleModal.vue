@@ -1,9 +1,10 @@
 <template>
   <modal v-if="this.isModalOpen">
-            
+
         <div class="article-content">
-            <input class="input" type="text" v-model="chosenArticle.title"/>
-            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body"></textarea>
+            <h3 class="title is-4">Skapa/ändra inlägg</h3>
+            <input class="input" type="text" v-model="chosenArticle.title" placeholder="Skapa rubrik..." />
+            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
             <button @click="updateArticle" class="button is-primary">Spara</button>
         </div>
         <div class="article-sidebar">
@@ -25,29 +26,29 @@
 
 <script>
 import {mapState} from 'vuex';
-import {filterOutTags} from '../functions'; 
+import {filterOutTags} from '../functions';
 
 export default {
-  props: ['availableTags'], 
-  computed: mapState(['chosenArticle', 'filteredTags']), 
+  props: ['availableTags'],
+  computed: mapState(['chosenArticle', 'filteredTags']),
   data(){
       return {
           isModalOpen: true,
-          article: {}, 
+          article: {},
       }
   },
   methods: {
       updateArticle(){
           axios.patch('/api/articles', this.chosenArticle)
           .then(response => console.log(response.data))
-          
-          // Closes modal after save 
-          this.$store.commit('toggleModal', false); 
+
+          // Closes modal after save
+          this.$store.commit('toggleModal', false);
       },
       filterTags(as){
           console.log(as)
-          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags); 
-          this.$store.commit('filterTags', filteredTags);   
+          const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
+          this.$store.commit('filterTags', filteredTags);
       },
       addToTags(index){
           const tag = this.filteredTags.splice(index, 1)[0];
@@ -59,7 +60,7 @@ export default {
   },
 
   mounted(){
-      this.filteredTags = this.availableTags; 
+      this.filteredTags = this.availableTags;
       console.log('mounted')
   }
 }
@@ -67,14 +68,12 @@ export default {
 
 <style scoped>
 .tags a {
-    display: block; 
-    width: 100%; 
-    margin: .3em 0; 
+    display: block;
+    width: 100%;
+    margin: .3em 0;
 }
 
 .article-content input, button {
-    margin: .2em 0; 
+    margin: .2em 0;
 }
 </style>
-
-
