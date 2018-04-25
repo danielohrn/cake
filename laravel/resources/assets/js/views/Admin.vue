@@ -1,15 +1,13 @@
 <template>
-
 <div class="section">
-    <!-- <b-table :data="data" :columns="columns"></b-table> -->
     <table class="table">
         <thead>
             <tr>
+              <th>
+
+              </th>
                 <th>
                     Rubrik
-                </th>
-                <th>
-                    Body
                 </th>
                 <th>
                     Date
@@ -28,14 +26,13 @@
     </table>
     <EditableArticleModal :availableTags="availableTags" />
 </div>
-
 </template>
 
 <script>
 export default {
   data() {
       return {
-            availableTags: [], 
+            availableTags: [],
             data: [],
             columns: [
                 {
@@ -54,37 +51,47 @@ export default {
                 {
                     field: 'author',
                     label: 'Author',
-                }, 
+                },
                 {
-                    field: 'articleTags', 
+                    field: 'articleTags',
                     label: 'Tags'
                 }
             ]
         }
-    }, 
+    },
 
     methods: {
         getArticles(){
             axios.get('/api/articles')
                 .then(res => {
-                    this.data = res.data;  
+                    this.data = res.data;
                 })
-        }, 
+        },
         getTags(){
             axios.get('api/tags')
             .then(response => {
                 console.log(response)
                 this.availableTags = response.data;
+                this.$store.commit('setTags', response.data);
             })
-        }
-    },
-    mounted(){
-        this.getArticles(); 
-        this.getTags(); 
+        },
+
+    getTags() {
+      axios.get('api/tags')
+        .then(response => {
+          console.log(response)
+          this.availableTags = response.data;
+        })
     }
+  },
+  mounted() {
+    this.getArticles();
+    this.getTags();
+  }
 }
 </script>
 
 <style>
+
 
 </style>
