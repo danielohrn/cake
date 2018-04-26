@@ -37768,7 +37768,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       this.$router.push({ query: { tags: this.tags } });
 
-      console.log(this.tags);
       // If there are tags, filter the articles
       if (this.tags.length) {
         this.filter();
@@ -37801,6 +37800,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     buildQueryURL: function buildQueryURL() {
+      var _this4 = this;
+
       var tags = [];
       if (typeof this.$route.query.tags === 'string') {
         tags.push(this.$route.query.tags);
@@ -37808,10 +37809,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       } else {
         tags = this.$route.query.tags;
       }
-
       this.tags = tags;
-
       this.filter();
+
+      this.availableTags = this.availableTags.filter(function (tag) {
+        return _this4.tags.indexOf(tag.name) === -1;
+      });
     }
   },
   computed: {

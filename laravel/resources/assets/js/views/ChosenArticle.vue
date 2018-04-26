@@ -75,7 +75,6 @@ export default {
 
       this.$router.push({query: {tags: this.tags}})
       
-      console.log(this.tags)
       // If there are tags, filter the articles
       if (this.tags.length) {
         this.filter()
@@ -114,10 +113,13 @@ export default {
         } else {
           tags = this.$route.query.tags; 
         }
-        
         this.tags = tags; 
+        this.filter();
+        
+        this.availableTags = this.availableTags.filter(tag => {
+          return this.tags.indexOf(tag.name) === -1; 
+        })
 
-        this.filter(); 
     }
   },
   computed: {
