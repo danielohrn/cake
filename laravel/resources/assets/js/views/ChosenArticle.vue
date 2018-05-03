@@ -50,7 +50,9 @@ export default {
     addToTags(index) {
       const tag = this.availableTags.splice(index, 1)[0];
       this.tags.push(tag.name || tag );
-      this.filter();
+      this.filter()
+
+      this.$router.push({query: {tags: this.tags}})
     },
     filter() {
       const articles = this.articles.filter(article =>
@@ -70,7 +72,9 @@ export default {
       // Moves tag from 'active' to 'available'
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
-      console.log($event)
+
+      this.$router.push({query: {tags: this.tags}})
+      
       // If there are tags, filter the articles
       if (this.tags.length) {
         this.filter()
@@ -88,6 +92,11 @@ export default {
       .then(response => {
           this.articles = response.data;
           this.filteredArticles = response.data;
+          if(this.$route.query.tags){
+            console.log('route has query')
+            this.buildQueryURL(); 
+          }
+
       })
     },
     getTags(){
@@ -95,6 +104,22 @@ export default {
       .then(response => {
         this.availableTags = response.data;
       })
+    }, 
+    buildQueryURL(){
+        let tags = []; 
+        if(typeof this.$route.query.tags === 'string') {
+          tags.push(this.$route.query.tags); 
+          console.log(tags)
+        } else {
+          tags = this.$route.query.tags; 
+        }
+        this.tags = tags; 
+        this.filter();
+        
+        this.availableTags = this.availableTags.filter(tag => {
+          return this.tags.indexOf(tag.name) === -1; 
+        })
+
     }
   },
   computed: {
@@ -113,6 +138,7 @@ export default {
     this.filteredArticles = this.articles;
     this.getArticles()
     this.getTags()
+
   }
 
 }
