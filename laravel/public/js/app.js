@@ -16289,6 +16289,7 @@ Vue.component('Admin', __webpack_require__(20));
 Vue.component('ArticleRow', __webpack_require__(80));
 Vue.component('modal', __webpack_require__(89));
 Vue.component('EditableArticleModal', __webpack_require__(21));
+Vue.component('NavBar', __webpack_require__(96));
 
 var app = new Vue({
   el: '#app',
@@ -37228,7 +37229,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nsection[data-v-6c0a33b2] {\n  padding: 0;\n}\n.navbar[data-v-6c0a33b2] {\n  width: 100%;\n  background: #000;\n  margin-bottom: 2em;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin: 0;\n  padding-left: 10em;\n  padding-right: 10em;\n  margin-bottom: 2em;\n}\n.main-column[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.main-column h1[data-v-6c0a33b2] {\n  color: black;\n  margin-bottom: 1.5em;\n  font-weight: normal;\n  text-transform: uppercase;\n}\n.main-column h3[data-v-6c0a33b2] {\n  margin-left: 1em;\n  padding-bottom: 1em;\n  padding-left: 2em;\n  padding-right: 2em;\n}\n.num1[data-v-6c0a33b2],\n.num2[data-v-6c0a33b2] {\n  padding: 2em;\n}\n.num1[data-v-6c0a33b2] {\n  border-top: 2px solid #38ee78;\n  border-left: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n}\n.num2[data-v-6c0a33b2] {\n  border-right: 2px solid #38ee78;\n  border-bottom: 2px solid #38ee78;\n  margin-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 180px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  background-color: #38ee78;\n}\n.role-item h2[data-v-6c0a33b2] {\n  color: #000;\n  padding: 1em;\n  padding-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2]:hover:after {\n  content: \"\";\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  width: 20%;\n  border-bottom: 3px solid #000;\n  text-transform: lowercase;\n  color: white;\n}\nh1[data-v-6c0a33b2] {\n  color: white;\n}\nfooter[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #000;\n  color: white;\n  padding: 2em;\n}\n@media only screen and (max-width: 1138px) {\ndiv[data-v-6c0a33b2] {\n    margin-right: 0;\n}\n.role-item h2[data-v-6c0a33b2]{\n    font-size: 2vh;\n}\n.role-box[data-v-6c0a33b2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1.5em;\n    margin: 0;\n}\n}\n@media only screen and (max-width: 819px) {\n.role-item h2[data-v-6c0a33b2]{\n    font-size: 2vh;\n}\n.role-box[data-v-6c0a33b2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1.5em;\n    margin: 0;\n}\n}\n@media only screen and (max-width: 768px) {\n.role-item[data-v-6c0a33b2] {\n    width: 180px;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 751px) {\n.role-item[data-v-6c0a33b2] {\n    width: 150px;\n    height: 150px;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 631px) {\n.role-item[data-v-6c0a33b2] {\n    width: 140px;\n    height: 140px;\n    margin: 0;\n}\n.columns[data-v-6c0a33b2] {\n    padding: 1em;\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 591px) {\n.role-item[data-v-6c0a33b2] {\n    width: 130px;\n    height: 130px;\n    margin: 0 !important;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 551px) {\n.role-item[data-v-6c0a33b2] {\n    width: 120px;\n    height: 120px;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 2vh;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 511px) {\n.role-item[data-v-6c0a33b2] {\n    width: 200px;\n    height: 200px;\n    margin: 0;\n}\ndiv[data-v-6c0a33b2] {\n    margin: 0;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 100%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 431px) {\n.role-item[data-v-6c0a33b2] {\n    width: 35vh;\n    height: 35vh;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 70%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n@media only screen and (max-width: 400px) {\n.role-item[data-v-6c0a33b2] {\n    width: 25vh;\n    height: 25vh;\n}\n.columns[data-v-6c0a33b2] {\n    margin: 0;\n}\n.is-one-quarter[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n}\n.main-column h1[data-v-6c0a33b2] {\n    font-size: 5vh;\n}\n.column h2[data-v-6c0a33b2] {\n    font-size: 70%;\n}\n.main-column h3[data-v-6c0a33b2],\n  p[data-v-6c0a33b2] {\n    padding: 0;\n    margin: 0;\n    font-size: 2.7vh;\n}\n.role-item[data-v-6c0a33b2] {\n    border: 0.5px solid white;\n}\n.num1[data-v-6c0a33b2] {\n    border-top: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 2em;\n  margin-bottom: 5em;\n}\n.information h1[data-v-6c0a33b2] {\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 2em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 2em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n    border: 2px solid #30ed72;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #30ed72;\n  margin-bottom: 5em;\n}\n.boxes h1[data-v-6c0a33b2] {\n  color: white;\n  text-align: center;\n  padding: 1em;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 1em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 1em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  width: 30%;\n  margin-right: 1em;\n  padding: 1em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  width: 30%;\n  padding: 1em;\n  margin-right: 1em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  width: 30%;\n  padding: 1em;\n  margin-right: 1em;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  width: 30%;\n  padding: 1em;\n  margin-left: 1em;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -37308,6 +37309,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37350,96 +37369,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "columns is-inline-flex-mobile" },
-      _vm._l(_vm.allRoles, function(role, i) {
-        return _c(
-          "div",
-          { key: i, staticClass: "column is-one-quarter" },
-          [
-            _c("overdrive", { attrs: { id: i, duration: 350 } }, [
-              _c(
-                "div",
-                {
-                  staticClass: "is-mobile role-item",
-                  on: {
-                    click: function($event) {
-                      _vm.filter(role, i)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "h2",
-                    {
-                      staticClass:
-                        "title is-5 is-uppercase has-text-weight-semibold is-desktop-only"
-                    },
-                    [_vm._v(_vm._s(role.name))]
-                  )
-                ]
-              )
-            ])
-          ],
-          1
-        )
-      })
-    ),
-    _vm._v(" "),
-    _vm._m(2)
-  ])
+  return _c(
+    "section",
+    { staticClass: "section" },
+    [
+      _c("NavBar"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass: "navbar",
-        attrs: { role: "navigation", "aria-label": "main navigation" }
-      },
-      [
-        _c("div", { staticClass: "navbar-brand" }, [
-          _c("h1", { staticClass: "logotype navbar-item" }, [
-            _vm._v("Kunskapsnavet")
-          ])
-        ])
-      ]
-    )
+    return _c("div", [
+      _c("img", { attrs: { src: "img/indexphoto.png", width: "100%" } })
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns main-column" }, [
-      _c("div", { staticClass: "column num1" }, [
-        _c("h1", { staticClass: "title is-2" }, [
-          _vm._v(" Välkommen till kunskapsnavet ")
-        ]),
+    return _c("div", { staticClass: "information" }, [
+      _c("div", { staticClass: "infoCol1" }, [
+        _c("h1", [_vm._v("Vilka är vi?")]),
         _vm._v(" "),
-        _c("h3", { staticClass: "subtitle" }, [
+        _c("p", [
           _vm._v(
-            "Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller."
+            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
           )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "column num2" }, [
-        _c("h1", { staticClass: "title is-3 has-text-right" }, [
-          _vm._v("Hur navigerar jag?")
-        ]),
+      _c("div", { staticClass: "border" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "infoCol2" }, [
+        _c("h1", [_vm._v("Om Oss")]),
         _vm._v(" "),
-        _c("p", { staticClass: "subtitle has-text-right" }, [
+        _c("p", [
           _vm._v(
-            " Hitta din roll, välj sedan dom taggar som passar till just din sökning så ska du hitta rätt!"
+            "Statens konstråd utvecklar sammanhang där samtidskonst och offentliga rum möts. Vi producerar permanenta och tillfälliga konstprojekt i offentliga miljöer och engagerar konstnärer i stadsutvecklingsprojekt, samt sprider kunskap och erfarenheter\n        vidare i Sverige och utomlands."
           )
         ])
       ])
@@ -37449,15 +37425,59 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("div", [
-        _c("img", {
-          attrs: { src: "/img/facebook.png", width: "50", height: "50" }
-        }),
+    return _c("div", { staticClass: "boxes " }, [
+      _c("h1", { staticClass: "title" }, [_vm._v("Så Här Går Det Till")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "leftCol" }, [
+        _c("div", { staticClass: "col col1" }, [
+          _c("div", { staticClass: "text-box" }, [
+            _c("h3", [_vm._v("HUR?")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+              )
+            ])
+          ])
+        ]),
         _vm._v(" "),
-        _c("img", {
-          attrs: { src: "/img/instagram.png", width: "50", height: "50" }
-        })
+        _c("div", { staticClass: "col col2" }, [
+          _c("div", { staticClass: "text-box" }, [
+            _c("h3", [_vm._v("HUR?")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "rightCol" }, [
+        _c("div", { staticClass: "col col3" }, [
+          _c("div", { staticClass: "text-box" }, [
+            _c("h3", [_vm._v("HUR?")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col col4" }, [
+          _c("div", { staticClass: "text-box" }, [
+            _c("h3", [_vm._v("HUR?")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+              )
+            ])
+          ])
+        ])
       ])
     ])
   }
@@ -42479,6 +42499,260 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 95 */,
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(97)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(99)
+/* template */
+var __vue_template__ = __webpack_require__(100)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-046a7e32"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NavBar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-046a7e32", Component.options)
+  } else {
+    hotAPI.reload("data-v-046a7e32", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(98);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("785552d0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-046a7e32\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-046a7e32\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.section[data-v-046a7e32] {\n  padding: 0;\n}\n.navbar-item[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-046a7e32] {\n  font-size: 1.5em;\n}\n.navbar-item h1[data-v-046a7e32] {\n  font-size: 2em;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      {
+        staticClass: "navbar navbar is-light",
+        attrs: { role: "navigation", "aria-label": "main navigation" }
+      },
+      [
+        _c("div", { staticClass: "navbar-brand" }, [
+          _c("a", { staticClass: "navbar-item", attrs: { href: "" } }, [
+            _c("h1", [_c("b", [_vm._v("KUNSKAPSNAVET")])])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "navbar-end navbar-menu navbar-menu",
+              attrs: { id: "navMenu" }
+            },
+            [
+              _c("a", { staticClass: "navbar-item" }, [
+                _c("h2", [_c("b", [_vm._v("Roller")])]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Hitta din roll")])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "navbar-item" }, [
+                _c("h2", [_c("b", [_vm._v("Om Kunskapsnavet")])]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Information om navet")])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "navbar-item" }, [
+                _c("h2", [_c("b", [_vm._v("FAQ")])]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Hitta svar till dina frågor")])
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "navbar-item" }, [
+                _c("h2", [_c("b", [_vm._v("Kontakt")])]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Kontakta oss")])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "navbar-burger",
+              attrs: {
+                role: "button",
+                "data-target": "navMenu",
+                "aria-label": "menu",
+                "aria-expanded": "false"
+              }
+            },
+            [
+              _c("span", { attrs: { "aria-hidden": "true" } }),
+              _vm._v(" "),
+              _c("span", { attrs: { "aria-hidden": "true" } }),
+              _vm._v(" "),
+              _c("span", { attrs: { "aria-hidden": "true" } })
+            ]
+          )
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-046a7e32", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

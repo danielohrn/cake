@@ -23,8 +23,9 @@ Vue.component('chosen-article', require('./views/ChosenArticle.vue'));
 Vue.component('article-modal', require('./components/articleModal.vue'));
 Vue.component('Admin', require('./views/Admin.vue'));
 Vue.component('ArticleRow', require('./components/ArticleRow.vue'));
-Vue.component('modal', require('./components/modal.vue')); 
-Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue')); 
+Vue.component('modal', require('./components/modal.vue'));
+Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue'));
+Vue.component('NavBar', require('./components/NavBar.vue')); 
 
 const app = new Vue({
     el: '#app',
