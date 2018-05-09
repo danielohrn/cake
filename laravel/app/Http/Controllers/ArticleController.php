@@ -39,7 +39,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $article = new Article(); 
+        $article->title = $request->title; 
+        $article->body = $request->body; 
 
+
+        //$article->tags()->attach($request->parameters->tags);
+
+        return response($article);  
     }
 
     /**
@@ -50,7 +57,6 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        return 'hello?';  
     }
 
     /**

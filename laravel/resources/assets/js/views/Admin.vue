@@ -26,8 +26,8 @@
     </table>
     <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
 
-    <NewArticleModal type="newArticleModal"/>
-    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel</button>
+    <NewArticleModal :availableTags="availableTags" type="newArticleModal"/>
+    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel +</button>
 </div>
 </template>
 
@@ -37,29 +37,6 @@ export default {
       return {
             availableTags: [],
             data: [],
-            columns: [
-                {
-                    field: 'title',
-                    label: 'Rubrik',
-                },
-                {
-                    field: 'body',
-                    label: 'Content',
-                },
-                {
-                    field: 'created_at',
-                    label: 'Date',
-                    centered: true
-                },
-                {
-                    field: 'author',
-                    label: 'Author',
-                },
-                {
-                    field: 'articleTags',
-                    label: 'Tags'
-                }
-            ]
         }
     },
 
@@ -83,26 +60,16 @@ export default {
             this.$store.commit('toggleModal', {modalType: 'newArticleModal', action: true}); 
         }, 
 
-    getTags() {
-      axios.get('api/tags')
-        .then(response => {
-          console.log(response)
-          this.availableTags = response.data;
-        })
-    }
+        getTags() {
+        axios.get('api/tags')
+            .then(response => {
+            this.availableTags = response.data;
+            })
+        }
   },
   mounted() {
     this.getArticles();
     this.getTags();
-    axios.post('/api/article')
-     .then(res => {
-         if(res.status === 200) {
-             console.log('post to /article works')
-             return; 
-         }
-
-         console.log('it does not work')
-     }); 
   }
 }
 </script>
