@@ -1,5 +1,5 @@
 <template>
-    <div v-if="modalOpen" class="modal-background">
+    <div class="modal-background">
         <div class="modal-card">
             <slot></slot>
         </div>
@@ -13,22 +13,24 @@ import {
 } from 'vuex'; 
 
 export default {
+  props: ['type'], 
   data(){
       return {
 
       }
   }, 
 
-  computed: mapState(['modalOpen']), 
+  computed: mapState([null]), 
 
   methods: {
         closeModal(){
-          this.$store.commit('toggleModal', {action: false}); 
+          this.$store.commit('toggleModal', {modalType: this.type, action: false}); 
       }
   }, 
 
   mounted(){
-      console.log(this.modalOpen)
+      console.log(this.type)
+
   }
 }
 </script>

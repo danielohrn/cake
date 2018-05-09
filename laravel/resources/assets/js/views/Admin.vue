@@ -24,7 +24,10 @@
             <ArticleRow :availableTags="availableTags" v-for="(article, i) in data" :key="i" v-bind="article"/>
         </tbody>
     </table>
-    <EditableArticleModal :availableTags="availableTags" />
+    <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
+
+    <NewArticleModal type="newArticleModal"/>
+    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel</button>
 </div>
 </template>
 
@@ -76,6 +79,10 @@ export default {
             })
         },
 
+        openNewArticleModal() {
+            this.$store.commit('toggleModal', {modalType: 'newArticleModal', action: true}); 
+        }, 
+
     getTags() {
       axios.get('api/tags')
         .then(response => {
@@ -87,6 +94,15 @@ export default {
   mounted() {
     this.getArticles();
     this.getTags();
+    axios.post('/api/article')
+     .then(res => {
+         if(res.status === 200) {
+             console.log('post to /article works')
+             return; 
+         }
+
+         console.log('it does not work')
+     }); 
   }
 }
 </script>

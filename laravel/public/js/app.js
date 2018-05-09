@@ -16289,6 +16289,7 @@ Vue.component('Admin', __webpack_require__(20));
 Vue.component('ArticleRow', __webpack_require__(80));
 Vue.component('modal', __webpack_require__(89));
 Vue.component('EditableArticleModal', __webpack_require__(21));
+Vue.component('NewArticleModal', __webpack_require__(96));
 
 var app = new Vue({
   el: '#app',
@@ -37999,7 +38000,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38012,6 +38013,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -38085,6 +38089,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this2.availableTags = response.data;
                 _this2.$store.commit('setTags', response.data);
             });
+        },
+        openNewArticleModal: function openNewArticleModal() {
+            this.$store.commit('toggleModal', { modalType: 'newArticleModal', action: true });
         }
     }, 'getTags', function getTags() {
         var _this3 = this;
@@ -38097,6 +38104,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     mounted: function mounted() {
         this.getArticles();
         this.getTags();
+        axios.post('/api/article').then(function (res) {
+            if (res.status === 200) {
+                console.log('post to /article works');
+                return;
+            }
+
+            console.log('it does not work');
+        });
     }
 });
 
@@ -38132,8 +38147,20 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("EditableArticleModal", {
-        attrs: { availableTags: _vm.availableTags }
-      })
+        attrs: { type: "editArticleModal", availableTags: _vm.availableTags }
+      }),
+      _vm._v(" "),
+      _c("NewArticleModal", { attrs: { type: "newArticleModal" } }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "button is-primary",
+          attrs: { availableTags: _vm.availableTags },
+          on: { click: _vm.openNewArticleModal }
+        },
+        [_vm._v("Skapa ny artikel")]
+      )
     ],
     1
   )
@@ -38706,7 +38733,8 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
       body: '',
       tags: []
     },
-    modalOpen: false,
+    editArticleModal: false,
+    newArticleModal: false,
     availableTags: [],
     filteredTags: []
   },
@@ -38721,7 +38749,8 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
       state.allRoles = payload;
     },
     toggleModal: function toggleModal(state, payload) {
-      state.modalOpen = payload.action;
+      console.log(payload);
+      state[payload.modalType] = payload.action;
     },
     updateModal: function updateModal(state, payload) {
       state.chosenArticle = payload;
@@ -42006,7 +42035,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         toggleModal: function toggleModal() {
-            this.$store.commit('toggleModal', { action: true });
+            this.$store.commit('toggleModal', { modalType: 'editArticleModal', action: true });
             this.$store.commit('updateModal', { id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author });
             console.log(this.$store);
             var filteredTags = Object(__WEBPACK_IMPORTED_MODULE_2__functions__["a" /* filterOutTags */])(this.chosenArticle, this.availableTags);
@@ -42099,11 +42128,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['availableTags'],
-    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['chosenArticle', 'filteredTags']),
+    props: ['availableTags', 'type'],
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['chosenArticle', 'filteredTags', 'editArticleModal']),
     data: function data() {
         return {
-            isModalOpen: true,
+            //   isModalOpen: true,
             article: {}
         };
     },
@@ -42115,7 +42144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             // Closes modal after save
-            this.$store.commit('toggleModal', false);
+            this.$store.commit('toggleModal', { modalType: this.type, action: false });
         },
         filterTags: function filterTags(as) {
             console.log(as);
@@ -42131,7 +42160,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     updated: function updated() {},
     mounted: function mounted() {
         this.filteredTags = this.availableTags;
-        console.log('mounted');
+        console.log(this.$store.editArticleModal, 'modal');
     }
 });
 
@@ -42143,8 +42172,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return this.isModalOpen
-    ? _c("modal", [
+  return _vm.editArticleModal
+    ? _c("modal", { attrs: { type: "editArticleModal" } }, [
         _c("div", { staticClass: "article-content" }, [
           _c("h3", { staticClass: "title is-4" }, [
             _vm._v("Skapa/ändra inlägg")
@@ -42418,21 +42447,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['type'],
     data: function data() {
         return {};
     },
 
 
-    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['modalOpen']),
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])([null]),
 
     methods: {
         closeModal: function closeModal() {
-            this.$store.commit('toggleModal', { action: false });
+            this.$store.commit('toggleModal', { modalType: this.type, action: false });
         }
     },
 
     mounted: function mounted() {
-        console.log(this.modalOpen);
+        console.log(this.type);
     }
 });
 
@@ -42444,25 +42474,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.modalOpen
-    ? _c("div", { staticClass: "modal-background" }, [
-        _c("div", { staticClass: "modal-card" }, [_vm._t("default")], 2),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "button close",
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-                return _vm.closeModal($event)
-              }
-            }
-          },
-          [_vm._v("Stäng")]
-        )
-      ])
-    : _vm._e()
+  return _c("div", { staticClass: "modal-background" }, [
+    _c("div", { staticClass: "modal-card" }, [_vm._t("default")], 2),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button close",
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            return _vm.closeModal($event)
+          }
+        }
+      },
+      [_vm._v("Stäng")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42479,6 +42507,155 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 95 */,
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(97)
+/* template */
+var __vue_template__ = __webpack_require__(98)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NewArticleModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7023c6a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-7023c6a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['tags'],
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['newArticleModal'])
+});
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.newArticleModal
+    ? _c("modal", { attrs: { type: "newArticleModal" } }, [
+        _c("div", { staticClass: "article-content" }, [
+          _c("h3", { staticClass: "title is-4" }, [
+            _vm._v("Skapa/ändra inlägg")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "input",
+            attrs: { type: "text", placeholder: "Skapa rubrik..." }
+          }),
+          _vm._v(" "),
+          _c("textarea", {
+            staticClass: "textarea is-primary",
+            attrs: { cols: "30", rows: "20", placeholder: "Skriv text..." }
+          }),
+          _vm._v(" "),
+          _c("button", { staticClass: "button is-primary" }, [_vm._v("Spara")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "article-sidebar" },
+          [
+            _c(
+              "b-field",
+              { attrs: { label: "Taggar" } },
+              [_c("b-taginput", { attrs: { maxlength: "10" } })],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "tags" }, [
+              _c("h3", { staticClass: "title is-4" }, [
+                _vm._v("Lägg till taggar")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "button is-outlined is-primary" }, [
+                _vm._v(_vm._s(_vm.tags))
+              ])
+            ])
+          ],
+          1
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7023c6a0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
