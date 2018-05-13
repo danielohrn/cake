@@ -1,10 +1,11 @@
 <template>
   <nav class="navbar navbar is-light" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="">
+    <div class="logo navbar-brand">
+      <a href="">
         <h1><b>KUNSKAPSNAVET</b></h1>
       </a>
-      <div class="navbar-end navbar-menu navbar-menu" id="navMenu">
+    </div>
+      <div class="menuItems navbar-end navbar-menu navbar-menu" id="navMenu">
       <a class="navbar-item">
         <h2><b>Roller</b></h2>
         <h3>Hitta din roll</h3>
@@ -76,9 +77,33 @@ document.addEventListener('DOMContentLoaded', function () {
   flex-direction: column;
 }
 .navbar-item h2 {
+  font-size: 1.2em;
+}
+.navbar-item h3 {
+  font-size: 0.9em;
+}
+.logo h1 {
   font-size: 1.5em;
 }
-.navbar-item h1 {
-  font-size: 2em;
+.logo {
+  display: flex;
+}
+.logo a {
+  align-self: center;
+  padding: 1em;
+  color: #000;
+  margin-left: 2em;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+.menuItems {
+  justify-content: center;
+  margin-right: 6em;
+  padding-bottom: 0.7em;
+}
+.menuItems a {
+  margin: 0 2em 0 2em;
 }
 </style>

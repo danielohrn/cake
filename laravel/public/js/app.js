@@ -16247,7 +16247,7 @@ function filterOutTags(article, allTags) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(24);
-module.exports = __webpack_require__(94);
+module.exports = __webpack_require__(99);
 
 
 /***/ }),
@@ -16289,7 +16289,7 @@ Vue.component('Admin', __webpack_require__(20));
 Vue.component('ArticleRow', __webpack_require__(80));
 Vue.component('modal', __webpack_require__(89));
 Vue.component('EditableArticleModal', __webpack_require__(21));
-Vue.component('NavBar', __webpack_require__(96));
+Vue.component('NavBar', __webpack_require__(94));
 
 var app = new Vue({
   el: '#app',
@@ -37229,7 +37229,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 2em;\n  margin-bottom: 5em;\n}\n.information h1[data-v-6c0a33b2] {\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 2em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 2em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n    border: 2px solid #30ed72;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #30ed72;\n  margin-bottom: 5em;\n}\n.boxes h1[data-v-6c0a33b2] {\n  color: white;\n  text-align: center;\n  padding: 1em;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 1em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 1em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  width: 30%;\n  margin-right: 1em;\n  padding: 1em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  width: 30%;\n  padding: 1em;\n  margin-right: 1em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  width: 30%;\n  padding: 1em;\n  margin-right: 1em;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  width: 30%;\n  padding: 1em;\n  margin-left: 1em;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 0 1em 1em 5em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 0 5em 1em 1em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  padding-left: 0.5em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n  border: 2px solid #30ed72;\n}\n.vr-line[data-v-6c0a33b2] {\n    display: block;\n    width: 5px;\n    background-color: #000;\n    margin-top: 5em;\n    height: 660px;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #30ed72;\n  margin-bottom: 5em;\n}\n.boxes h2[data-v-6c0a33b2] {\n  color: #000;\n  font-size: 1.5em;\n  text-align: center;\n  padding: 1em 1em 0 1em;\n  margin: 0;\n  font-weight: bold;\n}\n.bothCols[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 8em;\n  height: 700px;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 3em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: 3em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n  border-radius: 10px;\n  width: 60%;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n  margin-top: 15em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n}\n.col1[data-v-6c0a33b2]:after,\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:before {\n  left: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col1[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-left-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.col2[data-v-6c0a33b2]:after,\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:before {\n  right: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col2[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-right-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -37274,6 +37274,10 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
 //
 //
 //
@@ -37426,55 +37430,59 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "boxes " }, [
-      _c("h1", { staticClass: "title" }, [_vm._v("Så Här Går Det Till")]),
+      _c("div", [_c("h2", [_vm._v("Så här går det till")])]),
       _vm._v(" "),
-      _c("div", { staticClass: "leftCol" }, [
-        _c("div", { staticClass: "col col1" }, [
-          _c("div", { staticClass: "text-box" }, [
-            _c("h3", [_vm._v("HUR?")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
-              )
+      _c("div", { staticClass: "bothCols" }, [
+        _c("div", { staticClass: "leftCol" }, [
+          _c("div", { staticClass: "col col1" }, [
+            _c("div", { staticClass: "text-box" }, [
+              _c("h3", [_vm._v("HUR?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col col3" }, [
+            _c("div", { staticClass: "text-box" }, [
+              _c("h3", [_vm._v("HUR?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                )
+              ])
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col col2" }, [
-          _c("div", { staticClass: "text-box" }, [
-            _c("h3", [_vm._v("HUR?")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
-              )
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "rightCol" }, [
-        _c("div", { staticClass: "col col3" }, [
-          _c("div", { staticClass: "text-box" }, [
-            _c("h3", [_vm._v("HUR?")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
-              )
-            ])
-          ])
-        ]),
+        _c("div", { staticClass: "vr-line" }),
         _vm._v(" "),
-        _c("div", { staticClass: "col col4" }, [
-          _c("div", { staticClass: "text-box" }, [
-            _c("h3", [_vm._v("HUR?")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
-              )
+        _c("div", { staticClass: "rightCol" }, [
+          _c("div", { staticClass: "col col2" }, [
+            _c("div", { staticClass: "text-box" }, [
+              _c("h3", [_vm._v("HUR?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col col4" }, [
+            _c("div", { staticClass: "text-box" }, [
+              _c("h3", [_vm._v("HUR?")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                )
+              ])
             ])
           ])
         ])
@@ -42496,25 +42504,18 @@ if (false) {
 
 /***/ }),
 /* 94 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 95 */,
-/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(97)
+  __webpack_require__(95)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(99)
+var __vue_script__ = __webpack_require__(97)
 /* template */
-var __vue_template__ = __webpack_require__(100)
+var __vue_template__ = __webpack_require__(98)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -42553,13 +42554,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 97 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(98);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -42579,7 +42580,7 @@ if(false) {
 }
 
 /***/ }),
-/* 98 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -42587,17 +42588,18 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-046a7e32] {\n  padding: 0;\n}\n.navbar-item[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-046a7e32] {\n  font-size: 1.5em;\n}\n.navbar-item h1[data-v-046a7e32] {\n  font-size: 2em;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-046a7e32] {\n  padding: 0;\n}\n.navbar-item[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-046a7e32] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-046a7e32] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-046a7e32] {\n  font-size: 1.5em;\n}\n.logo[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-046a7e32] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.menuItems[data-v-046a7e32] {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-046a7e32] {\n  margin: 0 2em 0 2em;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 99 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -42662,7 +42664,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 100 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -42683,64 +42685,64 @@ var staticRenderFns = [
         attrs: { role: "navigation", "aria-label": "main navigation" }
       },
       [
-        _c("div", { staticClass: "navbar-brand" }, [
-          _c("a", { staticClass: "navbar-item", attrs: { href: "" } }, [
+        _c("div", { staticClass: "logo navbar-brand" }, [
+          _c("a", { attrs: { href: "" } }, [
             _c("h1", [_c("b", [_vm._v("KUNSKAPSNAVET")])])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "navbar-end navbar-menu navbar-menu",
-              attrs: { id: "navMenu" }
-            },
-            [
-              _c("a", { staticClass: "navbar-item" }, [
-                _c("h2", [_c("b", [_vm._v("Roller")])]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Hitta din roll")])
-              ]),
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "menuItems navbar-end navbar-menu navbar-menu",
+            attrs: { id: "navMenu" }
+          },
+          [
+            _c("a", { staticClass: "navbar-item" }, [
+              _c("h2", [_c("b", [_vm._v("Roller")])]),
               _vm._v(" "),
-              _c("a", { staticClass: "navbar-item" }, [
-                _c("h2", [_c("b", [_vm._v("Om Kunskapsnavet")])]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Information om navet")])
-              ]),
+              _c("h3", [_vm._v("Hitta din roll")])
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "navbar-item" }, [
+              _c("h2", [_c("b", [_vm._v("Om Kunskapsnavet")])]),
               _vm._v(" "),
-              _c("a", { staticClass: "navbar-item" }, [
-                _c("h2", [_c("b", [_vm._v("FAQ")])]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Hitta svar till dina frågor")])
-              ]),
+              _c("h3", [_vm._v("Information om navet")])
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "navbar-item" }, [
+              _c("h2", [_c("b", [_vm._v("FAQ")])]),
               _vm._v(" "),
-              _c("a", { staticClass: "navbar-item" }, [
-                _c("h2", [_c("b", [_vm._v("Kontakt")])]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Kontakta oss")])
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "navbar-burger",
-              attrs: {
-                role: "button",
-                "data-target": "navMenu",
-                "aria-label": "menu",
-                "aria-expanded": "false"
-              }
-            },
-            [
-              _c("span", { attrs: { "aria-hidden": "true" } }),
+              _c("h3", [_vm._v("Hitta svar till dina frågor")])
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "navbar-item" }, [
+              _c("h2", [_c("b", [_vm._v("Kontakt")])]),
               _vm._v(" "),
-              _c("span", { attrs: { "aria-hidden": "true" } }),
-              _vm._v(" "),
-              _c("span", { attrs: { "aria-hidden": "true" } })
-            ]
-          )
-        ])
+              _c("h3", [_vm._v("Kontakta oss")])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "navbar-burger",
+            attrs: {
+              role: "button",
+              "data-target": "navMenu",
+              "aria-label": "menu",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("span", { attrs: { "aria-hidden": "true" } }),
+            _vm._v(" "),
+            _c("span", { attrs: { "aria-hidden": "true" } }),
+            _vm._v(" "),
+            _c("span", { attrs: { "aria-hidden": "true" } })
+          ]
+        )
       ]
     )
   }
@@ -42753,6 +42755,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-046a7e32", module.exports)
   }
 }
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
