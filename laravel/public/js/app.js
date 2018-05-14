@@ -38000,7 +38000,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.section{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    padding: 0;\n}\n.sidebar, .sidebar a{\n    width: 10%;\n    height: 100vh;\n    background-color: #aedfbf;\n    color: #000;\n}\n.sidebar li{\n    margin: 20% 10%;\n    font-size: 1.2em;\n}\n.sidebar ul{\n    margin-top: 41px;\n}\n.table{\n    width: 90%;\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -38013,6 +38013,15 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38101,8 +38110,29 @@ var render = function() {
     "div",
     { staticClass: "section" },
     [
+      _c("div", { staticClass: "sidebar" }, [
+        _c("ul", { staticClass: "meny" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                attrs: { availableTags: _vm.availableTags },
+                on: { click: _vm.openNewArticleModal }
+              },
+              [_vm._v(" Skapa artikel")]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ]),
+      _vm._v(" "),
       _c("table", { staticClass: "table" }, [
-        _vm._m(0),
+        _vm._m(3),
         _vm._v(" "),
         _c(
           "tbody",
@@ -38126,17 +38156,7 @@ var render = function() {
       _vm._v(" "),
       _c("NewArticleModal", {
         attrs: { availableTags: _vm.availableTags, type: "newArticleModal" }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button is-primary",
-          attrs: { availableTags: _vm.availableTags },
-          on: { click: _vm.openNewArticleModal }
-        },
-        [_vm._v("Skapa ny artikel +")]
-      )
+      })
     ],
     1
   )
@@ -38146,15 +38166,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Översikt")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Skapa tagg")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Skapa roll")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th"),
-        _vm._v(" "),
         _c("th", [_vm._v("\n                    Rubrik\n                ")]),
         _vm._v(" "),
         _c("th", [_vm._v("\n                    Date\n                ")]),
         _vm._v(" "),
         _c("th", [_vm._v("\n                    Author\n                ")]),
+        _vm._v(" "),
+        _c("th"),
         _vm._v(" "),
         _c("th", [_vm._v("\n                    Tags\n                ")])
       ])
@@ -41955,7 +41993,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\ntd span.article-body {\n    display: block;\n    height: 100px;\n    overflow: hidden;\n}\n.article-img{\n  width: 100%;\n  height: auto;\n}\n.article-content{\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.button{\n  background-color: #38ee78;\n  color: #000;\n  border: none;\n}\n.table td {\n    vertical-align: center;\n}\nh1{\n  font-size: 2em;\n}\n", ""]);
+exports.push([module.i, "\ntd span.article-body {\n    display: block;\n    height: 100px;\n    overflow: hidden;\n}\n.article-img{\n  width: 100%;\n  height: auto;\n}\n.article-content{\n  width: 70%;\n  overflow: scroll;\n}\n.article-sidebar{\n  width: 30%;\n  height: 100%;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.sidebar-box{\n  width: 100%;\n  margin-bottom: 2em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.social{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.button{\n  background-color: #aedfbf;\n  color: #000;\n  border: none;\n}\n.table td {\n    vertical-align: center;\n}\nh1{\n  font-size: 2em;\n}\n", ""]);
 
 // exports
 
@@ -41970,6 +42008,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__EditableArticleModal_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions__ = __webpack_require__(22);
+//
 //
 //
 //
@@ -42186,7 +42225,7 @@ var render = function() {
                 expression: "chosenArticle.body"
               }
             ],
-            staticClass: "textarea is-primary",
+            staticClass: "textarea",
             attrs: { cols: "30", rows: "20", placeholder: "Skriv text..." },
             domProps: { value: _vm.chosenArticle.body },
             on: {
@@ -42201,10 +42240,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            {
-              staticClass: "button is-primary",
-              on: { click: _vm.updateArticle }
-            },
+            { staticClass: "button", on: { click: _vm.updateArticle } },
             [_vm._v("Spara")]
           )
         ]),
@@ -42280,17 +42316,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
-    _c("td", [
-      _c("a", { staticClass: "button", on: { click: _vm.toggleModal } }, [
-        _vm._v("Edit")
-      ])
-    ]),
-    _vm._v(" "),
     _c("td", [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]),
     _vm._v(" "),
     _c("td", [_vm._v("\n        " + _vm._s(_vm.created_at) + "\n    ")]),
     _vm._v(" "),
     _c("td", [_vm._v("\n        " + _vm._s(_vm.author) + "\n    ")]),
+    _vm._v(" "),
+    _c("td", [
+      _c("a", { staticClass: "button", on: { click: _vm.toggleModal } }, [
+        _vm._v("Edit")
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "td",
@@ -42686,7 +42722,7 @@ var render = function() {
                 expression: "article.body"
               }
             ],
-            staticClass: "textarea is-primary",
+            staticClass: "textarea",
             attrs: { cols: "30", rows: "20", placeholder: "Skriv text..." },
             domProps: { value: _vm.article.body },
             on: {
@@ -42701,7 +42737,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "button is-primary", on: { click: _vm.newArticle } },
+            { staticClass: "button", on: { click: _vm.newArticle } },
             [_vm._v("Spara")]
           )
         ]),
@@ -42734,7 +42770,7 @@ var render = function() {
                     "a",
                     {
                       key: i,
-                      staticClass: "button is-outlined is-primary",
+                      staticClass: "button is-outlined",
                       on: {
                         click: function($event) {
                           _vm.addToTags(i)

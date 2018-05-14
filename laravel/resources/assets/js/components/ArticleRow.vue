@@ -1,8 +1,6 @@
 <template>
     <tr>
-        <td>
-          <a @click="toggleModal" class="button">Edit</a>
-        </td>
+
         <td>
             {{title}}
         </td>
@@ -11,6 +9,9 @@
         </td>
         <td>
             {{author}}
+        </td>
+                <td>
+          <a @click="toggleModal" class="button">Edit</a>
         </td>
         <td>
 
@@ -92,7 +93,7 @@ td span.article-body {
 
 }
 .button{
-  background-color: #38ee78;
+  background-color: #aedfbf;
   color: #000;
   border: none;
 }

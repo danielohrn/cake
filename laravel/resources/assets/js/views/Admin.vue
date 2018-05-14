@@ -1,11 +1,18 @@
 <template>
 <div class="section">
+    <div class="sidebar">
+    <ul class="meny">
+
+        <li><a href="">Översikt</a></li>
+        <li><a @click="openNewArticleModal" :availableTags="availableTags"> Skapa artikel</a></li>
+        <li><a href="">Skapa tagg</a></li>
+        <li><a href="">Skapa roll</a></li>
+    </ul>
+</div>
     <table class="table">
         <thead>
             <tr>
-              <th>
 
-              </th>
                 <th>
                     Rubrik
                 </th>
@@ -14,6 +21,8 @@
                 </th>
                 <th>
                     Author
+                </th>
+                <th>
                 </th>
                 <th>
                     Tags
@@ -27,7 +36,7 @@
     <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
 
     <NewArticleModal :availableTags="availableTags" type="newArticleModal"/>
-    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel +</button>
+
 </div>
 </template>
 
@@ -75,6 +84,30 @@ export default {
 </script>
 
 <style>
+.section{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.sidebar, .sidebar a{
+    width: 10%;
+    height: 100vh;
+    background-color: #aedfbf;
+    color: #000;
+}
+
+.sidebar li{
+    margin: 20% 10%;
+    font-size: 1.2em;
+}
+.sidebar ul{
+    margin-top: 41px;
+
+}
+.table{
+    width: 90%;
+}
+
 
 
 </style>

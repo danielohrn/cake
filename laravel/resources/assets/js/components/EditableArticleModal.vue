@@ -4,8 +4,8 @@
         <div class="article-content">
             <h3 class="title is-4">Skapa/ändra inlägg</h3>
             <input class="input" type="text" v-model="chosenArticle.title" placeholder="Skapa rubrik..." />
-            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
-            <button @click="updateArticle" class="button is-primary">Spara</button>
+            <textarea class="textarea" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
+            <button @click="updateArticle" class="button">Spara</button>
         </div>
         <div class="article-sidebar">
             <b-field label="Taggar">
