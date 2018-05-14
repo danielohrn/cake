@@ -4,7 +4,7 @@
     <ul class="meny">
 
         <li><a href="">Översikt</a></li>
-        <li><a href="">Skapa artikel</a></li>
+        <li><a @click="openNewArticleModal" :availableTags="availableTags"> Skapa artikel</a></li>
         <li><a href="">Skapa tagg</a></li>
         <li><a href="">Skapa roll</a></li>
     </ul>
@@ -36,7 +36,7 @@
     <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
 
     <NewArticleModal :availableTags="availableTags" type="newArticleModal"/>
-    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel +</button>
+
 </div>
 </template>
 

@@ -3,8 +3,8 @@
         <div class="article-content">
             <h3 class="title is-4">Skapa/ändra inlägg</h3>
             <input v-model="article.title" class="input" type="text" placeholder="Skapa rubrik..." />
-            <textarea v-model="article.body" class="textarea is-primary" cols="30" rows="20" placeholder="Skriv text..."></textarea>
-            <button @click="newArticle" class="button is-primary">Spara</button>
+            <textarea v-model="article.body" class="textarea" cols="30" rows="20" placeholder="Skriv text..."></textarea>
+            <button @click="newArticle" class="button">Spara</button>
         </div>
         <div class="article-sidebar">
             <b-field label="Taggar">
@@ -15,7 +15,7 @@
             </b-field>
             <div class="tags">
                 <h3 class="title is-4">Lägg till taggar</h3>
-                <a @click="addToTags(i)" v-for="(tag, i) in availableTags" :key="i" class="button is-outlined is-primary">{{tag.name}}</a>
+                <a @click="addToTags(i)" v-for="(tag, i) in availableTags" :key="i" class="button is-outlined">{{tag.name}}</a>
             </div>
         </div>
   </modal>
