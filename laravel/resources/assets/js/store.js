@@ -23,7 +23,8 @@ export default new Vuex.Store({
       body: '',
       tags: []
     },
-    modalOpen: false, 
+    editArticleModal: false,
+    newArticleModal: false, 
     availableTags: [], 
     filteredTags: [] 
   },
@@ -38,7 +39,8 @@ export default new Vuex.Store({
       state.allRoles = payload;
     }, 
     toggleModal(state, payload){
-      state.modalOpen = payload.action; 
+      console.log(payload)
+      state[payload.modalType] = payload.action; 
     },
     updateModal(state, payload){
       state.chosenArticle = payload;

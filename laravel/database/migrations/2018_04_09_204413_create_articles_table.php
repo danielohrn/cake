@@ -17,9 +17,9 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('body', 1024);
-            $table->string('author');
-            $table->string('media');
-            $table->integer('role_id')->unsigned();
+            $table->string('author')->default('Författare');
+            $table->string('media')->default('image.jpg');
+            $table->integer('role_id')->unsigned()->default(1);
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
         });

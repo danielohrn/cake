@@ -33,7 +33,10 @@
             <ArticleRow :availableTags="availableTags" v-for="(article, i) in data" :key="i" v-bind="article"/>
         </tbody>
     </table>
-    <EditableArticleModal :availableTags="availableTags" />
+    <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
+
+    <NewArticleModal :availableTags="availableTags" type="newArticleModal"/>
+    <button @click="openNewArticleModal" :availableTags="availableTags" class="button is-primary">Skapa ny artikel +</button>
 </div>
 </template>
 
@@ -43,29 +46,6 @@ export default {
       return {
             availableTags: [],
             data: [],
-            columns: [
-                {
-                    field: 'title',
-                    label: 'Rubrik',
-                },
-                {
-                    field: 'body',
-                    label: 'Content',
-                },
-                {
-                    field: 'created_at',
-                    label: 'Date',
-                    centered: true
-                },
-                {
-                    field: 'author',
-                    label: 'Author',
-                },
-                {
-                    field: 'articleTags',
-                    label: 'Tags'
-                }
-            ]
         }
     },
 
@@ -85,13 +65,16 @@ export default {
             })
         },
 
-    getTags() {
-      axios.get('api/tags')
-        .then(response => {
-          console.log(response)
-          this.availableTags = response.data;
-        })
-    }
+        openNewArticleModal() {
+            this.$store.commit('toggleModal', {modalType: 'newArticleModal', action: true}); 
+        }, 
+
+        getTags() {
+        axios.get('api/tags')
+            .then(response => {
+            this.availableTags = response.data;
+            })
+        }
   },
   mounted() {
     this.getArticles();

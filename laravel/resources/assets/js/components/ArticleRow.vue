@@ -40,7 +40,7 @@ export default {
 
   methods: {
       toggleModal(){
-          this.$store.commit('toggleModal', {action: true});
+          this.$store.commit('toggleModal', {modalType: 'editArticleModal', action: true});
           this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
           console.log(this.$store)
           const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
