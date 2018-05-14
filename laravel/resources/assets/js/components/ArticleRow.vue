@@ -1,8 +1,6 @@
 <template>
     <tr>
-        <td>
-          <a @click="toggleModal" class="button">Edit</a>
-        </td>
+
         <td>
             {{title}}
         </td>
@@ -11,6 +9,9 @@
         </td>
         <td>
             {{author}}
+        </td>
+                <td>
+          <a @click="toggleModal" class="button">Edit</a>
         </td>
         <td>
 
@@ -39,7 +40,7 @@ export default {
 
   methods: {
       toggleModal(){
-          this.$store.commit('toggleModal', {action: true});
+          this.$store.commit('toggleModal', {modalType: 'editArticleModal', action: true});
           this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
           console.log(this.$store)
           const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
@@ -92,7 +93,7 @@ td span.article-body {
 
 }
 .button{
-  background-color: #38ee78;
+  background-color: #aedfbf;
   color: #000;
   border: none;
 }

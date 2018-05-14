@@ -1,11 +1,11 @@
 <template>
-  <modal v-if="this.isModalOpen">
+  <modal type="editArticleModal" v-if="editArticleModal">
 
         <div class="article-content">
             <h3 class="title is-4">Skapa/ändra inlägg</h3>
             <input class="input" type="text" v-model="chosenArticle.title" placeholder="Skapa rubrik..." />
-            <textarea class="textarea is-primary" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
-            <button @click="updateArticle" class="button is-primary">Spara</button>
+            <textarea class="textarea" cols="30" rows="20" v-model="chosenArticle.body" placeholder="Skriv text..."></textarea>
+            <button @click="updateArticle" class="button">Spara</button>
         </div>
         <div class="article-sidebar">
             <b-field label="Taggar">
@@ -29,11 +29,11 @@ import {mapState} from 'vuex';
 import {filterOutTags} from '../functions';
 
 export default {
-  props: ['availableTags'],
-  computed: mapState(['chosenArticle', 'filteredTags']),
+  props: ['availableTags', 'type'],
+  computed: mapState(['chosenArticle', 'filteredTags', 'editArticleModal']),
   data(){
       return {
-          isModalOpen: true,
+        //   isModalOpen: true,
           article: {},
       }
   },
@@ -43,7 +43,7 @@ export default {
           .then(response => console.log(response.data))
 
           // Closes modal after save
-          this.$store.commit('toggleModal', false);
+          this.$store.commit('toggleModal', {modalType: this.type, action: false});
       },
       filterTags(as){
           console.log(as)
@@ -61,7 +61,7 @@ export default {
 
   mounted(){
       this.filteredTags = this.availableTags;
-      console.log('mounted')
+      console.log(this.$store.editArticleModal, 'modal')
   }
 }
 </script>

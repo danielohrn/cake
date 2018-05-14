@@ -79,11 +79,7 @@ export default {
       this.tags.push(tag.name || tag);
       this.filter()
 
-      this.$router.push({
-        query: {
-          tags: this.tags
-        }
-      })
+      this.$router.replace({query: {tags: this.tags}})
     },
     filter() {
       const articles = this.articles.filter(article =>
@@ -104,11 +100,7 @@ export default {
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
 
-      this.$router.push({
-        query: {
-          tags: this.tags
-        }
-      })
+      this.$router.replace({query: {tags: this.tags}})
 
       // If there are tags, filter the articles
       if (this.tags.length) {

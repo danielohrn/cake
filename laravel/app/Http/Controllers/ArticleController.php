@@ -39,7 +39,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $tags = [];
+        foreach($request->tags as $tag){
+            $tag = Tag::where('name', $tag)->first();
+            $tag = $tag->id;
+            array_push($tags, $tag);
+        }
+        $article = new Article(); 
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->save();
+        $article->tags()->attach($tags);
+        
 
+        //$article->tags()->attach($request->parameters->tags);
+
+        return response($article);  
     }
 
     /**
@@ -50,7 +65,6 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
