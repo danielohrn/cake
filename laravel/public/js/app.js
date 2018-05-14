@@ -37229,7 +37229,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 0 1em 1em 5em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 0 5em 1em 1em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  padding-left: 0.5em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n  border: 2px solid #30ed72;\n}\n.vr-line[data-v-6c0a33b2] {\n    display: block;\n    width: 5px;\n    background-color: #000;\n    margin-top: 5em;\n    height: 660px;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #30ed72;\n  margin-bottom: 5em;\n}\n.boxes h2[data-v-6c0a33b2] {\n  color: #000;\n  font-size: 1.5em;\n  text-align: center;\n  padding: 1em 1em 0 1em;\n  margin: 0;\n  font-weight: bold;\n}\n.bothCols[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 8em;\n  height: 700px;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 3em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: 3em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n  border-radius: 10px;\n  width: 60%;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n  margin-top: 15em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n}\n.col1[data-v-6c0a33b2]:after,\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:before {\n  left: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col1[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-left-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.col2[data-v-6c0a33b2]:after,\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:before {\n  right: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col2[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-right-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 0 1em 1em 5em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 0 5em 1em 1em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  padding-left: 0.5em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n  border: 2px solid #52A76F;\n}\n.vr-line[data-v-6c0a33b2] {\n  display: block;\n  width: 10.5px;\n  background-color: #52A76F;\n  margin-top: 5em;\n  height: 660px;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #aedebf;\n  margin-bottom: 5em;\n}\n.boxes h2[data-v-6c0a33b2] {\n  color: #000;\n  font-size: 1.5em;\n  text-align: center;\n  padding: 1em 1em 0 1em;\n  margin: 0;\n  font-weight: bold;\n}\n.bothCols[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 8em;\n  height: 700px;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 3em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: 3em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n  border-radius: 10px;\n  width: 60%;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n  margin-top: 15em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n}\n.col1[data-v-6c0a33b2]:after,\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:before {\n  left: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col1[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-left-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.col2[data-v-6c0a33b2]:after,\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:before {\n  right: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col2[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-right-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding-left: 10em;\n  padding-right: 10em;\n  margin-bottom: 4em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 200px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  border: 3px solid #aedebf;\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-6c0a33b2] {\n  color: #000;\n  padding: 1em;\n  padding-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2]:hover {\n  background-color: #aedebf;\n}\n.role-item[data-v-6c0a33b2]:hover:after {\n  content: \" \";\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  width: 20%;\n  border-bottom: 3px solid #000;\n}\nfooter[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background-color: #f5f5f5;\n  height: 200px;\n}\n.paragraph[data-v-6c0a33b2] {\n  margin: 3em 2em;\n}\n", ""]);
 
 // exports
 
@@ -37274,6 +37274,27 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37383,7 +37404,46 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "columns is-inline-flex-mobile" },
+        _vm._l(_vm.allRoles, function(role, i) {
+          return _c(
+            "div",
+            { key: i, staticClass: "column is-one-quarter" },
+            [
+              _c("overdrive", { attrs: { id: i, duration: 350 } }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "is-mobile role-item",
+                    on: {
+                      click: function($event) {
+                        _vm.filter(role, i)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "h2",
+                      {
+                        staticClass:
+                          "title is-5 is-uppercase has-text-weight-semibold is-desktop-only"
+                      },
+                      [_vm._v(_vm._s(role.name))]
+                    )
+                  ]
+                )
+              ])
+            ],
+            1
+          )
+        })
+      ),
+      _vm._v(" "),
+      _vm._m(3)
     ],
     1
   )
@@ -37429,7 +37489,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "boxes " }, [
+    return _c("div", { staticClass: "boxes" }, [
       _c("div", [_c("h2", [_vm._v("Så här går det till")])]),
       _vm._v(" "),
       _c("div", { staticClass: "bothCols" }, [
@@ -37487,6 +37547,34 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("p", { staticClass: "paragraph one" }, [
+        _c("b", [_vm._v("BESÖKSADRESS")]),
+        _c("br"),
+        _vm._v("\nHälsingegatan 45"),
+        _c("br"),
+        _vm._v("\n113 31 Stockholm"),
+        _c("br"),
+        _vm._v("\nHandikappentré")
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "paragraph two" }, [
+        _c("b", [_vm._v("LEVERANSADRESS")]),
+        _c("br"),
+        _vm._v("\nHudiksvallsgatan 2"),
+        _c("br"),
+        _vm._v("\n113 30 Stockholm")
+      ]),
+      _vm._v(" "),
+      _c("p"),
+      _vm._v(" "),
+      _c("p")
     ])
   }
 ]

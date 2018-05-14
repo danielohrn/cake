@@ -52,6 +52,27 @@
       </div>
     </div>
   </div>
+  <div class="columns is-inline-flex-mobile">
+   <div class="column is-one-quarter" v-for="(role, i) in allRoles" :key="i">
+     <overdrive :id="i" :duration="350">
+       <div @click="filter(role, i)" class="is-mobile role-item">
+         <h2 class="title is-5 is-uppercase has-text-weight-semibold is-desktop-only">{{role.name}}</h2>
+       </div>
+     </overdrive>
+   </div>
+ </div>
+ </div>
+ <footer>
+   <p class='paragraph one'><b>BESÖKSADRESS</b><br/>
+Hälsingegatan 45<br/>
+113 31 Stockholm<br/>
+Handikappentré</p>
+   <p class='paragraph two'><b>LEVERANSADRESS</b><br/>
+Hudiksvallsgatan 2<br/>
+113 30 Stockholm</p>
+   <p></p>
+   <p></p>
+ </footer>
 </section>
 </template>
 
@@ -136,13 +157,13 @@ export default {
 }
 
 .border {
-  border: 2px solid #30ed72;
+  border: 2px solid #52A76F;
 }
 
 .vr-line {
   display: block;
-  width: 5px;
-  background-color: #000;
+  width: 10.5px;
+  background-color: #52A76F;
   margin-top: 5em;
   height: 660px;
 }
@@ -151,7 +172,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: #30ed72;
+  background-color: #aedebf;
   margin-bottom: 5em;
 }
 
@@ -280,5 +301,50 @@ export default {
 
 .text-box h3 {
   font-weight: bold;
+}
+.columns {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10em;
+  padding-right: 10em;
+  margin-bottom: 4em;
+}
+.role-item {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 3px solid #aedebf;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.role-item h2 {
+  color: #000;
+  padding: 1em;
+  padding-bottom: 1em;
+}
+.role-item:hover {
+  background-color: #aedebf;
+}
+.role-item:hover:after {
+  content: " ";
+  display: flex;
+  margin: 0 auto;
+  width: 20%;
+  border-bottom: 3px solid #000;
+}
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  height: 200px;
+}
+.paragraph {
+  margin: 3em 2em;
 }
 </style>
