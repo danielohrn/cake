@@ -1,7 +1,7 @@
 <template>
 <section class="section">
   <div class="columns">
-    <div class="column">
+    <div class="column is-one-fifth">
       <overdrive v-bind:id="id">
         <div class="role-parent">
           <p class="role-mini">
@@ -10,18 +10,45 @@
         </div>
       </overdrive>
     </div>
-    <div class="column is-10 is-desktop is-mobile">
-      <div class="search-box margin-bottom">
-        <b-field>
-          <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
-          </b-taginput>
-        </b-field>
-      </div>
-      <div class="chosen-tags">
-        <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-dark is-outlined is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
-      </div>
+    <ul class='navItems'>
+      <li>
+        <a>
+          <h3>Nyheter</h3>
+          <p>Här hittar du gulliga nyheter</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <h3>Nyheter</h3>
+          <p>Här hittar du gulliga nyheter</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <h3>Bläddra</h3>
+          <p>Här hittar du gulliga nyheter</p>
+        </a>
+      </li>
+      <li>
+        <a>
+          <h3>Bläddra</h3>
+          <p>Här hittar du gulliga nyheter</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="column search-box is-desktop is-mobile">
+    <div class="search-box margin-bottom">
+      <b-field>
+        <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
+        </b-taginput>
+      </b-field>
+    </div>
+    <div class="chosen-tags">
+      <a @click="addToTags(i)" v-for="(tag, i) in availableTags" class="button is-dark is-size-7-mobile" :key="i">{{tag.name || tag }}</a>
     </div>
   </div>
+
   <div class="article-columns" @click="isCardModalActive = true">
     <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
 
@@ -49,10 +76,14 @@ export default {
   methods: {
     addToTags(index) {
       const tag = this.availableTags.splice(index, 1)[0];
-      this.tags.push(tag.name || tag );
+      this.tags.push(tag.name || tag);
       this.filter()
 
-      this.$router.push({query: {tags: this.tags}})
+      this.$router.push({
+        query: {
+          tags: this.tags
+        }
+      })
     },
     filter() {
       const articles = this.articles.filter(article =>
@@ -73,8 +104,12 @@ export default {
       this.tags = this.tags.filter(tag => tag !== $event);
       this.availableTags.push($event);
 
-      this.$router.push({query: {tags: this.tags}})
-      
+      this.$router.push({
+        query: {
+          tags: this.tags
+        }
+      })
+
       // If there are tags, filter the articles
       if (this.tags.length) {
         this.filter()
@@ -87,38 +122,38 @@ export default {
       this.isCardModalActive = true;
       console.log($event)
     },
-    getArticles(){
+    getArticles() {
       axios.get('api/articles')
-      .then(response => {
+        .then(response => {
           this.articles = response.data;
           this.filteredArticles = response.data;
-          if(this.$route.query.tags){
+          if (this.$route.query.tags) {
             console.log('route has query')
-            this.buildQueryURL(); 
+            this.buildQueryURL();
           }
 
-      })
-    },
-    getTags(){
-      axios.get('api/tags')
-      .then(response => {
-        this.availableTags = response.data;
-      })
-    }, 
-    buildQueryURL(){
-        let tags = []; 
-        if(typeof this.$route.query.tags === 'string') {
-          tags.push(this.$route.query.tags); 
-          console.log(tags)
-        } else {
-          tags = this.$route.query.tags; 
-        }
-        this.tags = tags; 
-        this.filter();
-        
-        this.availableTags = this.availableTags.filter(tag => {
-          return this.tags.indexOf(tag.name) === -1; 
         })
+    },
+    getTags() {
+      axios.get('api/tags')
+        .then(response => {
+          this.availableTags = response.data;
+        })
+    },
+    buildQueryURL() {
+      let tags = [];
+      if (typeof this.$route.query.tags === 'string') {
+        tags.push(this.$route.query.tags);
+        console.log(tags)
+      } else {
+        tags = this.$route.query.tags;
+      }
+      this.tags = tags;
+      this.filter();
+
+      this.availableTags = this.availableTags.filter(tag => {
+        return this.tags.indexOf(tag.name) === -1;
+      })
 
     }
   },
@@ -126,10 +161,10 @@ export default {
     trimRole() {
       return this.$route.params.role.charAt(0).toUpperCase();
     },
-    id(){
+    id() {
       return this.$store.state.userRole.index
     },
-    color(){
+    color() {
       return this.$store.state.userRole.color
     }
   },
@@ -144,11 +179,23 @@ export default {
 }
 </script>
 <style scoped>
+.columns {
+  padding: 0 1.5em 0 3em;
+}
+
 .article-columns {
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+}
+
+.search-box {
+  padding: 0 1.5em 0 1.5em;
+}
+
+.chosen-tags {
+  padding: 0 1.5em 0 1.5em;
 }
 
 .margin-bottom {
@@ -161,21 +208,56 @@ export default {
   color: white;
   font-size: 72px;
   font-weight: 500;
-  background-color: #38ee78;
+  background-color: #aedfbf;
+  border-radius: 10px;
   color: #000;
 }
 
 .button {
   margin: 0.2em;
 }
+
 .chosen-tags .button {
-  background-color: #000;
-  color: white;
-}
-.chosen-tags .button:hover {
-  background-color: #38ee78;
+  background-color: #f5f5f5;
+  border: 1px solid lightgrey;
+  font-size: 0.7em;
   color: #000;
-  border-color: #38ee78;
 }
 
+.chosen-tags .button:hover {
+  background-color: #51a66f;
+  color: #000;
+  border-color: #51a66f;
+}
+
+.nav {
+  width: 100%;
+}
+
+.navItems {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navItems a h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+.navItems p {
+  font-size: 0.9em;
+  margin: 0 0.3em;
+}
+
+.navItems a {
+  color: #000;
+  padding: 1em;
+}
+.navItems li:hover {
+background-color: #f5f5f5;
+
+}
 </style>

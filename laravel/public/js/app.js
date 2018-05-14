@@ -37622,7 +37622,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n.article-column[data-v-0d99dc90] {\n  width: 50vh;\n  height: auto;\n  margin: 1em;\n}\n@media only screen and (max-width: 1300px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n@media only screen and (max-width: 965px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n@media only screen and (max-width: 768px) {\n.article-column[data-v-0d99dc90] {\n      width: 35vh;\n}\n}\n@media only screen and (max-width: 580px) {\n.article-column[data-v-0d99dc90] {\n      width: 40vh;\n}\n}\n", ""]);
+exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n.article-column[data-v-0d99dc90] {\n  width: 400px;\n  height: auto;\n  margin: 1em;\n}\n.tagList[data-v-0d99dc90] {\n  margin-top: 1em;\n  height: 70px;\n}\n.media h1[data-v-0d99dc90] {\n  font-size: 1.5em;\n}\n.card-content[data-v-0d99dc90] {\n  padding-bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -37656,11 +37656,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
-  props: ['title', 'body', 'articleTags', 'media'],
+  props: ['title', 'body', 'articleTags', 'media', 'author', 'created_at'],
   data: function data() {
     return {
       isCardModalActive: false
@@ -37674,6 +37680,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     truncate: function truncate(string) {
       return string.substring(0, 200) + '...';
+    }
+  },
+  computed: {
+    time: function time() {
+      return this.created_at.slice(0, 10);
     }
   }
 });
@@ -37700,7 +37711,7 @@ var render = function() {
     [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-image" }, [
-          _c("img", { attrs: { src: "/img/" + _vm.media, alt: "" } })
+          _c("img", { attrs: { src: "/img/articlesNew.png", alt: "" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "card-content" }, [
@@ -37708,24 +37719,27 @@ var render = function() {
             _c("h1", [_c("b", [_vm._v(_vm._s(_vm.title))])])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "content" },
-            [
-              _vm._v(
-                "\n            " +
-                  _vm._s(_vm.truncate(_vm.body)) +
-                  "\n            "
-              ),
-              _c(
-                "b-taglist",
-                _vm._l(_vm.articleTags, function(tag, i) {
-                  return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
-                })
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "content" }, [
+            _c("div", [
+              _c("h6", [_vm._v("Author: " + _vm._s(_vm.author) + " ")]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Date: " + _vm._s(_vm.time) + " ")])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "tagList" },
+              [
+                _c(
+                  "b-taglist",
+                  _vm._l(_vm.articleTags, function(tag, i) {
+                    return _c("b-tag", { key: i }, [_vm._v(_vm._s(tag))])
+                  })
+                )
+              ],
+              1
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -37789,7 +37803,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.article-columns[data-v-7290ec61] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #38ee78;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #000;\n  color: white;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #38ee78;\n  color: #000;\n  border-color: #38ee78;\n}\n\n", ""]);
+exports.push([module.i, "\n.columns[data-v-7290ec61] {\n  padding: 0 1.5em 0 3em;\n}\n.article-columns[data-v-7290ec61] {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.search-box[data-v-7290ec61] {\n  padding: 0 1.5em 0 1.5em;\n}\n.chosen-tags[data-v-7290ec61] {\n  padding: 0 1.5em 0 1.5em;\n}\n.margin-bottom[data-v-7290ec61] {\n  margin-bottom: .3em\n}\n.role-mini[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-size: 72px;\n  font-weight: 500;\n  background-color: #aedfbf;\n  border-radius: 10px;\n  color: #000;\n}\n.button[data-v-7290ec61] {\n  margin: 0.2em;\n}\n.chosen-tags .button[data-v-7290ec61] {\n  background-color: #f5f5f5;\n  border: 1px solid lightgrey;\n  font-size: 0.7em;\n  color: #000;\n}\n.chosen-tags .button[data-v-7290ec61]:hover {\n  background-color: #51a66f;\n  color: #000;\n  border-color: #51a66f;\n}\n.nav[data-v-7290ec61] {\n  width: 100%;\n}\n.navItems[data-v-7290ec61] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: auto;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.navItems a h3[data-v-7290ec61] {\n  font-size: 1.5em;\n  font-weight: bold;\n  text-align: center;\n}\n.navItems p[data-v-7290ec61] {\n  font-size: 0.9em;\n  margin: 0 0.3em;\n}\n.navItems a[data-v-7290ec61] {\n  color: #000;\n  padding: 1em;\n}\n.navItems li[data-v-7290ec61]:hover {\nbackground-color: #f5f5f5;\n}\n", ""]);
 
 // exports
 
@@ -37802,6 +37816,33 @@ exports.push([module.i, "\n.article-columns[data-v-7290ec61] {\n  display: -webk
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Articles__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Articles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Articles__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37857,7 +37898,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.tags.push(tag.name || tag);
       this.filter();
 
-      this.$router.push({ query: { tags: this.tags } });
+      this.$router.push({
+        query: {
+          tags: this.tags
+        }
+      });
     },
     filter: function filter() {
       var _this = this;
@@ -37882,7 +37927,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
       this.availableTags.push($event);
 
-      this.$router.push({ query: { tags: this.tags } });
+      this.$router.push({
+        query: {
+          tags: this.tags
+        }
+      });
 
       // If there are tags, filter the articles
       if (this.tags.length) {
@@ -37964,7 +38013,7 @@ var render = function() {
     _c("div", { staticClass: "columns" }, [
       _c(
         "div",
-        { staticClass: "column" },
+        { staticClass: "column is-one-fifth" },
         [
           _c("overdrive", { attrs: { id: _vm.id } }, [
             _c("div", { staticClass: "role-parent" }, [
@@ -37977,59 +38026,61 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "column is-10 is-desktop is-mobile" }, [
-        _c(
-          "div",
-          { staticClass: "search-box margin-bottom" },
-          [
-            _c(
-              "b-field",
-              [
-                _c("b-taginput", {
-                  attrs: {
-                    icon: "label",
-                    placeholder: "Jag är " + _vm.role + " och söker..."
-                  },
-                  on: {
-                    remove: function($event) {
-                      _vm.removeTag($event)
-                    }
-                  },
-                  model: {
-                    value: _vm.tags,
-                    callback: function($$v) {
-                      _vm.tags = $$v
-                    },
-                    expression: "tags"
-                  }
-                })
-              ],
-              1
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "chosen-tags" },
-          _vm._l(_vm.availableTags, function(tag, i) {
-            return _c(
-              "a",
-              {
-                key: i,
-                staticClass: "button is-dark is-outlined is-size-7-mobile",
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "column search-box is-desktop is-mobile" }, [
+      _c(
+        "div",
+        { staticClass: "search-box margin-bottom" },
+        [
+          _c(
+            "b-field",
+            [
+              _c("b-taginput", {
+                attrs: {
+                  icon: "label",
+                  placeholder: "Jag är " + _vm.role + " och söker..."
+                },
                 on: {
-                  click: function($event) {
-                    _vm.addToTags(i)
+                  remove: function($event) {
+                    _vm.removeTag($event)
                   }
+                },
+                model: {
+                  value: _vm.tags,
+                  callback: function($$v) {
+                    _vm.tags = $$v
+                  },
+                  expression: "tags"
                 }
-              },
-              [_vm._v(_vm._s(tag.name || tag))]
-            )
-          })
-        )
-      ])
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "chosen-tags" },
+        _vm._l(_vm.availableTags, function(tag, i) {
+          return _c(
+            "a",
+            {
+              key: i,
+              staticClass: "button is-dark is-size-7-mobile",
+              on: {
+                click: function($event) {
+                  _vm.addToTags(i)
+                }
+              }
+            },
+            [_vm._v(_vm._s(tag.name || tag))]
+          )
+        })
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -38070,7 +38121,46 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navItems" }, [
+      _c("li", [
+        _c("a", [
+          _c("h3", [_vm._v("Nyheter")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Här hittar du gulliga nyheter")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", [
+          _c("h3", [_vm._v("Nyheter")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Här hittar du gulliga nyheter")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", [
+          _c("h3", [_vm._v("Bläddra")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Här hittar du gulliga nyheter")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", [
+          _c("h3", [_vm._v("Bläddra")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Här hittar du gulliga nyheter")])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
