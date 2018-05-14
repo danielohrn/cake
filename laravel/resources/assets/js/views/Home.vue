@@ -16,41 +16,41 @@
         vidare i Sverige och utomlands.</p>
     </div>
   </div>
-  <div class='boxes '>
+  <div class='boxes'>
     <div>
-    <h2>Så här går det till</h2>
-  </div>
-  <div class='bothCols'>
-    <div class='leftCol'>
-      <div class='col col1'>
-        <div class='text-box'>
-          <h3>HUR?</h3>
-          <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+      <h2>Så här går det till</h2>
+    </div>
+    <div class='bothCols'>
+      <div class='leftCol'>
+        <div class='col col1'>
+          <div class='text-box'>
+            <h3>HUR?</h3>
+            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+          </div>
+        </div>
+        <div class='col col3'>
+          <div class='text-box'>
+            <h3>HUR?</h3>
+            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+          </div>
         </div>
       </div>
-      <div class='col col3'>
-        <div class='text-box'>
-          <h3>HUR?</h3>
-          <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+      <div class='vr-line'></div>
+      <div class='rightCol'>
+        <div class='col col2'>
+          <div class='text-box'>
+            <h3>HUR?</h3>
+            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+          </div>
+        </div>
+        <div class='col col4'>
+          <div class='text-box'>
+            <h3>HUR?</h3>
+            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class='vr-line'></div>
-    <div class='rightCol'>
-      <div class='col col2'>
-        <div class='text-box'>
-          <h3>HUR?</h3>
-          <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
-        </div>
-      </div>
-      <div class='col col4'>
-        <div class='text-box'>
-          <h3>HUR?</h3>
-          <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
 </section>
 </template>
@@ -138,12 +138,13 @@ export default {
 .border {
   border: 2px solid #30ed72;
 }
+
 .vr-line {
-    display: block;
-    width: 5px;
-    background-color: #000;
-    margin-top: 5em;
-    height: 660px;
+  display: block;
+  width: 5px;
+  background-color: #000;
+  margin-top: 5em;
+  height: 660px;
 }
 
 .boxes {
@@ -162,11 +163,13 @@ export default {
   margin: 0;
   font-weight: bold;
 }
+
 .bothCols {
   display: flex;
   margin-bottom: 8em;
   height: 700px;
 }
+
 .leftCol {
   display: flex;
   flex-direction: column;
@@ -186,6 +189,7 @@ export default {
   border-radius: 10px;
   width: 60%;
 }
+
 .col1 {
   align-self: flex-end;
   padding: 1em;
