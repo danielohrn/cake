@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/roles', 'RoleController@index');
 Route::get('/articles', 'ArticleController@index');
+Route::get('/articles/{id}', 'ArticleController@getOne');
 Route::patch('/articles', 'ArticleController@update');
 Route::get('/tags', 'TagController@index');
 Route::post('/article', 'ArticleController@store');

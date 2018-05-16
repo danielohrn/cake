@@ -27,6 +27,7 @@ Vue.component('modal', require('./components/modal.vue'));
 Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue'));
 Vue.component('NewArticleModal', require('./components/NewArticleModal.vue'));
 Vue.component('NavBar', require('./components/NavBar.vue'));
+Vue.component('ModalWrapper', require('./components/ModalWrapper.vue'));
 
 
 const app = new Vue({

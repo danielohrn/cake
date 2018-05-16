@@ -12,7 +12,7 @@ class ArticleController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
         $articles = Article::all();
@@ -29,6 +29,12 @@ class ArticleController extends Controller
           $article->articleTags = $array;
         }
         return response()->json($articles);
+    }
+
+    public function getOne($id) {
+
+        $article = Article::find($id); 
+        return response()->json($article); 
     }
 
     /**
