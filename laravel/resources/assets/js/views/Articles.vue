@@ -11,9 +11,9 @@
 
           <div class="content">
             <!-- {{truncate(body)}} -->
-            <div>
-            <h6>Author: {{author}} </h6>
-            <h6>Date: {{time}} </h6>
+            <div class='text-box'>
+            <h6><b>Author: {{author}} </b></h6>
+            <h6><b>Date: {{time}}</b> </h6>
           </div>
             <div class='tagList'>
             <b-taglist>
@@ -74,5 +74,11 @@ export default {
 }
 .card-content {
   padding-bottom: 0;
+}
+.text-box {
+  margin-top: 1em;
+}
+.text-box h6{
+  margin: 0;
 }
 </style>

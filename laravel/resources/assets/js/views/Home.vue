@@ -1,8 +1,15 @@
 <template>
 <section class="section">
   <NavBar></NavBar>
-  <div>
-    <img src='img/indexphoto.png' width='100%' />
+  <div class='image-container'>
+    <img class='image' src='img/indexPhoto3.png' width='100%' />
+    <div class="text">
+   <h1>Välkommen<br/>till Kunskapsnavet</h1>
+   <h3>Här hittar du allting om offentlig konst</h3>
+   <div class='btnParent'>
+   <button class='btn'>Läs Mer</button>
+ </div>
+ </div>
   </div>
   <div class='information'>
     <div class='infoCol1'>
@@ -116,13 +123,48 @@ export default {
 .section {
   padding: 0;
 }
-
+.image-container {
+position: relative;
+}
+.text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  left: 30px;
+  top: 70px;
+}
+.text h1 {
+  font-size: 50px;
+  padding: 0.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.text h3 {
+  font-size: 30px;
+  padding-left: 1em;
+  font-weight: bold;
+}
+.btnParent {
+  padding: 2em 10em;
+}
+.btn {
+  padding: 0.5em 2em;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: #aedebf;
+  color: black;
+}
 .information {
   display: flex;
   margin-top: 4em;
   margin-bottom: 4em;
 }
-
 .infoCol1 {
   flex: 1;
   padding: 0 1em 1em 5em;
@@ -346,5 +388,21 @@ footer {
 }
 .paragraph {
   margin: 3em 2em;
+}
+.indexPhoto {
+  position: relative;
+   width: 100%;
+}
+.indexPhoto h2 {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+  width: 100%;
+  color: white;
+}
+.indexPhoto h2 span {
+  color: white;
+font: bold 30px Helvetica, Sans-Serif;
+letter-spacing: 1px;
 }
 </style>
