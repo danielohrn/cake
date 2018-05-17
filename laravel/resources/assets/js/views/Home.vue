@@ -7,7 +7,7 @@
    <h1>Välkommen<br/>till Kunskapsnavet</h1>
    <h3>Här hittar du allting om offentlig konst</h3>
    <div class='btnParent'>
-   <button class='btn'>Läs Mer</button>
+   <router-link to='/articles'><button class='btn'>Läs Mer</button></router-link>
  </div>
  </div>
   </div>
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="columns is-inline-flex-mobile">
+  <!-- <div class="columns is-inline-flex-mobile">
    <div class="column is-one-quarter" v-for="(role, i) in allRoles" :key="i">
      <overdrive :id="i" :duration="350">
        <div @click="filter(role, i)" class="is-mobile role-item">
@@ -67,19 +67,9 @@
        </div>
      </overdrive>
    </div>
+ </div> -->
  </div>
- </div>
- <footer>
-   <p class='paragraph one'><b>BESÖKSADRESS</b><br/>
-Hälsingegatan 45<br/>
-113 31 Stockholm<br/>
-Handikappentré</p>
-   <p class='paragraph two'><b>LEVERANSADRESS</b><br/>
-Hudiksvallsgatan 2<br/>
-113 30 Stockholm</p>
-   <p></p>
-   <p></p>
- </footer>
+ <Footer></Footer>
 </section>
 </template>
 
@@ -378,16 +368,6 @@ position: relative;
   margin: 0 auto;
   width: 20%;
   border-bottom: 3px solid #000;
-}
-footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: #f5f5f5;
-  height: 200px;
-}
-.paragraph {
-  margin: 3em 2em;
 }
 .indexPhoto {
   position: relative;
