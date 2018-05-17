@@ -4,7 +4,7 @@ import Home from './views/Home'
 import Articles from './views/Articles'
 import ChosenArticle from './views/ChosenArticle'
 import Admin from './views/Admin';
-  
+
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +18,7 @@ export default new Router({
       path: '/articles',
       name: 'Articles',
       components: {
-        default: Home,
+        default: ChosenArticle,
         a: Articles
       }
     },

@@ -1,41 +1,16 @@
 <template>
 <section class="section">
+  <ArticleNavBar></ArticleNavBar>
   <div class="columns">
     <div class="column is-one-fifth">
       <overdrive v-bind:id="id">
-        <div class="role-parent">
+        <!-- <div class="role-parent">
           <p class="role-mini">
             {{trimRole}}
           </p>
-        </div>
+        </div> -->
       </overdrive>
     </div>
-    <ul class='navItems'>
-      <li>
-        <a>
-          <h3>Nyheter</h3>
-          <p>Här hittar du gulliga nyheter</p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <h3>Nyheter</h3>
-          <p>Här hittar du gulliga nyheter</p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <h3>Bläddra</h3>
-          <p>Här hittar du gulliga nyheter</p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <h3>Bläddra</h3>
-          <p>Här hittar du gulliga nyheter</p>
-        </a>
-      </li>
-    </ul>
   </div>
   <div class="column search-box is-desktop is-mobile">
     <div class="search-box margin-bottom">
@@ -54,7 +29,7 @@
 
     <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
   </div>
-
+  <Footer></Footer>
 </section>
 </template>
 
@@ -171,8 +146,10 @@ export default {
 }
 </script>
 <style scoped>
+.section {
+  padding: 0;
+}
 .columns {
-  padding: 0 1.5em 0 3em;
 }
 
 .article-columns {
@@ -180,14 +157,15 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  margin-bottom: 4em;
 }
 
 .search-box {
-  padding: 0 1.5em 0 1.5em;
+  padding: 0 2.4em 0 2.4em;
 }
 
 .chosen-tags {
-  padding: 0 1.5em 0 1.5em;
+  padding: 0 2.4em 0 2.4em;
 }
 
 .margin-bottom {
