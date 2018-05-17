@@ -4,16 +4,15 @@
         <div class="card-image">
           <img v-bind:src="`/img/articlesNew.png`" alt="" >
         </div>
-        <div class="card-content">
-          <div class="media">
-            <h1><b>{{title}}</b></h1>
-          </div>
+        <div class="">
+
 
           <div class="content">
+            <h1><b>{{title}}</b></h1>
             <!-- {{truncate(body)}} -->
             <div class='text-box'>
-            <h6><b>Author: {{author}} </b></h6>
-            <h6><b>Date: {{time}}</b> </h6>
+            <h6>Skriven av {{author}}</h6>
+            <h6>{{time}}</h6>
           </div>
             <div class='tagList'>
             <b-taglist>
@@ -69,11 +68,11 @@ export default {
   margin-top: 1em;
   height: 70px;
 }
-.media h1 {
+.content h1 {
   font-size: 1.5em;
 }
-.card-content {
-  padding-bottom: 0;
+.content{
+  margin: 1em;
 }
 .text-box {
   margin-top: 1em;
