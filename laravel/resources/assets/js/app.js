@@ -26,7 +26,8 @@ Vue.component('ArticleRow', require('./components/ArticleRow.vue'));
 Vue.component('modal', require('./components/modal.vue'));
 Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue'));
 Vue.component('NavBar', require('./components/NavBar.vue'));
-Vue.component('Footer', require('./components/Footer.vue')); 
+Vue.component('ArticleNavBar', require('./components/ArticleNavBar.vue'));
+Vue.component('Footer', require('./components/Footer.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -16290,6 +16290,7 @@ Vue.component('ArticleRow', __webpack_require__(80));
 Vue.component('modal', __webpack_require__(89));
 Vue.component('EditableArticleModal', __webpack_require__(21));
 Vue.component('NavBar', __webpack_require__(94));
+Vue.component('ArticleNavBar', __webpack_require__(106));
 Vue.component('Footer', __webpack_require__(101));
 
 var app = new Vue({
@@ -37230,7 +37231,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.image-container[data-v-6c0a33b2] {\nposition: relative;\n}\n.text[data-v-6c0a33b2] {\n  z-index: 100;\n  position: absolute;\n  color: white;\n  font-weight: bold;\n  left: 30px;\n  top: 70px;\n}\n.text h1[data-v-6c0a33b2] {\n  font-size: 50px;\n  padding: 0.5em;\n  font-weight: bold;\n  text-transform: uppercase;\n}\n.text h3[data-v-6c0a33b2] {\n  font-size: 30px;\n  padding-left: 1em;\n  font-weight: bold;\n}\n.btnParent[data-v-6c0a33b2] {\n  padding: 2em 10em;\n}\n.btn[data-v-6c0a33b2] {\n  padding: 0.5em 2em;\n  background-color: transparent;\n  color: white;\n  border: 2px solid white;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.btn[data-v-6c0a33b2]:hover {\n  background-color: #aedebf;\n  color: black;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 0 1em 1em 5em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 0 5em 1em 1em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  padding-left: 0.5em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n  border: 2px solid #52A76F;\n}\n.vr-line[data-v-6c0a33b2] {\n  display: block;\n  width: 10.5px;\n  background-color: #52A76F;\n  margin-top: 5em;\n  height: 660px;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #aedebf;\n  margin-bottom: 5em;\n}\n.boxes h2[data-v-6c0a33b2] {\n  color: #000;\n  font-size: 1.5em;\n  text-align: center;\n  padding: 1em 1em 0 1em;\n  margin: 0;\n  font-weight: bold;\n}\n.bothCols[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 8em;\n  height: 700px;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 3em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: 3em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n  border-radius: 10px;\n  width: 60%;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n  margin-top: 15em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n}\n.col1[data-v-6c0a33b2]:after,\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:before {\n  left: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col1[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-left-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.col2[data-v-6c0a33b2]:after,\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:before {\n  right: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col2[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-right-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding-left: 10em;\n  padding-right: 10em;\n  margin-bottom: 4em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 200px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  border: 3px solid #aedebf;\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-6c0a33b2] {\n  color: #000;\n  padding: 1em;\n  padding-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2]:hover {\n  background-color: #aedebf;\n}\n.role-item[data-v-6c0a33b2]:hover:after {\n  content: \" \";\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  width: 20%;\n  border-bottom: 3px solid #000;\n}\n.indexPhoto[data-v-6c0a33b2] {\n  position: relative;\n   width: 100%;\n}\n.indexPhoto h2[data-v-6c0a33b2] {\n  position: absolute;\n  top: 400px;\n  left: 50px;\n  width: 100%;\n  color: white;\n}\n.indexPhoto h2 span[data-v-6c0a33b2] {\n  color: white;\nfont: bold 30px Helvetica, Sans-Serif;\nletter-spacing: 1px;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-6c0a33b2] {\n  padding: 0;\n}\n.image-container[data-v-6c0a33b2] {\nposition: relative;\n}\n.text[data-v-6c0a33b2] {\n  z-index: 100;\n  position: absolute;\n  color: white;\n  font-weight: bold;\n  left: 30px;\n  top: 70px;\n}\n.text h1[data-v-6c0a33b2] {\n  font-size: 50px;\n  padding: 0.5em;\n  font-weight: bold;\n  text-transform: uppercase;\n}\n.text h3[data-v-6c0a33b2] {\n  font-size: 30px;\n  padding-left: 1em;\n  font-weight: bold;\n}\n.btnParent[data-v-6c0a33b2] {\n  padding: 2em 10em;\n}\n.btn[data-v-6c0a33b2] {\n  padding: 0.5em 2em;\n  background-color: transparent;\n  color: white;\n  border: 2px solid white;\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.btn[data-v-6c0a33b2]:hover {\n  background-color: #aedebf;\n  color: black;\n}\n.information[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 4em;\n  margin-bottom: 4em;\n}\n.infoCol1[data-v-6c0a33b2] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 0 1em 1em 5em;\n}\n.infoCol1 p[data-v-6c0a33b2] {\n  font-size: 20px;\n  padding: 1em;\n}\n.infoCol2 p[data-v-6c0a33b2] {\n  padding: 1em;\n  font-size: 20px;\n}\n.infoCol1 h1[data-v-6c0a33b2] {\n  text-align: center;\n  font-size: 2em;\n  font-weight: bold;\n}\n.infoCol2[data-v-6c0a33b2] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  padding: 0 5em 1em 1em;\n}\n.infoCol2 h1[data-v-6c0a33b2] {\n  font-size: 2em;\n  padding-left: 0.5em;\n  font-weight: bold;\n}\n.border[data-v-6c0a33b2] {\n  border: 2px solid #52A76F;\n}\n.vr-line[data-v-6c0a33b2] {\n  display: block;\n  width: 10.5px;\n  background-color: #52A76F;\n  margin-top: 5em;\n  height: 660px;\n}\n.boxes[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #aedebf;\n}\n.boxes h2[data-v-6c0a33b2] {\n  color: #000;\n  font-size: 1.5em;\n  text-align: center;\n  padding: 1em 1em 0 1em;\n  margin: 0;\n  font-weight: bold;\n}\n.bothCols[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 8em;\n  height: 700px;\n}\n.leftCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 3em;\n}\n.rightCol[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-left: 3em;\n}\n.col[data-v-6c0a33b2] {\n  background-color: white;\n  border-radius: 10px;\n  width: 60%;\n}\n.col1[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n}\n.col2[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n  margin-bottom: 5em;\n  margin-top: 15em;\n}\n.col3[data-v-6c0a33b2] {\n  -ms-flex-item-align: end;\n      align-self: flex-end;\n  padding: 1em;\n  position: relative;\n}\n.col4[data-v-6c0a33b2] {\n  -ms-flex-item-align: start;\n      align-self: flex-start;\n  padding: 1em;\n  position: relative;\n}\n.col1[data-v-6c0a33b2]:after,\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:before {\n  left: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col1[data-v-6c0a33b2]:after,\n.col3[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-left-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col1[data-v-6c0a33b2]:before,\n.col3[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.col2[data-v-6c0a33b2]:after,\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:before {\n  right: 100%;\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.col2[data-v-6c0a33b2]:after,\n.col4[data-v-6c0a33b2]:after {\n  border-color: rgba(255, 255, 255, 0);\n  border-right-color: white;\n  border-width: 30px;\n  margin-top: -30px;\n}\n.col2[data-v-6c0a33b2]:before,\n.col4[data-v-6c0a33b2]:before {\n  border-width: 36px;\n  margin-top: -36px;\n}\n.text-box[data-v-6c0a33b2] {\n  padding: 1em;\n}\n.text-box h3[data-v-6c0a33b2] {\n  font-weight: bold;\n}\n.columns[data-v-6c0a33b2] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding-left: 10em;\n  padding-right: 10em;\n  margin-bottom: 4em;\n}\n.role-item[data-v-6c0a33b2] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 200px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  border: 3px solid #aedebf;\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-6c0a33b2] {\n  color: #000;\n  padding: 1em;\n  padding-bottom: 1em;\n}\n.role-item[data-v-6c0a33b2]:hover {\n  background-color: #aedebf;\n}\n.role-item[data-v-6c0a33b2]:hover:after {\n  content: \" \";\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  width: 20%;\n  border-bottom: 3px solid #000;\n}\n.indexPhoto[data-v-6c0a33b2] {\n  position: relative;\n   width: 100%;\n}\n.indexPhoto h2[data-v-6c0a33b2] {\n  position: absolute;\n  top: 400px;\n  left: 50px;\n  width: 100%;\n  color: white;\n}\n.indexPhoto h2 span[data-v-6c0a33b2] {\n  color: white;\nfont: bold 30px Helvetica, Sans-Serif;\nletter-spacing: 1px;\n}\n", ""]);
 
 // exports
 
@@ -37947,7 +37948,7 @@ var render = function() {
     "section",
     { staticClass: "section" },
     [
-      _c("NavBar"),
+      _c("ArticleNavBar"),
       _vm._v(" "),
       _c("div", { staticClass: "columns" }, [
         _c(
@@ -42660,7 +42661,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-046a7e32] {\n  padding: 0;\n}\n.navbar-item[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-046a7e32] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-046a7e32] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-046a7e32] {\n  font-size: 1.5em;\n}\n.logo[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-046a7e32] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.menuItems[data-v-046a7e32] {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-046a7e32] {\n  margin: 0 2em 0 2em;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-046a7e32] {\n  padding: 0;\n}\n.navbar-item[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-046a7e32] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-046a7e32] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-046a7e32] {\n  font-size: 1.5em;\n}\n.logo[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-046a7e32] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-046a7e32] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.menuItems[data-v-046a7e32] {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-046a7e32] {\n  margin: 0 2em 0 2em;\n}\n", ""]);
 
 // exports
 
@@ -42701,10 +42702,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -42712,21 +42709,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   }
 });
 document.addEventListener('DOMContentLoaded', function () {
-
   // Get all "navbar-burger" elements
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
-
     // Add a click event on each of them
     $navbarBurgers.forEach(function ($el) {
       $el.addEventListener('click', function () {
-
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
-
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
@@ -42770,12 +42762,6 @@ var staticRenderFns = [
             attrs: { id: "navMenu" }
           },
           [
-            _c("a", { staticClass: "navbar-item" }, [
-              _c("h2", [_c("b", [_vm._v("Roller")])]),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Hitta din roll")])
-            ]),
-            _vm._v(" "),
             _c("a", { staticClass: "navbar-item" }, [
               _c("h2", [_c("b", [_vm._v("Om Kunskapsnavet")])]),
               _vm._v(" "),
@@ -42993,6 +42979,389 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-083ff5dc", module.exports)
+  }
+}
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(107)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(109)
+/* template */
+var __vue_template__ = __webpack_require__(110)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-204dd0df"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ArticleNavBar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-204dd0df", Component.options)
+  } else {
+    hotAPI.reload("data-v-204dd0df", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(108);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("6cd1dcda", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-204dd0df\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ArticleNavBar.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-204dd0df\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ArticleNavBar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.section[data-v-204dd0df] {\n  padding: 0;\n}\n.navbar-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-204dd0df] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-204dd0df] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-204dd0df] {\n  font-size: 1.5em;\n}\n.logo[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-204dd0df] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.menuItems[data-v-204dd0df] {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-204dd0df] {\n  margin: 0 2em 0 2em;\n}\n.columns[data-v-204dd0df] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.role-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 100px;\n  width: 160px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  /* border: 3px solid #aedebf; */\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-204dd0df] {\n  color: #000;\n  margin: 0;\n  margin-bottom: 0.5em;\n}\n.role-item[data-v-204dd0df]:hover {\n  background-color: #aedebf;\n}\n\n/* .role-item:hover:after {\n  content: \" \";\n  display: flex;\n  width: 20%;\n  border-bottom: 3px solid #000;\n} */\n.dropContent[data-v-204dd0df] {\n  width: 1000px;\n  padding: 1em 1em 1em 6em;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Home',
+  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['role', 'allRoles']),
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    this.getRoles();
+  },
+
+  methods: {
+    filter: function filter(role, index) {
+      var payload = {};
+      payload.role = role;
+      payload.role.index = index;
+      console.log(payload);
+      this.$store.commit('updateUserRole', payload);
+      this.$router.push('/articles' + role.url);
+    },
+    getRoles: function getRoles() {
+      var _this = this;
+
+      axios.get('/api/roles').then(function (response) {
+        var allRoles = {};
+        allRoles = response.data;
+        _this.$store.commit('updateRoles', allRoles);
+      });
+    }
+  }
+
+});
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "nav",
+    {
+      staticClass: "navbar navbar is-light",
+      attrs: { role: "navigation", "aria-label": "main navigation" }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "menuItems navbar-end navbar-menu navbar-menu",
+          attrs: { "aria-label": "dropdown navigation" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "dropdownTag navbar-item has-dropdown is-hoverable"
+            },
+            [
+              _c("div", { staticClass: "dropdown-trigger" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "dropContent navbar-dropdown ",
+                    attrs: { role: "menu" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "columns" },
+                      _vm._l(_vm.allRoles, function(role, i) {
+                        return _c("div", { key: i, staticClass: "column" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "role-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.filter(role, i)
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "h2",
+                                {
+                                  staticClass:
+                                    "title is-5 is-uppercase has-text-weight-semibold"
+                                },
+                                [_vm._v(_vm._s(role.name))]
+                              ),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("Information om rollen")])
+                            ]
+                          )
+                        ])
+                      })
+                    )
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4)
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(5)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "logo navbar-brand" }, [
+      _c("a", { attrs: { href: "" } }, [
+        _c("h1", [_c("b", [_vm._v("KUNSKAPSNAVET")])])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navbar-link" }, [
+      _c("div", [
+        _c("h2", { staticClass: "has-text-centered" }, [
+          _c("b", [_vm._v("Roller")])
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Hitta din roll")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "navbar-item" }, [
+      _c("h2", [_c("b", [_vm._v("Om Kunskapsnavet")])]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Information om navet")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "navbar-item" }, [
+      _c("h2", [_c("b", [_vm._v("FAQ")])]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Hitta svar till dina frågor")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "navbar-item" }, [
+      _c("h2", [_c("b", [_vm._v("Kontakt")])]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Kontakta oss")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "navbar-burger",
+        attrs: {
+          role: "button",
+          "data-target": "navMenu",
+          "aria-label": "menu",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("span", { attrs: { "aria-hidden": "true" } }),
+        _vm._v(" "),
+        _c("span", { attrs: { "aria-hidden": "true" } }),
+        _vm._v(" "),
+        _c("span", { attrs: { "aria-hidden": "true" } })
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-204dd0df", module.exports)
   }
 }
 

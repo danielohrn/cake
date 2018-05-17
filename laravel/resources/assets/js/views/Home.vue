@@ -205,7 +205,6 @@ position: relative;
   flex-wrap: wrap;
   flex-direction: column;
   background-color: #aedebf;
-  margin-bottom: 5em;
 }
 
 .boxes h2 {

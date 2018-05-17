@@ -1,6 +1,6 @@
 <template>
 <section class="section">
-  <NavBar></NavBar>
+  <ArticleNavBar></ArticleNavBar>
   <div class="columns">
     <div class="column is-one-fifth">
       <overdrive v-bind:id="id">
