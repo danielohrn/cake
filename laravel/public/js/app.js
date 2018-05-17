@@ -37360,6 +37360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -37484,11 +37485,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "information" }, [
       _c("div", { staticClass: "infoCol1" }, [
-        _c("h1", [_vm._v("Vilka är vi?")]),
+        _c("h1", [_vm._v("Om Oss")]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            "Statens konstråd utvecklar sammanhang där samtidskonst och offentliga rum möts. Vi producerar permanenta och tillfälliga konstprojekt i offentliga miljöer och engagerar konstnärer i stadsutvecklingsprojekt, samt sprider kunskap och erfarenheter\n        vidare i Sverige och utomlands."
           )
         ])
       ]),
@@ -37496,11 +37497,11 @@ var staticRenderFns = [
       _c("div", { staticClass: "border" }),
       _vm._v(" "),
       _c("div", { staticClass: "infoCol2" }, [
-        _c("h1", [_vm._v("Om Oss")]),
+        _c("h1", [_vm._v("Kunskapsnavet")]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Statens konstråd utvecklar sammanhang där samtidskonst och offentliga rum möts. Vi producerar permanenta och tillfälliga konstprojekt i offentliga miljöer och engagerar konstnärer i stadsutvecklingsprojekt, samt sprider kunskap och erfarenheter\n        vidare i Sverige och utomlands."
+            "Nu bygger vi upp ett kunskapsnav för offentlig konst. Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller."
           )
         ])
       ])
@@ -37517,11 +37518,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "leftCol" }, [
           _c("div", { staticClass: "col col1" }, [
             _c("div", { staticClass: "text-box" }, [
-              _c("h3", [_vm._v("HUR?")]),
+              _c("h3", [_vm._v("Första gången – steget vidare")]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                  "Här vänder vi oss till kommuner som vill börja arbeta med offentlig konst för första gången. Det handlar om att skapa eller vidareutveckla rutiner för att arbeta med offentlig konst och/eller att genomföra ett konstprojekt för första gången."
                 )
               ])
             ])
@@ -37529,11 +37530,11 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "col col3" }, [
             _c("div", { staticClass: "text-box" }, [
-              _c("h3", [_vm._v("HUR?")]),
+              _c("h3", [_vm._v("Konst i stadsutveckling")]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                  "Vill ni ta steget vidare och integrera konst i stadsutvecklingsprojekt? Det kan till exempel handla om att skapa storskaliga gestaltningar eller att stärka invånarinflytande. Kommuner och fastighetsägare är välkomna att ansöka om samarbete."
                 )
               ])
             ])
@@ -37545,11 +37546,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "rightCol" }, [
           _c("div", { staticClass: "col col2" }, [
             _c("div", { staticClass: "text-box" }, [
-              _c("h3", [_vm._v("HUR?")]),
+              _c("h3", [_vm._v("Lokala konstprojekt – för fria konstaktörer")]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                  "I den här utlysningen vänder vi oss till konstorganisationer, konsthallar, konstnärer och curatorer som vill genomföra ett lokalt konstprojekt. Det kan röra sig om bland annat permanent, tillfällig eller processbaserad konst."
                 )
               ])
             ])
@@ -37557,11 +37558,11 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "col col4" }, [
             _c("div", { staticClass: "text-box" }, [
-              _c("h3", [_vm._v("HUR?")]),
+              _c("h3", [_vm._v("Konst som kunskapsfaktor")]),
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola."
+                  "Pilotprojektet inleddes i Dalarna 2012. Grafikprojektet fortsatte efter det i flertalet kommuner och pågick till och med 2016. Pedagoger har använt konsten som kunskapsfaktor i undervisningen och elever har fått utforska olika uttryckssätt inom grafiken. Projektet har även sporrat till nytänkande i olika samarbeten."
                 )
               ])
             ])
@@ -37643,7 +37644,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n.article-column[data-v-0d99dc90] {\n  width: 400px;\n  height: auto;\n  margin: 1em;\n}\n.tagList[data-v-0d99dc90] {\n  margin-top: 1em;\n  height: 70px;\n}\n.media h1[data-v-0d99dc90] {\n  font-size: 1.5em;\n}\n.card-content[data-v-0d99dc90] {\n  padding-bottom: 0;\n}\n.text-box[data-v-0d99dc90] {\n  margin-top: 1em;\n}\n.text-box h6[data-v-0d99dc90]{\n  margin: 0;\n}\n", ""]);
+exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;\n     object-fit: none;\n}\n.article-column[data-v-0d99dc90] {\n  width: 400px;\n  height: auto;\n  margin: 1em;\n}\n.tagList[data-v-0d99dc90] {\n  margin-top: 1em;\n  height: 70px;\n}\n.content h1[data-v-0d99dc90] {\n  font-size: 1.5em;\n}\n.content[data-v-0d99dc90]{\n  margin: 1em;\n}\n.text-box[data-v-0d99dc90] {\n  margin-top: 1em;\n}\n.text-box h6[data-v-0d99dc90]{\n  margin: 0;\n}\n", ""]);
 
 // exports
 
@@ -37654,7 +37655,6 @@ exports.push([module.i, "\n.card-image[data-v-0d99dc90]{\n  -o-object-fit: none;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -37735,18 +37735,14 @@ var render = function() {
           _c("img", { attrs: { src: "/img/articlesNew.png", alt: "" } })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-content" }, [
-          _c("div", { staticClass: "media" }, [
-            _c("h1", [_c("b", [_vm._v(_vm._s(_vm.title))])])
-          ]),
-          _vm._v(" "),
+        _c("div", {}, [
           _c("div", { staticClass: "content" }, [
+            _c("h1", [_c("b", [_vm._v(_vm._s(_vm.title))])]),
+            _vm._v(" "),
             _c("div", { staticClass: "text-box" }, [
-              _c("h6", [
-                _c("b", [_vm._v("Author: " + _vm._s(_vm.author) + " ")])
-              ]),
+              _c("h6", [_vm._v("Skriven av " + _vm._s(_vm.author))]),
               _vm._v(" "),
-              _c("h6", [_c("b", [_vm._v("Date: " + _vm._s(_vm.time))])])
+              _c("h6", [_vm._v(_vm._s(_vm.time))])
             ]),
             _vm._v(" "),
             _c(

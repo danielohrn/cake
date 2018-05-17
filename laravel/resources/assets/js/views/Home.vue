@@ -13,14 +13,15 @@
   </div>
   <div class='information'>
     <div class='infoCol1'>
-      <h1>Vilka är vi?</h1>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-    </div>
-    <div class='border'></div>
-    <div class='infoCol2'>
-      <h1>Om Oss</h1>
+            <h1>Om Oss</h1>
       <p>Statens konstråd utvecklar sammanhang där samtidskonst och offentliga rum möts. Vi producerar permanenta och tillfälliga konstprojekt i offentliga miljöer och engagerar konstnärer i stadsutvecklingsprojekt, samt sprider kunskap och erfarenheter
         vidare i Sverige och utomlands.</p>
+   </div>
+    <div class='border'></div>
+    <div class='infoCol2'>
+<h1>Kunskapsnavet</h1>
+      <p>Nu bygger vi upp ett kunskapsnav för offentlig konst. Målet med kunskapsnavet är att du ska kunna hitta konkret information i olika frågor som rör allt från hur man startar ett konstprojekt till hur man förverkligar det och hur man förvaltar det. Navet ska inspirera och stärka utvecklingen av offentlig konst i hela Sverige. Dessutom ska det hålla samtalet om den offentliga konstens roll i samhället levande. Det kommer att lyfta fram viktig kunskap som redan finns på olika håll i landet och ta fram ny kunskap som saknas. Kunskapsnav offentlig konst blir en samlande plattform för möten, erfarenheter och information. Här öppnas möjligheten att både få och ge kunskaper inom många olika områden och yrkesroller.</p>
+   
     </div>
   </div>
   <div class='boxes'>
@@ -31,14 +32,14 @@
       <div class='leftCol'>
         <div class='col col1'>
           <div class='text-box'>
-            <h3>HUR?</h3>
-            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+            <h3>Första gången – steget vidare</h3>
+            <p>Här vänder vi oss till kommuner som vill börja arbeta med offentlig konst för första gången. Det handlar om att skapa eller vidareutveckla rutiner för att arbeta med offentlig konst och/eller att genomföra ett konstprojekt för första gången.</p>
           </div>
         </div>
         <div class='col col3'>
           <div class='text-box'>
-            <h3>HUR?</h3>
-            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+            <h3>Konst i stadsutveckling</h3>
+            <p>Vill ni ta steget vidare och integrera konst i stadsutvecklingsprojekt? Det kan till exempel handla om att skapa storskaliga gestaltningar eller att stärka invånarinflytande. Kommuner och fastighetsägare är välkomna att ansöka om samarbete.</p>
           </div>
         </div>
       </div>
@@ -46,14 +47,14 @@
       <div class='rightCol'>
         <div class='col col2'>
           <div class='text-box'>
-            <h3>HUR?</h3>
-            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+            <h3>Lokala konstprojekt – för fria konstaktörer</h3>
+            <p>I den här utlysningen vänder vi oss till konstorganisationer, konsthallar, konstnärer och curatorer som vill genomföra ett lokalt konstprojekt. Det kan röra sig om bland annat permanent, tillfällig eller processbaserad konst.</p>
           </div>
         </div>
         <div class='col col4'>
           <div class='text-box'>
-            <h3>HUR?</h3>
-            <p>Spicy jalapeno bacon ipsum dolor amet ad strip steak consectetur, officia ut culpa pig ground round porchetta capicola quis duis dolore. Capicola minim pancetta do pariatur. Ea anim exercitation consectetur venison bresaola.</p>
+            <h3>Konst som kunskapsfaktor</h3>
+            <p>Pilotprojektet inleddes i Dalarna 2012. Grafikprojektet fortsatte efter det i flertalet kommuner och pågick till och med 2016. Pedagoger har använt konsten som kunskapsfaktor i undervisningen och elever har fått utforska olika uttryckssätt inom grafiken. Projektet har även sporrat till nytänkande i olika samarbeten.</p>
           </div>
         </div>
       </div>
