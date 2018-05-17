@@ -2,9 +2,11 @@
   <modal v-if="newArticleModal" type="newArticleModal">
         <div class="article-content">
             <h3 class="title is-4">Skapa/ändra inlägg</h3>
-            <input v-model="article.title" class="input" type="text" placeholder="Skapa rubrik..." />
-            <textarea v-model="article.body" class="textarea" cols="30" rows="20" placeholder="Skriv text..."></textarea>
-            <button @click="newArticle" class="button">Spara</button>
+            <form @submit.prevent="newArticle">
+                <input required v-model="article.title" class="input" type="text" placeholder="Skapa rubrik..." />
+                <textarea required v-model="article.body" class="textarea" cols="30" rows="20" placeholder="Skriv text..."></textarea>
+                <button type="submit" class="button">Spara</button>
+            </form>
         </div>
         <div class="article-sidebar">
             <b-field label="Taggar">
@@ -40,17 +42,34 @@ export default {
 
     methods: {
         newArticle() {
-            console.log(this.article); 
+            // Post the new article to the db 
             axios.post('/api/article', this.article)
-             .then(res => console.log(res))
-             .catch(err => console.log(err))
+             .then(res => {
+                // If POST was OK
+                if(res.status === 200) {
+                    // Clear the local article object when saving 
+                    this.article.title = null; 
+                    this.article.body = null; 
+                    this.article.tags.length = 0;
+    
+                    /* Emit event to parent component
+                       and fetch the new article */ 
+                    const articleId = res.data.id; 
+                    this.$emit('update-articles', articleId); 
+    
+                    // Close modal on save 
+                    this.$store.commit(
+                        'toggleModal', 
+                        {modalType: 'newArticleModal', action: false}
+                    ); 
+                } 
+             });
         }, 
 
         addToTags(index){
             const tag = this.availableTags.splice(index, 1)[0];
             this.article.tags.push(tag.name);
         }, 
-
         
     }
 }

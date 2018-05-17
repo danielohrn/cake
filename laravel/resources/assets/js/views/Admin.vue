@@ -3,39 +3,50 @@
     <div class="sidebar">
     <ul class="meny">
 
-        <li><a href="">Översikt</a></li>
-        <li><a @click="openNewArticleModal" :availableTags="availableTags"> Skapa artikel</a></li>
-        <li><a href="">Skapa tagg</a></li>
-        <li><a href="">Skapa roll</a></li>
+        <li>
+            <a href="">Översikt</a>
+        </li>
+        <li>
+            <a @click="openNewArticleModal" 
+               :availableTags="availableTags"> Skapa artikel</a>
+        </li>
+        <li>
+            <a href="">Skapa tagg</a>
+        </li>
+        <li>
+            <a href="">Skapa roll</a>
+        </li>
     </ul>
 </div>
     <table class="table">
         <thead>
             <tr>
-
-                <th>
-                    Rubrik
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Author
-                </th>
-                <th>
-                </th>
-                <th>
-                    Tags
-                </th>
+                <th>Rubrik</th>
+                <th>Date</th>
+                <th>Author</th>
+                <th></th>
+                <th>Tags</th>
             </tr>
-        </thead>
+        </thead> 
         <tbody>
-            <ArticleRow :availableTags="availableTags" v-for="(article, i) in data" :key="i" v-bind="article"/>
+
+            <ArticleRow 
+                :availableTags="availableTags" 
+                v-for="(article, i) in data" 
+                :key="i" 
+                v-bind="article"/>
+
         </tbody>
     </table>
-    <EditableArticleModal type="editArticleModal" :availableTags="availableTags" />
 
-    <NewArticleModal :availableTags="availableTags" type="newArticleModal"/>
+    <EditableArticleModal 
+        type="editArticleModal" 
+        :availableTags="availableTags" />
+
+    <NewArticleModal 
+        @update-articles="updateArticles($event)" 
+        :availableTags="availableTags" 
+        type="newArticleModal"/>
 
 </div>
 </template>
@@ -56,17 +67,28 @@ export default {
                     this.data = res.data;
                 })
         },
+
+        updateArticles(id){
+            axios.get(`/api/articles/${id}`)
+             .then(res => {
+                 const { data: article } = res; 
+                 this.data.push(article);
+             });
+        }, 
+
         getTags(){
             axios.get('api/tags')
             .then(response => {
-                console.log(response)
                 this.availableTags = response.data;
                 this.$store.commit('setTags', response.data);
             })
         },
 
         openNewArticleModal() {
-            this.$store.commit('toggleModal', {modalType: 'newArticleModal', action: true}); 
+            this.$store.commit(
+                'toggleModal', 
+                {modalType: 'newArticleModal', action: true}
+            ); 
         }, 
 
         getTags() {

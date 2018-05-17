@@ -16247,7 +16247,7 @@ function filterOutTags(article, allTags) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(24);
-module.exports = __webpack_require__(104);
+module.exports = __webpack_require__(109);
 
 
 /***/ }),
@@ -16291,6 +16291,7 @@ Vue.component('modal', __webpack_require__(89));
 Vue.component('EditableArticleModal', __webpack_require__(21));
 Vue.component('NewArticleModal', __webpack_require__(94));
 Vue.component('NavBar', __webpack_require__(99));
+Vue.component('ModalWrapper', __webpack_require__(104));
 
 var app = new Vue({
   el: '#app',
@@ -38275,6 +38276,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -38293,23 +38305,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this.data = res.data;
             });
         },
-        getTags: function getTags() {
+        updateArticles: function updateArticles(id) {
             var _this2 = this;
 
+            axios.get('/api/articles/' + id).then(function (res) {
+                var article = res.data;
+
+                _this2.data.push(article);
+            });
+        },
+        getTags: function getTags() {
+            var _this3 = this;
+
             axios.get('api/tags').then(function (response) {
-                console.log(response);
-                _this2.availableTags = response.data;
-                _this2.$store.commit('setTags', response.data);
+                _this3.availableTags = response.data;
+                _this3.$store.commit('setTags', response.data);
             });
         },
         openNewArticleModal: function openNewArticleModal() {
             this.$store.commit('toggleModal', { modalType: 'newArticleModal', action: true });
         }
     }, 'getTags', function getTags() {
-        var _this3 = this;
+        var _this4 = this;
 
         axios.get('api/tags').then(function (response) {
-            _this3.availableTags = response.data;
+            _this4.availableTags = response.data;
         });
     }),
     mounted: function mounted() {
@@ -38375,7 +38395,12 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("NewArticleModal", {
-        attrs: { availableTags: _vm.availableTags, type: "newArticleModal" }
+        attrs: { availableTags: _vm.availableTags, type: "newArticleModal" },
+        on: {
+          "update-articles": function($event) {
+            _vm.updateArticles($event)
+          }
+        }
       })
     ],
     1
@@ -38406,15 +38431,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("\n                    Rubrik\n                ")]),
+        _c("th", [_vm._v("Rubrik")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Date\n                ")]),
+        _c("th", [_vm._v("Date")]),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Author\n                ")]),
+        _c("th", [_vm._v("Author")]),
         _vm._v(" "),
         _c("th"),
         _vm._v(" "),
-        _c("th", [_vm._v("\n                    Tags\n                ")])
+        _c("th", [_vm._v("Tags")])
       ])
     ])
   }
@@ -42855,6 +42880,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -42875,11 +42902,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         newArticle: function newArticle() {
-            console.log(this.article);
+            var _this = this;
+
+            // Post the new article to the db 
             axios.post('/api/article', this.article).then(function (res) {
-                return console.log(res);
-            }).catch(function (err) {
-                return console.log(err);
+                // If POST was OK
+                if (res.status === 200) {
+                    // Clear the local article object when saving 
+                    _this.article.title = null;
+                    _this.article.body = null;
+                    _this.article.tags.length = 0;
+
+                    /* Emit event to parent component
+                       and fetch the new article */
+                    var articleId = res.data.id;
+                    _this.$emit('update-articles', articleId);
+
+                    // Close modal on save 
+                    _this.$store.commit('toggleModal', { modalType: 'newArticleModal', action: false });
+                }
             });
         },
         addToTags: function addToTags(index) {
@@ -42904,54 +42945,76 @@ var render = function() {
             _vm._v("Skapa/ändra inlägg")
           ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.article.title,
-                expression: "article.title"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "Skapa rubrik..." },
-            domProps: { value: _vm.article.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.article, "title", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.article.body,
-                expression: "article.body"
-              }
-            ],
-            staticClass: "textarea",
-            attrs: { cols: "30", rows: "20", placeholder: "Skriv text..." },
-            domProps: { value: _vm.article.body },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.article, "body", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "button", on: { click: _vm.newArticle } },
-            [_vm._v("Spara")]
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.newArticle($event)
+                }
+              }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.article.title,
+                    expression: "article.title"
+                  }
+                ],
+                staticClass: "input",
+                attrs: {
+                  required: "",
+                  type: "text",
+                  placeholder: "Skapa rubrik..."
+                },
+                domProps: { value: _vm.article.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.article, "title", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.article.body,
+                    expression: "article.body"
+                  }
+                ],
+                staticClass: "textarea",
+                attrs: {
+                  required: "",
+                  cols: "30",
+                  rows: "20",
+                  placeholder: "Skriv text..."
+                },
+                domProps: { value: _vm.article.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.article, "body", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "button", attrs: { type: "submit" } },
+                [_vm._v("Spara")]
+              )
+            ]
           )
         ]),
         _vm._v(" "),
@@ -43268,6 +43331,132 @@ if (false) {
 
 /***/ }),
 /* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(105)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(107)
+/* template */
+var __vue_template__ = __webpack_require__(108)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ModalWrapper.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8a697846", Component.options)
+  } else {
+    hotAPI.reload("data-v-8a697846", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(106);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("145a6ba8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8a697846\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ModalWrapper.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8a697846\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ModalWrapper.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8a697846", module.exports)
+  }
+}
+
+/***/ }),
+/* 109 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
