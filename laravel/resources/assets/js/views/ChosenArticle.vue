@@ -27,7 +27,7 @@
   <div class="article-columns" @click="isCardModalActive = true">
     <Articles v-for="(article, i) in filteredArticles" @click="toggleModal($event)" v-bind="article" :key="i"></Articles>
 
-    <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar, sök bättre.</div>
+    <div v-if="!this.filteredArticles.length">Sökresultatet gav inga träffar.</div>
   </div>
   <Footer></Footer>
 </section>
