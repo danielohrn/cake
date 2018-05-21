@@ -1,8 +1,10 @@
 <template>
-    <tr>
+    <tr @click="goToProject">
+
+        <router-link :to="'/project/' + article.slug">
 
         <td>
-            {{title}}
+            {{article.title}}
         </td>
         <td>
             {{created_at}}
@@ -11,13 +13,15 @@
             {{author}}
         </td>
                 <td>
-          <a @click="toggleModal" class="button">Edit</a>
+
         </td>
         <td>
 
-              <b-tag v-for="(tag, i) in articleTags" :key="i" rounded>{{tag}}</b-tag>
+<!-- PROJECT STATUS -->
 
         </td>
+
+        </router-link>
 
     </tr>
 </template>
@@ -29,10 +33,11 @@ import {filterOutTags} from '../functions';
 
 export default {
 
-  props: ['id','title', 'body', 'created_at', 'author', 'articleTags'],
+  props: ['article','id','title', 'body', 'created_at', 'author', 'articleTags'],
 
   data(){
       return {
+
       }
   },
 
@@ -45,6 +50,9 @@ export default {
           console.log(this.$store)
           const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
           this.$store.commit('filterTags', filteredTags);
+      },
+      goToProject(){
+        this.$route.push()
       }
   },
 

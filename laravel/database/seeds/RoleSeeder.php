@@ -14,46 +14,17 @@ class RoleSeeder extends Seeder
     {
         $roles = [
           [
-            'name' => 'konstnär',
-            'url' => '/kostnär',
-            'color' => '#4286f4'
+            'name' => 'content',
           ],
           [
-            'name' => 'politiker',
-            'url' => '/politiker',
-            'color' => '#d81e6f'
+            'name' => 'redaktör',
           ],
           [
-            'name' => 'tjänsteman',
-            'url' => '/tjansteman',
-            'color' => '#ffc107'
+            'name' => 'faktagranskning',
           ],
           [
-            'name' => 'byggbolag',
-            'url' => '/byggbolag',
-            'color' => '#20c997'
-          ],
-          [
-            'name' => 'beställare',
-            'url' => '/bestallare',
-            'color' => '#6f42c1'
-          ],
-          [
-            'name' => 'utförare',
-            'url' => '/utforare',
-            'color' => '#6c757d'
-          ],
-          [
-            'name' => 'arkitekt',
-            'url' => '/arkitekt',
-            'color' => '#28a745'
-          ],
-          [
-            'name' => 'curator',
-            'url' => '/curator',
-            'color' => '#fd7e14'
-          ],
-
+            'name' => 'publicerare',
+          ]
         ];
 
         foreach($roles as $role){

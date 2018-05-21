@@ -7,7 +7,7 @@
             <a href="">Översikt</a>
         </li>
         <li>
-            <a @click="openNewArticleModal" 
+            <a @click="openNewArticleModal"
                :availableTags="availableTags"> Skapa artikel</a>
         </li>
         <li>
@@ -25,27 +25,27 @@
                 <th>Date</th>
                 <th>Author</th>
                 <th></th>
-                <th>Tags</th>
+                <th>Status</th>
             </tr>
-        </thead> 
+        </thead>
         <tbody>
 
-            <ArticleRow 
-                :availableTags="availableTags" 
-                v-for="(article, i) in data" 
-                :key="i" 
-                v-bind="article"/>
+            <ArticleRow
+                :availableTags="availableTags"
+                v-for="(article, i) in data"
+                :key="i"
+                :article="article"/>
 
         </tbody>
     </table>
 
-    <EditableArticleModal 
-        type="editArticleModal" 
+    <EditableArticleModal
+        type="editArticleModal"
         :availableTags="availableTags" />
 
-    <NewArticleModal 
-        @update-articles="updateArticles($event)" 
-        :availableTags="availableTags" 
+    <NewArticleModal
+        @update-articles="updateArticles($event)"
+        :availableTags="availableTags"
         type="newArticleModal"/>
 
 </div>
@@ -56,47 +56,50 @@ export default {
   data() {
       return {
             availableTags: [],
-            data: [],
+            data: [
+              {name: 'Project one', title: 'This is the title of project one', slug: 'project-one', id: 1},
+              {name: 'Project two', title: 'This is the title of project two', slug: 'project-two', id: 2}
+            ],
         }
     },
 
     methods: {
-        getArticles(){
-            axios.get('/api/articles')
-                .then(res => {
-                    this.data = res.data;
-                })
-        },
-
-        updateArticles(id){
-            axios.get(`/api/articles/${id}`)
-             .then(res => {
-                 const { data: article } = res; 
-                 this.data.push(article);
-             });
-        }, 
-
-        getTags(){
-            axios.get('api/tags')
-            .then(response => {
-                this.availableTags = response.data;
-                this.$store.commit('setTags', response.data);
-            })
-        },
-
-        openNewArticleModal() {
-            this.$store.commit(
-                'toggleModal', 
-                {modalType: 'newArticleModal', action: true}
-            ); 
-        }, 
-
-        getTags() {
-        axios.get('api/tags')
-            .then(response => {
-            this.availableTags = response.data;
-            })
-        }
+        // getArticles(){
+        //     axios.get('/api/articles')
+        //         .then(res => {
+        //             this.data = res.data;
+        //         })
+        // },
+        //
+        // updateArticles(id){
+        //     axios.get(`/api/articles/${id}`)
+        //      .then(res => {
+        //          const { data: article } = res;
+        //          this.data.push(article);
+        //      });
+        // },
+        //
+        // getTags(){
+        //     axios.get('api/tags')
+        //     .then(response => {
+        //         this.availableTags = response.data;
+        //         this.$store.commit('setTags', response.data);
+        //     })
+        // },
+        //
+        // openNewArticleModal() {
+        //     this.$store.commit(
+        //         'toggleModal',
+        //         {modalType: 'newArticleModal', action: true}
+        //     );
+        // },
+        //
+        // getTags() {
+        // axios.get('api/tags')
+        //     .then(response => {
+        //     this.availableTags = response.data;
+        //     })
+        // }
   },
   mounted() {
     this.getArticles();
