@@ -4,7 +4,7 @@
         <router-link :to="'/project/' + article.slug">
 
         <td>
-            {{article.title}}
+            {{article.name}}
         </td>
         <td>
             {{created_at}}
@@ -33,7 +33,7 @@ import {filterOutTags} from '../functions';
 
 export default {
 
-  props: ['article','id','title', 'body', 'created_at', 'author', 'articleTags'],
+  props: ['article'],
 
   data(){
       return {
@@ -54,6 +54,9 @@ export default {
       goToProject(){
         this.$route.push()
       }
+  },
+
+  mounted() {
   },
 
   destroyed(){

@@ -45,9 +45,18 @@
   export default {
     data(){
       return {
-        roles: ['content', 'redaktör', 'faktagranskning', 'publicerare'],
+        template: {},
         test:  {role: 'redaktör', content: 'this is content'}
       }
+    },
+    methods: {
+      getTemplate(){
+        axios.get('/api/templates/' + this.$route.params.id).
+        then( res => this.template = res.data)
+      }
+    },
+    mounted(){
+      this.getTemplate()
     }
   }
 </script>

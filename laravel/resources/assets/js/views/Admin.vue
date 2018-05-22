@@ -7,7 +7,7 @@
             <a href="">Översikt</a>
         </li>
         <li>
-            <a @click="openNewArticleModal"
+            <a
                :availableTags="availableTags"> Skapa artikel</a>
         </li>
         <li>
@@ -39,14 +39,14 @@
         </tbody>
     </table>
 
-    <EditableArticleModal
+    <!-- <EditableArticleModal
         type="editArticleModal"
         :availableTags="availableTags" />
 
     <NewArticleModal
         @update-articles="updateArticles($event)"
         :availableTags="availableTags"
-        type="newArticleModal"/>
+        type="newArticleModal"/> -->
 
 </div>
 </template>
@@ -56,20 +56,17 @@ export default {
   data() {
       return {
             availableTags: [],
-            data: [
-              {name: 'Project one', title: 'This is the title of project one', slug: 'project-one', id: 1},
-              {name: 'Project two', title: 'This is the title of project two', slug: 'project-two', id: 2}
-            ],
+            data: []
         }
     },
 
     methods: {
-        // getArticles(){
-        //     axios.get('/api/articles')
-        //         .then(res => {
-        //             this.data = res.data;
-        //         })
-        // },
+         getProjects(){
+             axios.get('/api/projects')
+                 .then(res => {
+                     this.data = res.data;
+                 })
+         },
         //
         // updateArticles(id){
         //     axios.get(`/api/articles/${id}`)
@@ -102,8 +99,8 @@ export default {
         // }
   },
   mounted() {
-    this.getArticles();
-    this.getTags();
+    this.getProjects();
+
   }
 }
 </script>

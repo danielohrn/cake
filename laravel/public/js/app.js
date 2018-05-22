@@ -38163,56 +38163,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      availableTags: [],
-      data: [{ name: 'Project one', title: 'This is the title of project one', slug: 'project-one', id: 1 }, { name: 'Project two', title: 'This is the title of project two', slug: 'project-two', id: 2 }]
-    };
-  },
+    data: function data() {
+        return {
+            availableTags: [],
+            data: []
+        };
+    },
 
 
-  methods: {
-    // getArticles(){
-    //     axios.get('/api/articles')
-    //         .then(res => {
-    //             this.data = res.data;
-    //         })
-    // },
-    //
-    // updateArticles(id){
-    //     axios.get(`/api/articles/${id}`)
-    //      .then(res => {
-    //          const { data: article } = res;
-    //          this.data.push(article);
-    //      });
-    // },
-    //
-    // getTags(){
-    //     axios.get('api/tags')
-    //     .then(response => {
-    //         this.availableTags = response.data;
-    //         this.$store.commit('setTags', response.data);
-    //     })
-    // },
-    //
-    // openNewArticleModal() {
-    //     this.$store.commit(
-    //         'toggleModal',
-    //         {modalType: 'newArticleModal', action: true}
-    //     );
-    // },
-    //
-    // getTags() {
-    // axios.get('api/tags')
-    //     .then(response => {
-    //     this.availableTags = response.data;
-    //     })
-    // }
-  },
-  mounted: function mounted() {
-    this.getArticles();
-    this.getTags();
-  }
+    methods: {
+        getProjects: function getProjects() {
+            var _this = this;
+
+            axios.get('/api/projects').then(function (res) {
+                _this.data = res.data;
+            });
+        }
+    },
+    mounted: function mounted() {
+        this.getProjects();
+    }
 });
 
 /***/ }),
@@ -38223,60 +38193,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "section" },
-    [
-      _c("div", { staticClass: "sidebar" }, [
-        _c("ul", { staticClass: "meny" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("li", [
-            _c(
-              "a",
-              {
-                attrs: { availableTags: _vm.availableTags },
-                on: { click: _vm.openNewArticleModal }
-              },
-              [_vm._v(" Skapa artikel")]
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table" }, [
-        _vm._m(3),
+  return _c("div", { staticClass: "section" }, [
+    _c("div", { staticClass: "sidebar" }, [
+      _c("ul", { staticClass: "meny" }, [
+        _vm._m(0),
         _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.data, function(article, i) {
-            return _c("ArticleRow", {
-              key: i,
-              attrs: { availableTags: _vm.availableTags, article: article }
-            })
+        _c("li", [
+          _c("a", { attrs: { availableTags: _vm.availableTags } }, [
+            _vm._v(" Skapa artikel")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2)
+      ])
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table" }, [
+      _vm._m(3),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.data, function(article, i) {
+          return _c("ArticleRow", {
+            key: i,
+            attrs: { availableTags: _vm.availableTags, article: article }
           })
-        )
-      ]),
-      _vm._v(" "),
-      _c("EditableArticleModal", {
-        attrs: { type: "editArticleModal", availableTags: _vm.availableTags }
-      }),
-      _vm._v(" "),
-      _c("NewArticleModal", {
-        attrs: { availableTags: _vm.availableTags, type: "newArticleModal" },
-        on: {
-          "update-articles": function($event) {
-            _vm.updateArticles($event)
-          }
-        }
-      })
-    ],
-    1
-  )
+        })
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -42297,7 +42244,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['article', 'id', 'title', 'body', 'created_at', 'author', 'articleTags'],
+    props: ['article'],
 
     data: function data() {
         return {};
@@ -42319,6 +42266,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
+    mounted: function mounted() {},
     destroyed: function destroyed() {
         console.log('destroyed');
         this.$store.commit('toggleModal', { action: false });
@@ -42582,7 +42530,7 @@ var render = function() {
     [
       _c("router-link", { attrs: { to: "/project/" + _vm.article.slug } }, [
         _c("td", [
-          _vm._v("\n            " + _vm._s(_vm.article.title) + "\n        ")
+          _vm._v("\n            " + _vm._s(_vm.article.name) + "\n        ")
         ]),
         _vm._v(" "),
         _c("td", [
@@ -43620,9 +43568,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      roles: ['content', 'redaktör', 'faktagranskning', 'publicerare'],
+      template: {},
       test: { role: 'redaktör', content: 'this is content' }
     };
+  },
+
+  methods: {
+    getTemplate: function getTemplate() {
+      var _this = this;
+
+      axios.get('/api/templates/' + this.$route.params.id).then(function (res) {
+        return _this.template = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getTemplate();
   }
 });
 
