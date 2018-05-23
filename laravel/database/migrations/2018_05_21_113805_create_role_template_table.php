@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemplateRolesTable extends Migration
+class CreateRoleTemplateTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTemplateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('template_role', function (Blueprint $table) {
+        Schema::create('role_template', function (Blueprint $table) {
           $table->integer('template_id')->unsigned()->index();
           $table->foreign('template_id')->references('id')->on('templates')->onDelete('cascade');
 
@@ -30,6 +30,6 @@ class CreateTemplateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('template_role');
+        Schema::dropIfExists('role_template');
     }
 }

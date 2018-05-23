@@ -8,7 +8,7 @@ class Project extends Model
 {
     public function template()
     {
-      return $this->hasOne('App\Template');
+      return $this->belongsTo('App\Template');
     }
     public function article()
     {

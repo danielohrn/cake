@@ -10,4 +10,8 @@ class Template extends Model
     {
       return $this->belongsToMany('App\Role');
     }
+    public function project()
+    {
+      return $this->hasOne('App\Project');
+    }
 }
