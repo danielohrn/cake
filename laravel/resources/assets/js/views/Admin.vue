@@ -4,6 +4,7 @@
 <div>
 <button v-on:click='sideBarToggle()'>sidebar</button>
 </div>
+<div class='tiles'>
         <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
             <ProjectCard
@@ -14,6 +15,7 @@
             />
 
         </ProjectTile>
+      </div>
 
 
     <!-- <EditableArticleModal
@@ -49,6 +51,9 @@ export default {
     },
 
     methods: {
+      sideBarToggle() {
+        document.getElementById('sidebar').style.left = '0%';
+      }
         // getArticles(){
         //     axios.get('/api/articles')
         //         .then(res => {
@@ -105,7 +110,7 @@ export default {
 .table{
     width: 100%;
 }
-
-
-
+.tiles {
+  display: flex;
+}
 </style>
