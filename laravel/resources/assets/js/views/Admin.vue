@@ -115,7 +115,7 @@ export default {
     padding: 0;
 }
 .sidebar, .sidebar a{
-    width: 10%;
+    width: 40%;
     height: 100vh;
     background-color: #aedfbf;
     color: #000;
