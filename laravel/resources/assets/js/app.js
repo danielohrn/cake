@@ -28,6 +28,9 @@ Vue.component('EditableArticleModal', require('./components/EditableArticleModal
 Vue.component('NavBar', require('./components/NavBar.vue'));
 Vue.component('ArticleNavBar', require('./components/ArticleNavBar.vue'));
 Vue.component('Footer', require('./components/Footer.vue'));
+Vue.component('ProjectTile', require('./components/ProjectTile.vue'));
+Vue.component('ProjectCard', require('./components/ProjectCard.vue'));
+
 
 const app = new Vue({
     el: '#app',

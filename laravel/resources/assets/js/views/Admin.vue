@@ -1,52 +1,44 @@
 <template>
 <div class="section">
     <div class="sidebar">
-    <ul class="meny">
+        <ul class="meny">
 
-        <li>
-            <a href="">Översikt</a>
-        </li>
-        <li>
-            <a @click="openNewArticleModal"
-               :availableTags="availableTags"> Skapa artikel</a>
-        </li>
-        <li>
-            <a href="">Skapa tagg</a>
-        </li>
-        <li>
-            <a href="">Skapa roll</a>
-        </li>
-    </ul>
-</div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Rubrik</th>
-                <th>Date</th>
-                <th>Author</th>
-                <th></th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
+            <li>
+                <a href="">Översikt</a>
+            </li>
+            <li>
+                <a @click="openNewArticleModal"
+                :availableTags="availableTags"> Skapa artikel</a>
+            </li>
+            <li>
+                <a href="">Skapa tagg</a>
+            </li>
+            <li>
+                <a href="">Skapa roll</a>
+            </li>
+        </ul>
+    </div>
+    
+        <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
+            
+            <ProjectCard 
+                v-for="(project) in data" 
+                v-if="project.status === status.name" 
+                :key="project.name"
+                :project="project"
+            />
 
-            <ArticleRow
-                :availableTags="availableTags"
-                v-for="(article, i) in data"
-                :key="i"
-                :article="article"/>
+        </ProjectTile>
 
-        </tbody>
-    </table>
 
-    <EditableArticleModal
+    <!-- <EditableArticleModal
         type="editArticleModal"
         :availableTags="availableTags" />
 
     <NewArticleModal
         @update-articles="updateArticles($event)"
         :availableTags="availableTags"
-        type="newArticleModal"/>
+        type="newArticleModal"/> -->
 
 </div>
 </template>
@@ -56,9 +48,17 @@ export default {
   data() {
       return {
             availableTags: [],
+            status: [
+                    {name: 'content'},
+                    {name: 'redaktör'},
+                    {name: 'faktagranskning'},
+                    {name: 'publicera'}
+                ], 
             data: [
-              {name: 'Project one', title: 'This is the title of project one', slug: 'project-one', id: 1},
-              {name: 'Project two', title: 'This is the title of project two', slug: 'project-two', id: 2}
+                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'content'},
+                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'redaktör'},
+                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'publicera'}, 
+                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'content'},
             ],
         }
     },
