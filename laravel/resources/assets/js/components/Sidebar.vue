@@ -1,9 +1,8 @@
 <template>
-<div id='sidebar' class="section">
-  <div class='closeBtn'>
-  <span v-on:click='closeBtn'>&times;</span>
-</div>
-  <aside class="menu">
+  <aside id='sidebar' class="menu">
+    <div class='closeBtn'>
+    <span v-on:click='closeBtn'>&times;</span>
+  </div>
     <p class="menu-label">
       General
     </p>
@@ -20,8 +19,6 @@
     </ul>
 
   </aside>
-
-</div>
 </template>
 
 <script>
@@ -40,24 +37,19 @@ export default {
 </script>
 
 <style scoped>
-.section {
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  width: 20%;
-  height: auto;
+.menu {
+  width: 10%;
+  background-color: #ccc;
+  padding: 1em;
   left: 0;
-  background-color: grey;
-  opacity: 0.7;
   z-index: 9999;
   position: relative;
   transition: all 0.6s;
-  overflow: none;
 }
-aside p {
+.menu p {
   color: black;
 }
-aside ul li a {
+.menu ul li a {
   color: black;
 }
 .closeBtn {
@@ -67,5 +59,8 @@ aside ul li a {
     cursor: pointer;
     font-size: 40px;
     font-weight: bold;
+}
+.closeBtn span:hover {
+  opacity: 0.7;
 }
 </style>

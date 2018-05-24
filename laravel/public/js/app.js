@@ -38097,7 +38097,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  width: 100%;\n  height: 100vh;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: horizontal;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: row;\n            flex-direction: row;\n    padding: 0;\n}\n.table[data-v-ca2e4be8]{\n    width: 100%;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  padding: 0.5em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  position: relative;\n  top: 30px;\n}\n", ""]);
 
 // exports
 
@@ -38217,13 +38217,14 @@ var render = function() {
         _c(
           "button",
           {
+            staticClass: "menuBtn",
             on: {
               click: function($event) {
                 _vm.sideBarToggle()
               }
             }
           },
-          [_vm._v("sidebar")]
+          [_vm._v("Menu")]
         )
       ]),
       _vm._v(" "),
@@ -43948,7 +43949,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-28cb1975] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding: 2em;\n  width: 20%;\n  height: auto;\n  left: 0;\n  background-color: grey;\n  opacity: 0.7;\n  z-index: 9999;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  overflow: none;\n}\naside p[data-v-28cb1975] {\n  color: black;\n}\naside ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "\n.menu[data-v-28cb1975] {\n  width: 10%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  z-index: 9999;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
@@ -43959,9 +43960,6 @@ exports.push([module.i, "\n.section[data-v-28cb1975] {\n  display: -webkit-box;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
 //
 //
 //
@@ -44006,12 +44004,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "section", attrs: { id: "sidebar" } }, [
+  return _c("aside", { staticClass: "menu", attrs: { id: "sidebar" } }, [
     _c("div", { staticClass: "closeBtn" }, [
       _c("span", { on: { click: _vm.closeBtn } }, [_vm._v("×")])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _c("p", { staticClass: "menu-label" }, [_vm._v("\n    General\n  ")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("p", { staticClass: "menu-label" }, [_vm._v("\n    General\n  ")]),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -44019,22 +44023,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "menu" }, [
-      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
+    return _c("ul", { staticClass: "menu-list" }, [
+      _c("li", [_c("a", [_vm._v("Dashboard")])]),
       _vm._v(" "),
-      _c("ul", { staticClass: "menu-list" }, [
-        _c("li", [_c("a", [_vm._v("Dashboard")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", [_vm._v("Customers")])])
-      ]),
+      _c("li", [_c("a", [_vm._v("Customers")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "menu-list" }, [
+      _c("li", [_c("a", [_vm._v("Dashboard")])]),
       _vm._v(" "),
-      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "menu-list" }, [
-        _c("li", [_c("a", [_vm._v("Dashboard")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", [_vm._v("Customers")])])
-      ])
+      _c("li", [_c("a", [_vm._v("Customers")])])
     ])
   }
 ]

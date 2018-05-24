@@ -2,7 +2,7 @@
 <div class="section">
 <Sidebar></Sidebar>
 <div>
-<button v-on:click='sideBarToggle()'>sidebar</button>
+<button class='menuBtn' v-on:click='sideBarToggle()'>Menu</button>
 </div>
 <div class='tiles'>
         <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
@@ -102,15 +102,22 @@ export default {
 .section {
   width: 100%;
   height: 100vh;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
 }
 
-.table{
-    width: 100%;
-}
 .tiles {
   display: flex;
+  width: 100%;
+}
+.menuBtn {
+  padding: 0.5em;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+  top: 30px;
 }
 </style>
