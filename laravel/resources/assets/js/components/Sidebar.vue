@@ -1,4 +1,5 @@
 <template>
+  <div class='sidebarContainer'>
   <aside id='sidebar' class="menu">
     <div class='closeBtn'>
     <span v-on:click='closeBtn'>&times;</span>
@@ -19,6 +20,7 @@
     </ul>
 
   </aside>
+</div>
 </template>
 
 <script>
@@ -37,8 +39,20 @@ export default {
 </script>
 
 <style scoped>
+.sidebarContainer
+ {
+  display: flex;
+  position : absolute;
+  width: 170px;
+  height: 100%;
+  z-index: 2;
+  flex: 1 1 0%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
 .menu {
-  width: 10%;
+  width: 170px;
+  height: 100%;
   background-color: #ccc;
   padding: 1em;
   left: 0;

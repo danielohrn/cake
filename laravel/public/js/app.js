@@ -38097,7 +38097,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  padding: 0.5em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  position: relative;\n  top: 30px;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  position: relative;\n  left: 17em;\n  padding: 0.5em;\n  margin-bottom: 1em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  position: relative;\n  top: 30px;\n  z-index: 2;\n}\n", ""]);
 
 // exports
 
@@ -38138,15 +38138,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       availableTags: [],
-      status: [{ name: 'content' }, { name: 'redaktör' }, { name: 'faktagranskning' }, { name: 'publicera' }],
-      data: [{ name: 'Project one', title: 'Title project one', content: 'Content project one', slug: 'project-one', id: 1, status: 'content' }, { name: 'Project two', title: 'Title project two', content: 'Content project two', slug: 'project-two', id: 2, status: 'redaktör' }, { name: 'Project three', title: 'Title project three', content: 'Content project three', slug: 'project-three', id: 2, status: 'publicera' }, { name: 'Project four', title: 'Title project four', content: 'Content project four', slug: 'project-four', id: 1, status: 'content' }]
+      status: [{
+        name: 'content'
+      }, {
+        name: 'redaktör'
+      }, {
+        name: 'faktagranskning'
+      }, {
+        name: 'publicera'
+      }],
+      data: [{
+        name: 'Project one',
+        title: 'Title project one',
+        content: 'Content project one',
+        slug: 'project-one',
+        id: 1,
+        status: 'content'
+      }, {
+        name: 'Project two',
+        title: 'Title project two',
+        content: 'Content project two',
+        slug: 'project-two',
+        id: 2,
+        status: 'redaktör'
+      }, {
+        name: 'Project three',
+        title: 'Title project three',
+        content: 'Content project three',
+        slug: 'project-three',
+        id: 2,
+        status: 'publicera'
+      }, {
+        name: 'Project four',
+        title: 'Title project four',
+        content: 'Content project four',
+        slug: 'project-four',
+        id: 1,
+        status: 'content'
+      }]
     };
   },
 
@@ -38213,39 +38247,41 @@ var render = function() {
     [
       _c("Sidebar"),
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "button",
-          {
-            staticClass: "menuBtn",
-            on: {
-              click: function($event) {
-                _vm.sideBarToggle()
+      _c("div", { staticClass: "body" }, [
+        _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "menuBtn",
+              on: {
+                click: function($event) {
+                  _vm.sideBarToggle()
+                }
               }
-            }
-          },
-          [_vm._v("Menu")]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "tiles" },
-        _vm._l(_vm.status, function(status, i) {
-          return _c(
-            "ProjectTile",
-            { key: i, attrs: { status: status } },
-            _vm._l(_vm.data, function(project) {
-              return project.status === status.name
-                ? _c("ProjectCard", {
-                    key: project.name,
-                    attrs: { project: project }
-                  })
-                : _vm._e()
-            })
+            },
+            [_vm._v("Menu")]
           )
-        })
-      )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "tiles" },
+          _vm._l(_vm.status, function(status, i) {
+            return _c(
+              "ProjectTile",
+              { key: i, attrs: { status: status } },
+              _vm._l(_vm.data, function(project) {
+                return project.status === status.name
+                  ? _c("ProjectCard", {
+                      key: project.name,
+                      attrs: { project: project }
+                    })
+                  : _vm._e()
+              })
+            )
+          })
+        )
+      ])
     ],
     1
   )
@@ -43949,7 +43985,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.menu[data-v-28cb1975] {\n  width: 10%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  z-index: 9999;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
+exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 2;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  z-index: 9999;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
@@ -43960,6 +43996,8 @@ exports.push([module.i, "\n.menu[data-v-28cb1975] {\n  width: 10%;\n  background
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -44004,18 +44042,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("aside", { staticClass: "menu", attrs: { id: "sidebar" } }, [
-    _c("div", { staticClass: "closeBtn" }, [
-      _c("span", { on: { click: _vm.closeBtn } }, [_vm._v("×")])
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "menu-label" }, [_vm._v("\n    General\n  ")]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("p", { staticClass: "menu-label" }, [_vm._v("\n    General\n  ")]),
-    _vm._v(" "),
-    _vm._m(1)
+  return _c("div", { staticClass: "sidebarContainer" }, [
+    _c("aside", { staticClass: "menu", attrs: { id: "sidebar" } }, [
+      _c("div", { staticClass: "closeBtn" }, [
+        _c("span", { on: { click: _vm.closeBtn } }, [_vm._v("×")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
   ])
 }
 var staticRenderFns = [
