@@ -54,12 +54,17 @@
 
 <style>
 .project-section {
-  width: 90%;
+  width: 100%;
 }
 .tile {
-  margin: .5rem;
+  /* margin: .5rem; */
 }
 .tile.no-padding {
   padding: 0px;
 }
+.title
+.content{
+  padding: 5px;
+}
+
 </style>

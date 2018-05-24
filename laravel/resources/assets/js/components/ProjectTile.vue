@@ -1,9 +1,5 @@
 <template>
      <section class="section project-section">
-        <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <article class="tile is-child notification ">
-            <div class="content">
               <p class="title">{{status.name}}</p>
               <p class="subtitle"></p>
               <div class="content">
@@ -13,10 +9,6 @@
                     </slot>
                 </div>
               </div>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>   
 </template>
 
@@ -35,12 +27,24 @@ export default {
 
     .project-section {
     width: 90%;
+    flex-direction: column;
     }
     .tile {
     margin: .5rem;
     }
     .tile.no-padding {
     padding: 0px;
+    }
+    .project-section{
+        background-color: #E3E4E6;
+        margin: 5px;
+    }
+    .tile.is-child {
+        padding: 5px;
+    }
+    p.title{
+        font-size: 1.2em;
+        margin: 1em;
     }
 
 </style>
