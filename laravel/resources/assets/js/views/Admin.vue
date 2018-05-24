@@ -1,11 +1,10 @@
 <template>
 <div class="section">
   <Sidebar></Sidebar>
-
   <div class='body'>
-    <div>
+
       <button class='menuBtn' v-on:click='sideBarToggle()'>Menu</button>
-    </div>
+
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
@@ -141,6 +140,9 @@ export default {
 }
 .body {
   position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding: 2em;
 }
 .tiles {
   display: flex;
@@ -151,13 +153,13 @@ export default {
   position: relative;
   left: 17em;
   padding: 0.5em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   background-color: #000;
   color: white;
   border-radius: 5px;
   outline: none;
-  position: relative;
   top: 30px;
   z-index: 2;
+  cursor: pointer;
 }
 </style>

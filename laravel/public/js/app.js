@@ -16295,6 +16295,7 @@ Vue.component('Footer', __webpack_require__(109));
 Vue.component('ProjectTile', __webpack_require__(114));
 Vue.component('ProjectCard', __webpack_require__(119));
 Vue.component('Sidebar', __webpack_require__(122));
+Vue.component('EditProjectModal', __webpack_require__(132));
 
 var app = new Vue({
   el: '#app',
@@ -38097,7 +38098,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  position: relative;\n  left: 17em;\n  padding: 0.5em;\n  margin-bottom: 1em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  position: relative;\n  top: 30px;\n  z-index: 2;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n  padding: 2em;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  position: relative;\n  left: 17em;\n  padding: 0.5em;\n  margin-bottom: 2em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  top: 30px;\n  z-index: 2;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -38108,7 +38109,6 @@ exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -38248,20 +38248,18 @@ var render = function() {
       _c("Sidebar"),
       _vm._v(" "),
       _c("div", { staticClass: "body" }, [
-        _c("div", [
-          _c(
-            "button",
-            {
-              staticClass: "menuBtn",
-              on: {
-                click: function($event) {
-                  _vm.sideBarToggle()
-                }
+        _c(
+          "button",
+          {
+            staticClass: "menuBtn",
+            on: {
+              click: function($event) {
+                _vm.sideBarToggle()
               }
-            },
-            [_vm._v("Menu")]
-          )
-        ]),
+            }
+          },
+          [_vm._v("Menu")]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -38382,7 +38380,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section {\n  width: 90%;\n}\n.tile {\n  margin: .5rem;\n}\n.tile.no-padding {\n  padding: 0px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38393,26 +38391,7 @@ exports.push([module.i, "\n.project-section {\n  width: 90%;\n}\n.tile {\n  marg
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
 //
 //
 //
@@ -38437,13 +38416,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['PROJECT_TO_EDIT']),
+
   data: function data() {
     return {
-      roles: ['content', 'redaktör', 'faktagranskning', 'publicerare'],
-      test: { role: 'redaktör', content: 'this is content' }
+      debug: false
+
     };
+  },
+
+
+  methods: {
+    show: function show() {
+      this.debug = !this.debug;
+    }
   }
+
 });
 
 /***/ }),
@@ -38455,74 +38446,28 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section" }, [
-    _vm._m(0),
+    _c("button", { on: { click: _vm.show } }, [
+      _vm._v("show project object (debugging)")
+    ]),
     _vm._v(" "),
-    _c(
-      "section",
-      { staticClass: "section project-section" },
-      _vm._l(_vm.roles, function(role) {
-        return _c("div", { staticClass: "tile is-ancestor" }, [
-          _c("div", { staticClass: "tile is-parent" }, [
-            _c("article", { staticClass: "tile is-child notification " }, [
-              _c("div", { staticClass: "content" }, [
-                _c("p", { staticClass: "title" }, [_vm._v(_vm._s(role))]),
-                _vm._v(" "),
-                _c("p", { staticClass: "subtitle" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "content" }, [
-                  role === _vm.test.role
-                    ? _c(
-                        "div",
-                        {
-                          staticClass: "tile no-padding is-parent is-vertical"
-                        },
-                        [
-                          _c(
-                            "article",
-                            {
-                              staticClass:
-                                "tile is-child notification is-primary"
-                            },
-                            [
-                              _c("p", { staticClass: "title" }, [
-                                _vm._v("Title")
-                              ]),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "subtitle" }, [
-                                _vm._v(_vm._s(_vm.test.content))
-                              ])
-                            ]
-                          )
-                        ]
-                      )
-                    : _vm._e()
-                ])
-              ])
-            ])
-          ])
-        ])
-      })
-    )
+    _vm.debug ? _c("div", [_vm._v(_vm._s(_vm.PROJECT_TO_EDIT))]) : _vm._e(),
+    _vm._v(" "),
+    _c("h1", [_vm._v("\n    " + _vm._s(_vm.PROJECT_TO_EDIT.name) + "\n  ")]),
+    _vm._v(" "),
+    _c("small", [
+      _vm._v(
+        "\n    This project is in status: " +
+          _vm._s(_vm.PROJECT_TO_EDIT.status) +
+          "\n  "
+      )
+    ]),
+    _vm._v(" "),
+    _c("h2", [_vm._v("\n    " + _vm._s(_vm.PROJECT_TO_EDIT.title) + "\n  ")]),
+    _vm._v(" "),
+    _c("p", [_vm._v("\n    " + _vm._s(_vm.PROJECT_TO_EDIT.content) + "\n  ")])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sidebar" }, [
-      _c("ul", { staticClass: "meny" }, [
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Översikt")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", [_vm._v(" Skapa artikel")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Skapa tagg")])]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Skapa roll")])])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -39074,9 +39019,12 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
     editArticleModal: false,
     newArticleModal: false,
     availableTags: [],
-    filteredTags: []
+    filteredTags: [],
+
+    PROJECT_TO_EDIT: null
   },
   plugins: [vuexLocal.plugin],
+
   mutations: {
     updateUserRole: function updateUserRole(state, payload) {
       state.userRole.name = payload.role.name;
@@ -39098,6 +39046,10 @@ var vuexLocal = new __WEBPACK_IMPORTED_MODULE_2_vuex_persist___default.a({
     },
     filterTags: function filterTags(state, payload) {
       state.filteredTags = payload;
+    },
+    SET_PROJECT_TO_EDIT: function SET_PROJECT_TO_EDIT(state, payload) {
+      console.log(payload, 'payload!');
+      state.PROJECT_TO_EDIT = payload;
     }
   }
 }));
@@ -43716,7 +43668,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n-webkit-box-orient: vertical;\n-webkit-box-direction: normal;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n.project-section[data-v-10c97500]{\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
 
 // exports
 
@@ -43727,14 +43679,6 @@ exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n}\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -43766,27 +43710,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section project-section" }, [
-    _c("div", { staticClass: "tile is-ancestor" }, [
-      _c("div", { staticClass: "tile is-parent" }, [
-        _c("article", { staticClass: "tile is-child notification " }, [
-          _c("div", { staticClass: "content" }, [
-            _c("p", { staticClass: "title" }, [
-              _vm._v(_vm._s(_vm.status.name))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "subtitle" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c(
-                "div",
-                { staticClass: "tile no-padding is-parent is-vertical" },
-                [_vm._t("default")],
-                2
-              )
-            ])
-          ])
-        ])
-      ])
+    _c("p", { staticClass: "title" }, [_vm._v(_vm._s(_vm.status.name))]),
+    _vm._v(" "),
+    _c("p", { staticClass: "subtitle" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [
+      _c(
+        "div",
+        { staticClass: "tile no-padding is-parent is-vertical" },
+        [_vm._t("default")],
+        2
+      )
     ])
   ])
 }
@@ -43860,13 +43794,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['project'],
     data: function data() {
-        return {};
+        return {
+            open: false
+        };
+    },
+
+
+    methods: {
+        toggle: function toggle() {
+            this.open = !this.open;
+        }
     }
+
 });
 
 /***/ }),
@@ -43879,14 +43826,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "article",
-    { staticClass: "tile is-child notification is-primary" },
+    {
+      staticClass: "tile is-child notification is-primary",
+      on: { click: _vm.toggle }
+    },
     [
-      _c("p", { staticClass: "title" }, [_vm._v(_vm._s(_vm.project.name))]),
+      _c("p", { staticClass: "title is-5" }, [
+        _vm._v(_vm._s(_vm.project.name))
+      ]),
       _vm._v(" "),
-      _c("p", { staticClass: "subtitle" }, [
+      _c("p", { staticClass: "subtitle is-6" }, [
         _vm._v(_vm._s(_vm.project.content))
-      ])
-    ]
+      ]),
+      _vm._v(" "),
+      _vm.open
+        ? _c("EditProjectModal", { attrs: { project: _vm.project } })
+        : _vm._e()
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -43985,7 +43942,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 2;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  z-index: 9999;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
+exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 3;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
@@ -44094,6 +44051,179 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(133)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(135)
+/* template */
+var __vue_template__ = __webpack_require__(136)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2d3e3516"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/EditProjectModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2d3e3516", Component.options)
+  } else {
+    hotAPI.reload("data-v-2d3e3516", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(134);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("3f6a7edd", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2d3e3516\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditProjectModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2d3e3516\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditProjectModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    margin: 1em auto;\n    width: 75%;\n    height: 100%;\n    position: relative;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 135 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['project'],
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['SET_PROJECT_TO_EDIT']),
+    data: function data() {
+        return {
+            open: false
+        };
+    },
+
+    methods: {
+        toggle: function toggle() {
+            this.open = !this.open;
+        },
+        redirectToProjectPage: function redirectToProjectPage() {
+            this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
+            this.$router.push("/project/" + this.project.slug);
+        }
+    }
+
+});
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "section modal-container", on: { click: _vm.toggle } },
+    [
+      _c("div", { staticClass: "modal-content" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn-redirect",
+            on: { click: _vm.redirectToProjectPage }
+          },
+          [_vm._v("\n            Öppna projekt i egen sida\n        ")]
+        ),
+        _vm._v("\n        " + _vm._s(JSON.stringify(_vm.project)) + "\n    ")
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2d3e3516", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

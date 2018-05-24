@@ -26,9 +26,12 @@ export default new Vuex.Store({
     editArticleModal: false,
     newArticleModal: false, 
     availableTags: [], 
-    filteredTags: [] 
+    filteredTags: [],
+
+    PROJECT_TO_EDIT: null, 
   },
   plugins: [vuexLocal.plugin],
+
   mutations: {
     updateUserRole (state, payload){
       state.userRole.name = payload.role.name;
@@ -50,6 +53,10 @@ export default new Vuex.Store({
     }, 
     filterTags(state, payload){
       state.filteredTags = payload; 
+    }, 
+    SET_PROJECT_TO_EDIT(state, payload){
+      console.log(payload, 'payload!')
+      state.PROJECT_TO_EDIT = payload; 
     }
   }
 });

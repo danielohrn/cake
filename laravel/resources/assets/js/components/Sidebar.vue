@@ -45,7 +45,7 @@ export default {
   position : absolute;
   width: 170px;
   height: 100%;
-  z-index: 2;
+  z-index: 3;
   flex: 1 1 0%;
   flex-grow: 0;
   flex-shrink: 0;
@@ -56,7 +56,6 @@ export default {
   background-color: #ccc;
   padding: 1em;
   left: 0;
-  z-index: 9999;
   position: relative;
   transition: all 0.6s;
 }
