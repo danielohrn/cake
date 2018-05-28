@@ -3,7 +3,7 @@
   <Sidebar></Sidebar>
   <div class='body'>
 
-      <button class='menuBtn' v-on:click='sideBarToggle()'>Menu</button>
+      <button class='menuBtn' v-on:click='sideBarToggle'>Menu</button>
 
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
@@ -49,55 +49,21 @@ export default {
                 {name: 'Project seven', title: 'Title project seven', content: 'Content project seven' ,slug: 'project-seven', id: 1, status: 'Publicera'},
             ],
         }
-    }
-  }
+    }, 
 
-  methods: {
-    sideBarToggle() {
-      document.getElementById('sidebar').style.left = '0%';
+    methods: {
+        sideBarToggle() {
+            document.getElementById('sidebar').style.left = '0%';
+        }
+    },
+
+    mounted() {
+        this.getProjects();
     }
-    // getArticles(){
-    //     axios.get('/api/articles')
-    //         .then(res => {
-    //             this.data = res.data;
-    //         })
-    // },
-    //
-    // updateArticles(id){
-    //     axios.get(`/api/articles/${id}`)
-    //      .then(res => {
-    //          const { data: article } = res;
-    //          this.data.push(article);
-    //      });
-    // },
-    //
-    // getTags(){
-    //     axios.get('api/tags')
-    //     .then(response => {
-    //         this.availableTags = response.data;
-    //         this.$store.commit('setTags', response.data);
-    //     })
-    // },
-    //
-    // openNewArticleModal() {
-    //     this.$store.commit(
-    //         'toggleModal',
-    //         {modalType: 'newArticleModal', action: true}
-    //     );
-    // },
-    //
-    // getTags() {
-    // axios.get('api/tags')
-    //     .then(response => {
-    //     this.availableTags = response.data;
-    //     })
-    // }
-  },
-  mounted() {
-    this.getProjects();
 
   }
-}
+
+
 </script>
 
 <style scoped>
