@@ -49,16 +49,20 @@ export default {
       return {
             availableTags: [],
             status: [
-                    {name: 'content'},
-                    {name: 'redaktör'},
-                    {name: 'faktagranskning'},
-                    {name: 'publicera'}
+                    {name: 'Idé'},
+                    {name: 'Faktainsamling'},
+                    {name: 'Bearbetning'},
+                    {name: 'Faktakontroll'},
+                    {name: 'Publicera'}
                 ], 
             data: [
-                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'content'},
-                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'redaktör'},
-                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'publicera'}, 
-                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'content'},
+                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'Idé'},
+                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'Idé'},
+                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'Faktainsamling'}, 
+                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'Bearbetning'},
+                {name: 'Project five', title: 'Title project five', content: 'Content project five' ,slug: 'project-five', id: 1, status: 'Faktakontroll'},
+                {name: 'Project six', title: 'Title project six', content: 'Content project six' ,slug: 'project-six', id: 1, status: 'Faktakontroll'},
+                {name: 'Project seven', title: 'Title project seven', content: 'Content project seven' ,slug: 'project-seven', id: 1, status: 'Publicera'},
             ],
         }
     },
@@ -119,6 +123,7 @@ export default {
     height: 100vh;
     background-color: #aedfbf;
     color: #000;
+    
 }
 
 .sidebar li{

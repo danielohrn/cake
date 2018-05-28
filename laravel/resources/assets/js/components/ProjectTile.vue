@@ -26,19 +26,18 @@ export default {
 <style scoped>
 
     .project-section {
-    width: 90%;
-    flex-direction: column;
-    }
-    .tile {
-    margin: .5rem;
-    }
-    .tile.no-padding {
-    padding: 0px;
-    }
-    .project-section{
+        width: 90%;
+        flex-direction: column;
         background-color: #E3E4E6;
         margin: 5px;
     }
+    .tile {
+        margin: .5rem;
+    }
+    .tile.no-padding {
+        padding: 0px;
+    }
+
     .tile.is-child {
         padding: 5px;
     }
