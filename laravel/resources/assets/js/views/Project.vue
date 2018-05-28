@@ -1,20 +1,20 @@
 <template>
   <section class="section">
-    
+
     <button @click="show">show project object (debugging)</button>
     <div v-if="debug">{{PROJECT_TO_EDIT}}</div>
-    
+
     <h1>
-      {{PROJECT_TO_EDIT.name}}      
+      {{PROJECT_TO_EDIT.name}}
     </h1>
     <small>
       This project is in status: {{PROJECT_TO_EDIT.status}}
     </small>
     <h2>
-      {{PROJECT_TO_EDIT.title}}      
+      {{PROJECT_TO_EDIT.title}}
     </h2>
     <p>
-      {{PROJECT_TO_EDIT.content}}      
+      {{PROJECT_TO_EDIT.content}}
     </p>
 
   </section>
@@ -22,10 +22,10 @@
 
 
 <script>
-import {mapState} from 'vuex'; 
+import {mapState} from 'vuex';
 
   export default {
-    computed: mapState(['PROJECT_TO_EDIT']), 
+    computed: mapState(['PROJECT_TO_EDIT']),
 
     data(){
       return {
@@ -38,7 +38,7 @@ import {mapState} from 'vuex';
 
     methods: {
       show(){
-        this.debug = !this.debug; 
+        this.debug = !this.debug;
       }
     },
     methods: {
@@ -55,6 +55,5 @@ import {mapState} from 'vuex';
 </script>
 
 <style>
-
 
 </style>

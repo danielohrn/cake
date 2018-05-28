@@ -6,15 +6,15 @@
             </button>
             {{JSON.stringify(project)}}
         </div>
-    </section>  
+    </section>
 </template>
 
 <script>
-import {mapState} from 'vuex'; 
+import {mapState} from 'vuex';
 
 export default {
   props: ['project'],
-  computed: mapState(['SET_PROJECT_TO_EDIT']), 
+  computed: mapState(['SET_PROJECT_TO_EDIT']),
   data(){
       return {
           open: false
@@ -22,11 +22,11 @@ export default {
   },
   methods: {
       toggle() {
-          this.open = !this.open; 
+          this.open = !this.open;
       },
       redirectToProjectPage() {
-        this.$store.commit('SET_PROJECT_TO_EDIT', this.project); 
-        this.$router.push("/project/" + this.project.slug); 
+        this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
+        this.$router.push("/project/" + this.project.slug);
       }
   }
 
@@ -38,22 +38,23 @@ export default {
 
     section.modal-container {
         position: fixed;
-        top: 0; 
-        left: 0; 
-        width: 100vw; 
-        height:  100vh; 
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height:  100vh;
         background: #ffffff80;
-        color: black; 
+        color: black;
         z-index: 999;
-    }   
+    }
 
     .modal-content {
-        padding: 1em; 
-        background: white; 
-        color: black; 
-        margin: 1em auto; 
-        width: 75%; 
+        padding: 1em;
+        background: white;
+        color: black;
+        margin: 1em auto;
+        width: 75%;
+        height: 100%;
         position: relative;
-    } 
+    }
 
 </style>

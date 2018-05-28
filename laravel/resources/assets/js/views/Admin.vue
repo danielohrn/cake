@@ -1,37 +1,21 @@
 <template>
 <div class="section">
-    <div class="sidebar">
-        <ul class="meny">
+  <Sidebar></Sidebar>
+  <div class='body'>
 
-            <li>
-                <a href="">Översikt</a>
-            </li>
-            <li>
-                <a @click="openNewArticleModal"
-                :availableTags="availableTags"> Skapa artikel</a>
-            </li>
-            <li>
-                <a href="">Skapa tagg</a>
-            </li>
-            <li>
-                <a href="">Skapa roll</a>
-            </li>
-        </ul>
-    </div>
-    
-        <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
-            
-            <ProjectCard 
-                v-for="(project) in data" 
-                v-if="project.status === status.name" 
-                :key="project.name"
-                :project="project"
-            />
+      <button class='menuBtn' v-on:click='sideBarToggle()'>Menu</button>
 
-        </ProjectTile>
+  <div class='tiles'>
+    <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
+
+      <ProjectCard v-for="(project) in data" v-if="project.status === status.name" :key="project.name" :project="project" />
+
+    </ProjectTile>
+  </div>
+</div>
 
 
-    <!-- <EditableArticleModal
+  <!-- <EditableArticleModal
         type="editArticleModal"
         :availableTags="availableTags" />
 
@@ -65,45 +49,49 @@ export default {
                 {name: 'Project seven', title: 'Title project seven', content: 'Content project seven' ,slug: 'project-seven', id: 1, status: 'Publicera'},
             ],
         }
-    },
+    }
+  }
 
-    methods: {
-         getProjects(){
-             axios.get('/api/projects')
-                 .then(res => {
-                     this.data = res.data;
-                 })
-         },
-        //
-        // updateArticles(id){
-        //     axios.get(`/api/articles/${id}`)
-        //      .then(res => {
-        //          const { data: article } = res;
-        //          this.data.push(article);
-        //      });
-        // },
-        //
-        // getTags(){
-        //     axios.get('api/tags')
-        //     .then(response => {
-        //         this.availableTags = response.data;
-        //         this.$store.commit('setTags', response.data);
-        //     })
-        // },
-        //
-        // openNewArticleModal() {
-        //     this.$store.commit(
-        //         'toggleModal',
-        //         {modalType: 'newArticleModal', action: true}
-        //     );
-        // },
-        //
-        // getTags() {
-        // axios.get('api/tags')
-        //     .then(response => {
-        //     this.availableTags = response.data;
-        //     })
-        // }
+  methods: {
+    sideBarToggle() {
+      document.getElementById('sidebar').style.left = '0%';
+    }
+    // getArticles(){
+    //     axios.get('/api/articles')
+    //         .then(res => {
+    //             this.data = res.data;
+    //         })
+    // },
+    //
+    // updateArticles(id){
+    //     axios.get(`/api/articles/${id}`)
+    //      .then(res => {
+    //          const { data: article } = res;
+    //          this.data.push(article);
+    //      });
+    // },
+    //
+    // getTags(){
+    //     axios.get('api/tags')
+    //     .then(response => {
+    //         this.availableTags = response.data;
+    //         this.$store.commit('setTags', response.data);
+    //     })
+    // },
+    //
+    // openNewArticleModal() {
+    //     this.$store.commit(
+    //         'toggleModal',
+    //         {modalType: 'newArticleModal', action: true}
+    //     );
+    // },
+    //
+    // getTags() {
+    // axios.get('api/tags')
+    //     .then(response => {
+    //     this.availableTags = response.data;
+    //     })
+    // }
   },
   mounted() {
     this.getProjects();
@@ -112,32 +100,37 @@ export default {
 }
 </script>
 
-<style>
-.section{
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+<style scoped>
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
 }
-.sidebar, .sidebar a{
-    width: 40%;
-    height: 100vh;
-    background-color: #aedfbf;
-    color: #000;
-    
+.body {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding: 2em;
 }
-
-.sidebar li{
-    margin: 20% 10%;
-    font-size: 1.2em;
-}
-.sidebar ul{
-    margin-top: 41px;
-
-}
-.table{
-    width: 90%;
+.tiles {
+  display: flex;
+  width: 100%;
 }
 
-
-
+.menuBtn {
+  position: relative;
+  left: 17em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  top: 30px;
+  z-index: 2;
+  cursor: pointer;
+}
 </style>
