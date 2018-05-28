@@ -38157,8 +38157,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             availableTags: [],
-            status: [{ name: 'content' }, { name: 'redaktör' }, { name: 'faktagranskning' }, { name: 'publicera' }],
-            data: [{ name: 'Project one', title: 'Title project one', content: 'Content project one', slug: 'project-one', id: 1, status: 'content' }, { name: 'Project two', title: 'Title project two', content: 'Content project two', slug: 'project-two', id: 2, status: 'redaktör' }, { name: 'Project three', title: 'Title project three', content: 'Content project three', slug: 'project-three', id: 2, status: 'publicera' }, { name: 'Project four', title: 'Title project four', content: 'Content project four', slug: 'project-four', id: 1, status: 'content' }]
+            status: [{ name: 'Idé' }, { name: 'Faktainsamling' }, { name: 'Bearbetning' }, { name: 'Faktakontroll' }, { name: 'Publicera' }],
+            data: [{ name: 'Project one', title: 'Title project one', content: 'Content project one', slug: 'project-one', id: 1, status: 'Idé' }, { name: 'Project two', title: 'Title project two', content: 'Content project two', slug: 'project-two', id: 2, status: 'Idé' }, { name: 'Project three', title: 'Title project three', content: 'Content project three', slug: 'project-three', id: 2, status: 'Faktainsamling' }, { name: 'Project four', title: 'Title project four', content: 'Content project four', slug: 'project-four', id: 1, status: 'Bearbetning' }, { name: 'Project five', title: 'Title project five', content: 'Content project five', slug: 'project-five', id: 1, status: 'Faktakontroll' }, { name: 'Project six', title: 'Title project six', content: 'Content project six', slug: 'project-six', id: 1, status: 'Faktakontroll' }, { name: 'Project seven', title: 'Title project seven', content: 'Content project seven', slug: 'project-seven', id: 1, status: 'Publicera' }]
         };
     },
 
@@ -43724,7 +43724,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n-webkit-box-orient: vertical;\n-webkit-box-direction: normal;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n.project-section[data-v-10c97500]{\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-section[data-v-10c97500] {\n    width: 90%;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile[data-v-10c97500] {\n    margin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\n    padding: 0px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
 
 // exports
 
