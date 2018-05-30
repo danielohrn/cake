@@ -38098,68 +38098,16 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n  padding: 2em;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n.menuBtn[data-v-ca2e4be8] {\n  position: relative;\n  left: 17em;\n  padding: 0.5em;\n  margin-bottom: 2em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  top: 30px;\n  z-index: 2;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n  padding: 2em;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 /* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            availableTags: [],
-            status: [{ name: 'Idé' }, { name: 'Faktainsamling' }, { name: 'Bearbetning' }, { name: 'Faktakontroll' }, { name: 'Publicera' }],
-            data: [{ name: 'Project one', title: 'Title project one', content: 'Content project one', slug: 'project-one', id: 1, status: 'Idé' }, { name: 'Project two', title: 'Title project two', content: 'Content project two', slug: 'project-two', id: 2, status: 'Idé' }, { name: 'Project three', title: 'Title project three', content: 'Content project three', slug: 'project-three', id: 2, status: 'Faktainsamling' }, { name: 'Project four', title: 'Title project four', content: 'Content project four', slug: 'project-four', id: 1, status: 'Bearbetning' }, { name: 'Project five', title: 'Title project five', content: 'Content project five', slug: 'project-five', id: 1, status: 'Faktakontroll' }, { name: 'Project six', title: 'Title project six', content: 'Content project six', slug: 'project-six', id: 1, status: 'Faktakontroll' }, { name: 'Project seven', title: 'Title project seven', content: 'Content project seven', slug: 'project-seven', id: 1, status: 'Publicera' }]
-        };
-    },
-
-
-    methods: {
-        sideBarToggle: function sideBarToggle() {
-            document.getElementById('sidebar').style.left = '0%';
-        }
-    }
-
-    // mounted() {
-    //     this.getProjects();
-    // }
-
-});
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (75:0)\n\n\u001b[0m \u001b[90m 73 | \u001b[39m\n \u001b[90m 74 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 75 | \u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 65 */
@@ -38176,12 +38124,6 @@ var render = function() {
       _c("Sidebar"),
       _vm._v(" "),
       _c("div", { staticClass: "body" }, [
-        _c(
-          "button",
-          { staticClass: "menuBtn", on: { click: _vm.sideBarToggle } },
-          [_vm._v("Menu")]
-        ),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "tiles" },
@@ -43746,8 +43688,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        toggle: function toggle() {
-            this.open = !this.open;
+        openModal: function openModal() {
+            this.open = true;
+        },
+        closeModal: function closeModal() {
+            this.open = false;
         }
     }
 
@@ -43765,7 +43710,7 @@ var render = function() {
     "article",
     {
       staticClass: "tile is-child notification is-primary",
-      on: { click: _vm.toggle }
+      on: { click: _vm.openModal }
     },
     [
       _c("p", { staticClass: "title is-5" }, [
@@ -43777,7 +43722,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.open
-        ? _c("EditProjectModal", { attrs: { project: _vm.project } })
+        ? _c("EditProjectModal", {
+            attrs: { project: _vm.project },
+            on: { CLOSE_MODAL: _vm.closeModal }
+          })
         : _vm._e()
     ],
     1
@@ -43879,7 +43827,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    width: 90%;\n    height: 100%;\n    position: relative;\n    border: .5px solid lightgray;\n    border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 90%;\n}\ninput[data-v-2d3e3516] {\n    font-size: 20px;\n    margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 400px;\n  margin-top: 1em;\n  padding: 1em;\n}\n.column-left[data-v-2d3e3516]{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.column-right[data-v-2d3e3516]{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    border-left: 1px solid black;\n    padding-left: 2em;\n}\n.content-left[data-v-2d3e3516] {\n}\nbutton[data-v-2d3e3516] {\n  font-size: 15px;\n  border-radius: 5px;\n  height: 30px;\n  margin-left: 1em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 0 1em 0 1em;\n}\n\n", ""]);
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    width: 90%;\n    height: 100%;\n    position: relative;\n    border: .5px solid lightgray;\n    border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 90%;\n}\ninput[data-v-2d3e3516] {\n    font-size: 20px;\n    margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 400px;\n  margin-top: 1em;\n  padding: 1em;\n}\n.column-left[data-v-2d3e3516]{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.column-right[data-v-2d3e3516]{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    border-left: 1px solid black;\n    padding-left: 2em;\n}\n.content-left[data-v-2d3e3516] {\n}\nbutton[data-v-2d3e3516] {\n  font-size: 15px;\n  border-radius: 5px;\n  height: 30px;\n  margin-left: 1em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n    position: fixed;\n    right: 10px;\n    top: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -43891,6 +43839,11 @@ exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    posit
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43937,6 +43890,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         toggle: function toggle() {
             this.open = !this.open;
         },
+        closeModal: function closeModal() {
+            this.$emit('CLOSE_MODAL');
+        },
         redirectToProjectPage: function redirectToProjectPage() {
             this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
             this.$router.push("/project/" + this.project.slug);
@@ -43957,6 +43913,22 @@ var render = function() {
     "section",
     { staticClass: "section modal-container", on: { click: _vm.toggle } },
     [
+      _c("div", [
+        _c(
+          "span",
+          {
+            staticClass: "modal--close",
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                return _vm.closeModal($event)
+              }
+            }
+          },
+          [_vm._v("\n            X\n        ")]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "modal-content" }, [
         _c("div", { staticClass: "modal-menu" }, [
           _c("div", [
@@ -44109,7 +44081,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 3;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n", ""]);
+exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 3;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n.menuBtn[data-v-28cb1975] {\n  position: absolute;\n  left: 10px;\n  padding: 0.5em;\n  margin-bottom: 2em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  top: 30px;\n  z-index: 2;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -44145,15 +44117,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      open: false
+
+    };
   },
 
   methods: {
-    closeBtn: function closeBtn() {
-      document.getElementById('sidebar').style.left = '-100%';
+    toggle: function toggle() {
+      this.open = !this.open;
     }
   }
 });
@@ -44167,19 +44145,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "sidebarContainer" }, [
-    _c("aside", { staticClass: "menu", attrs: { id: "sidebar" } }, [
-      _c("div", { staticClass: "closeBtn" }, [
-        _c("span", { on: { click: _vm.closeBtn } }, [_vm._v("×")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("p", { staticClass: "menu-label" }, [_vm._v("\n      General\n    ")]),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
+    !_vm.open
+      ? _c("button", { staticClass: "menuBtn", on: { click: _vm.toggle } }, [
+          _vm._v("Menu")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.open
+      ? _c("aside", { staticClass: "menu", attrs: { id: "sidebar" } }, [
+          _c("div", { staticClass: "closeBtn" }, [
+            _c("span", { on: { click: _vm.toggle } }, [_vm._v("×")])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "menu-label" }, [
+            _vm._v("\n      General\n    ")
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("p", { staticClass: "menu-label" }, [
+            _vm._v("\n      General\n    ")
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

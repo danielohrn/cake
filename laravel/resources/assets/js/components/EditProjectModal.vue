@@ -1,5 +1,10 @@
 <template>
     <section @click="toggle" class="section modal-container">
+        <div>
+            <span @click.stop="closeModal" class="modal--close">
+                X
+            </span>
+        </div>
         <div class="modal-content">
           <div class='modal-menu'>
           <div>
@@ -42,6 +47,9 @@ export default {
   methods: {
       toggle() {
           this.open = !this.open;
+      },
+      closeModal(){
+          this.$emit('CLOSE_MODAL'); 
       },
       redirectToProjectPage() {
         this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
@@ -113,6 +121,12 @@ export default {
       display: flex;
       justify-content: space-between;
       padding: 0 1em 0 1em;
+    }
+
+    .modal--close {
+        position: fixed;
+        right: 10px;
+        top: 10px;
     }
 
 </style>

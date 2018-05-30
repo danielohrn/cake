@@ -2,27 +2,18 @@
 <div class="section">
   <Sidebar></Sidebar>
   <div class='body'>
-
-      <button class='menuBtn' v-on:click='sideBarToggle'>Menu</button>
-
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
-      <ProjectCard v-for="(project) in data" v-if="project.status === status.name" :key="project.name" :project="project" />
+      <ProjectCard
+        v-for="(project) in data"
+        v-if="project.status === status.name"
+        :key="project.name"
+        :project="project" />
 
     </ProjectTile>
   </div>
 </div>
-
-
-  <!-- <EditableArticleModal
-        type="editArticleModal"
-        :availableTags="availableTags" />
-
-    <NewArticleModal
-        @update-articles="updateArticles($event)"
-        :availableTags="availableTags"
-        type="newArticleModal"/> -->
 
 </div>
 </template>
@@ -30,37 +21,54 @@
 <script>
 export default {
   data() {
-      return {
-            availableTags: [],
-            status: [
-                    {name: 'Idé'},
-                    {name: 'Faktainsamling'},
-                    {name: 'Bearbetning'},
-                    {name: 'Faktakontroll'},
-                    {name: 'Publicera'}
-                ], 
-            data: [
-                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'Idé'},
-                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'Idé'},
-                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'Faktainsamling'}, 
-                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'Bearbetning'},
-                {name: 'Project five', title: 'Title project five', content: 'Content project five' ,slug: 'project-five', id: 1, status: 'Faktakontroll'},
-                {name: 'Project six', title: 'Title project six', content: 'Content project six' ,slug: 'project-six', id: 1, status: 'Faktakontroll'},
-                {name: 'Project seven', title: 'Title project seven', content: 'Content project seven' ,slug: 'project-seven', id: 1, status: 'Publicera'},
-            ],
-        }
-    }, 
+    return {
+      availableTags: [],
+      status: [],
+      data: [{
+          name: 'Project one',
+          title: 'Title project one',
+          content: 'Content project one',
+          slug: 'project-one',
+          id: 1,
+          status: 'beställare'
+        },
+        {
+          name: 'Project two',
+          title: 'Title project two',
+          content: 'Content project two',
+          slug: 'project-two',
+          id: 2,
+          status: 'redaktör'
+        },
+        {
+          name: 'Project three',
+          title: 'Title project three',
+          content: 'Content project three',
+          slug: 'project-three',
+          id: 2,
+          status: 'publicera'
+        },
+        {
+          name: 'Project four',
+          title: 'Title project four',
+          content: 'Content project four',
+          slug: 'project-four',
+          id: 1,
+          status: 'content'
+        },
+      ],
+    }
+  },
 
-    methods: {
-        sideBarToggle() {
-            document.getElementById('sidebar').style.left = '0%';
-        }
-    },
-
-    // mounted() {
-    //     this.getProjects();
-    // }
-
+  methods: {
+      getRoles(){
+        axios.get('/api/roles')
+        .then( res => this.status = res.data)
+        .catch( err => console.log(err))
+      }
+  },
+  mounted() {
+    this.getRoles()
   }
 
 
@@ -86,17 +94,4 @@ export default {
   width: 100%;
 }
 
-.menuBtn {
-  position: relative;
-  left: 17em;
-  padding: 0.5em;
-  margin-bottom: 2em;
-  background-color: #000;
-  color: white;
-  border-radius: 5px;
-  outline: none;
-  top: 30px;
-  z-index: 2;
-  cursor: pointer;
-}
 </style>

@@ -1,14 +1,17 @@
 <template>
   <div class='sidebarContainer'>
-  <aside id='sidebar' class="menu">
+  <button v-if="!open" class='menuBtn' v-on:click='toggle'>Menu</button>
+  <aside v-if="open" id='sidebar' class="menu">
+    
     <div class='closeBtn'>
-    <span v-on:click='closeBtn'>&times;</span>
-  </div>
+      <span v-on:click='toggle'>&times;</span>
+    </div>
+
     <p class="menu-label">
       General
     </p>
     <ul class="menu-list">
-      <li><a>Dashboard</a></li>
+      <li><a>Dashboard</a></li>  
       <li><a>Customers</a></li>
     </ul>
     <p class="menu-label">
@@ -27,12 +30,13 @@
 export default {
   data() {
     return {
+      open: false, 
 
     }
   },
   methods: {
-    closeBtn() {
-      document.getElementById('sidebar').style.left = '-100%';
+    toggle() {
+      this.open = !this.open; 
     }
   }
 }
@@ -75,5 +79,19 @@ export default {
 }
 .closeBtn span:hover {
   opacity: 0.7;
+}
+
+.menuBtn {
+  position: absolute;
+  left: 10px;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  top: 30px;
+  z-index: 2;
+  cursor: pointer;
 }
 </style>
