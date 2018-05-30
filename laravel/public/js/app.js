@@ -38144,35 +38144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       availableTags: [],
       status: [],
-      data: [{
-        name: 'Project one',
-        title: 'Title project one',
-        content: 'Content project one',
-        slug: 'project-one',
-        id: 1,
-        status: 'content'
-      }, {
-        name: 'Project two',
-        title: 'Title project two',
-        content: 'Content project two',
-        slug: 'project-two',
-        id: 2,
-        status: 'redaktör'
-      }, {
-        name: 'Project three',
-        title: 'Title project three',
-        content: 'Content project three',
-        slug: 'project-three',
-        id: 2,
-        status: 'publicera'
-      }, {
-        name: 'Project four',
-        title: 'Title project four',
-        content: 'Content project four',
-        slug: 'project-four',
-        id: 1,
-        status: 'content'
-      }]
+      data: []
     };
   },
 
@@ -38222,12 +38194,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (err) {
         return console.log(err);
       });
+    },
+    getProjects: function getProjects() {
+      var _this2 = this;
+
+      axios.get('api/projects').then(function (res) {
+        return _this2.data = res.data;
+      });
     }
   },
   mounted: function mounted() {
-    this.getArticles();
-    this.getTags();
     this.getRoles();
+    this.getProjects();
   }
 });
 
@@ -38254,7 +38232,7 @@ var render = function() {
               "ProjectTile",
               { key: i, attrs: { status: status } },
               _vm._l(_vm.data, function(project) {
-                return project.status === status.name
+                return project.role_id === status.id
                   ? _c("ProjectCard", {
                       key: project.name,
                       attrs: { project: project }
@@ -43653,7 +43631,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n-webkit-box-orient: vertical;\n-webkit-box-direction: normal;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n.project-section[data-v-10c97500]{\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n-webkit-box-orient: vertical;\n-webkit-box-direction: normal;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding.is-parent.is-vertical[data-v-10c97500] {\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n.project-section[data-v-10c97500]{\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
 
 // exports
 
