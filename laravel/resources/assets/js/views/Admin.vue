@@ -5,10 +5,10 @@
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
-      <ProjectCard 
-        v-for="(project) in data" 
-        v-if="project.status === status.name" 
-        :key="project.name" 
+      <ProjectCard
+        v-for="(project) in data"
+        v-if="project.status === status.name"
+        :key="project.name"
         :project="project" />
 
     </ProjectTile>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-export default {  
+export default {
   data() {
     return {
       availableTags: [],
@@ -70,7 +70,8 @@ export default {
   mounted() {
     this.getRoles()
   }
-}
+
+
 </script>
 
 <style scoped>

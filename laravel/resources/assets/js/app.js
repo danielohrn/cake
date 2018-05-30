@@ -30,9 +30,8 @@ Vue.component('ArticleNavBar', require('./components/ArticleNavBar.vue'));
 Vue.component('Footer', require('./components/Footer.vue'));
 Vue.component('ProjectTile', require('./components/ProjectTile.vue'));
 Vue.component('ProjectCard', require('./components/ProjectCard.vue'));
-Vue.component('Sidebar', require('./components/Sidebar.vue'));
 Vue.component('EditProjectModal', require('./components/EditProjectModal.vue'));
-
+Vue.component('Sidebar', require('./components/Sidebar.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -16,9 +16,12 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('role_id')->unsigned();
             $table->integer('template_id')->unsigned();
             $table->integer('article_id')->unsigned();
+            $table->string('slug')->nullable();
             $table->timestamps();
+            $table->foreign('role_id')->references('id')->on('roles');
             $table->foreign('template_id')->references('id')->on('templates');
             $table->foreign('article_id')->references('id')->on('articles');
         });
