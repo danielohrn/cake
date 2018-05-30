@@ -26,22 +26,21 @@ export default {
 <style scoped>
 
     .project-section {
-    width: 90%;
-    flex-direction: column;
+        width: 90%;
+        flex-direction: column;
+        background-color: #E3E4E6;
+        margin: 5px;
     }
     .tile {
-    margin: .5rem;
+        margin: .5rem;
     }
     .tile.no-padding.is-parent.is-vertical {
     
     }
     .tile.no-padding {
-    padding: 0px;
+        padding: 0px;
     }
-    .project-section{
-        background-color: #E3E4E6;
-        margin: 5px;
-    }
+
     .tile.is-child {
         padding: 5px;
     }

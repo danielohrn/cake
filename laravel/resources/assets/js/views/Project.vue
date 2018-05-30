@@ -29,6 +29,8 @@ import {mapState} from 'vuex';
 
     data(){
       return {
+        template: {},
+        test:  {role: 'redaktör', content: 'this is content'},
         debug: false,
 
       }
@@ -38,6 +40,15 @@ import {mapState} from 'vuex';
       show(){
         this.debug = !this.debug;
       }
+    },
+    methods: {
+      getTemplate(){
+        axios.get('/api/templates/' + this.$route.params.id).
+        then( res => this.template = res.data)
+      }
+    },
+    mounted(){
+      this.getTemplate()
     }
 
   }

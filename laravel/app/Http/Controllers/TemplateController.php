@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Template;
 use App\Project;
-
-class ProjectController extends Controller
+class TemplateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        return response()->json($projects);
+        //
     }
 
     /**
@@ -45,9 +44,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+      $template = Project::where('slug', $slug)->first();
+      $template->template;
+      return response()->json($template);
     }
 
     /**

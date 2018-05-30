@@ -16294,8 +16294,8 @@ Vue.component('ArticleNavBar', __webpack_require__(104));
 Vue.component('Footer', __webpack_require__(109));
 Vue.component('ProjectTile', __webpack_require__(114));
 Vue.component('ProjectCard', __webpack_require__(119));
-Vue.component('Sidebar', __webpack_require__(127));
 Vue.component('EditProjectModal', __webpack_require__(122));
+Vue.component('Sidebar', __webpack_require__(127));
 
 var app = new Vue({
   el: '#app',
@@ -38108,106 +38108,9 @@ exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n 
 
 /***/ }),
 /* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      availableTags: [],
-      status: [],
-      data: []
-    };
-  },
-
-
-  methods: {
-    // getArticles(){
-    //     axios.get('/api/articles')
-    //         .then(res => {
-    //             this.data = res.data;
-    //         })
-    // },
-    //
-    // updateArticles(id){
-    //     axios.get(`/api/articles/${id}`)
-    //      .then(res => {
-    //          const { data: article } = res;
-    //          this.data.push(article);
-    //      });
-    // },
-    //
-    // getTags(){
-    //     axios.get('api/tags')
-    //     .then(response => {
-    //         this.availableTags = response.data;
-    //         this.$store.commit('setTags', response.data);
-    //     })
-    // },
-    //
-    // openNewArticleModal() {
-    //     this.$store.commit(
-    //         'toggleModal',
-    //         {modalType: 'newArticleModal', action: true}
-    //     );
-    // },
-    //
-    // getTags() {
-    // axios.get('api/tags')
-    //     .then(response => {
-    //     this.availableTags = response.data;
-    //     })
-    // }
-    getRoles: function getRoles() {
-      var _this = this;
-
-      axios.get('/api/roles').then(function (res) {
-        return _this.status = res.data;
-      }).catch(function (err) {
-        return console.log(err);
-      });
-    },
-    getProjects: function getProjects() {
-      var _this2 = this;
-
-      axios.get('api/projects').then(function (res) {
-        return _this2.data = res.data;
-      });
-    }
-  },
-  mounted: function mounted() {
-    this.getRoles();
-    this.getProjects();
-  }
-});
+throw new Error("Module build failed: SyntaxError: Unexpected token (31:0)\n\n\u001b[0m \u001b[90m 29 | \u001b[39m      availableTags\u001b[33m:\u001b[39m []\u001b[33m,\u001b[39m\n \u001b[90m 30 | \u001b[39m      status\u001b[33m:\u001b[39m []\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 | \u001b[39m      data\u001b[33m:\u001b[39m []\u001b[33m,\u001b[39m\n \u001b[90m 33 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\n \u001b[90m 34 | \u001b[39m      data\u001b[33m:\u001b[39m [{\u001b[0m\n");
 
 /***/ }),
 /* 65 */
@@ -38231,14 +38134,28 @@ var render = function() {
             return _c(
               "ProjectTile",
               { key: i, attrs: { status: status } },
-              _vm._l(_vm.data, function(project) {
-                return project.role_id === status.id
-                  ? _c("ProjectCard", {
-                      key: project.name,
-                      attrs: { project: project }
-                    })
-                  : _vm._e()
-              })
+              [
+                _vm._v("\n\n<<<<<<< HEAD\n      "),
+                _vm._l(_vm.data, function(project) {
+                  return project.role_id === status.id
+                    ? _c("ProjectCard", {
+                        key: project.name,
+                        attrs: { project: project }
+                      })
+                    : _vm._e()
+                }),
+                _vm._v("\n=======\n      "),
+                _vm._l(_vm.data, function(project) {
+                  return project.status === status.name
+                    ? _c("ProjectCard", {
+                        key: project.name,
+                        attrs: { project: project }
+                      })
+                    : _vm._e()
+                }),
+                _vm._v("\n>>>>>>> MASTER-project-dashboard\n\n    ")
+              ],
+              2
             )
           })
         )
@@ -38343,7 +38260,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -38355,6 +38272,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+var _computed$data$method;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -38381,11 +38302,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_computed$data$method = {
   computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['PROJECT_TO_EDIT']),
 
   data: function data() {
     return {
+      template: {},
+      test: { role: 'redaktör', content: 'this is content' },
       debug: false
 
     };
@@ -38397,8 +38320,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.debug = !this.debug;
     }
   }
+}, _defineProperty(_computed$data$method, 'methods', {
+  getTemplate: function getTemplate() {
+    var _this = this;
 
-});
+    axios.get('/api/templates/' + this.$route.params.id).then(function (res) {
+      return _this.template = res.data;
+    });
+  }
+}), _defineProperty(_computed$data$method, 'mounted', function mounted() {
+  this.getTemplate();
+}), _computed$data$method);
 
 /***/ }),
 /* 70 */
@@ -42282,7 +42214,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['article', 'id', 'title', 'body', 'created_at', 'author', 'articleTags'],
+    props: ['article'],
 
     data: function data() {
         return {};
@@ -42304,6 +42236,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
+    mounted: function mounted() {},
     destroyed: function destroyed() {
         console.log('destroyed');
         this.$store.commit('toggleModal', { action: false });
@@ -42567,7 +42500,7 @@ var render = function() {
     [
       _c("router-link", { attrs: { to: "/project/" + _vm.article.slug } }, [
         _c("td", [
-          _vm._v("\n            " + _vm._s(_vm.article.title) + "\n        ")
+          _vm._v("\n            " + _vm._s(_vm.article.name) + "\n        ")
         ]),
         _vm._v(" "),
         _c("td", [
@@ -43631,7 +43564,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section[data-v-10c97500] {\nwidth: 90%;\n-webkit-box-orient: vertical;\n-webkit-box-direction: normal;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n.tile[data-v-10c97500] {\nmargin: .5rem;\n}\n.tile.no-padding.is-parent.is-vertical[data-v-10c97500] {\n}\n.tile.no-padding[data-v-10c97500] {\npadding: 0px;\n}\n.project-section[data-v-10c97500]{\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-section[data-v-10c97500] {\n    width: 90%;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile[data-v-10c97500] {\n    margin: .5rem;\n}\n.tile.no-padding.is-parent.is-vertical[data-v-10c97500] {\n}\n.tile.no-padding[data-v-10c97500] {\n    padding: 0px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
 
 // exports
 
@@ -43772,8 +43705,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        toggle: function toggle() {
-            this.open = !this.open;
+        openModal: function openModal() {
+            this.open = true;
+        },
+        closeModal: function closeModal() {
+            this.open = false;
         }
     }
 
@@ -43791,7 +43727,7 @@ var render = function() {
     "article",
     {
       staticClass: "tile is-child notification is-primary",
-      on: { click: _vm.toggle }
+      on: { click: _vm.openModal }
     },
     [
       _c("p", { staticClass: "title is-5" }, [
@@ -43803,7 +43739,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.open
-        ? _c("EditProjectModal", { attrs: { project: _vm.project } })
+        ? _c("EditProjectModal", {
+            attrs: { project: _vm.project },
+            on: { CLOSE_MODAL: _vm.closeModal }
+          })
         : _vm._e()
     ],
     1
@@ -43905,7 +43844,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    margin: 1em auto;\n    width: 75%;\n    height: 100%;\n    position: relative;\n}\n\n", ""]);
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    width: 90%;\n    height: 100%;\n    position: relative;\n    border: .5px solid lightgray;\n    border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 90%;\n}\ninput[data-v-2d3e3516] {\n    font-size: 20px;\n    margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 400px;\n  margin-top: 1em;\n  padding: 1em;\n}\n.column-left[data-v-2d3e3516]{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.column-right[data-v-2d3e3516]{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    border-left: 1px solid black;\n    padding-left: 2em;\n}\n.content-left[data-v-2d3e3516] {\n}\nbutton[data-v-2d3e3516] {\n  font-size: 15px;\n  border-radius: 5px;\n  height: 30px;\n  margin-left: 1em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n    position: fixed;\n    right: 10px;\n    top: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -43917,6 +43856,30 @@ exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    posit
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43944,6 +43907,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         toggle: function toggle() {
             this.open = !this.open;
         },
+        closeModal: function closeModal() {
+            this.$emit('CLOSE_MODAL');
+        },
         redirectToProjectPage: function redirectToProjectPage() {
             this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
             this.$router.push("/project/" + this.project.slug);
@@ -43964,21 +43930,79 @@ var render = function() {
     "section",
     { staticClass: "section modal-container", on: { click: _vm.toggle } },
     [
-      _c("div", { staticClass: "modal-content" }, [
+      _c("div", [
         _c(
-          "button",
+          "span",
           {
-            staticClass: "btn-redirect",
-            on: { click: _vm.redirectToProjectPage }
+            staticClass: "modal--close",
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                return _vm.closeModal($event)
+              }
+            }
           },
-          [_vm._v("\n            Öppna projekt i egen sida\n        ")]
-        ),
-        _vm._v("\n        " + _vm._s(JSON.stringify(_vm.project)) + "\n    ")
+          [_vm._v("\n            X\n        ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-content" }, [
+        _c("div", { staticClass: "modal-menu" }, [
+          _c("div", [
+            _c("span", [
+              _c("b", [_vm._v("Project title:")]),
+              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.title)))
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c("b", [_vm._v("Project title:")]),
+              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.status)))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass: "btn-redirect",
+                on: { click: _vm.redirectToProjectPage }
+              },
+              [_vm._v("\n            Öppna projekt i egen sida\n        ")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "column-left" }, [
+            _c("input", { attrs: { placeholder: "Rubrik" } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "content-left" }, [
+              _c(
+                "textarea",
+                { attrs: { placeholder: "Skriv inläggstext här" } },
+                [_vm._v(_vm._s(JSON.stringify(_vm.project.content)))]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column-right" }, [
+      _c("h2", [_vm._v("Noteringar")]),
+      _vm._v(" "),
+      _c("textarea", { attrs: { placeholder: "Skriv noteringar här" } })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
