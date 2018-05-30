@@ -34,6 +34,9 @@ export default {
     .tile {
         margin: .5rem;
     }
+    .tile.no-padding.is-parent.is-vertical {
+    
+    }
     .tile.no-padding {
         padding: 0px;
     }
