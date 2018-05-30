@@ -57,9 +57,9 @@ export default {
         }
     },
 
-    mounted() {
-        this.getProjects();
-    }
+    // mounted() {
+    //     this.getProjects();
+    // }
 
   }
 
