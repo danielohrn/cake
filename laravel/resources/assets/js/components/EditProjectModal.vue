@@ -1,5 +1,10 @@
 <template>
     <section @click="toggle" class="section modal-container">
+        <div>
+            <span @click.stop="closeModal" class="modal--close">
+                X
+            </span>
+        </div>
         <div class="modal-content">
             <button class="btn-redirect" @click="redirectToProjectPage">
                 Öppna projekt i egen sida
@@ -23,6 +28,9 @@ export default {
   methods: {
       toggle() {
           this.open = !this.open;
+      },
+      closeModal(){
+          this.$emit('CLOSE_MODAL'); 
       },
       redirectToProjectPage() {
         this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
@@ -55,6 +63,12 @@ export default {
         width: 75%;
         height: 100%;
         position: relative;
+    }
+
+    .modal--close {
+        position: fixed;
+        right: 10px;
+        top: 10px;
     }
 
 </style>

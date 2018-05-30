@@ -5,21 +5,15 @@
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
-      <ProjectCard v-for="(project) in data" v-if="project.status === status.name" :key="project.name" :project="project" />
+      <ProjectCard 
+        v-for="(project) in data" 
+        v-if="project.status === status.name" 
+        :key="project.name" 
+        :project="project" />
 
     </ProjectTile>
   </div>
 </div>
-
-
-  <!-- <EditableArticleModal
-        type="editArticleModal"
-        :availableTags="availableTags" />
-
-    <NewArticleModal
-        @update-articles="updateArticles($event)"
-        :availableTags="availableTags"
-        type="newArticleModal"/> -->
 
 </div>
 </template>
@@ -36,7 +30,7 @@ export default {
           content: 'Content project one',
           slug: 'project-one',
           id: 1,
-          status: 'content'
+          status: 'beställare'
         },
         {
           name: 'Project two',
@@ -67,42 +61,6 @@ export default {
   },
 
   methods: {
-    // getArticles(){
-    //     axios.get('/api/articles')
-    //         .then(res => {
-    //             this.data = res.data;
-    //         })
-    // },
-    //
-    // updateArticles(id){
-    //     axios.get(`/api/articles/${id}`)
-    //      .then(res => {
-    //          const { data: article } = res;
-    //          this.data.push(article);
-    //      });
-    // },
-    //
-    // getTags(){
-    //     axios.get('api/tags')
-    //     .then(response => {
-    //         this.availableTags = response.data;
-    //         this.$store.commit('setTags', response.data);
-    //     })
-    // },
-    //
-    // openNewArticleModal() {
-    //     this.$store.commit(
-    //         'toggleModal',
-    //         {modalType: 'newArticleModal', action: true}
-    //     );
-    // },
-    //
-    // getTags() {
-    // axios.get('api/tags')
-    //     .then(response => {
-    //     this.availableTags = response.data;
-    //     })
-    // }
       getRoles(){
         axios.get('/api/roles')
         .then( res => this.status = res.data)
