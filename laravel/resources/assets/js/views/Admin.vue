@@ -110,8 +110,6 @@ export default {
       }
   },
   mounted() {
-    this.getArticles();
-    this.getTags();
     this.getRoles()
   }
 }
