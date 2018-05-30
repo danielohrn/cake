@@ -2,9 +2,6 @@
 <div class="section">
   <Sidebar></Sidebar>
   <div class='body'>
-
-      <button class='menuBtn' v-on:click='sideBarToggle()'>Menu</button>
-
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
@@ -28,7 +25,7 @@
 </template>
 
 <script>
-export default {
+export default {  
   data() {
     return {
       availableTags: [],
@@ -82,9 +79,6 @@ export default {
   },
 
   methods: {
-    sideBarToggle() {
-      document.getElementById('sidebar').style.left = '0%';
-    }
     // getArticles(){
     //     axios.get('/api/articles')
     //         .then(res => {
@@ -149,17 +143,4 @@ export default {
   width: 100%;
 }
 
-.menuBtn {
-  position: relative;
-  left: 17em;
-  padding: 0.5em;
-  margin-bottom: 2em;
-  background-color: #000;
-  color: white;
-  border-radius: 5px;
-  outline: none;
-  top: 30px;
-  z-index: 2;
-  cursor: pointer;
-}
 </style>
