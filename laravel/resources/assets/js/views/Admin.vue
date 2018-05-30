@@ -1,5 +1,6 @@
 <template>
 <div class="section">
+<<<<<<< HEAD
     <div class="sidebar">
         <ul class="meny">
 
@@ -29,6 +30,31 @@
             />
 
         </ProjectTile>
+=======
+  <Sidebar></Sidebar>
+  <div class='body'>
+
+      <button class='menuBtn' v-on:click='sideBarToggle'>Menu</button>
+
+  <div class='tiles'>
+    <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
+
+      <ProjectCard v-for="(project) in data" v-if="project.status === status.name" :key="project.name" :project="project" />
+
+    </ProjectTile>
+  </div>
+</div>
+
+
+  <!-- <EditableArticleModal
+        type="editArticleModal"
+        :availableTags="availableTags" />
+
+    <NewArticleModal
+        @update-articles="updateArticles($event)"
+        :availableTags="availableTags"
+        type="newArticleModal"/> -->
+>>>>>>> 91daaa05ad2dae964e5127676a6650f11eebc2af
 
 </div>
 </template>
@@ -39,90 +65,70 @@ export default {
       return {
             availableTags: [],
             status: [
-                    {name: 'content'},
-                    {name: 'redaktör'},
-                    {name: 'faktagranskning'},
-                    {name: 'publicera'}
+                    {name: 'Idé'},
+                    {name: 'Faktainsamling'},
+                    {name: 'Bearbetning'},
+                    {name: 'Faktakontroll'},
+                    {name: 'Publicera'}
                 ], 
             data: [
-                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'content'},
-                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'redaktör'},
-                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'publicera'}, 
-                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'content'},
+                {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'Idé'},
+                {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'Idé'},
+                {name: 'Project three', title: 'Title project three', content: 'Content project three' ,slug: 'project-three', id: 2, status: 'Faktainsamling'}, 
+                {name: 'Project four', title: 'Title project four', content: 'Content project four' ,slug: 'project-four', id: 1, status: 'Bearbetning'},
+                {name: 'Project five', title: 'Title project five', content: 'Content project five' ,slug: 'project-five', id: 1, status: 'Faktakontroll'},
+                {name: 'Project six', title: 'Title project six', content: 'Content project six' ,slug: 'project-six', id: 1, status: 'Faktakontroll'},
+                {name: 'Project seven', title: 'Title project seven', content: 'Content project seven' ,slug: 'project-seven', id: 1, status: 'Publicera'},
             ],
+        }
+    }, 
+
+    methods: {
+        sideBarToggle() {
+            document.getElementById('sidebar').style.left = '0%';
         }
     },
 
-    methods: {
-         getProjects(){
-             axios.get('/api/projects')
-                 .then(res => {
-                     this.data = res.data;
-                 })
-         },
-        //
-        // updateArticles(id){
-        //     axios.get(`/api/articles/${id}`)
-        //      .then(res => {
-        //          const { data: article } = res;
-        //          this.data.push(article);
-        //      });
-        // },
-        //
-        // getTags(){
-        //     axios.get('api/tags')
-        //     .then(response => {
-        //         this.availableTags = response.data;
-        //         this.$store.commit('setTags', response.data);
-        //     })
-        // },
-        //
-        // openNewArticleModal() {
-        //     this.$store.commit(
-        //         'toggleModal',
-        //         {modalType: 'newArticleModal', action: true}
-        //     );
-        // },
-        //
-        // getTags() {
-        // axios.get('api/tags')
-        //     .then(response => {
-        //     this.availableTags = response.data;
-        //     })
-        // }
-  },
-  mounted() {
-    this.getProjects();
+    mounted() {
+        this.getProjects();
+    }
 
   }
-}
+
+
 </script>
 
-<style>
-.section{
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+<style scoped>
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
 }
-.sidebar, .sidebar a{
-    width: 40%;
-    height: 100vh;
-    background-color: #aedfbf;
-    color: #000;
+.body {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding: 2em;
 }
-
-.sidebar li{
-    margin: 20% 10%;
-    font-size: 1.2em;
-}
-.sidebar ul{
-    margin-top: 41px;
-
-}
-.table{
-    width: 90%;
+.tiles {
+  display: flex;
+  width: 100%;
 }
 
-
-
+.menuBtn {
+  position: relative;
+  left: 17em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  top: 30px;
+  z-index: 2;
+  cursor: pointer;
+}
 </style>
