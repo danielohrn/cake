@@ -5,15 +5,7 @@
   <div class='tiles'>
     <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
 
-<<<<<<< HEAD
       <ProjectCard v-for="(project) in data" v-if="project.role_id === status.id" :key="project.name" :project="project" />
-=======
-      <ProjectCard
-        v-for="(project) in data"
-        v-if="project.status === status.name"
-        :key="project.name"
-        :project="project" />
->>>>>>> MASTER-project-dashboard
 
     </ProjectTile>
   </div>
@@ -28,46 +20,9 @@ export default {
     return {
       availableTags: [],
       status: [],
-<<<<<<< HEAD
       data: [],
-=======
-      data: [{
-          name: 'Project one',
-          title: 'Title project one',
-          content: 'Content project one',
-          slug: 'project-one',
-          id: 1,
-          status: 'beställare'
-        },
-        {
-          name: 'Project two',
-          title: 'Title project two',
-          content: 'Content project two',
-          slug: 'project-two',
-          id: 2,
-          status: 'redaktör'
-        },
-        {
-          name: 'Project three',
-          title: 'Title project three',
-          content: 'Content project three',
-          slug: 'project-three',
-          id: 2,
-          status: 'publicera'
-        },
-        {
-          name: 'Project four',
-          title: 'Title project four',
-          content: 'Content project four',
-          slug: 'project-four',
-          id: 1,
-          status: 'content'
-        },
-      ],
->>>>>>> MASTER-project-dashboard
     }
   },
-
   methods: {
       getRoles(){
         axios.get('/api/roles')
@@ -83,8 +38,7 @@ export default {
     this.getRoles()
     this.getProjects()
   }
-
-
+}
 </script>
 
 <style scoped>
