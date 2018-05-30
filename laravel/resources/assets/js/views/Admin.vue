@@ -1,5 +1,36 @@
 <template>
 <div class="section">
+<<<<<<< HEAD
+    <div class="sidebar">
+        <ul class="meny">
+
+            <li>
+                <a href="">Översikt</a>
+            </li>
+            <li>
+                <a @click="openNewArticleModal"
+                :availableTags="availableTags"> Skapa artikel</a>
+            </li>
+            <li>
+                <a href="">Skapa tagg</a>
+            </li>
+            <li>
+                <a href="">Skapa roll</a>
+            </li>
+        </ul>
+    </div>
+    
+        <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
+            
+            <ProjectCard 
+                v-for="(project) in data" 
+                v-if="project.status === status.name" 
+                :key="project.name"
+                :project="project"
+            />
+
+        </ProjectTile>
+=======
   <Sidebar></Sidebar>
   <div class='body'>
 
@@ -23,6 +54,7 @@
         @update-articles="updateArticles($event)"
         :availableTags="availableTags"
         type="newArticleModal"/> -->
+>>>>>>> 91daaa05ad2dae964e5127676a6650f11eebc2af
 
 </div>
 </template>

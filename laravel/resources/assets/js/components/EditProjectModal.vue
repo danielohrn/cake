@@ -1,5 +1,10 @@
 <template>
     <section @click="toggle" class="section modal-container">
+        <div>
+            <span @click.stop="emitClose" class="modal--close">
+                X
+            </span>
+        </div>
         <div class="modal-content">
             <button class="btn-redirect" @click="redirectToProjectPage">
                 Öppna projekt i egen sida
@@ -25,8 +30,11 @@ export default {
           this.open = !this.open;
       },
       redirectToProjectPage() {
-        this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
-        this.$router.push("/project/" + this.project.slug);
+        this.$store.commit('SET_PROJECT_TO_EDIT', this.project); 
+        this.$router.push("/project/" + this.project.slug); 
+      },
+      emitClose() {
+          this.$emit('CLOSE_MODAL'); 
       }
   }
 
@@ -55,6 +63,23 @@ export default {
         width: 75%;
         height: 100%;
         position: relative;
+    }
+
+    .modal--close {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        border-radius: 50%; 
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .modal--close:hover {
+        background: #7957d5; 
     }
 
 </style>
