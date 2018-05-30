@@ -4,6 +4,7 @@ import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
 import store from './store.js';
 import Overdrive from 'vue-overdrive'
+import { VueEditor } from 'vue2-editor'
 
 Vue.use(Overdrive)
 
