@@ -38105,9 +38105,84 @@ exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n 
 
 /***/ }),
 /* 64 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (75:0)\n\n\u001b[0m \u001b[90m 73 | \u001b[39m\n \u001b[90m 74 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 75 | \u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      availableTags: [],
+      status: [],
+      data: [{
+        name: 'Project one',
+        title: 'Title project one',
+        content: 'Content project one',
+        slug: 'project-one',
+        id: 1,
+        status: 'beställare'
+      }, {
+        name: 'Project two',
+        title: 'Title project two',
+        content: 'Content project two',
+        slug: 'project-two',
+        id: 2,
+        status: 'redaktör'
+      }, {
+        name: 'Project three',
+        title: 'Title project three',
+        content: 'Content project three',
+        slug: 'project-three',
+        id: 2,
+        status: 'publicera'
+      }, {
+        name: 'Project four',
+        title: 'Title project four',
+        content: 'Content project four',
+        slug: 'project-four',
+        id: 1,
+        status: 'content'
+      }]
+    };
+  },
+
+
+  methods: {
+    getRoles: function getRoles() {
+      var _this = this;
+
+      axios.get('/api/roles').then(function (res) {
+        return _this.status = res.data;
+      }).catch(function (err) {
+        return console.log(err);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getRoles();
+  }
+});
 
 /***/ }),
 /* 65 */
