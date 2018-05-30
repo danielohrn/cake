@@ -1,10 +1,17 @@
 <template>
     <section @click="toggle" class="section modal-container">
         <div class="modal-content">
+          <div class='modal-menu'>
+          <div>
+            <span><b>Project title:</b> {{JSON.stringify(project.title)}}</span>
+            <span><b>Project title:</b> {{JSON.stringify(project.status)}}</span>
+          </div>
+            <div>
             <button class="btn-redirect" @click="redirectToProjectPage">
                 Öppna projekt i egen sida
             </button>
-            {{JSON.stringify(project.title)}}
+          </div>
+        </div>
             <div class="column">
                 <div class="column-left">
                     <input placeholder="Rubrik"></input>
@@ -14,7 +21,7 @@
                 </div>
                 <div class="column-right">
                     <h2>Noteringar</h2>
-                    <textarea placeholder="Skriv noteringar här" cols="30" rows="10"></textarea>
+                    <textarea placeholder="Skriv noteringar här"></textarea>
                 </div>
             </div>
         </div>
@@ -69,25 +76,43 @@ export default {
         border: .5px solid lightgray;
         border-radius: 3px;
     }
-    
+
     .column {
         display: flex;
         height: 90%;
     }
     input {
         font-size: 20px;
+        margin-top: 1em;
     }
     textarea {
-        
+      resize: none;
+      width: 95%;
+      height: 400px;
+      margin-top: 1em;
+      padding: 1em;
     }
     .column-left{
         flex: 2;
     }
     .column-right{
         flex: 1;
+        border-left: 1px solid black;
+        padding-left: 2em;
     }
     .content-left {
-        
+
+    }
+    button {
+      font-size: 15px;
+      border-radius: 5px;
+      height: 30px;
+      margin-left: 1em;
+    }
+    .modal-menu {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1em 0 1em;
     }
 
 </style>

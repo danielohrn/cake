@@ -38153,11 +38153,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         sideBarToggle: function sideBarToggle() {
             document.getElementById('sidebar').style.left = '0%';
         }
-    },
-
-    mounted: function mounted() {
-        this.getProjects();
     }
+
+    // mounted() {
+    //     this.getProjects();
+    // }
+
 });
 
 /***/ }),
@@ -43878,7 +43879,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    margin: 1em auto;\n    width: 75%;\n    height: 100%;\n    position: relative;\n}\n\n", ""]);
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100vw;\n    height:  100vh;\n    background: #ffffff80;\n    color: black;\n    z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n    padding: 1em;\n    background: white;\n    color: black;\n    width: 90%;\n    height: 100%;\n    position: relative;\n    border: .5px solid lightgray;\n    border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    height: 90%;\n}\ninput[data-v-2d3e3516] {\n    font-size: 20px;\n    margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 400px;\n  margin-top: 1em;\n  padding: 1em;\n}\n.column-left[data-v-2d3e3516]{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n.column-right[data-v-2d3e3516]{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    border-left: 1px solid black;\n    padding-left: 2em;\n}\n.content-left[data-v-2d3e3516] {\n}\nbutton[data-v-2d3e3516] {\n  font-size: 15px;\n  border-radius: 5px;\n  height: 30px;\n  margin-left: 1em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 0 1em 0 1em;\n}\n\n", ""]);
 
 // exports
 
@@ -43890,6 +43891,25 @@ exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n    posit
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43938,20 +43958,62 @@ var render = function() {
     { staticClass: "section modal-container", on: { click: _vm.toggle } },
     [
       _c("div", { staticClass: "modal-content" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn-redirect",
-            on: { click: _vm.redirectToProjectPage }
-          },
-          [_vm._v("\n            Öppna projekt i egen sida\n        ")]
-        ),
-        _vm._v("\n        " + _vm._s(JSON.stringify(_vm.project)) + "\n    ")
+        _c("div", { staticClass: "modal-menu" }, [
+          _c("div", [
+            _c("span", [
+              _c("b", [_vm._v("Project title:")]),
+              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.title)))
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c("b", [_vm._v("Project title:")]),
+              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.status)))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass: "btn-redirect",
+                on: { click: _vm.redirectToProjectPage }
+              },
+              [_vm._v("\n            Öppna projekt i egen sida\n        ")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "column-left" }, [
+            _c("input", { attrs: { placeholder: "Rubrik" } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "content-left" }, [
+              _c(
+                "textarea",
+                { attrs: { placeholder: "Skriv inläggstext här" } },
+                [_vm._v(_vm._s(JSON.stringify(_vm.project.content)))]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column-right" }, [
+      _c("h2", [_vm._v("Noteringar")]),
+      _vm._v(" "),
+      _c("textarea", { attrs: { placeholder: "Skriv noteringar här" } })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
