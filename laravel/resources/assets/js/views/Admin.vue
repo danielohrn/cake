@@ -30,16 +30,6 @@
 
         </ProjectTile>
 
-
-    <!-- <EditableArticleModal
-        type="editArticleModal"
-        :availableTags="availableTags" />
-
-    <NewArticleModal
-        @update-articles="updateArticles($event)"
-        :availableTags="availableTags"
-        type="newArticleModal"/> -->
-
 </div>
 </template>
 
