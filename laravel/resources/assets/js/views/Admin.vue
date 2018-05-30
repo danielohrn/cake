@@ -32,13 +32,7 @@ export default {
   data() {
       return {
             availableTags: [],
-            status: [
-                    {name: 'Idé'},
-                    {name: 'Faktainsamling'},
-                    {name: 'Bearbetning'},
-                    {name: 'Faktakontroll'},
-                    {name: 'Publicera'}
-                ], 
+            status: [], 
             data: [
                 {name: 'Project one', title: 'Title project one', content: 'Content project one' ,slug: 'project-one', id: 1, status: 'Idé'},
                 {name: 'Project two', title: 'Title project two', content: 'Content project two' ,slug: 'project-two', id: 2, status: 'Idé'},
@@ -54,11 +48,17 @@ export default {
     methods: {
         sideBarToggle() {
             document.getElementById('sidebar').style.left = '0%';
+        },
+        getStatuses(){
+          axios.get('api/roles')
+          .then(res => this.status = res.data)
+          .catch(err => console.log(err))
         }
     },
 
     mounted() {
-        this.getProjects();
+        
+        this.getStatuses();
     }
 
   }
