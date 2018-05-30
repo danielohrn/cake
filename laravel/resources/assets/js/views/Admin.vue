@@ -29,19 +29,7 @@ export default {
   data() {
     return {
       availableTags: [],
-      status: [{
-          name: 'content'
-        },
-        {
-          name: 'redaktör'
-        },
-        {
-          name: 'faktagranskning'
-        },
-        {
-          name: 'publicera'
-        }
-      ],
+      status: [],
       data: [{
           name: 'Project one',
           title: 'Title project one',
@@ -115,10 +103,16 @@ export default {
     //     this.availableTags = response.data;
     //     })
     // }
+      getRoles(){
+        axios.get('/api/roles')
+        .then( res => this.status = res.data)
+        .catch( err => console.log(err))
+      }
   },
   mounted() {
     this.getArticles();
     this.getTags();
+    this.getRoles()
   }
 }
 </script>
