@@ -73,7 +73,18 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id)->get();
+
+        if ($request->role_id > $project->role_id)
+        {
+            $project->role_id =+1;
+        }
+        else 
+            $project->role_id =-1;
+
+            $project->save();
+        
+            return response()->json($project);
     }
 
     /**
