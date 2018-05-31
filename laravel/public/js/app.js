@@ -38136,6 +38136,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -38162,6 +38163,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.get('api/projects').then(function (res) {
         console.log(res.data);
         _this2.data = res.data;
+      });
+    },
+    getOneProject: function getOneProject(id) {
+      var _this3 = this;
+
+      console.log('admin', id);
+      axios.get('/api/projects/' + id).then(function (res) {
+        _this3.data = _this3.data.map(function (project) {
+          if (project.id === id) {
+            project = res.data;
+          }
+
+          return project;
+        });
       });
     }
   },
@@ -38197,7 +38212,8 @@ var render = function() {
                 return project.role_id === the_status.id
                   ? _c("ProjectCard", {
                       key: project.name,
-                      attrs: { status: _vm.status, project: project }
+                      attrs: { status: _vm.status, project: project },
+                      on: { UPDATE_PROJECT: _vm.getOneProject }
                     })
                   : _vm._e()
               })
@@ -43804,6 +43820,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         closeModal: function closeModal() {
             this.open = false;
+        },
+        updateProject: function updateProject(projectId) {
+            console.log('projectcard', projectId);
+            this.$emit('UPDATE_PROJECT', projectId);
         }
     }
 
@@ -43855,7 +43875,10 @@ var render = function() {
       _vm.open
         ? _c("EditProjectModal", {
             attrs: { status: _vm.status, project: _vm.project },
-            on: { CLOSE_MODAL: _vm.closeModal }
+            on: {
+              UPDATE_PROJECT: _vm.updateProject,
+              CLOSE_MODAL: _vm.closeModal
+            }
           })
         : _vm._e()
     ],
@@ -44093,6 +44116,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     getNextStatus: function getNextStatus() {
       var index = void 0;
+      console.log(this.status, 'status');
       for (var i = 0; i < this.status.length; i++) {
         if (this.status[i].name === this.project.role.name) {
           index = i + 1;
@@ -44103,15 +44127,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     setNewStatus: function setNewStatus() {
       var nextStatus = this.getNextStatus();
       this.project.role = Object.assign({}, this.status[nextStatus]);
-
+      console.log(nextStatus);
       this.postUpdatedProject();
     },
     postUpdatedProject: function postUpdatedProject() {
+      var _this = this;
+
       var project_id = this.project.id,
           next_role_id = this.project.role.id;
 
       axios.patch('api/roles/' + project_id, { role_id: next_role_id }).then(function (res) {
-        return console.log(res);
+        _this.$emit('UPDATE_PROJECT', _this.project.id);
       }).catch(function (err) {
         return console.log(err);
       });

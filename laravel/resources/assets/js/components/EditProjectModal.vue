@@ -122,6 +122,7 @@ Publicera
       },
       getNextStatus() {
           let index; 
+            console.log(this.status, 'status');
           for(let i = 0; i < this.status.length; i++) {
               if(this.status[i].name === this.project.role.name) {
                   index = (i + 1);
@@ -132,7 +133,7 @@ Publicera
       setNewStatus() {
           const nextStatus = this.getNextStatus(); 
           this.project.role = Object.assign({}, this.status[nextStatus]); 
-
+          console.log(nextStatus)
           this.postUpdatedProject(); 
       },
       postUpdatedProject(){
@@ -140,7 +141,9 @@ Publicera
               next_role_id = this.project.role.id; 
 
         axios.patch(`api/roles/${project_id}`,{role_id: next_role_id})
-         .then(res => console.log(res))
+         .then(res => {
+           this.$emit('UPDATE_PROJECT', this.project.id); 
+         })
          .catch(err => console.log(err));  
       }
     }

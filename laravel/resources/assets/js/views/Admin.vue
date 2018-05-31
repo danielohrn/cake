@@ -6,6 +6,7 @@
     <ProjectTile v-for="(the_status, i) in status" :status="the_status" :key="i">
 
       <ProjectCard 
+        @UPDATE_PROJECT="getOneProject"
         v-for="(project) in data" 
         v-if="project.role_id === the_status.id" 
         :key="project.name" 
@@ -39,6 +40,19 @@ export default {
         .then( res => {
           console.log(res.data);
           this.data = res.data} )
+      },
+      getOneProject(id) {
+        console.log('admin', id); 
+        axios.get(`/api/projects/${id}`)
+         .then(res => {
+           this.data = this.data.map(project => {
+             if(project.id === id) {
+               project = res.data; 
+             }
+
+             return project; 
+           }); 
+         });
       }
   },
   mounted() {
