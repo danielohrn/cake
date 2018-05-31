@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/roles', 'RoleController@index');
+Route::patch('roles/{id}', 'RoleController@update');
 Route::get('/projects', 'ProjectController@index');
 Route::get('/templates/{slug}', 'TemplateController@show');
 Route::get('/articles/{id}', 'ArticleController@getOne');
