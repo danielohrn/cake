@@ -1,6 +1,7 @@
 <template>
   <div class='sidebarContainer'>
-  <button v-if="!open" class='menuBtn' v-on:click='toggle'>Menu</button>
+  <!-- <button v-if="!open" class='menuBtn' v-on:click='toggle'>Menu</button> -->
+  <svg  v-if="!open" class='menuBtn' v-on:click='toggle' xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
   <aside v-if="open" id='sidebar' class="menu">
 
     <div class='closeBtn'>
@@ -86,11 +87,10 @@ export default {
   left: 10px;
   padding: 0.5em;
   margin-bottom: 2em;
-  background-color: #000;
   color: white;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   outline: none;
-  top: 30px;
+  top: 10px;
   z-index: 2;
   cursor: pointer;
 }

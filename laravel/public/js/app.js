@@ -38104,7 +38104,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n  padding: 2em;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n\n", ""]);
+exports.push([module.i, "\n.section[data-v-ca2e4be8] {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  padding: 0;\n}\n.body[data-v-ca2e4be8] {\n  position: absolute;\n  width: 100%;\n  z-index: 2;\n  padding: 0em 1em 0em 3em;\n}\n.tiles[data-v-ca2e4be8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n}\n\n", ""]);
 
 // exports
 
@@ -38131,48 +38131,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       availableTags: [],
       status: [],
-      data: [{
-        name: 'Project one',
-        title: 'Title project one',
-        content: 'Content project one',
-        slug: 'project-one',
-        id: 1,
-        status: 'beställare'
-      }, {
-        name: 'Project two',
-        title: 'Title project two',
-        content: 'Content project two',
-        slug: 'project-two',
-        id: 2,
-        status: 'redaktör'
-      }, {
-        name: 'Project three',
-        title: 'Title project three',
-        content: 'Content project three',
-        slug: 'project-three',
-        id: 2,
-        status: 'publicera'
-      }, {
-        name: 'Project four',
-        title: 'Title project four',
-        content: 'Content project four',
-        slug: 'project-four',
-        id: 1,
-        status: 'content'
-      }]
+      data: []
     };
   },
-
 
   methods: {
     getRoles: function getRoles() {
@@ -38183,10 +38150,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (err) {
         return console.log(err);
       });
+    },
+    getProjects: function getProjects() {
+      var _this2 = this;
+
+      axios.get('api/projects').then(function (res) {
+        console.log(res.data);
+        _this2.data = res.data;
+      });
     }
   },
   mounted: function mounted() {
     this.getRoles();
+    this.getProjects();
   }
 });
 
@@ -38213,7 +38189,7 @@ var render = function() {
               "ProjectTile",
               { key: i, attrs: { status: status } },
               _vm._l(_vm.data, function(project) {
-                return project.status === status.name
+                return project.role_id === status.id
                   ? _c("ProjectCard", {
                       key: project.name,
                       attrs: { project: project }
@@ -43634,7 +43610,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.project-section[data-v-10c97500] {\n    width: 90%;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile[data-v-10c97500] {\n    margin: .5rem;\n}\n.tile.no-padding[data-v-10c97500] {\n    padding: 0px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
+exports.push([module.i, "\n.project-section[data-v-10c97500] {\n    width: 90%;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    background-color: #E3E4E6;\n    margin: 5px;\n}\n.tile[data-v-10c97500] {\n    margin: .5rem;\n}\n.tile.no-padding.is-parent.is-vertical[data-v-10c97500] {\n}\n.tile.no-padding[data-v-10c97500] {\n    padding: 0px;\n}\n.tile.is-child[data-v-10c97500] {\n    padding: 5px;\n}\np.title[data-v-10c97500]{\n    font-size: 1.2em;\n    margin: 1em;\n}\n\n", ""]);
 
 // exports
 
@@ -43705,17 +43681,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(135)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(121)
 /* template */
-var __vue_template__ = __webpack_require__(122)
+var __vue_template__ = __webpack_require__(137)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-74a46ce2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -43762,7 +43742,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -43786,49 +43765,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "article",
-    {
-      staticClass: "tile is-child notification is-primary",
-      on: { click: _vm.openModal }
-    },
-    [
-      _c("p", { staticClass: "title is-5" }, [
-        _vm._v(_vm._s(_vm.project.name))
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "subtitle is-6" }, [
-        _vm._v(_vm._s(_vm.project.content))
-      ]),
-      _vm._v(" "),
-      _vm.open
-        ? _c("EditProjectModal", {
-            attrs: { project: _vm.project },
-            on: { CLOSE_MODAL: _vm.closeModal }
-          })
-        : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-74a46ce2", module.exports)
-  }
-}
-
-/***/ }),
+/* 122 */,
 /* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44340,7 +44277,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 3;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n.menuBtn[data-v-28cb1975] {\n  position: absolute;\n  left: 10px;\n  padding: 0.5em;\n  margin-bottom: 2em;\n  background-color: #000;\n  color: white;\n  border-radius: 5px;\n  outline: none;\n  top: 30px;\n  z-index: 2;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position : absolute;\n  width: 170px;\n  height: 100%;\n  z-index: 3;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 0%;\n          flex: 1 1 0%;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n}\n.menu[data-v-28cb1975] {\n  width: 170px;\n  height: 100%;\n  background-color: #ccc;\n  padding: 1em;\n  left: 0;\n  position: relative;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n}\n.menu p[data-v-28cb1975] {\n  color: black;\n}\n.menu ul li a[data-v-28cb1975] {\n  color: black;\n}\n.closeBtn[data-v-28cb1975] {\n  text-align: right;\n}\n.closeBtn span[data-v-28cb1975] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn span[data-v-28cb1975]:hover {\n  opacity: 0.7;\n}\n.menuBtn[data-v-28cb1975] {\n  position: absolute;\n  left: 10px;\n  padding: 0.5em;\n  margin-bottom: 2em;\n  color: white;\n  /* border-radius: 5px; */\n  outline: none;\n  top: 10px;\n  z-index: 2;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -44351,6 +44288,7 @@ exports.push([module.i, "\n.sidebarContainer[data-v-28cb1975]\n {\n  display: -w
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -44405,9 +44343,26 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "sidebarContainer" }, [
     !_vm.open
-      ? _c("button", { staticClass: "menuBtn", on: { click: _vm.toggle } }, [
-          _vm._v("Menu")
-        ])
+      ? _c(
+          "svg",
+          {
+            staticClass: "menuBtn",
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "36",
+              height: "36",
+              viewBox: "0 0 24 24"
+            },
+            on: { click: _vm.toggle }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d: "M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"
+              }
+            })
+          ]
+        )
       : _vm._e(),
     _vm._v(" "),
     _vm.open
@@ -44467,6 +44422,110 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 134 */,
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(136);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("679612cc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-74a46ce2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProjectCard.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-74a46ce2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProjectCard.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\narticle[data-v-74a46ce2] {\n    position: relative;\n}\narticle p[data-v-74a46ce2]{\n    margin-bottom: 35px;\n}\nsvg[data-v-74a46ce2] {\n    position: absolute;\n    top: 10px;\n    right: 10px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "article",
+    {
+      staticClass: "tile is-child notification is-primary",
+      on: { click: _vm.openModal }
+    },
+    [
+      _c("p", { staticClass: "title is-5" }, [
+        _vm._v(_vm._s(_vm.project.name))
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "subtitle is-6" }, [
+        _vm._v(" " + _vm._s(_vm.project.name) + " content")
+      ]),
+      _vm._v(" "),
+      _c(
+        "svg",
+        {
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "24",
+            height: "24",
+            viewBox: "0 0 24 24"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M18 14.45v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023zm1.473-10.615l1.707 1.707-9.281 9.378-2.23.472.512-2.169 9.292-9.388zm-.008-2.835l-11.104 11.216-1.361 5.784 5.898-1.248 11.103-11.218-4.536-4.534z"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _vm.open
+        ? _c("EditProjectModal", {
+            attrs: { project: _vm.project },
+            on: { CLOSE_MODAL: _vm.closeModal }
+          })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-74a46ce2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
