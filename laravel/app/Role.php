@@ -10,4 +10,8 @@ class Role extends Model
     {
       return $this->belongsToMany('App\Template');
     }
+    public function project()
+    {
+      return $this->belongsToMany('App\Project');
+    }
 }

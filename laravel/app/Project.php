@@ -14,4 +14,8 @@ class Project extends Model
     {
       return $this->hasOne('App\Article');
     }
+    public function role()
+    {
+      return $this->belongsTo('App\Role');
+    }
 }
