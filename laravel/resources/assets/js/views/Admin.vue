@@ -31,7 +31,9 @@ export default {
       },
       getProjects(){
         axios.get('api/projects')
-        .then( res => this.data = res.data )
+        .then( res => {
+          console.log(res.data); 
+          this.data = res.data} )
       }
   },
   mounted() {
@@ -54,7 +56,7 @@ export default {
   position: absolute;
   width: 100%;
   z-index: 2;
-  padding: 2em;
+  padding: 0em 1em 0em 3em;
 }
 .tiles {
   display: flex;
