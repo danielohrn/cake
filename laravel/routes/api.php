@@ -22,6 +22,7 @@ Route::get('/projects', 'ProjectController@index');
 Route::get('/projects/{id}', 'ProjectController@show');
 Route::get('/templates/{slug}', 'TemplateController@show');
 Route::get('/articles/{id}', 'ArticleController@getOne');
+Route::get('/articles', 'ArticleController@index');
 Route::post('/article', 'ArticleController@store');
 Route::patch('/articles', 'ArticleController@update');
 Route::get('/tags', 'TagController@index');
