@@ -91,7 +91,7 @@ Publicera
         <textarea placeholder="Skriv noteringar här"></textarea>
       </div>
     </div>
-    <button @click="setNewStatus">Gå vidare</button>
+    <button @click="setNewStatus(1)">Gå vidare</button>
   </div>
 </section>
 </template>
@@ -120,18 +120,18 @@ Publicera
         this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
         this.$router.push("/project/" + this.project.slug);
       },
-      getNextStatus() {
+      getNextStatus(direction) {
           let index; 
             console.log(this.status, 'status');
           for(let i = 0; i < this.status.length; i++) {
               if(this.status[i].name === this.project.role.name) {
-                  index = (i + 1);
+                  index = (i + direction);
               }
           }
           return index; 
       }, 
-      setNewStatus() {
-          const nextStatus = this.getNextStatus(); 
+      setNewStatus(direction) {
+          const nextStatus = this.getNextStatus(direction); 
           this.project.role = Object.assign({}, this.status[nextStatus]); 
           console.log(nextStatus)
           this.postUpdatedProject(); 

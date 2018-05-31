@@ -44114,18 +44114,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
       this.$router.push("/project/" + this.project.slug);
     },
-    getNextStatus: function getNextStatus() {
+    getNextStatus: function getNextStatus(direction) {
       var index = void 0;
       console.log(this.status, 'status');
       for (var i = 0; i < this.status.length; i++) {
         if (this.status[i].name === this.project.role.name) {
-          index = i + 1;
+          index = i + direction;
         }
       }
       return index;
     },
-    setNewStatus: function setNewStatus() {
-      var nextStatus = this.getNextStatus();
+    setNewStatus: function setNewStatus(direction) {
+      var nextStatus = this.getNextStatus(direction);
       this.project.role = Object.assign({}, this.status[nextStatus]);
       console.log(nextStatus);
       this.postUpdatedProject();
@@ -44231,7 +44231,17 @@ var render = function() {
           _vm._m(3)
         ]),
         _vm._v(" "),
-        _c("button", { on: { click: _vm.setNewStatus } }, [_vm._v("Gå vidare")])
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                _vm.setNewStatus(1)
+              }
+            }
+          },
+          [_vm._v("Gå vidare")]
+        )
       ])
     ]
   )
