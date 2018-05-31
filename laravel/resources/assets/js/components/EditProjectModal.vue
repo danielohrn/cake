@@ -2,7 +2,7 @@
 <section @click="toggle" class="section modal-container">
   <div>
     <span @click.stop="closeModal" class="modal--close">
-                X
+                <b >&#x2715;</b>
             </span>
   </div>
   <div class="modal-content">
@@ -200,8 +200,10 @@ Publicera
 
   .modal--close {
     position: fixed;
-    right: 10px;
+    right: 20px;
     top: 10px;
+    font-size: 30px;
+    cursor: pointer;
   }
 
   .image-input,

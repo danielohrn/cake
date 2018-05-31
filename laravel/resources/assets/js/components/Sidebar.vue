@@ -2,7 +2,7 @@
   <div class='sidebarContainer'>
   <button v-if="!open" class='menuBtn' v-on:click='toggle'>Menu</button>
   <aside v-if="open" id='sidebar' class="menu">
-    
+
     <div class='closeBtn'>
       <span v-on:click='toggle'>&times;</span>
     </div>
@@ -11,7 +11,7 @@
       General
     </p>
     <ul class="menu-list">
-      <li><a>Dashboard</a></li>  
+      <li><a>Dashboard</a></li>
       <li><a>Customers</a></li>
     </ul>
     <p class="menu-label">
@@ -30,13 +30,13 @@
 export default {
   data() {
     return {
-      open: false, 
+      open: false,
 
     }
   },
   methods: {
     toggle() {
-      this.open = !this.open; 
+      this.open = !this.open;
     }
   }
 }
