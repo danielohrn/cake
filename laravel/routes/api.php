@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/roles', 'RoleController@index');
 Route::patch('roles/{id}', 'ProjectController@update');
 Route::get('/projects', 'ProjectController@index');
+Route::get('/projects/{id}', 'ProjectController@show');
 Route::get('/templates/{slug}', 'TemplateController@show');
 Route::get('/articles/{id}', 'ArticleController@getOne');
 Route::post('/article', 'ArticleController@store');
