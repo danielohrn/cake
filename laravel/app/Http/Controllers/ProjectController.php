@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Article;
 
 class ProjectController extends Controller
 {
@@ -51,6 +52,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
+        $project->role;
 
         return response()->json($project);
     }
@@ -80,6 +82,14 @@ class ProjectController extends Controller
             $project->role_id = $request->role_id;
 
             $project->save();
+
+            if ($project->role_id = 6)
+            {
+                $article = new Article;
+                $article->title = $project->name;
+                $article->body = $project->slug;
+                $article->save;
+            }
         
             return response()->json($project);
     }
