@@ -91,6 +91,7 @@ Publicera
         <textarea placeholder="Skriv noteringar här"></textarea>
       </div>
     </div>
+    <button @click="setNewStatus">Gå vidare</button>
   </div>
 </section>
 </template>
@@ -101,7 +102,7 @@ Publicera
   }  from 'vuex';
 
   export default {
-    props: ['project'],
+    props: ['project','status'],
     computed: mapState(['SET_PROJECT_TO_EDIT']),
     data() {
       return {
@@ -118,6 +119,29 @@ Publicera
       redirectToProjectPage() {
         this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
         this.$router.push("/project/" + this.project.slug);
+      },
+      getNextStatus() {
+          let index; 
+          for(let i = 0; i < this.status.length; i++) {
+              if(this.status[i].name === this.project.role.name) {
+                  index = (i + 1);
+              }
+          }
+          return index; 
+      }, 
+      setNewStatus() {
+          const nextStatus = this.getNextStatus(); 
+          this.project.role = Object.assign({}, this.status[nextStatus]); 
+
+          this.postUpdatedProject(); 
+      },
+      postUpdatedProject(){
+        const project_id = this.project.id, 
+              next_role_id = this.project.role.id; 
+
+        axios.patch(`api/roles/${project_id}`,{role_id: next_role_id})
+         .then(res => console.log(res))
+         .catch(err => console.log(err));  
       }
     }
 

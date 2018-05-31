@@ -3,9 +3,14 @@
   <Sidebar></Sidebar>
   <div class='body'>
   <div class='tiles'>
-    <ProjectTile v-for="(status, i) in status" :status="status" :key="i">
+    <ProjectTile v-for="(the_status, i) in status" :status="the_status" :key="i">
 
-      <ProjectCard v-for="(project) in data" v-if="project.role_id === status.id" :key="project.name" :project="project" />
+      <ProjectCard 
+        v-for="(project) in data" 
+        v-if="project.role_id === the_status.id" 
+        :key="project.name" 
+        :status="status" 
+        :project="project" />
 
     </ProjectTile>
   </div>

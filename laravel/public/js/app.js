@@ -38131,6 +38131,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -38184,15 +38189,15 @@ var render = function() {
         _c(
           "div",
           { staticClass: "tiles" },
-          _vm._l(_vm.status, function(status, i) {
+          _vm._l(_vm.status, function(the_status, i) {
             return _c(
               "ProjectTile",
-              { key: i, attrs: { status: status } },
+              { key: i, attrs: { status: the_status } },
               _vm._l(_vm.data, function(project) {
-                return project.role_id === status.id
+                return project.role_id === the_status.id
                   ? _c("ProjectCard", {
                       key: project.name,
-                      attrs: { project: project }
+                      attrs: { status: _vm.status, project: project }
                     })
                   : _vm._e()
               })
@@ -43785,7 +43790,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['project'],
+    props: ['project', 'status'],
     data: function data() {
         return {
             open: false
@@ -43849,7 +43854,7 @@ var render = function() {
       _vm._v(" "),
       _vm.open
         ? _c("EditProjectModal", {
-            attrs: { project: _vm.project },
+            attrs: { status: _vm.status, project: _vm.project },
             on: { CLOSE_MODAL: _vm.closeModal }
           })
         : _vm._e()
@@ -44062,11 +44067,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['project'],
+  props: ['project', 'status'],
   computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['SET_PROJECT_TO_EDIT']),
   data: function data() {
     return {
@@ -44084,6 +44090,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     redirectToProjectPage: function redirectToProjectPage() {
       this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
       this.$router.push("/project/" + this.project.slug);
+    },
+    getNextStatus: function getNextStatus() {
+      var index = void 0;
+      for (var i = 0; i < this.status.length; i++) {
+        if (this.status[i].name === this.project.role.name) {
+          index = i + 1;
+        }
+      }
+      return index;
+    },
+    setNewStatus: function setNewStatus() {
+      var nextStatus = this.getNextStatus();
+      this.project.role = Object.assign({}, this.status[nextStatus]);
+
+      this.postUpdatedProject();
+    },
+    postUpdatedProject: function postUpdatedProject() {
+      var project_id = this.project.id,
+          next_role_id = this.project.role.id;
+
+      axios.patch('api/roles/' + project_id, { role_id: next_role_id }).then(function (res) {
+        return console.log(res);
+      }).catch(function (err) {
+        return console.log(err);
+      });
     }
   }
 
@@ -44172,7 +44203,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _vm._m(3)
-        ])
+        ]),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.setNewStatus } }, [_vm._v("Gå vidare")])
       ])
     ]
   )
