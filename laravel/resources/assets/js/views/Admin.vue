@@ -32,7 +32,7 @@ export default {
       getProjects(){
         axios.get('api/projects')
         .then( res => {
-          console.log(res.data); 
+          console.log(res.data);
           this.data = res.data} )
       }
   },

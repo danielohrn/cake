@@ -3,7 +3,7 @@
   <!-- <button v-if="!open" class='menuBtn' v-on:click='toggle'>Menu</button> -->
   <svg  v-if="!open" class='menuBtn' v-on:click='toggle' xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
   <aside v-if="open" id='sidebar' class="menu">
-    
+
     <div class='closeBtn'>
       <span v-on:click='toggle'>&times;</span>
     </div>
@@ -12,7 +12,7 @@
       General
     </p>
     <ul class="menu-list">
-      <li><a>Dashboard</a></li>  
+      <li><a>Dashboard</a></li>
       <li><a>Customers</a></li>
     </ul>
     <p class="menu-label">
@@ -31,13 +31,13 @@
 export default {
   data() {
     return {
-      open: false, 
+      open: false,
 
     }
   },
   methods: {
     toggle() {
-      this.open = !this.open; 
+      this.open = !this.open;
     }
   }
 }
