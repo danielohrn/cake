@@ -88,7 +88,7 @@ class ProjectController extends Controller
                 $article = new Article;
                 $article->title = $project->name;
                 $article->body = $project->slug;
-                $article->save;
+                $article->save();
             }
         
             return response()->json($project);
