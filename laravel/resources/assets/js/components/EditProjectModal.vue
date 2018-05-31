@@ -2,28 +2,32 @@
 <section @click="toggle" class="section modal-container">
   <div>
     <span @click.stop="closeModal" class="modal--close">
-                <b >&#x2715;</b>
+                <b class='closeBtn'>&times;</b>
             </span>
   </div>
   <div class="modal-content">
     <div class='modal-menu'>
-      <div>
+      <!-- <div>
         <span><b>Project title:</b> {{JSON.stringify(project.title)}}</span>
         <span><b>Project status:</b> {{JSON.stringify(project.status)}}</span>
-      </div>
+      </div> -->
       <div>
-        <button class="btn-redirect" @click="redirectToProjectPage">
+        <button class="button is-outlined" @click="redirectToProjectPage">
             Öppna projekt i egen sida
         </button>
       </div>
     </div>
     <div class="column">
       <div class="column-left">
+        <h2>Redigera Projektet</h2>
         <input placeholder="Rubrik"></input>
         <div id="app">
           <vue-editor v-model="content"></vue-editor>
           <div class='image-input'>
-            <label>Lägg till bild:
+            <div class='heading'>
+              <img src='/img/img.png' width='20' height='20' />
+              <h6>Lägg till video:</h6>
+            </div>
             <div class="media file has-name is-fullwidth">
             <label class="file-label">
             <input class="file-input" type="file" name="resume">
@@ -40,10 +44,12 @@
       </span>
     </label>
           </div>
-        </label>
       </div>
     <div class='video-input'>
-        <label>Lägg till video:
+      <div class='heading'>
+        <img src='/img/video.png' width='20' height='20' />
+        <h6>Lägg till video:</h6>
+      </div>
           <div class="media file has-name is-fullwidth">
             <label class="file-label">
       <input class="file-input" type="file" name="resume">
@@ -60,30 +66,27 @@
       </span>
     </label>
           </div>
-        </label>
       </div>
         </div>
-        <div class='checkbox-parent'>
-        <label class="checkbox">
-  <input type="checkbox">
-  Idé
-</label>
-<label class="checkbox">
-<input type="checkbox">
-Faktainsamling
-</label>
-<label class="checkbox">
-<input type="checkbox">
-Bearbetning
-</label>
-<label class="checkbox">
-<input type="checkbox">
-Faktakontroll
-</label>
-<label class="checkbox">
-<input type="checkbox">
-Publicera
-</label>
+        <div class='tag-group'>
+          <div class='tag-heading heading'>
+            <img src='/img/tag.png' width='20' height='20' />
+          <h6 class='tag-h6'>Lägg till taggar:</h6>
+        </div>
+        <div class='tags'>
+          {Här ska du kunna välja taggar}
+        </div>
+        </div>
+        <div class='btn-group'>
+          <button class="btn-redirect button is-info is-outlined">
+              Flytta till {nästa steg}
+          </button>
+          <button class="btn-redirect button is-success is-outlined">
+              Spara Utkast
+          </button>
+          <button class="btn-redirect button is-info is-outlined">
+              Flytta till {nästa steg}
+          </button>
 </div>
       </div>
       <div class="column-right">
@@ -183,18 +186,9 @@ Publicera
     padding-left: 2em;
   }
 
-  .content-left {}
-
-  button {
-    font-size: 15px;
-    border-radius: 5px;
-    height: 30px;
-    margin-left: 1em;
-  }
-
   .modal-menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 1em 0 1em;
   }
 
@@ -210,11 +204,35 @@ Publicera
   .video-input {
     margin-top: 1em;
   }
-  .checkbox-parent {
+  .btn-group {
     display: flex;
     justify-content: flex-start;
     justify-content: space-around;
     margin-bottom: 5em;
+    margin-top: 2em;
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+  }
+  .tag-heading {
     margin-top: 1em;
+  }
+  h6 {
+    margin: 1em 0 0.5em 0;
+    color: black;
+    margin-left: 1em;
+  }
+  .tags {
+    padding: 0.5em;
+    border: 1px solid lightgrey;
+  }
+  .closeBtn {
+      cursor: pointer;
+      font-size: 40px;
+      font-weight: bold;
+  }
+  .closeBtn:hover {
+    opacity: 0.7;
   }
 </style>
