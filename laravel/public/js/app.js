@@ -43872,7 +43872,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100%;\n  background: #ffffff80;\n  color: black;\n  z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n  padding: 1em;\n  background: white;\n  color: black;\n  width: 90%;\n  height: 100%;\n  position: relative;\n  border: .5px solid lightgray;\n  border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 90%;\n}\ninput[data-v-2d3e3516] {\n  font-size: 20px;\n  margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 285px;\n  margin-top: 1.5em;\n  padding: 1em;\n  font-size: 15px;\n}\n.column-left[data-v-2d3e3516] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  margin-right: 1em;\n  padding: 1em;\n}\ninput[data-v-2d3e3516] {\n  margin-bottom: 1em;\n}\n.column-right[data-v-2d3e3516] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 1em;\n  border-left: 1px solid black;\n  padding-left: 2em;\n}\n.content-left[data-v-2d3e3516] {\n}\nbutton[data-v-2d3e3516] {\n  font-size: 15px;\n  border-radius: 5px;\n  height: 30px;\n  margin-left: 1em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n  position: fixed;\n  right: 20px;\n  top: 10px;\n  font-size: 30px;\n  cursor: pointer;\n}\n.image-input[data-v-2d3e3516],\n.video-input[data-v-2d3e3516] {\n  margin-top: 1em;\n}\n.checkbox-parent[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-bottom: 5em;\n  margin-top: 1em;\n}\n", ""]);
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100%;\n  background: #ffffff80;\n  color: black;\n  z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n  padding: 1em;\n  background: white;\n  color: black;\n  width: 90%;\n  height: 100%;\n  position: relative;\n  border: .5px solid lightgray;\n  border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 90%;\n}\ninput[data-v-2d3e3516] {\n  font-size: 20px;\n  margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 285px;\n  margin-top: 1.5em;\n  padding: 1em;\n  font-size: 15px;\n}\n.column-left[data-v-2d3e3516] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  margin-right: 1em;\n  padding: 1em;\n}\ninput[data-v-2d3e3516] {\n  margin-bottom: 1em;\n}\n.column-right[data-v-2d3e3516] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 1em;\n  border-left: 1px solid black;\n  padding-left: 2em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n  position: fixed;\n  right: 20px;\n  top: 10px;\n  font-size: 30px;\n  cursor: pointer;\n}\n.image-input[data-v-2d3e3516],\n.video-input[data-v-2d3e3516] {\n  margin-top: 1em;\n}\n.btn-group[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-bottom: 5em;\n  margin-top: 2em;\n}\n.heading[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.tag-heading[data-v-2d3e3516] {\n  margin-top: 1em;\n}\nh6[data-v-2d3e3516] {\n  margin: 1em 0 0.5em 0;\n  color: black;\n  margin-left: 1em;\n}\n.tags[data-v-2d3e3516] {\n  padding: 0.5em;\n  border: 1px solid lightgrey;\n}\n.closeBtn[data-v-2d3e3516] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn[data-v-2d3e3516]:hover {\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
@@ -43884,6 +43884,8 @@ exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  positio
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+//
+//
 //
 //
 //
@@ -44061,29 +44063,17 @@ var render = function() {
               }
             }
           },
-          [_c("b", [_vm._v("✕")])]
+          [_c("b", { staticClass: "closeBtn" }, [_vm._v("×")])]
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "modal-content" }, [
         _c("div", { staticClass: "modal-menu" }, [
           _c("div", [
-            _c("span", [
-              _c("b", [_vm._v("Project title:")]),
-              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.title)))
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _c("b", [_vm._v("Project status:")]),
-              _vm._v(" " + _vm._s(JSON.stringify(_vm.project.status)))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", [
             _c(
               "button",
               {
-                staticClass: "btn-redirect",
+                staticClass: "button is-outlined",
                 on: { click: _vm.redirectToProjectPage }
               },
               [_vm._v("\n            Öppna projekt i egen sida\n        ")]
@@ -44093,6 +44083,8 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "column" }, [
           _c("div", { staticClass: "column-left" }, [
+            _c("h2", [_vm._v("Redigera Projektet")]),
+            _vm._v(" "),
             _c("input", { attrs: { placeholder: "Rubrik" } }),
             _vm._v(" "),
             _c(
@@ -44116,23 +44108,49 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "btn-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn-redirect button is-info is-outlined",
+                  on: {
+                    click: function($event) {
+                      _vm.setNewStatus(-1)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n              Flytta till bakåt ett steg\n          "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn-redirect button is-success is-outlined" },
+                [_vm._v("\n              Spara Utkast\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn-redirect button is-info is-outlined",
+                  on: {
+                    click: function($event) {
+                      _vm.setNewStatus(1)
+                    }
+                  }
+                },
+                [_vm._v("\n              Flytta framåt ett steg\n          ")]
+              )
+            ])
           ]),
           _vm._v(" "),
           _vm._m(3)
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            on: {
-              click: function($event) {
-                _vm.setNewStatus(1)
-              }
-            }
-          },
-          [_vm._v("Gå vidare")]
-        )
+        ])
       ])
     ]
   )
@@ -44143,28 +44161,33 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "image-input" }, [
-      _c("label", [
-        _vm._v("Lägg till bild:\n            "),
-        _c("div", { staticClass: "media file has-name is-fullwidth" }, [
-          _c("label", { staticClass: "file-label" }, [
-            _c("input", {
-              staticClass: "file-input",
-              attrs: { type: "file", name: "resume" }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "file-cta" }, [
-              _c("span", { staticClass: "file-icon" }, [
-                _c("i", { staticClass: "fas fa-upload" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "file-label" }, [
-                _vm._v("\n          Choose a file…\n        ")
-              ])
+      _c("div", { staticClass: "heading" }, [
+        _c("img", {
+          attrs: { src: "/img/img.png", width: "20", height: "20" }
+        }),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Lägg till video:")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "media file has-name is-fullwidth" }, [
+        _c("label", { staticClass: "file-label" }, [
+          _c("input", {
+            staticClass: "file-input",
+            attrs: { type: "file", name: "resume" }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "file-cta" }, [
+            _c("span", { staticClass: "file-icon" }, [
+              _c("i", { staticClass: "fas fa-upload" })
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "file-name" }, [
-              _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
+            _c("span", { staticClass: "file-label" }, [
+              _vm._v("\n          Choose a file…\n        ")
             ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "file-name" }, [
+            _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
           ])
         ])
       ])
@@ -44175,28 +44198,33 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "video-input" }, [
-      _c("label", [
-        _vm._v("Lägg till video:\n          "),
-        _c("div", { staticClass: "media file has-name is-fullwidth" }, [
-          _c("label", { staticClass: "file-label" }, [
-            _c("input", {
-              staticClass: "file-input",
-              attrs: { type: "file", name: "resume" }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "file-cta" }, [
-              _c("span", { staticClass: "file-icon" }, [
-                _c("i", { staticClass: "fas fa-upload" })
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "file-label" }, [
-                _vm._v("\n          Choose a file…\n        ")
-              ])
+      _c("div", { staticClass: "heading" }, [
+        _c("img", {
+          attrs: { src: "/img/video.png", width: "20", height: "20" }
+        }),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Lägg till video:")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "media file has-name is-fullwidth" }, [
+        _c("label", { staticClass: "file-label" }, [
+          _c("input", {
+            staticClass: "file-input",
+            attrs: { type: "file", name: "resume" }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "file-cta" }, [
+            _c("span", { staticClass: "file-icon" }, [
+              _c("i", { staticClass: "fas fa-upload" })
             ]),
             _vm._v(" "),
-            _c("span", { staticClass: "file-name" }, [
-              _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
+            _c("span", { staticClass: "file-label" }, [
+              _vm._v("\n          Choose a file…\n        ")
             ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "file-name" }, [
+            _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
           ])
         ])
       ])
@@ -44206,30 +44234,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "checkbox-parent" }, [
-      _c("label", { staticClass: "checkbox" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v("\n  Idé\n")
+    return _c("div", { staticClass: "tag-group" }, [
+      _c("div", { staticClass: "tag-heading heading" }, [
+        _c("img", {
+          attrs: { src: "/img/tag.png", width: "20", height: "20" }
+        }),
+        _vm._v(" "),
+        _c("h6", { staticClass: "tag-h6" }, [_vm._v("Lägg till taggar:")])
       ]),
       _vm._v(" "),
-      _c("label", { staticClass: "checkbox" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v("\nFaktainsamling\n")
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "checkbox" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v("\nBearbetning\n")
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "checkbox" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v("\nFaktakontroll\n")
-      ]),
-      _vm._v(" "),
-      _c("label", { staticClass: "checkbox" }, [
-        _c("input", { attrs: { type: "checkbox" } }),
-        _vm._v("\nPublicera\n")
+      _c("div", { staticClass: "tags" }, [
+        _vm._v("\n          {Här ska du kunna välja taggar}\n        ")
       ])
     ])
   },
