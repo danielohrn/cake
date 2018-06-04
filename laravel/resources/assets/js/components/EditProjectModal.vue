@@ -78,14 +78,14 @@
         </div>
         </div>
         <div class='btn-group'>
-          <button class="btn-redirect button is-info is-outlined">
-              Flytta till {nästa steg}
+          <button @click="setNewStatus(-1)" class="btn-redirect button is-info is-outlined">
+              Flytta till bakåt ett steg
           </button>
           <button class="btn-redirect button is-success is-outlined">
               Spara Utkast
           </button>
-          <button class="btn-redirect button is-info is-outlined">
-              Flytta till {nästa steg}
+          <button @click="setNewStatus(1)" class="btn-redirect button is-info is-outlined">
+              Flytta framåt ett steg
           </button>
 </div>
       </div>
@@ -104,7 +104,7 @@
   }  from 'vuex';
 
   export default {
-    props: ['project'],
+    props: ['project','status'],
     computed: mapState(['SET_PROJECT_TO_EDIT']),
     data() {
       return {
@@ -121,6 +121,32 @@
       redirectToProjectPage() {
         this.$store.commit('SET_PROJECT_TO_EDIT', this.project);
         this.$router.push("/project/" + this.project.slug);
+      },
+      getNextStatus(direction) {
+          let index; 
+            console.log(this.status, 'status');
+          for(let i = 0; i < this.status.length; i++) {
+              if(this.status[i].name === this.project.role.name) {
+                  index = (i + direction);
+              }
+          }
+          return index; 
+      }, 
+      setNewStatus(direction) {
+          const nextStatus = this.getNextStatus(direction); 
+          this.project.role = Object.assign({}, this.status[nextStatus]); 
+          console.log(nextStatus)
+          this.postUpdatedProject(); 
+      },
+      postUpdatedProject(){
+        const project_id = this.project.id, 
+              next_role_id = this.project.role.id; 
+
+        axios.patch(`api/roles/${project_id}`,{role_id: next_role_id})
+         .then(res => {
+           this.$emit('UPDATE_PROJECT', this.project.id); 
+         })
+         .catch(err => console.log(err));  
       }
     }
 
