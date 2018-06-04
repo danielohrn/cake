@@ -44082,72 +44082,66 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "column-left" }, [
-            _c("h2", [_vm._v("Redigera Projektet")]),
-            _vm._v(" "),
-            _c("input", { attrs: { placeholder: "Rubrik" } }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { attrs: { id: "app" } },
-              [
-                _c("vue-editor", {
-                  model: {
-                    value: _vm.content,
-                    callback: function($$v) {
-                      _vm.content = $$v
-                    },
-                    expression: "content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._m(1)
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c("div", { staticClass: "btn-group" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn-redirect button is-info is-outlined",
-                  on: {
-                    click: function($event) {
-                      _vm.setNewStatus(-1)
-                    }
-                  }
-                },
-                [
-                  _vm._v(
-                    "\n              Flytta till bakåt ett steg\n          "
-                  )
-                ]
-              ),
+          _c(
+            "div",
+            { staticClass: "column-left" },
+            [
+              _c("h2", [_vm._v("Redigera Projektet")]),
               _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn-redirect button is-success is-outlined" },
-                [_vm._v("\n              Spara Utkast\n          ")]
-              ),
+              _c("input", { attrs: { placeholder: _vm.project.name } }),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn-redirect button is-info is-outlined",
-                  on: {
-                    click: function($event) {
-                      _vm.setNewStatus(1)
+              _c("vue-editor", {
+                model: {
+                  value: _vm.content,
+                  callback: function($$v) {
+                    _vm.content = $$v
+                  },
+                  expression: "content"
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "btn-group" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-redirect button is-info is-outlined",
+                    on: {
+                      click: function($event) {
+                        _vm.setNewStatus(-1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("\n              Flytta framåt ett steg\n          ")]
-              )
-            ])
-          ]),
+                  },
+                  [_vm._v("\n              Flytta bakåt\n          ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn-redirect button is-success is-outlined" },
+                  [_vm._v("\n              Spara Utkast\n          ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-redirect button is-info is-outlined",
+                    on: {
+                      click: function($event) {
+                        _vm.setNewStatus(1)
+                      }
+                    }
+                  },
+                  [_vm._v("\n              Flytta framåt\n          ")]
+                )
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _vm._m(3)
         ])
@@ -44166,7 +44160,7 @@ var staticRenderFns = [
           attrs: { src: "/img/img.png", width: "20", height: "20" }
         }),
         _vm._v(" "),
-        _c("h6", [_vm._v("Lägg till video:")])
+        _c("h6", [_vm._v("Lägg till bild:")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "media file has-name is-fullwidth" }, [
@@ -44182,12 +44176,12 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "file-label" }, [
-              _vm._v("\n          Choose a file…\n        ")
+              _vm._v("\n          Välj fil\n        ")
             ])
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "file-name" }, [
-            _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
+            _vm._v("\n        Image.png\n      ")
           ])
         ])
       ])
@@ -44219,12 +44213,12 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "file-label" }, [
-              _vm._v("\n          Choose a file…\n        ")
+              _vm._v("\n          Välj fil\n        ")
             ])
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "file-name" }, [
-            _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
+            _vm._v("\n        Video.avi\n      ")
           ])
         ])
       ])
@@ -44243,9 +44237,7 @@ var staticRenderFns = [
         _c("h6", { staticClass: "tag-h6" }, [_vm._v("Lägg till taggar:")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "tags" }, [
-        _vm._v("\n          {Här ska du kunna välja taggar}\n        ")
-      ])
+      _c("div", { staticClass: "tags" })
     ])
   },
   function() {

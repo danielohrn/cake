@@ -20,13 +20,13 @@
     <div class="column">
       <div class="column-left">
         <h2>Redigera Projektet</h2>
-        <input placeholder="Rubrik"></input>
-        <div id="app">
+        <input :placeholder= "project.name"></input>
+
           <vue-editor v-model="content"></vue-editor>
           <div class='image-input'>
             <div class='heading'>
               <img src='/img/img.png' width='20' height='20' />
-              <h6>Lägg till video:</h6>
+              <h6>Lägg till bild:</h6>
             </div>
             <div class="media file has-name is-fullwidth">
             <label class="file-label">
@@ -36,11 +36,11 @@
           <i class="fas fa-upload"></i>
         </span>
         <span class="file-label">
-          Choose a file…
+          Välj fil
         </span>
       </span>
       <span class="file-name">
-        Screen Shot 2017-07-29 at 15.54.25.png
+        Image.png
       </span>
     </label>
           </div>
@@ -58,34 +58,34 @@
           <i class="fas fa-upload"></i>
         </span>
         <span class="file-label">
-          Choose a file…
+          Välj fil
         </span>
       </span>
       <span class="file-name">
-        Screen Shot 2017-07-29 at 15.54.25.png
+        Video.avi
       </span>
     </label>
           </div>
       </div>
-        </div>
+        
         <div class='tag-group'>
           <div class='tag-heading heading'>
             <img src='/img/tag.png' width='20' height='20' />
           <h6 class='tag-h6'>Lägg till taggar:</h6>
         </div>
         <div class='tags'>
-          {Här ska du kunna välja taggar}
+          
         </div>
         </div>
         <div class='btn-group'>
           <button @click="setNewStatus(-1)" class="btn-redirect button is-info is-outlined">
-              Flytta till bakåt ett steg
+              Flytta bakåt
           </button>
           <button class="btn-redirect button is-success is-outlined">
               Spara Utkast
           </button>
           <button @click="setNewStatus(1)" class="btn-redirect button is-info is-outlined">
-              Flytta framåt ett steg
+              Flytta framåt
           </button>
 </div>
       </div>
