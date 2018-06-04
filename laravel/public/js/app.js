@@ -44132,6 +44132,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 
 
@@ -44256,11 +44257,17 @@ var render = function() {
             _c(
               "div",
               { staticClass: "project-tags" },
-              _vm._l(_vm.project.tags, function(tag) {
-                return _c("span", [
-                  _vm._v("\n            " + _vm._s(tag.name) + "\n          ")
-                ])
-              })
+              [
+                _vm._v("\n            Taggar: \n          "),
+                _vm._l(_vm.project.tags, function(tag) {
+                  return _c("span", [
+                    _vm._v(
+                      "\n            " + _vm._s(tag.name) + ",\n          "
+                    )
+                  ])
+                })
+              ],
+              2
             ),
             _vm._v(" "),
             _c(

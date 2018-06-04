@@ -23,8 +23,9 @@
         <input placeholder="Rubrik"/> 
         
         <div class="project-tags">
+            Taggar: 
           <span v-for="(tag) in project.tags">
-            {{tag.name}}
+            {{tag.name}},
           </span>
         </div>
 
