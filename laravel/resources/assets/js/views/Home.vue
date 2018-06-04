@@ -7,7 +7,7 @@
    <h1>Välkommen<br/>till Kunskapsnavet</h1>
    <h3>Här hittar du allting om offentlig konst</h3>
    <div class='btnParent'>
-   <router-link to='/articles'><button class='btn'>Läs Mer</button></router-link>
+   <router-link to='/articles'><button class='btn'>Till Kunskapsnavet</button></router-link>
  </div>
  </div>
   </div>
