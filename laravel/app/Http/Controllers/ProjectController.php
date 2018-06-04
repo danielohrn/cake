@@ -18,6 +18,7 @@ class ProjectController extends Controller
         $projects = Project::all();
         foreach($projects as $project){
             $project->role;
+            $project->tags;
         }
         return response()->json($projects);
     }
@@ -53,6 +54,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $project->role;
+        $project->tags;
 
         return response()->json($project);
     }
