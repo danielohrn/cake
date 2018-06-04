@@ -20,7 +20,14 @@
     <div class="column">
       <div class="column-left">
         <h2>Redigera Projektet</h2>
-        <input placeholder="Rubrik"></input>
+        <input placeholder="Rubrik"/> 
+        
+        <div class="project-tags">
+          <span v-for="(tag) in project.tags">
+            {{tag.name}}
+          </span>
+        </div>
+
         <div id="app">
           <vue-editor v-model="content"></vue-editor>
           <div class='image-input'>
@@ -74,7 +81,17 @@
           <h6 class='tag-h6'>Lägg till taggar:</h6>
         </div>
         <div class='tags'>
-          {Här ska du kunna välja taggar}
+          
+          <ul>
+            <li v-for="(tag, index) in tags"
+                v-if="tagNotSelected(tag.name)" 
+                :key="tag.name"
+                @click="addToTags(index)">
+
+              {{tag.name}}
+            </li>
+          </ul>
+
         </div>
         </div>
         <div class='btn-group'>
@@ -104,14 +121,23 @@
   }  from 'vuex';
 
   export default {
-    props: ['project','status'],
+    props: ['project','status', 'tags'],
     computed: mapState(['SET_PROJECT_TO_EDIT']),
     data() {
       return {
-        open: false
+        open: false,
+        availableTags: []
       }
     },
     methods: {
+      tagNotSelected(tag){
+        for(let i = 0; i < this.project.tags.length; i++) {
+          if(this.project.tags[i].name == tag) {
+            return false; 
+          }
+        }
+        return true; 
+      },
       toggle() {
         this.open = !this.open;
       },
@@ -150,9 +176,16 @@
            this.$emit('UPDATE_PROJECT', this.project.id); 
          })
          .catch(err => console.log(err));  
-      }
-    }
+      },
+      addToTags(index) {
+        const newProject = {...this.project};
+        newProject.tags.push(this.tags[index]); 
 
+        this.project = newProject; 
+      },
+
+    },
+    mounted() {}
   }
 </script>
 
@@ -263,5 +296,9 @@
   }
   .closeBtn:hover {
     opacity: 0.7;
+  }
+
+  .project-tags {
+    display: inline-block; 
   }
 </style>

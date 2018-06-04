@@ -38137,6 +38137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -38178,11 +38179,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           return project;
         });
       });
+    },
+    getTags: function getTags() {
+      var _this4 = this;
+
+      axios.get('api/tags').then(function (response) {
+        _this4.availableTags = response.data;
+        console.log(response);
+      });
     }
   },
   mounted: function mounted() {
     this.getRoles();
     this.getProjects();
+    this.getTags();
   }
 });
 
@@ -38212,7 +38222,11 @@ var render = function() {
                 return project.role_id === the_status.id
                   ? _c("ProjectCard", {
                       key: project.name,
-                      attrs: { status: _vm.status, project: project },
+                      attrs: {
+                        status: _vm.status,
+                        project: project,
+                        tags: _vm.availableTags
+                      },
                       on: { UPDATE_PROJECT: _vm.getOneProject }
                     })
                   : _vm._e()
@@ -43803,10 +43817,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['project', 'status'],
+    props: ['project', 'status', 'tags'],
     data: function data() {
         return {
             open: false
@@ -43874,7 +43894,7 @@ var render = function() {
       _vm._v(" "),
       _vm.open
         ? _c("EditProjectModal", {
-            attrs: { status: _vm.status, project: _vm.project },
+            attrs: { status: _vm.status, project: _vm.project, tags: _vm.tags },
             on: {
               UPDATE_PROJECT: _vm.updateProject,
               CLOSE_MODAL: _vm.closeModal
@@ -43981,7 +44001,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100%;\n  background: #ffffff80;\n  color: black;\n  z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n  padding: 1em;\n  background: white;\n  color: black;\n  width: 90%;\n  height: 100%;\n  position: relative;\n  border: .5px solid lightgray;\n  border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 90%;\n}\ninput[data-v-2d3e3516] {\n  font-size: 20px;\n  margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 285px;\n  margin-top: 1.5em;\n  padding: 1em;\n  font-size: 15px;\n}\n.column-left[data-v-2d3e3516] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  margin-right: 1em;\n  padding: 1em;\n}\ninput[data-v-2d3e3516] {\n  margin-bottom: 1em;\n}\n.column-right[data-v-2d3e3516] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 1em;\n  border-left: 1px solid black;\n  padding-left: 2em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n  position: fixed;\n  right: 20px;\n  top: 10px;\n  font-size: 30px;\n  cursor: pointer;\n}\n.image-input[data-v-2d3e3516],\n.video-input[data-v-2d3e3516] {\n  margin-top: 1em;\n}\n.btn-group[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-bottom: 5em;\n  margin-top: 2em;\n}\n.heading[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.tag-heading[data-v-2d3e3516] {\n  margin-top: 1em;\n}\nh6[data-v-2d3e3516] {\n  margin: 1em 0 0.5em 0;\n  color: black;\n  margin-left: 1em;\n}\n.tags[data-v-2d3e3516] {\n  padding: 0.5em;\n  border: 1px solid lightgrey;\n}\n.closeBtn[data-v-2d3e3516] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn[data-v-2d3e3516]:hover {\n  opacity: 0.7;\n}\n", ""]);
+exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100%;\n  background: #ffffff80;\n  color: black;\n  z-index: 999;\n}\n.modal-content[data-v-2d3e3516] {\n  padding: 1em;\n  background: white;\n  color: black;\n  width: 90%;\n  height: 100%;\n  position: relative;\n  border: .5px solid lightgray;\n  border-radius: 3px;\n}\n.column[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 90%;\n}\ninput[data-v-2d3e3516] {\n  font-size: 20px;\n  margin-top: 1em;\n}\ntextarea[data-v-2d3e3516] {\n  resize: none;\n  width: 95%;\n  height: 285px;\n  margin-top: 1.5em;\n  padding: 1em;\n  font-size: 15px;\n}\n.column-left[data-v-2d3e3516] {\n  -webkit-box-flex: 2;\n      -ms-flex: 2;\n          flex: 2;\n  margin-right: 1em;\n  padding: 1em;\n}\ninput[data-v-2d3e3516] {\n  margin-bottom: 1em;\n}\n.column-right[data-v-2d3e3516] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  padding: 1em;\n  border-left: 1px solid black;\n  padding-left: 2em;\n}\n.modal-menu[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0 1em 0 1em;\n}\n.modal--close[data-v-2d3e3516] {\n  position: fixed;\n  right: 20px;\n  top: 10px;\n  font-size: 30px;\n  cursor: pointer;\n}\n.image-input[data-v-2d3e3516],\n.video-input[data-v-2d3e3516] {\n  margin-top: 1em;\n}\n.btn-group[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-bottom: 5em;\n  margin-top: 2em;\n}\n.heading[data-v-2d3e3516] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.tag-heading[data-v-2d3e3516] {\n  margin-top: 1em;\n}\nh6[data-v-2d3e3516] {\n  margin: 1em 0 0.5em 0;\n  color: black;\n  margin-left: 1em;\n}\n.tags[data-v-2d3e3516] {\n  padding: 0.5em;\n  border: 1px solid lightgrey;\n}\n.closeBtn[data-v-2d3e3516] {\n    cursor: pointer;\n    font-size: 40px;\n    font-weight: bold;\n}\n.closeBtn[data-v-2d3e3516]:hover {\n  opacity: 0.7;\n}\n.project-tags[data-v-2d3e3516] {\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -43993,6 +44013,25 @@ exports.push([module.i, "\nsection.modal-container[data-v-2d3e3516] {\n  positio
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44097,15 +44136,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['project', 'status'],
+  props: ['project', 'status', 'tags'],
   computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapState */])(['SET_PROJECT_TO_EDIT']),
   data: function data() {
     return {
-      open: false
+      open: false,
+      availableTags: []
     };
   },
 
   methods: {
+    tagNotSelected: function tagNotSelected(tag) {
+      for (var i = 0; i < this.project.tags.length; i++) {
+        if (this.project.tags[i].name == tag) {
+          return false;
+        }
+      }
+      return true;
+    },
     toggle: function toggle() {
       this.open = !this.open;
     },
@@ -44146,9 +44194,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (err) {
         return console.log(err);
       });
-    }
-  }
+    },
+    addToTags: function addToTags(index) {
+      var newProject = _extends({}, this.project);
+      newProject.tags.push(this.tags[index]);
 
+      this.project = newProject;
+    }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -44201,6 +44255,16 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
+              { staticClass: "project-tags" },
+              _vm._l(_vm.project.tags, function(tag) {
+                return _c("span", [
+                  _vm._v("\n            " + _vm._s(tag.name) + "\n          ")
+                ])
+              })
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
               { attrs: { id: "app" } },
               [
                 _c("vue-editor", {
@@ -44220,7 +44284,37 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", { staticClass: "tag-group" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "tags" }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.tags, function(tag, index) {
+                    return _vm.tagNotSelected(tag.name)
+                      ? _c(
+                          "li",
+                          {
+                            key: tag.name,
+                            on: {
+                              click: function($event) {
+                                _vm.addToTags(index)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n\n              " +
+                                _vm._s(tag.name) +
+                                "\n            "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  })
+                )
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "btn-group" }, [
               _c(
@@ -44346,18 +44440,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "tag-group" }, [
-      _c("div", { staticClass: "tag-heading heading" }, [
-        _c("img", {
-          attrs: { src: "/img/tag.png", width: "20", height: "20" }
-        }),
-        _vm._v(" "),
-        _c("h6", { staticClass: "tag-h6" }, [_vm._v("Lägg till taggar:")])
-      ]),
+    return _c("div", { staticClass: "tag-heading heading" }, [
+      _c("img", { attrs: { src: "/img/tag.png", width: "20", height: "20" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "tags" }, [
-        _vm._v("\n          {Här ska du kunna välja taggar}\n        ")
-      ])
+      _c("h6", { staticClass: "tag-h6" }, [_vm._v("Lägg till taggar:")])
     ])
   },
   function() {

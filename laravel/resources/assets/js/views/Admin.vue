@@ -11,7 +11,8 @@
         v-if="project.role_id === the_status.id" 
         :key="project.name" 
         :status="status" 
-        :project="project" />
+        :project="project"
+        :tags="availableTags" />
 
     </ProjectTile>
   </div>
@@ -53,11 +54,19 @@ export default {
              return project; 
            }); 
          });
-      }
+      }, 
+      getTags() {
+        axios.get('api/tags')
+          .then(response => {
+            this.availableTags = response.data;
+            console.log(response)
+        })
+      },
   },
   mounted() {
     this.getRoles()
     this.getProjects()
+    this.getTags() 
   }
 }
 </script>
