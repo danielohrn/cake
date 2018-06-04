@@ -18,4 +18,9 @@ class Project extends Model
     {
       return $this->belongsTo('App\Role');
     }
+    public function tags()
+    {
+      return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
+
 }

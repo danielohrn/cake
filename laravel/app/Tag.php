@@ -11,6 +11,10 @@ class Tag extends Model
     {
       return $this->belongsToMany('App\Article');
     }
+    public function projects()
+    {
+      return $this->belongsToMany('App\Article');
+    }
 
 
     protected $hidden = [
