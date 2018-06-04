@@ -127,15 +127,18 @@
             console.log(this.status, 'status');
           for(let i = 0; i < this.status.length; i++) {
               if(this.status[i].name === this.project.role.name) {
-                  index = (i + direction);
+                  index = (i + direction); 
               }
           }
           return index; 
       }, 
       setNewStatus(direction) {
-          const nextStatus = this.getNextStatus(direction); 
+          const nextStatus = this.getNextStatus(direction);
+          
+          // return if at index 0
+          if(nextStatus < 0) return;
+          
           this.project.role = Object.assign({}, this.status[nextStatus]); 
-          console.log(nextStatus)
           this.postUpdatedProject(); 
       },
       postUpdatedProject(){

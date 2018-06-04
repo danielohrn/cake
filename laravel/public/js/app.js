@@ -44128,8 +44128,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     setNewStatus: function setNewStatus(direction) {
       var nextStatus = this.getNextStatus(direction);
+
+      // return if at index 0
+      if (nextStatus < 0) return;
+
       this.project.role = Object.assign({}, this.status[nextStatus]);
-      console.log(nextStatus);
       this.postUpdatedProject();
     },
     postUpdatedProject: function postUpdatedProject() {
