@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Article;
+use App\Tag;
 
 class ProjectController extends Controller
 {
@@ -41,7 +42,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -85,15 +86,36 @@ class ProjectController extends Controller
 
             $project->save();
 
-            if ($project->role_id = 6)
-            {
+            if ($project->role_id === 6)
+            {   
                 $article = new Article;
                 $article->title = $project->name;
                 $article->body = $project->slug;
+                $tags = $project->tags;
                 $article->save();
+                $article->tags()->attach($tags);
             }
         
             return response()->json($project);
+    }
+    public function updateProject(Request $request, $id)
+    {
+        $tags = [];
+        foreach($request->tags as $tag){
+            
+            $tag = $tag['id'];
+            
+            array_push($tags, $tag);
+        }
+
+        
+        $project = Project::find($request->id);
+        $project->tags()->sync($tags);
+        $project->title = $request->title;
+        $project->body = $request->body;
+        $project->save();
+
+
     }
 
     /**

@@ -44201,6 +44201,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       newProject.tags.push(this.tags[index]);
 
       this.project = newProject;
+    },
+    updateProject: function updateProject() {
+      axios.patch('/api/projects/' + this.project.id, this.project).then(function (res) {
+        return console.log(res);
+      }).catch(function (err) {
+        return console.log(err);
+      });
     }
   },
   mounted: function mounted() {}
@@ -44252,7 +44259,26 @@ var render = function() {
           _c("div", { staticClass: "column-left" }, [
             _c("h2", [_vm._v("Redigera Projektet")]),
             _vm._v(" "),
-            _c("input", { attrs: { placeholder: "Rubrik" } }),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.project.title,
+                  expression: "project.title"
+                }
+              ],
+              attrs: { placeholder: "Rubrik" },
+              domProps: { value: _vm.project.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.project, "title", $event.target.value)
+                }
+              }
+            }),
             _vm._v(" "),
             _c(
               "div",
@@ -44276,11 +44302,11 @@ var render = function() {
               [
                 _c("vue-editor", {
                   model: {
-                    value: _vm.content,
+                    value: _vm.project.body,
                     callback: function($$v) {
-                      _vm.content = $$v
+                      _vm.$set(_vm.project, "body", $$v)
                     },
-                    expression: "content"
+                    expression: "project.body"
                   }
                 }),
                 _vm._v(" "),
@@ -44343,7 +44369,10 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "button",
-                { staticClass: "btn-redirect button is-success is-outlined" },
+                {
+                  staticClass: "btn-redirect button is-success is-outlined",
+                  on: { click: _vm.updateProject }
+                },
                 [_vm._v("\n              Spara Utkast\n          ")]
               ),
               _vm._v(" "),

@@ -20,7 +20,7 @@
     <div class="column">
       <div class="column-left">
         <h2>Redigera Projektet</h2>
-        <input placeholder="Rubrik"/> 
+        <input v-model="project.title" placeholder="Rubrik"/> 
         
         <div class="project-tags">
             Taggar: 
@@ -30,7 +30,7 @@
         </div>
 
         <div id="app">
-          <vue-editor v-model="content"></vue-editor>
+          <vue-editor v-model="project.body"></vue-editor>
           <div class='image-input'>
             <div class='heading'>
               <img src='/img/img.png' width='20' height='20' />
@@ -99,7 +99,7 @@
           <button @click="setNewStatus(-1)" class="btn-redirect button is-info is-outlined">
               Flytta till bakåt ett steg
           </button>
-          <button class="btn-redirect button is-success is-outlined">
+          <button  @click="updateProject" class="btn-redirect button is-success is-outlined">
               Spara Utkast
           </button>
           <button @click="setNewStatus(1)" class="btn-redirect button is-info is-outlined">
@@ -184,6 +184,12 @@
 
         this.project = newProject; 
       },
+      updateProject(){
+        axios.patch('/api/projects/' + this.project.id, this.project)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+      }
+
 
     },
     mounted() {}
