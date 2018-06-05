@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('body');
-            $table->string('media');            
-            $table->string('author');
+            $table->string('media')->default('media.png');            
+            $table->string('author')->default('Författare');
             $table->integer('role_id')->unsigned();
             $table->string('slug')->nullable();
             $table->timestamps();

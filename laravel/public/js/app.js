@@ -16247,7 +16247,7 @@ function filterOutTags(article, allTags) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(24);
-module.exports = __webpack_require__(140);
+module.exports = __webpack_require__(135);
 
 
 /***/ }),
@@ -16299,7 +16299,7 @@ Vue.component('ProjectTile', __webpack_require__(115));
 Vue.component('ProjectCard', __webpack_require__(120));
 Vue.component('EditProjectModal', __webpack_require__(125));
 Vue.component('Sidebar', __webpack_require__(130));
-Vue.component('NewArticleModal', __webpack_require__(135));
+Vue.component('NewArticleModal', __webpack_require__(137));
 
 var app = new Vue({
   el: '#app',
@@ -44766,18 +44766,25 @@ if (false) {
 
 /***/ }),
 /* 135 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 136 */,
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(136)
+  __webpack_require__(138)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(138)
+var __vue_script__ = __webpack_require__(140)
 /* template */
-var __vue_template__ = __webpack_require__(139)
+var __vue_template__ = __webpack_require__(141)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44816,13 +44823,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 136 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(137);
+var content = __webpack_require__(139);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -44842,7 +44849,7 @@ if(false) {
 }
 
 /***/ }),
-/* 137 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -44856,7 +44863,7 @@ exports.push([module.i, "\n.modal-background[data-v-7023c6a0]{\n  background-col
 
 
 /***/ }),
-/* 138 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44912,7 +44919,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 139 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45018,12 +45025,6 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-7023c6a0", module.exports)
   }
 }
-
-/***/ }),
-/* 140 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

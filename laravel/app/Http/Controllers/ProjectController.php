@@ -44,10 +44,11 @@ class ProjectController extends Controller
     {
         
         $project = new Project();
-
+        
+        $project->name = $request['title']; 
         $project->title = $request['title'];
         $project->body = $request['body'];
-        $project->name = $request['title']; 
+        $project->role_id = 1;
         $project->save(); 
         
         return response()->json($project);
