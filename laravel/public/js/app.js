@@ -44133,6 +44133,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -44142,7 +44147,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   data: function data() {
     return {
       open: false,
-      availableTags: []
+      availableTags: [],
+      project: project
     };
   },
 
@@ -44199,6 +44205,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     addToTags: function addToTags(index) {
       var newProject = _extends({}, this.project);
       newProject.tags.push(this.tags[index]);
+
+      this.project = newProject;
+    },
+    removeFromTags: function removeFromTags(tagToRemove) {
+
+      var newProject = _extends({}, this.project);
+      var newTags = newProject.tags.filter(function (projectTag) {
+        return projectTag.id !== tagToRemove.id;
+      });
+      newProject.tags = newTags;
 
       this.project = newProject;
     },
@@ -44285,12 +44301,23 @@ var render = function() {
               { staticClass: "project-tags" },
               [
                 _vm._v("\n            Taggar: \n          "),
-                _vm._l(_vm.project.tags, function(tag) {
-                  return _c("span", [
-                    _vm._v(
-                      "\n            " + _vm._s(tag.name) + ",\n          "
-                    )
-                  ])
+                _vm._l(_vm.project.tags, function(tag, index) {
+                  return _c(
+                    "span",
+                    {
+                      key: tag.name,
+                      on: {
+                        click: function($event) {
+                          _vm.removeFromTags(tag)
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n\n            " + _vm._s(tag.name) + ",\n          "
+                      )
+                    ]
+                  )
                 })
               ],
               2
