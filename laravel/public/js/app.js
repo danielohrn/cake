@@ -43878,6 +43878,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         updateProject: function updateProject(projectId) {
             console.log('projectcard', projectId);
             this.$emit('UPDATE_PROJECT', projectId);
+        },
+        trimPTags: function trimPTags(string) {
+            var regex = new RegExp('<p>|</p>', 'g');
+            return string.replace(regex, '');
         }
     }
 
@@ -43899,11 +43903,11 @@ var render = function() {
     },
     [
       _c("p", { staticClass: "title is-5" }, [
-        _vm._v(_vm._s(_vm.project.name))
+        _vm._v(_vm._s(_vm.project.title))
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "subtitle is-6" }, [
-        _vm._v(" " + _vm._s(_vm.project.name) + " content")
+        _vm._v(" " + _vm._s(_vm.trimPTags(_vm.project.body)))
       ]),
       _vm._v(" "),
       _c(
