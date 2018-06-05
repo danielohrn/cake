@@ -13,13 +13,13 @@
 
         <!-- Project tags -->
         <div class="project-tags">
-            Taggar:
+            <h6>Valda Taggar:</h6>
           <span
             v-for="(tag, index) in project.tags"
             @click="removeFromTags(tag)"
             :key="tag.name">
 
-            {{tag.name}},
+            {{tag.name}}
           </span>
         </div>
 
@@ -77,7 +77,7 @@
         </div>
         <div class='tags'>
 
-          <ul> <!-- ALL TAGS -->
+          <ul class='choose-tags'> <!-- ALL TAGS -->
             <li v-for="(tag, index) in tags"
                 v-if="tagNotSelected(tag.name)"
                 :key="tag.name"
@@ -319,15 +319,27 @@
   .project-tags h6 {
     margin: 0;
     align-self: center;
-    text-transform: uppercase;
     font-size: 0.7em;
+    text-transform: uppercase;
     letter-spacing: 2px;
   }
   .project-tags span {
     background-color: lightgrey;
     border-radius: 5px;
     margin: 0.3em;
-    padding: 0.2em;
+    padding: 0.3em;
     font-size: 0.7em;
+  }
+  .choose-tags {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .choose-tags li {
+    margin: 0.5em;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 0.3em;
   }
 </style>
