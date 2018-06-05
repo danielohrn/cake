@@ -6,26 +6,20 @@
             </span>
   </div>
   <div class="modal-content">
-    <div class='modal-menu'>
-      <!-- <div>
-        <span><b>Project title:</b> {{JSON.stringify(project.title)}}</span>
-        <span><b>Project status:</b> {{JSON.stringify(project.status)}}</span>
-      </div> -->
-      <div>
-        <button class="button is-outlined" @click="redirectToProjectPage">
-            Öppna projekt i egen sida
-        </button>
-      </div>
-    </div>
     <div class="column">
       <div class="column-left">
         <h2>Redigera Projektet</h2>
-        <input v-model="project.title" placeholder="Rubrik"/> 
-        
+        <input v-model="project.title" placeholder="Rubrik"/>
+
+        <!-- Project tags -->
         <div class="project-tags">
-            Taggar: 
-          <span v-for="(tag) in project.tags">
-            {{tag.name}},
+            <h6>Valda Taggar:</h6>
+          <span
+            v-for="(tag, index) in project.tags"
+            @click="removeFromTags(tag)"
+            :key="tag.name">
+
+            {{tag.name}}
           </span>
         </div>
 
@@ -82,10 +76,10 @@
           <h6 class='tag-h6'>Lägg till taggar:</h6>
         </div>
         <div class='tags'>
-          
-          <ul>
+
+          <ul class='choose-tags'> <!-- ALL TAGS -->
             <li v-for="(tag, index) in tags"
-                v-if="tagNotSelected(tag.name)" 
+                v-if="tagNotSelected(tag.name)"
                 :key="tag.name"
                 @click="addToTags(index)">
 
@@ -127,17 +121,18 @@
     data() {
       return {
         open: false,
-        availableTags: []
+        availableTags: [],
+        project: project
       }
     },
     methods: {
       tagNotSelected(tag){
         for(let i = 0; i < this.project.tags.length; i++) {
           if(this.project.tags[i].name == tag) {
-            return false; 
+            return false;
           }
         }
-        return true; 
+        return true;
       },
       toggle() {
         this.open = !this.open;
@@ -150,40 +145,51 @@
         this.$router.push("/project/" + this.project.slug);
       },
       getNextStatus(direction) {
-          let index; 
+          let index;
             console.log(this.status, 'status');
           for(let i = 0; i < this.status.length; i++) {
               if(this.status[i].name === this.project.role.name) {
-                  index = (i + direction); 
+                  index = (i + direction);
               }
           }
-          return index; 
-      }, 
+          return index;
+      },
       setNewStatus(direction) {
           const nextStatus = this.getNextStatus(direction);
-          
+
           // return if at index 0
           if(nextStatus < 0) return;
-          
-          this.project.role = Object.assign({}, this.status[nextStatus]); 
-          this.postUpdatedProject(); 
+
+          this.project.role = Object.assign({}, this.status[nextStatus]);
+          this.postUpdatedProject();
       },
       postUpdatedProject(){
-        const project_id = this.project.id, 
-              next_role_id = this.project.role.id; 
+        const project_id = this.project.id,
+              next_role_id = this.project.role.id;
 
         axios.patch(`api/roles/${project_id}`,{role_id: next_role_id})
          .then(res => {
-           this.$emit('UPDATE_PROJECT', this.project.id); 
+           this.$emit('UPDATE_PROJECT', this.project.id);
          })
-         .catch(err => console.log(err));  
+         .catch(err => console.log(err));
       },
       addToTags(index) {
         const newProject = {...this.project};
-        newProject.tags.push(this.tags[index]); 
+        newProject.tags.push(this.tags[index]);
 
-        this.project = newProject; 
+        this.project = newProject;
       },
+      removeFromTags(tagToRemove) {
+
+        const newProject = {...this.project};
+        const newTags = newProject.tags.filter(projectTag => {
+          return projectTag.id !== tagToRemove.id
+        });
+        newProject.tags = newTags;
+
+        this.project = newProject;
+      },
+
       updateProject(){
         axios.patch('/api/projects/' + this.project.id, this.project)
         .then(res => console.log(res))
@@ -306,6 +312,34 @@
   }
 
   .project-tags {
-    display: inline-block; 
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+  }
+  .project-tags h6 {
+    margin: 0;
+    align-self: center;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .project-tags span {
+    background-color: lightgrey;
+    border-radius: 5px;
+    margin: 0.3em;
+    padding: 0.3em;
+    font-size: 0.7em;
+  }
+  .choose-tags {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .choose-tags li {
+    margin: 0.5em;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 0.3em;
   }
 </style>
