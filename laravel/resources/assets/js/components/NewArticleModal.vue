@@ -12,7 +12,7 @@
         </div>
         <button class="button close"  @click="closeModal">Stäng</button>
     </div>
-  
+    
 </template>
 
 <script>
