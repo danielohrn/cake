@@ -42,10 +42,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = new Project;
-        $project->title = $request->title;
-        $project->body = $request->body;
-        return response()->json();
+        
+        $project = new Project();
+
+        $project->title = $request['title'];
+        $project->body = $request['body'];
+        $project->name = $request['title']; 
+        $project->save(); 
+        
+        return response()->json($project);
     }
 
     /**

@@ -14,13 +14,13 @@
             <h6>Skriven av {{author}}</h6>
             <h6>{{time}}</h6>
           </div>
-            <div class='tagList'>
+            <div class='tagList'> 
             <b-taglist>
               <b-tag v-for="(tag, i) in articleTags" :key="i" >{{tag}}</b-tag>
             </b-taglist>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
     <article-modal :title="title" :body="body" :tags="articleTags" :img="media" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
 </div>

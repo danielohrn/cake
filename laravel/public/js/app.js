@@ -16247,7 +16247,7 @@ function filterOutTags(article, allTags) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(24);
-module.exports = __webpack_require__(135);
+module.exports = __webpack_require__(140);
 
 
 /***/ }),
@@ -16299,7 +16299,7 @@ Vue.component('ProjectTile', __webpack_require__(115));
 Vue.component('ProjectCard', __webpack_require__(120));
 Vue.component('EditProjectModal', __webpack_require__(125));
 Vue.component('Sidebar', __webpack_require__(130));
-Vue.component('NewArticleModal', __webpack_require__(137));
+Vue.component('NewArticleModal', __webpack_require__(135));
 
 var app = new Vue({
   el: '#app',
@@ -44766,25 +44766,18 @@ if (false) {
 
 /***/ }),
 /* 135 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 136 */,
-/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(138)
+  __webpack_require__(136)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(140)
+var __vue_script__ = __webpack_require__(138)
 /* template */
-var __vue_template__ = __webpack_require__(141)
+var __vue_template__ = __webpack_require__(139)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44823,13 +44816,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 138 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(139);
+var content = __webpack_require__(137);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -44849,7 +44842,7 @@ if(false) {
 }
 
 /***/ }),
-/* 139 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -44857,13 +44850,13 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.modal-background[data-v-7023c6a0]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.modal-card[data-v-7023c6a0]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\nbutton.close[data-v-7023c6a0] {\n    position: fixed; \n    top: 10px;\n    right: 10px;\n}\n.tags a[data-v-7023c6a0] {\n    display: block;\n    width: 100%;\n    margin: .3em 0;\n}\n.article-content input[data-v-7023c6a0], button[data-v-7023c6a0] {\n    margin: .2em 0;\n}\n", ""]);
+exports.push([module.i, "\n.modal-background[data-v-7023c6a0]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.modal-card[data-v-7023c6a0]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\nbutton.close[data-v-7023c6a0] {\n    position: fixed; \n    top: 10px;\n    right: 10px;\n}\n.tags a[data-v-7023c6a0] {\n    display: block;\n    width: 100%;\n    margin: .3em 0;\n}\n.article-content[data-v-7023c6a0] {\n    width: 100%;\n}\n.article-content input[data-v-7023c6a0], button[data-v-7023c6a0] {\n    margin: .2em 0;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 140 */
+/* 138 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44885,29 +44878,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['tags', 'availableTags', 'newProjectModal'],
+    props: ['newProjectModal'],
 
     data: function data() {
         return {
             article: {
                 title: null,
-                body: null,
-                tags: []
+                body: null
             }
         };
     },
@@ -44917,38 +44897,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         newArticle: function newArticle() {
             var _this = this;
 
-            // Post the new article to the db 
-            axios.post('/api/article', this.article).then(function (res) {
-                // If POST was OK
-                if (res.status === 200) {
-                    // Clear the local article object when saving 
-                    _this.article.title = null;
-                    _this.article.body = null;
-                    _this.article.tags.length = 0;
-
-                    /* Emit event to parent component
-                       and fetch the new article */
-                    var articleId = res.data.id;
-                    _this.$emit('update-articles', articleId);
-
-                    // Close modal on save 
-                    _this.$store.commit('toggleModal', { modalType: 'newArticleModal', action: false });
-                }
+            console.log(this.article);
+            axios.post('/api/projects', this.article).then(function (res) {
+                return _this.closeModal();
+            }).catch(function (err) {
+                return console.log(err);
             });
         },
         closeModal: function closeModal() {
             this.$emit('closeProject', false);
             console.log('clicked');
-        },
-        addToTags: function addToTags(index) {
-            var tag = this.availableTags.splice(index, 1)[0];
-            this.article.tags.push(tag.name);
         }
     }
 });
 
 /***/ }),
-/* 141 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -44960,7 +44924,7 @@ var render = function() {
         _c("div", { staticClass: "modal-card" }, [
           _c("div", { staticClass: "article-content" }, [
             _c("h3", { staticClass: "title is-4" }, [
-              _vm._v("Skapa/ändra inlägg")
+              _vm._v("Skicka in en idé")
             ]),
             _vm._v(" "),
             _c(
@@ -45030,56 +44994,11 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "button", attrs: { type: "submit" } },
-                  [_vm._v("Spara")]
+                  [_vm._v("Skicka")]
                 )
               ]
             )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "article-sidebar" },
-            [
-              _c(
-                "b-field",
-                { attrs: { label: "Taggar" } },
-                [
-                  _c("b-taginput", {
-                    attrs: { maxlength: "10", value: _vm.article.tags }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "tags" },
-                [
-                  _c("h3", { staticClass: "title is-4" }, [
-                    _vm._v("Lägg till taggar")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.availableTags, function(tag, i) {
-                    return _c(
-                      "a",
-                      {
-                        key: i,
-                        staticClass: "button is-outlined",
-                        on: {
-                          click: function($event) {
-                            _vm.addToTags(i)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(tag.name))]
-                    )
-                  })
-                ],
-                2
-              )
-            ],
-            1
-          )
+          ])
         ]),
         _vm._v(" "),
         _c(
@@ -45099,6 +45018,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-7023c6a0", module.exports)
   }
 }
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
