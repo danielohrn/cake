@@ -21,6 +21,7 @@ Route::patch('roles/{id}', 'ProjectController@update');
 Route::get('/projects', 'ProjectController@index');
 Route::get('/projects/{id}', 'ProjectController@show');
 Route::patch('/projects/{id}', 'ProjectController@updateProject');
+Route::post('projects', 'ProjectController@store');
 Route::get('/templates/{slug}', 'TemplateController@show');
 Route::get('/articles/{id}', 'ArticleController@getOne');
 Route::get('/articles', 'ArticleController@index');
