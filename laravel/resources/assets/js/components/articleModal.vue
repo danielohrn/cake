@@ -4,7 +4,7 @@
 
     <div class="article-content">
       <img class="article-img" v-bind:src="`/img/${img}`" alt="">
-      <h1>{{title}}</h1> {{body}}
+      <h1>{{title}}</h1> {{trimPTags}}
 
     </div>
     <div class="article-sidebar">
@@ -35,6 +35,12 @@
 export default {
   name: 'article-modal',
   props: ['title', 'body', 'tags', 'img'],
+  computed: {
+    trimPTags() {
+      const regex = new RegExp('<p>|</p>', 'g')
+      return this.body.replace(regex, ''); 
+    }
+  },
   data() {
     return {
       isCardModalActive: false
