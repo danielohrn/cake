@@ -11,10 +11,15 @@
         <h2>Redigera Projektet</h2>
         <input v-model="project.title" placeholder="Rubrik"/>
 
+        <!-- Project tags -->
         <div class="project-tags">
-            <h6>Valda Taggar:</h6>
-          <span v-for="(tag) in project.tags">
-            {{tag.name}}
+            Taggar:
+          <span
+            v-for="(tag, index) in project.tags"
+            @click="removeFromTags(tag)"
+            :key="tag.name">
+
+            {{tag.name}},
           </span>
         </div>
 
@@ -72,7 +77,7 @@
         </div>
         <div class='tags'>
 
-          <ul>
+          <ul> <!-- ALL TAGS -->
             <li v-for="(tag, index) in tags"
                 v-if="tagNotSelected(tag.name)"
                 :key="tag.name"
@@ -116,7 +121,8 @@
     data() {
       return {
         open: false,
-        availableTags: []
+        availableTags: [],
+        project: project
       }
     },
     methods: {
@@ -173,6 +179,17 @@
 
         this.project = newProject;
       },
+      removeFromTags(tagToRemove) {
+
+        const newProject = {...this.project};
+        const newTags = newProject.tags.filter(projectTag => {
+          return projectTag.id !== tagToRemove.id
+        });
+        newProject.tags = newTags;
+
+        this.project = newProject;
+      },
+
       updateProject(){
         axios.patch('/api/projects/' + this.project.id, this.project)
         .then(res => console.log(res))
