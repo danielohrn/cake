@@ -4,7 +4,7 @@
 
     <div class="article-content">
       <img class="article-img" v-bind:src="`/img/${img}`" alt="">
-      <h1>{{title}}</h1> {{trimPTags}}
+      <h1>{{title}}</h1> {{trimHtmlTags}}
 
     </div>
     <div class="article-sidebar">
@@ -36,8 +36,8 @@ export default {
   name: 'article-modal',
   props: ['title', 'body', 'tags', 'img'],
   computed: {
-    trimPTags() {
-      const regex = new RegExp('<p>|</p>', 'g')
+    trimHtmlTags() {
+      const regex = new RegExp('<[a-z]+>|</[a-z]+>', 'gi')
       return this.body.replace(regex, ''); 
     }
   },
