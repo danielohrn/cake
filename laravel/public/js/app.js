@@ -37979,10 +37979,7 @@ var render = function() {
               "b-field",
               [
                 _c("b-taginput", {
-                  attrs: {
-                    icon: "label",
-                    placeholder: "Jag är " + _vm.role + " och söker..."
-                  },
+                  attrs: { icon: "label", placeholder: "Välj taggar" },
                   on: {
                     remove: function($event) {
                       _vm.removeTag($event)

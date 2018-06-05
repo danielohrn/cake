@@ -16,7 +16,7 @@
   <div class="column search-box is-desktop is-mobile">
     <div class="search-box margin-bottom">
       <b-field>
-        <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" v-bind:placeholder="`Jag är ${role} och söker...`">
+        <b-taginput @remove="removeTag($event)" v-model="tags" icon="label" placeholder="Välj taggar">
         </b-taginput>
       </b-field>
     </div>
