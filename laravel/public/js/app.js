@@ -16299,6 +16299,7 @@ Vue.component('ProjectTile', __webpack_require__(115));
 Vue.component('ProjectCard', __webpack_require__(120));
 Vue.component('EditProjectModal', __webpack_require__(125));
 Vue.component('Sidebar', __webpack_require__(130));
+Vue.component('NewArticleModal', __webpack_require__(137));
 
 var app = new Vue({
   el: '#app',
@@ -37823,6 +37824,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -37830,6 +37832,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'ChosenArticle',
   data: function data() {
     return {
+      newProjectModal: false,
       isCardModalActive: false,
       tags: [],
       availableTags: [],
@@ -37919,6 +37922,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.availableTags = this.availableTags.filter(function (tag) {
         return _this4.tags.indexOf(tag.name) === -1;
       });
+    },
+    openProjectModal: function openProjectModal() {
+      this.newProjectModal = true;
+    },
+    closeProjectModal: function closeProjectModal() {
+      this.newProjectModal = false;
     }
   },
   computed: {
@@ -37952,16 +37961,14 @@ var render = function() {
     "section",
     { staticClass: "section" },
     [
-      _c("ArticleNavBar"),
+      _c("ArticleNavBar", { on: { newProject: _vm.openProjectModal } }),
       _vm._v(" "),
-      _c("div", { staticClass: "columns" }, [
-        _c(
-          "div",
-          { staticClass: "column is-one-fifth" },
-          [_c("overdrive", { attrs: { id: _vm.id } })],
-          1
-        )
-      ]),
+      _c("NewArticleModal", {
+        attrs: { newProjectModal: _vm.newProjectModal },
+        on: { closeProject: _vm.closeProjectModal }
+      }),
+      _vm._v(" "),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "column search-box is-desktop is-mobile" }, [
         _c(
@@ -38059,7 +38066,16 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column is-one-fifth" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -42731,7 +42747,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         closeModal: function closeModal() {
-            this.$store.commit('toggleModal', { modalType: this.type, action: false });
+            this.$emit('closeProject', false);
+            console.log('clicked');
         }
     },
 
@@ -42753,15 +42770,7 @@ var render = function() {
     _vm._v(" "),
     _c(
       "button",
-      {
-        staticClass: "button close",
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            return _vm.closeModal($event)
-          }
-        }
-      },
+      { staticClass: "button close", on: { click: _vm.closeModal } },
       [_vm._v("Stäng")]
     )
   ])
@@ -43101,7 +43110,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.section[data-v-204dd0df] {\n  padding: 0;\n}\n.navbar-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-204dd0df] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-204dd0df] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-204dd0df] {\n  font-size: 1.5em;\n}\n.logo[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-204dd0df] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.menuItems[data-v-204dd0df] {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-204dd0df] {\n  margin: 0 2em 0 2em;\n}\n.columns[data-v-204dd0df] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.role-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 100px;\n  width: 160px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  /* border: 3px solid #aedebf; */\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-204dd0df] {\n  color: #000;\n  margin: 0;\n  margin-bottom: 0.5em;\n}\n.role-item[data-v-204dd0df]:hover {\n  background-color: #aedebf;\n}\n\n/* .role-item:hover:after {\n  content: \" \";\n  display: flex;\n  width: 20%;\n  border-bottom: 3px solid #000;\n} */\n.dropContent[data-v-204dd0df] {\n  width: 1000px;\n  padding: 1em 1em 1em 6em;\n}\n", ""]);
+exports.push([module.i, "\n.section[data-v-204dd0df] {\n  padding: 0;\n}\n.navbar-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n.navbar-item h2[data-v-204dd0df] {\n  font-size: 1.2em;\n}\n.navbar-item h3[data-v-204dd0df] {\n  font-size: 0.9em;\n}\n.logo h1[data-v-204dd0df] {\n  font-size: 1.5em;\n}\n.logo[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.logo a[data-v-204dd0df] {\n  -ms-flex-item-align: center;\n      align-self: center;\n  padding: 1em;\n  color: #000;\n  margin-left: 2em;\n}\n.navbar[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.menuItems[data-v-204dd0df] {\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  margin-right: 6em;\n  padding-bottom: 0.7em;\n}\n.menuItems a[data-v-204dd0df] {\n  margin: 0 2em 0 2em;\n}\n.columns[data-v-204dd0df] {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.role-item[data-v-204dd0df] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 100px;\n  width: 160px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n  /* border: 3px solid #aedebf; */\n  border-radius: 10px;\n  background-color: #fff;\n}\n.role-item h2[data-v-204dd0df] {\n  color: #000;\n  margin: 0;\n  margin-bottom: 0.5em;\n}\n.add-icon[data-v-204dd0df] {\n  color: #aedebf;\n  fill:currentColor;\n}\n.role-item[data-v-204dd0df]:hover {\n  background-color: #aedebf;\n}\n\n/* .role-item:hover:after {\n  content: \" \";\n  display: flex;\n  width: 20%;\n  border-bottom: 3px solid #000;\n} */\n.dropContent[data-v-204dd0df] {\n  width: 1000px;\n  padding: 1em 1em 1em 6em;\n}\n", ""]);
 
 // exports
 
@@ -43113,6 +43122,8 @@ exports.push([module.i, "\n.section[data-v-204dd0df] {\n  padding: 0;\n}\n.navba
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(4);
+//
+//
 //
 //
 //
@@ -43192,6 +43203,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         allRoles = response.data;
         _this.$store.commit('updateRoles', allRoles);
       });
+    },
+    newProject: function newProject() {
+      this.$emit('newProject', true);
     }
   }
 
@@ -43301,11 +43315,38 @@ var render = function() {
           _vm._v(" "),
           _vm._m(3),
           _vm._v(" "),
-          _vm._m(4)
+          _c(
+            "a",
+            { staticClass: "navbar-item", on: { click: _vm.newProject } },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "add-icon",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    width: "52",
+                    height: "52",
+                    viewBox: "0 0 24 24"
+                  }
+                },
+                [
+                  _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                    }
+                  })
+                ]
+              )
+            ]
+          )
         ]
       ),
       _vm._v(" "),
-      _vm._m(5)
+      _vm._m(4)
     ]
   )
 }
@@ -43352,16 +43393,6 @@ var staticRenderFns = [
       _c("h2", [_c("b", [_vm._v("FAQ")])]),
       _vm._v(" "),
       _c("h3", [_vm._v("Hitta svar till dina frågor")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "navbar-item" }, [
-      _c("h2", [_c("b", [_vm._v("Kontakt")])]),
-      _vm._v(" "),
-      _c("h3", [_vm._v("Kontakta oss")])
     ])
   },
   function() {
@@ -44733,6 +44764,336 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 136 */,
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(138)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(140)
+/* template */
+var __vue_template__ = __webpack_require__(141)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-7023c6a0"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NewArticleModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7023c6a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-7023c6a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(139);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("3d63d6ba", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7023c6a0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewArticleModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7023c6a0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NewArticleModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-background[data-v-7023c6a0]{\n  background-color: dark-grey;\n  width: 100vw;\n  height: 100vh;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.modal-card[data-v-7023c6a0]{\n  background-color: white;\n  width: 80vw;\n  height: 95vh;\n  padding: 1em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\nbutton.close[data-v-7023c6a0] {\n    position: fixed; \n    top: 10px;\n    right: 10px;\n}\n.tags a[data-v-7023c6a0] {\n    display: block;\n    width: 100%;\n    margin: .3em 0;\n}\n.article-content input[data-v-7023c6a0], button[data-v-7023c6a0] {\n    margin: .2em 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 140 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['tags', 'availableTags', 'newProjectModal'],
+
+    data: function data() {
+        return {
+            article: {
+                title: null,
+                body: null,
+                tags: []
+            }
+        };
+    },
+
+
+    methods: {
+        newArticle: function newArticle() {
+            var _this = this;
+
+            // Post the new article to the db 
+            axios.post('/api/article', this.article).then(function (res) {
+                // If POST was OK
+                if (res.status === 200) {
+                    // Clear the local article object when saving 
+                    _this.article.title = null;
+                    _this.article.body = null;
+                    _this.article.tags.length = 0;
+
+                    /* Emit event to parent component
+                       and fetch the new article */
+                    var articleId = res.data.id;
+                    _this.$emit('update-articles', articleId);
+
+                    // Close modal on save 
+                    _this.$store.commit('toggleModal', { modalType: 'newArticleModal', action: false });
+                }
+            });
+        },
+        closeModal: function closeModal() {
+            this.$emit('closeProject', false);
+            console.log('clicked');
+        },
+        addToTags: function addToTags(index) {
+            var tag = this.availableTags.splice(index, 1)[0];
+            this.article.tags.push(tag.name);
+        }
+    }
+});
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.newProjectModal
+    ? _c("div", { staticClass: "modal-background" }, [
+        _c("div", { staticClass: "modal-card" }, [
+          _c("div", { staticClass: "article-content" }, [
+            _c("h3", { staticClass: "title is-4" }, [
+              _vm._v("Skapa/ändra inlägg")
+            ]),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.newArticle($event)
+                  }
+                }
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.article.title,
+                      expression: "article.title"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: {
+                    required: "",
+                    type: "text",
+                    placeholder: "Skapa rubrik..."
+                  },
+                  domProps: { value: _vm.article.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.article, "title", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.article.body,
+                      expression: "article.body"
+                    }
+                  ],
+                  staticClass: "textarea",
+                  attrs: {
+                    required: "",
+                    cols: "30",
+                    rows: "20",
+                    placeholder: "Skriv text..."
+                  },
+                  domProps: { value: _vm.article.body },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.article, "body", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "button", attrs: { type: "submit" } },
+                  [_vm._v("Spara")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "article-sidebar" },
+            [
+              _c(
+                "b-field",
+                { attrs: { label: "Taggar" } },
+                [
+                  _c("b-taginput", {
+                    attrs: { maxlength: "10", value: _vm.article.tags }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tags" },
+                [
+                  _c("h3", { staticClass: "title is-4" }, [
+                    _vm._v("Lägg till taggar")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.availableTags, function(tag, i) {
+                    return _c(
+                      "a",
+                      {
+                        key: i,
+                        staticClass: "button is-outlined",
+                        on: {
+                          click: function($event) {
+                            _vm.addToTags(i)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(tag.name))]
+                    )
+                  })
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "button close", on: { click: _vm.closeModal } },
+          [_vm._v("Stäng")]
+        )
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7023c6a0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

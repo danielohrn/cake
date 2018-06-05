@@ -33,6 +33,7 @@ Vue.component('ProjectTile', require('./components/ProjectTile.vue'));
 Vue.component('ProjectCard', require('./components/ProjectCard.vue'));
 Vue.component('EditProjectModal', require('./components/EditProjectModal.vue'));
 Vue.component('Sidebar', require('./components/Sidebar.vue'));
+Vue.component('NewArticleModal', require('./components/NewArticleModal'));
 
 const app = new Vue({
     el: '#app',

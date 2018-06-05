@@ -90,7 +90,7 @@ class ProjectController extends Controller
             {   
                 $article = new Article;
                 $article->title = $project->name;
-                $article->body = $project->slug;
+                $article->body = $project->body;
                 $tags = $project->tags;
                 $article->save();
                 $article->tags()->attach($tags);

@@ -1,15 +1,16 @@
 <template>
 <section class="section">
-  <ArticleNavBar></ArticleNavBar>
+  <ArticleNavBar @newProject="openProjectModal" ></ArticleNavBar>
+  <NewArticleModal @closeProject="closeProjectModal" :newProjectModal="newProjectModal" />
   <div class="columns">
     <div class="column is-one-fifth">
-      <overdrive v-bind:id="id">
+      
         <!-- <div class="role-parent">
           <p class="role-mini">
             {{trimRole}}
           </p>
         </div> -->
-      </overdrive>
+      
     </div>
   </div>
   <div class="column search-box is-desktop is-mobile">
@@ -40,6 +41,7 @@ export default {
   name: 'ChosenArticle',
   data() {
     return {
+      newProjectModal: false,
       isCardModalActive: false,
       tags: [],
       availableTags: [],
@@ -121,7 +123,12 @@ export default {
       this.availableTags = this.availableTags.filter(tag => {
         return this.tags.indexOf(tag.name) === -1;
       })
-
+    },
+    openProjectModal(){
+      this.newProjectModal = true;
+    },
+    closeProjectModal(){
+      this.newProjectModal = false;
     }
   },
   computed: {

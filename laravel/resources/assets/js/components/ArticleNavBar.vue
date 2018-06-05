@@ -34,9 +34,11 @@
         <h2><b>FAQ</b></h2>
         <h3>Hitta svar till dina frågor</h3>
       </a>
-      <a class="navbar-item">
-        <h2><b>Kontakt</b></h2>
-        <h3>Kontakta oss</h3>
+      <a @click="newProject" class="navbar-item">
+        <svg class="add-icon" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+        </svg>
       </a>
     </div>
       <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -77,6 +79,9 @@
             allRoles = response.data
             this.$store.commit('updateRoles', allRoles)
           })
+      },
+      newProject(){
+        this.$emit('newProject', true);
       }
     }
 
@@ -181,6 +186,10 @@
     color: #000;
     margin: 0;
     margin-bottom: 0.5em;
+  }
+  .add-icon {
+    color: #aedebf;
+    fill:currentColor;
   }
 
   .role-item:hover {

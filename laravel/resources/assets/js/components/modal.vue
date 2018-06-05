@@ -3,7 +3,7 @@
         <div class="modal-card">
             <slot></slot>
         </div>
-        <button class="button close" @click.stop="closeModal">Stäng</button>
+        <button class="button close"  @click="closeModal">Stäng</button>
     </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
 
   methods: {
         closeModal(){
-          this.$store.commit('toggleModal', {modalType: this.type, action: false}); 
+            this.$emit('closeProject', false)
+            console.log('clicked')
       }
   }, 
 
