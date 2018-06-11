@@ -37686,7 +37686,7 @@ var render = function() {
     [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-image" }, [
-          _c("img", { attrs: { src: "/img/" + _vm.media, alt: "" } })
+          _c("img", { attrs: { src: "/" + _vm.media, alt: "" } })
         ]),
         _vm._v(" "),
         _c("div", {}, [
@@ -42099,7 +42099,7 @@ var render = function() {
       _c("div", { staticClass: "article-content" }, [
         _c("img", {
           staticClass: "article-img",
-          attrs: { src: "/img/" + _vm.img, alt: "" }
+          attrs: { src: "/" + _vm.img, alt: "" }
         }),
         _vm._v(" "),
         _c("h1", [_vm._v(_vm._s(_vm.title))]),
@@ -44259,7 +44259,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       });
     },
     setMedia: function setMedia(event) {
-      this.project.media = 'img/' + event.target.files[0].name;
+      this.project.media = '/' + event.target.files[0].name;
       console.log(this.project, 'projet');
     }
   },
@@ -44484,7 +44484,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "image-input" }, [
       _c("div", { staticClass: "heading" }, [
         _c("img", {
-          attrs: { src: "/img/img.png", width: "20", height: "20" }
+          attrs: { src: "/img/video.png", width: "20", height: "20" }
         }),
         _vm._v(" "),
         _c("h6", [_vm._v("Lägg till video:")])
@@ -44519,9 +44519,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "heading" }, [
-      _c("img", {
-        attrs: { src: "/img/video.png", width: "20", height: "20" }
-      }),
+      _c("img", { attrs: { src: "/img/img.png", width: "20", height: "20" } }),
       _vm._v(" "),
       _c("h6", [_vm._v("Lägg till bild:")])
     ])

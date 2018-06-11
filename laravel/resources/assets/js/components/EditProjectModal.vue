@@ -27,7 +27,7 @@
           <vue-editor v-model="project.body"></vue-editor>
           <div class='image-input'>
             <div class='heading'>
-              <img src='/img/img.png' width='20' height='20' />
+              <img src='/img/video.png' width='20' height='20' />
               <h6>Lägg till video:</h6>
             </div>
             <div class="media file has-name is-fullwidth">
@@ -49,7 +49,7 @@
       </div>
     <div class='video-input'>
       <div class='heading'>
-        <img src='/img/video.png' width='20' height='20' />
+        <img src='/img/img.png' width='20' height='20' />
         <h6>Lägg till bild:</h6>
       </div>
           <div class="media file has-name is-fullwidth">
@@ -197,7 +197,7 @@
       },
 
       setMedia(event) {
-        this.project.media = `img/${event.target.files[0].name}`; 
+        this.project.media = `/${event.target.files[0].name}`; 
         console.log(this.project, 'projet')
       },
 

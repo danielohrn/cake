@@ -3,7 +3,7 @@
   <div class="article-card">
 
     <div class="article-content">
-      <img class="article-img" v-bind:src="`/img/${img}`" alt="">
+      <img class="article-img" v-bind:src="`/${img}`" alt="">
       <h1>{{title}}</h1> {{trimHtmlTags}}
 
     </div>
