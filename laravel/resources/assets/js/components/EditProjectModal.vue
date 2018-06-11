@@ -64,7 +64,7 @@
         </span>
       </span>
       <span class="file-name">
-
+        {{project.media}}
       </span>
     </label>
           </div>

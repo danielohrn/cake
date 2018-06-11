@@ -44380,7 +44380,13 @@ var render = function() {
                         _vm._v(" "),
                         _vm._m(2),
                         _vm._v(" "),
-                        _c("span", { staticClass: "file-name" })
+                        _c("span", { staticClass: "file-name" }, [
+                          _vm._v(
+                            "\n        " +
+                              _vm._s(_vm.project.media) +
+                              "\n      "
+                          )
+                        ])
                       ])
                     ]
                   )
