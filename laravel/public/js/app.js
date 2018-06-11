@@ -42064,8 +42064,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'article-modal',
   props: ['title', 'body', 'tags', 'img'],
   computed: {
-    trimPTags: function trimPTags() {
-      var regex = new RegExp('<p>|</p>', 'g');
+    trimHtmlTags: function trimHtmlTags() {
+      var regex = new RegExp('<[a-z]+>|</[a-z]+>', 'gi');
       return this.body.replace(regex, '');
     }
   },
@@ -42103,7 +42103,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("h1", [_vm._v(_vm._s(_vm.title))]),
-        _vm._v(" " + _vm._s(_vm.trimPTags) + "\n\n    ")
+        _vm._v(" " + _vm._s(_vm.trimHtmlTags) + "\n\n    ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "article-sidebar" }, [
@@ -43879,8 +43879,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log('projectcard', projectId);
             this.$emit('UPDATE_PROJECT', projectId);
         },
-        trimPTags: function trimPTags(string) {
-            var regex = new RegExp('<p>|</p>', 'g');
+        trimHtmlTags: function trimHtmlTags(string) {
+            var regex = new RegExp('<[a-z]+>|</[a-z]+>', 'gi');
             return string.replace(regex, '');
         }
     }
@@ -43907,7 +43907,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "subtitle is-6" }, [
-        _vm._v(" " + _vm._s(_vm.trimPTags(_vm.project.body)))
+        _vm._v(" " + _vm._s(_vm.trimHtmlTags(_vm.project.body)))
       ]),
       _vm._v(" "),
       _c(
