@@ -50,11 +50,11 @@
     <div class='video-input'>
       <div class='heading'>
         <img src='/img/video.png' width='20' height='20' />
-        <h6>Lägg till video:</h6>
+        <h6>Lägg till bild:</h6>
       </div>
           <div class="media file has-name is-fullwidth">
             <label class="file-label">
-      <input class="file-input" type="file" name="resume">
+      <input @change="setMedia" class="file-input" type="file" name="resume">
       <span class="file-cta">
         <span class="file-icon">
           <i class="fas fa-upload"></i>
@@ -64,7 +64,7 @@
         </span>
       </span>
       <span class="file-name">
-        Screen Shot 2017-07-29 at 15.54.25.png
+
       </span>
     </label>
           </div>
@@ -122,7 +122,7 @@
       return {
         open: false,
         availableTags: [],
-        project: project
+        project: project,
       }
     },
     methods: {
@@ -194,7 +194,12 @@
         axios.patch('/api/projects/' + this.project.id, this.project)
         .then(res => console.log(res))
         .catch(err => console.log(err))
-      }
+      },
+
+      setMedia(event) {
+        this.project.media = `img/${event.target.files[0].name}`; 
+        console.log(this.project, 'projet')
+      },
 
 
     },

@@ -44257,6 +44257,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       }).catch(function (err) {
         return console.log(err);
       });
+    },
+    setMedia: function setMedia(event) {
+      this.project.media = 'img/' + event.target.files[0].name;
+      console.log(this.project, 'projet');
     }
   },
   mounted: function mounted() {}
@@ -44360,13 +44364,33 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(0),
                 _vm._v(" "),
-                _vm._m(1)
+                _c("div", { staticClass: "video-input" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "media file has-name is-fullwidth" },
+                    [
+                      _c("label", { staticClass: "file-label" }, [
+                        _c("input", {
+                          staticClass: "file-input",
+                          attrs: { type: "file", name: "resume" },
+                          on: { change: _vm.setMedia }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "file-name" })
+                      ])
+                    ]
+                  )
+                ])
               ],
               1
             ),
             _vm._v(" "),
             _c("div", { staticClass: "tag-group" }, [
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "tags" }, [
                 _c(
@@ -44440,7 +44464,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(4)
         ])
       ])
     ]
@@ -44488,36 +44512,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "video-input" }, [
-      _c("div", { staticClass: "heading" }, [
-        _c("img", {
-          attrs: { src: "/img/video.png", width: "20", height: "20" }
-        }),
-        _vm._v(" "),
-        _c("h6", [_vm._v("Lägg till video:")])
+    return _c("div", { staticClass: "heading" }, [
+      _c("img", {
+        attrs: { src: "/img/video.png", width: "20", height: "20" }
+      }),
+      _vm._v(" "),
+      _c("h6", [_vm._v("Lägg till bild:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "file-cta" }, [
+      _c("span", { staticClass: "file-icon" }, [
+        _c("i", { staticClass: "fas fa-upload" })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "media file has-name is-fullwidth" }, [
-        _c("label", { staticClass: "file-label" }, [
-          _c("input", {
-            staticClass: "file-input",
-            attrs: { type: "file", name: "resume" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "file-cta" }, [
-            _c("span", { staticClass: "file-icon" }, [
-              _c("i", { staticClass: "fas fa-upload" })
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "file-label" }, [
-              _vm._v("\n          Choose a file…\n        ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "file-name" }, [
-            _vm._v("\n        Screen Shot 2017-07-29 at 15.54.25.png\n      ")
-          ])
-        ])
+      _c("span", { staticClass: "file-label" }, [
+        _vm._v("\n          Choose a file…\n        ")
       ])
     ])
   },
