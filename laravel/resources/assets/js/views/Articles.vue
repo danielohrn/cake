@@ -2,7 +2,7 @@
   <div canCancel @click="toggleModal($event)" class="article-column">
       <div  class="card">
         <div class="card-image">
-          <img v-bind:src="`/img/articlesNew.png`" alt="" >
+          <img v-bind:src="`/img/${media}`" alt="" >
         </div>
         <div class="">
 

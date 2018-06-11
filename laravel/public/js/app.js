@@ -37686,7 +37686,7 @@ var render = function() {
     [
       _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-image" }, [
-          _c("img", { attrs: { src: "/img/articlesNew.png", alt: "" } })
+          _c("img", { attrs: { src: "/img/" + _vm.media, alt: "" } })
         ]),
         _vm._v(" "),
         _c("div", {}, [
