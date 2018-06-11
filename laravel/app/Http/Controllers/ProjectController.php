@@ -100,6 +100,7 @@ class ProjectController extends Controller
                 $article = new Article;
                 $article->title = $project->name;
                 $article->body = $project->body;
+                $article->media = $project->media;
                 $tags = $project->tags;
                 $article->save();
                 $article->tags()->attach($tags);
@@ -122,6 +123,7 @@ class ProjectController extends Controller
         $project->tags()->sync($tags);
         $project->title = $request->title;
         $project->body = $request->body;
+        $project->media = $request->media;
         $project->save();
 
 
