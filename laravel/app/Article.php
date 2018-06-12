@@ -10,11 +10,7 @@ class Article extends Model
     {
       return $this->belongsToMany('App\Tag')->withTimestamps();
     }
-    public function role()
-    {
-      return $this->belongsTo('App\Role');
-    }
-
+    
     protected $hidden = [
       'tags'
     ];

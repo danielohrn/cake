@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function articles()
+    public function template()
     {
-      return $this->hasMany('App\Article');
+      return $this->belongsToMany('App\Template');
+    }
+    public function project()
+    {
+      return $this->belongsToMany('App\Project');
     }
 }

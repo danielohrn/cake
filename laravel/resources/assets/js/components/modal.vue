@@ -1,9 +1,9 @@
 <template>
-    <div v-if="modalOpen" class="modal-background">
+    <div class="modal-background">
         <div class="modal-card">
             <slot></slot>
         </div>
-        <button class="button close" @click.stop="closeModal">Stäng</button>
+        <button class="button close"  @click="closeModal">Stäng</button>
     </div>
 </template>
 
@@ -13,22 +13,25 @@ import {
 } from 'vuex'; 
 
 export default {
+  props: ['type'], 
   data(){
       return {
 
       }
   }, 
 
-  computed: mapState(['modalOpen']), 
+  computed: mapState([null]), 
 
   methods: {
         closeModal(){
-          this.$store.commit('toggleModal', {action: false}); 
+            this.$emit('closeProject', false)
+            console.log('clicked')
       }
   }, 
 
   mounted(){
-      console.log(this.modalOpen)
+      console.log(this.type)
+
   }
 }
 </script>

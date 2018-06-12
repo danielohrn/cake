@@ -4,6 +4,7 @@ import Buefy from 'buefy';
 import 'buefy/lib/buefy.css';
 import store from './store.js';
 import Overdrive from 'vue-overdrive'
+import { VueEditor } from 'vue2-editor'
 
 Vue.use(Overdrive)
 
@@ -23,8 +24,16 @@ Vue.component('chosen-article', require('./views/ChosenArticle.vue'));
 Vue.component('article-modal', require('./components/articleModal.vue'));
 Vue.component('Admin', require('./views/Admin.vue'));
 Vue.component('ArticleRow', require('./components/ArticleRow.vue'));
-Vue.component('modal', require('./components/modal.vue')); 
-Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue')); 
+Vue.component('modal', require('./components/modal.vue'));
+Vue.component('EditableArticleModal', require('./components/EditableArticleModal.vue'));
+Vue.component('NavBar', require('./components/NavBar.vue'));
+Vue.component('ArticleNavBar', require('./components/ArticleNavBar.vue'));
+Vue.component('Footer', require('./components/Footer.vue'));
+Vue.component('ProjectTile', require('./components/ProjectTile.vue'));
+Vue.component('ProjectCard', require('./components/ProjectCard.vue'));
+Vue.component('EditProjectModal', require('./components/EditProjectModal.vue'));
+Vue.component('Sidebar', require('./components/Sidebar.vue'));
+Vue.component('NewArticleModal', require('./components/NewArticleModal'));
 
 const app = new Vue({
     el: '#app',

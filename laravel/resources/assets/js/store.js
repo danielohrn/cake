@@ -23,11 +23,15 @@ export default new Vuex.Store({
       body: '',
       tags: []
     },
-    modalOpen: false, 
+    editArticleModal: false,
+    newArticleModal: false, 
     availableTags: [], 
-    filteredTags: [] 
+    filteredTags: [],
+
+    PROJECT_TO_EDIT: null, 
   },
   plugins: [vuexLocal.plugin],
+
   mutations: {
     updateUserRole (state, payload){
       state.userRole.name = payload.role.name;
@@ -38,7 +42,8 @@ export default new Vuex.Store({
       state.allRoles = payload;
     }, 
     toggleModal(state, payload){
-      state.modalOpen = payload.action; 
+      console.log(payload)
+      state[payload.modalType] = payload.action; 
     },
     updateModal(state, payload){
       state.chosenArticle = payload;
@@ -48,6 +53,10 @@ export default new Vuex.Store({
     }, 
     filterTags(state, payload){
       state.filteredTags = payload; 
+    }, 
+    SET_PROJECT_TO_EDIT(state, payload){
+      console.log(payload, 'payload!')
+      state.PROJECT_TO_EDIT = payload; 
     }
   }
 });

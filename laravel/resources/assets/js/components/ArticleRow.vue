@@ -1,10 +1,10 @@
 <template>
-    <tr>
+    <tr @click="goToProject">
+
+        <router-link :to="'/project/' + article.slug">
+
         <td>
-          <a @click="toggleModal" class="button">Edit</a>
-        </td>
-        <td>
-            {{title}}
+            {{article.name}}
         </td>
         <td>
             {{created_at}}
@@ -12,11 +12,16 @@
         <td>
             {{author}}
         </td>
-        <td>
-
-              <b-tag v-for="(tag, i) in articleTags" :key="i" rounded>{{tag}}</b-tag>
+                <td>
 
         </td>
+        <td>
+
+<!-- PROJECT STATUS -->
+
+        </td>
+
+        </router-link>
 
     </tr>
 </template>
@@ -28,10 +33,11 @@ import {filterOutTags} from '../functions';
 
 export default {
 
-  props: ['id','title', 'body', 'created_at', 'author', 'articleTags'],
+  props: ['article'],
 
   data(){
       return {
+
       }
   },
 
@@ -39,12 +45,18 @@ export default {
 
   methods: {
       toggleModal(){
-          this.$store.commit('toggleModal', {action: true});
+          this.$store.commit('toggleModal', {modalType: 'editArticleModal', action: true});
           this.$store.commit('updateModal', {id: this.id, title: this.title, body: this.body, tags: this.articleTags, author: this.author})
           console.log(this.$store)
           const filteredTags = filterOutTags(this.chosenArticle, this.availableTags);
           this.$store.commit('filterTags', filteredTags);
+      },
+      goToProject(){
+        this.$route.push()
       }
+  },
+
+  mounted() {
   },
 
   destroyed(){
@@ -92,7 +104,7 @@ td span.article-body {
 
 }
 .button{
-  background-color: #38ee78;
+  background-color: #aedfbf;
   color: #000;
   border: none;
 }

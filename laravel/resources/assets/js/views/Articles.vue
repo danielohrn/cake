@@ -2,20 +2,25 @@
   <div canCancel @click="toggleModal($event)" class="article-column">
       <div  class="card">
         <div class="card-image">
-          <img v-bind:src="`/img/${media}`" alt="">
+          <img v-bind:src="`/${media}`" alt="" >
         </div>
-        <div class="card-content">
-          <div class="media">
-            <h1><b>{{title}}</b></h1>
-          </div>
+        <div class="">
+
 
           <div class="content">
-            {{truncate(body)}}
+            <h1><b>{{title}}</b></h1>
+            <!-- {{truncate(body)}} -->
+            <div class='text-box'>
+            <h6>Skriven av {{author}}</h6>
+            <h6>{{time}}</h6>
+          </div>
+            <div class='tagList'> 
             <b-taglist>
               <b-tag v-for="(tag, i) in articleTags" :key="i" >{{tag}}</b-tag>
             </b-taglist>
+          </div>
         </div>
-      </div>
+      </div> 
     </div>
     <article-modal :title="title" :body="body" :tags="articleTags" :img="media" @click="toggleModal" v-if="this.isCardModalActive"></article-modal>
 </div>
@@ -25,7 +30,7 @@
 
 export default {
   name: 'Articles',
-  props: ['title', 'body','articleTags', 'media'],
+  props: ['title', 'body','articleTags', 'media', 'author','created_at'],
   data () {
     return {
       isCardModalActive: false
@@ -40,6 +45,11 @@ export default {
     truncate(string){
      return string.substring(0, 200) + '...';
    }
+ },
+  computed: {
+    time: function(){
+      return this.created_at.slice(0, 10)
+    }
   }
 }
 </script>
@@ -50,29 +60,24 @@ export default {
   object-fit: none;
 }
 .article-column {
-  width: 50vh;
+  width: 400px;
   height: auto;
   margin: 1em;
-
 }
-@media only screen and (max-width: 1300px) {
-  .article-column {
-      width: 40vh;
-  }
+.tagList {
+  margin-top: 1em;
+  height: 70px;
 }
-@media only screen and (max-width: 965px) {
-  .article-column {
-      width: 40vh;
-  }
+.content h1 {
+  font-size: 1.5em;
 }
-@media only screen and (max-width: 768px) {
-  .article-column {
-      width: 35vh;
-  }
+.content{
+  margin: 1em;
 }
-@media only screen and (max-width: 580px) {
-  .article-column {
-      width: 40vh;
-  }
+.text-box {
+  margin-top: 1em;
+}
+.text-box h6{
+  margin: 0;
 }
 </style>

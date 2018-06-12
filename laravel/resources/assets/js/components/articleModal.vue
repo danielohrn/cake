@@ -3,8 +3,8 @@
   <div class="article-card">
 
     <div class="article-content">
-      <img class="article-img" v-bind:src="`/img/${img}`" alt="">
-      <h1>{{title}}</h1> {{body}}
+      <img class="article-img" v-bind:src="`/${img}`" alt="">
+      <h1>{{title}}</h1> {{trimHtmlTags}}
 
     </div>
     <div class="article-sidebar">
@@ -35,6 +35,12 @@
 export default {
   name: 'article-modal',
   props: ['title', 'body', 'tags', 'img'],
+  computed: {
+    trimHtmlTags() {
+      const regex = new RegExp('<[a-z]+>|</[a-z]+>', 'gi')
+      return this.body.replace(regex, ''); 
+    }
+  },
   data() {
     return {
       isCardModalActive: false

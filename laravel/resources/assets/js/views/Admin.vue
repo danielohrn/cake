@@ -1,97 +1,94 @@
 <template>
 <div class="section">
-    <table class="table">
-        <thead>
-            <tr>
-              <th>
+  <Sidebar></Sidebar>
+  <div class='body'>
+  <div class='tiles'>
+    <ProjectTile v-for="(the_status, i) in status" :status="the_status" :key="i">
 
-              </th>
-                <th>
-                    Rubrik
-                </th>
-                <th>
-                    Date
-                </th>
-                <th>
-                    Author
-                </th>
-                <th>
-                    Tags
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <ArticleRow :availableTags="availableTags" v-for="(article, i) in data" :key="i" v-bind="article"/>
-        </tbody>
-    </table>
-    <EditableArticleModal :availableTags="availableTags" />
+      <ProjectCard 
+        @UPDATE_PROJECT="getOneProject"
+        v-for="(project) in data" 
+        v-if="project.role_id === the_status.id" 
+        :key="project.name" 
+        :status="status" 
+        :project="project"
+        :tags="availableTags" />
+
+    </ProjectTile>
+  </div>
+</div>
+
 </div>
 </template>
 
 <script>
 export default {
   data() {
-      return {
-            availableTags: [],
-            data: [],
-            columns: [
-                {
-                    field: 'title',
-                    label: 'Rubrik',
-                },
-                {
-                    field: 'body',
-                    label: 'Content',
-                },
-                {
-                    field: 'created_at',
-                    label: 'Date',
-                    centered: true
-                },
-                {
-                    field: 'author',
-                    label: 'Author',
-                },
-                {
-                    field: 'articleTags',
-                    label: 'Tags'
-                }
-            ]
-        }
-    },
-
-    methods: {
-        getArticles(){
-            axios.get('/api/articles')
-                .then(res => {
-                    this.data = res.data;
-                })
-        },
-        getTags(){
-            axios.get('api/tags')
-            .then(response => {
-                console.log(response)
-                this.availableTags = response.data;
-                this.$store.commit('setTags', response.data);
-            })
-        },
-
-    getTags() {
-      axios.get('api/tags')
-        .then(response => {
-          console.log(response)
-          this.availableTags = response.data;
-        })
+    return {
+      availableTags: [],
+      status: [],
+      data: [],
     }
   },
+  methods: {
+      getRoles(){
+        axios.get('/api/roles')
+        .then( res => this.status = res.data)
+        .catch( err => console.log(err))
+      },
+      getProjects(){
+        axios.get('api/projects')
+        .then( res => {
+          console.log(res.data);
+          this.data = res.data} )
+      },
+      getOneProject(id) {
+        console.log('admin', id); 
+        axios.get(`/api/projects/${id}`)
+         .then(res => {
+           this.data = this.data.map(project => {
+             if(project.id === id) {
+               project = res.data; 
+             }
+
+             return project; 
+           }); 
+         });
+      }, 
+      getTags() {
+        axios.get('api/tags')
+          .then(response => {
+            this.availableTags = response.data;
+            console.log(response)
+        })
+      },
+  },
   mounted() {
-    this.getArticles();
-    this.getTags();
+    this.getRoles()
+    this.getProjects()
+    this.getTags() 
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.body {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  padding: 0em 1em 0em 3em;
+}
+.tiles {
+  display: flex;
+  width: 100%;
+}
 
 </style>
